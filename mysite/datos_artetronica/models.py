@@ -17,26 +17,6 @@ from sorl.thumbnail import ImageField
 
 
 class Usuarios(models.Model):
-	     id_usuario=models.CharField(max_length=30)
-	     clave=models.CharField(max_length=4)
-	     nombre=models.CharField(max_length=40,blank=True)
-	     email = models.EmailField(blank=True)
-	     plan_tienda=models.CharField(max_length=30,choices=PLAN_TIENDA,blank=True,default="GRATIS")	 
-	     plan_tienda_activo=models.CharField(max_length=30,choices=PLAN_TIENDA,blank=True,default="GRATIS")
-	     pais=models.CharField(max_length=30,blank=True)
-	     facedireccion=models.URLField(blank=True)
-	     codigoapk=models.CharField(max_length=30,blank=True,choices=CLAVES,default="NORMAL")
-	     fecha_inicio_plan = models.DateField(default=datetime.now)
-	     fecha_final_plan = models.DateField(default=datetime.now)
-	     fecha_ingreso = models.DateField(default=datetime.now,editable = False)	    
-	     
-	     def __str__(self):
-		    		return  self.id_usuario
-	     class Admin:
-		    		list_display = ('id_usuario')
-
-
-class Usuarios_cel(models.Model):
 	     central=models.ForeignKey('Central_generadora')
 	     codigo=models.IntegerField()
 	     nombre=models.CharField(max_length=30)
