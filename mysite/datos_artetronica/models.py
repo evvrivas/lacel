@@ -17,7 +17,7 @@ from sorl.thumbnail import ImageField
 
 
 class Usuarios(models.Model):
-	     central=models.ForeignKey('Central_generadora')
+	     central=models.ForeignKey('Central')
 	     codigo=models.IntegerField()
 	     nombre=models.CharField(max_length=30)
 	     apellidos=models.CharField(max_length=30)
