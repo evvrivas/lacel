@@ -64,6 +64,3 @@ def informacion(request):
 def principal(request):
   return render(request,'principal.html',locals())  
           
-
-def ver(request):
-  return render(request,'cel_principal.html',locals()) 

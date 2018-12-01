@@ -27,22 +27,14 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from mysite.views import *
 
 urlpatterns = [
-    # Examples:
-    # url(r'^$', 'artetronica.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
     url(r'^admin/', admin.site.urls),
-    #url(r'^admin/',include(admin.site.urls)),
-    #url(r'^$', Index.as_view(), name='index'),
     url(r'^accounts/login/$', login,{'template_name': 'login.html'}),
     url(r'^accounts/logout/$', logout),
-    #url(r'^static/(?P<path>.*)$','django.views.static.serve',{'document_root': settings.STATIC_ROOT}),
-    #url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root':  settings.MEDIA_ROOT}),
+
     
     url(r'^$', pagina_principal),
   
-   
-
-         
+            
        
 ]
 
