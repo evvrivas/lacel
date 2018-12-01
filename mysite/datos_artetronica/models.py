@@ -30,9 +30,22 @@ class Usuarios(models.Model):
 	     class Admin:
 		    		list_display = ('id_usuario')
 
+
+class Central(models.Model):
+	     
+	     nombre=models.CharField(max_length=60,blank=True)   
+	     cararcteristicas=models.TextField(blank=True)        
+	     fecha_ingreso = models.DateField(default=datetime.now,editable = False)	     
+
+	     def __str__(self):
+		    		return  self.codigo
+	     class Admin:
+		    		list_display = ('codigo', 'marca', 'modelo','caracteristicas')
+
+
 class Transformador(models.Model):
 
-	     central=models.ForeignKey('Central_generadora')
+	     central=models.ForeignKey('Central')
 	     codigo=models.CharField(max_length=60,blank=True)
 	     marca=models.CharField(max_length=60,blank=True)
 	     modelo=models.CharField(max_length=60,blank=True)

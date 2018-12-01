@@ -15,9 +15,9 @@ class RulesAdmin(admin.ModelAdmin):
     form = UsuariosForm
 
 ###################  cel #####################
-admin.site.register(Central_generadora)
+admin.site.register(Central)
 class RulesAdmin(admin.ModelAdmin):
-    form = Central_generadora
+    form = Central
 
 admin.site.register(Transformador)
 class RulesAdmin(admin.ModelAdmin):
@@ -27,8 +27,5 @@ admin.site.register(Medicion)
 class RulesAdmin(admin.ModelAdmin):
     form = Medicion
 
-admin.site.register(Usuarios_cel)
-class RulesAdmin(admin.ModelAdmin):
-    form = Usuarios_cel  
   
  ########################################  

@@ -40,10 +40,7 @@ urlpatterns = [
     
     url(r'^$', pagina_principal),
   
-    url(r'^informacion/$', informacion),       
-    url(r'^crear_usuario/$',crear_usuario),
-    url(r'^editar_usuario/(\d+)/$',editar_usuario),
-    url(r'^cel_app/', app_cel),
+   
 
          
        

@@ -11,9 +11,9 @@ class UsuariosForm(ModelForm):
 
 
 ########################  CEL  ##########################
-class Central_generadoraForm(ModelForm):
+class CentralForm(ModelForm):
 	class Meta:			
-		model=Central_generadora
+		model=Central
 		exclude=[]
 				    
 class TransformadorForm(ModelForm):
@@ -26,8 +26,4 @@ class MedicionForm(ModelForm):
 		model=Medicion
 		exclude=[]
 
-class Usuarios_celForm(ModelForm):
-	class Meta:			
-		model=Usuarios_cel
-		exclude=[]	
 #########################################################
