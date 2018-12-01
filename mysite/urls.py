@@ -32,7 +32,7 @@ urlpatterns = [
     url(r'^accounts/logout/$', logout),
 
     
-    url(r'^$', pagina_principal),
+    url(r'^$', principal),
   
             
        
