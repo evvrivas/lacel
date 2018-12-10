@@ -105,27 +105,26 @@ def Total_gases_combustibles(request):
 
 
 def show(request):
-	    from django.shortcuts import render
-		from matplotlib import pylab
-		from pylab import *
-		import PIL
-		import PIL.Image
-		import io
-		from io import *
-
-		x = np.arange(10)
-		y = x
-		fig = plt.figure()
-		plt.plot(x, y)
-		canvas = fig.canvas
-		buf, size = canvas.print_to_buffer()
-		image = Image.frombuffer('RGBA', size, buf, 'raw', 'RGBA', 0, 1)
-		buffer=io.BytesIO()
-		image.save(buffer,'PNG')
-		graphic = buffer.getvalue()
-		graphic = base64.b64encode(graphic)
-		buffer.close()
-		return render(request, 'graphic.html',{'graphic':graphic})
+	from django.shortcuts import render
+	from matplotlib import pylab
+	from pylab import *
+	import PIL
+	import PIL.Image
+	import io
+	from io import *
+	x = np.arange(10)
+	y = x
+	fig = plt.figure()
+	plt.plot(x, y)
+	canvas = fig.canvas
+	buf, size = canvas.print_to_buffer()
+	image = Image.frombuffer('RGBA', size, buf, 'raw', 'RGBA', 0, 1)
+	buffer=io.BytesIO()
+	image.save(buffer,'PNG')
+	graphic = buffer.getvalue()
+	graphic = base64.b64encode(graphic)
+	buffer.close()
+	return render(request, 'graphic.html',{'graphic':graphic})
 
 
 
@@ -153,7 +152,7 @@ def Limite_conecentracion():
 	else:
 	    estado_trafo="ADVERTENCA"
 
-return estado_trafo
+    return estado_trafo
 
 	
 	
