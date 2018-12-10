@@ -156,11 +156,8 @@ def Limite_conecentracion(request):
 		estado_trafo="PRECAUCION"
 	else:
 		estado_trafo="ADVERTENCA"
-	#return estado_trafo
+		#return estado_trafo
 	return render(request,'principal.html',locals())
-
-	
-	
 
 
 
