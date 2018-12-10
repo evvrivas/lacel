@@ -1,4 +1,3 @@
-
 {% extends "base.html" %}
 {% load staticfiles %} 
 {% load thumbnail %}
@@ -6,10 +5,9 @@
 
 {% block cel %}
       
- {{estado_trafo}}
- {{NOMBRE_GAS_PRUEBA}}
- {{ESTADO_DE_GASES}}                                           
-  
+      
+                                         
+  <img src="data:image/png;base64,{{graphic|safe}}">
 
 
 {% endblock %}

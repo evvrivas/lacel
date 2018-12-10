@@ -70,17 +70,19 @@ class Medicion(models.Model):
 
 	     equipo=models.ForeignKey('Transformador')	     
 	     fecha_ingreso = models.DateField(default=datetime.now,editable = False)	
-	     d0=models.FloatField(default=0,blank=True,null=True)
-	     d1=models.FloatField(default=0,blank=True,null=True)
-	     d2=models.FloatField(default=0,blank=True,null=True)
-	     d3=models.FloatField(default=0,blank=True,null=True)
-	     d4=models.FloatField(default=0,blank=True,null=True)
-	     d5=models.FloatField(default=0,blank=True,null=True)
-	     d6=models.FloatField(default=0,blank=True,null=True)
-	     d7=models.FloatField(default=0,blank=True,null=True)
-	     d8=models.FloatField(default=0,blank=True,null=True)
-	     d9=models.FloatField(default=0,blank=True,null=True)
-	     
+	     Hidrogeno=models.FloatField(default=0,blank=True,null=True)
+	     Oxigeno=models.FloatField(default=0,blank=True,null=True)
+	     Nitrogeno=models.FloatField(default=0,blank=True,null=True)
+	     Metano=models.FloatField(default=0,blank=True,null=True)
+	     Monoxido_de_carbono=models.FloatField(default=0,blank=True,null=True)
+	     Etano=models.FloatField(default=0,blank=True,null=True)
+	     Dioxido_de_carbono=models.FloatField(default=0,blank=True,null=True)
+	     Etileno=models.FloatField(default=0,blank=True,null=True)
+	     Acetileno=models.FloatField(default=0,blank=True,null=True)
+	     Propileno=models.FloatField(default=0,blank=True,null=True)
+	     Propano=models.FloatField(default=0,blank=True,null=True)
+	     Butano=models.FloatField(default=0,blank=True,null=True)
+	     	     
 	     def __str__(self):
 		    		return  self.equipo
 	     class Admin:

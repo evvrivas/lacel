@@ -33,6 +33,7 @@ urlpatterns = [
 
     
     url(r'^$', principal),
+    url(r'show/^$', show),
   
             
        
