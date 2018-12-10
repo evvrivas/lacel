@@ -35,7 +35,7 @@ urlpatterns = [
     url(r'^$', principal),
     url(r'^show/$', show),
     url(r'^ana1/$', Total_gases_combustibles),
-    url(r'^ana2/$', Limite_conecentracion),
+    #url(r'^ana2/$', Limite_conecentracion),
   
             
        
