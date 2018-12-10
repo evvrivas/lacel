@@ -74,14 +74,12 @@ def Total_gases_combustibles(request):
 	NOMBRE_GAS_PRUEBA=["Hidrogeno H2"  ,"Metano CH4"     ,"Etano C2H6"  ,   "Etileno C2H4",    "Acecetileno C2H2"]
 	GASES_DE_PRUEBA=  [GASES[0],         GASES[3],         GASES[5],         GASES[7],          GASES[8]         ]  
 	SUMTDGC        =  GASES[0]+          GASES[3]+         GASES[5]+         GASES[7]+          GASES[8]
-    
-    LIMITE_1=        [100             ,120              ,65                ,50                 ,35              ]
+	LIMITE_1=        [100             ,120              ,65                ,50                 ,35              ]
 	LIMITE_2=        [(101,700)       ,(121,400)        ,(66,100)          ,(51,100)           ,(36,50)         ]
 	LIMITE_3=        [(701,1800)      ,(401,1000)       ,(101,150)         ,(101,200)          ,(51,80)         ]
 	LIMITE_4=        [1800            ,1000             ,150               ,200                ,80              ]
 
-	    
-    if SUMTDGC<=720:
+	if SUMTDGC<=720:
        estado_trafo="EL TRANSFORMADOR ESTA OPERANDO SATISFACTORIAMENTE"
     elif SUMTDGC>720 and SUMTDGC<=1920:
        estado_trafo="NIVEL ALTO DE GAS COMBUSTIBLE, HAY QUE HACER INVESTIGACION ADICIANAL E INDIVIDUAL DE GASES "
