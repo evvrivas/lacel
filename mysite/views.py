@@ -109,7 +109,9 @@ def Total_gases_combustibles(request):
           	  estado = "MUY ANORMAL"
           ESTADO_DE_GASES.append(estado)
 
-    return estado_trafo,NOMBRE_GAS_PRUEBA,ESTADO_DE_GASES
+    #return estado_trafo,NOMBRE_GAS_PRUEBA,ESTADO_DE_GASES
+    return render(request,'principal.html',locals())
+
 
 def show(request):
 	    from django.shortcuts import render
