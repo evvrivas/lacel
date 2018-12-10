@@ -147,7 +147,7 @@ def Limite_conecentracion(request):
     Metano=190
     Acetileno=3
     Etileno=63
-    Etano=65
+    Etano=64
     Monoxido_de_carbono=360
     TDGC = Hidrogeno + Metano + Acetileno + Etileno + Etano + Monoxido_de_carbono
     #if TDGC<700 or Hidrogeno<100 or Metano<120 or Acetileno<2 or Etileno<50 or Etano<65 or Monoxido_de_carbono<350:
@@ -158,6 +158,3 @@ def Limite_conecentracion(request):
 		#estado_trafo="ADVERTENCA"
 	#return estado_trafo
 	return render(request,'principal.html',locals())
-
-
-
