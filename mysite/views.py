@@ -143,16 +143,14 @@ def Relaciones_adicionales(request):
         
 
 def Limite_conecentracion(request):
-    Hidrogeno
-    Metano
-    Acetileno
-    Etileno
-    Etano
-    Monoxido_de_carbono
-
-	TDGC = Hidrogeno + Metano + Acetileno + Etileno + Etano + Monoxido_de_carbono
-	
-	if TDGC<700 or Hidrogeno<100 or Metano<120 or Acetileno<2 or Etileno<50 or Etano<65 or Monoxido_de_carbono<350:
+    Hidrogeno=90
+    Metano=190
+    Acetileno=3
+    Etileno=63
+    Etano=65
+    Monoxido_de_carbono=360
+    TDGC = Hidrogeno + Metano + Acetileno + Etileno + Etano + Monoxido_de_carbono
+    if TDGC<700 or Hidrogeno<100 or Metano<120 or Acetileno<2 or Etileno<50 or Etano<65 or Monoxido_de_carbono<350:
 		estado_trafo="NORMAL"
 	elif TDGC>1900 or Hidrogen>700 or Metano>400 or Acetileno>5 or Etileno>100 or Etano>100 or Monoxido_de_carbono>570:
 		estado_trafo="PRECAUCION"
