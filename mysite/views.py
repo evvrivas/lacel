@@ -64,7 +64,7 @@ def informacion(request):
 def principal(request):
   return render(request,'principal.html',locals())  
           
-def lotal_gases_combustibles(request):
+def total_gases_combustibles(request):
 
 	#GASES=[Hidrogeno,Oxigeno,Nitrogeno,Metano,Monoxido_de_carbono,Etano,Dioxido_de_carbono,Etileno,Acetileno,Propileno,Propano,Butano]
 	
