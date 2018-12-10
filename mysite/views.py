@@ -89,6 +89,7 @@ def Total_gases_combustibles(request):
 		estado_trafo="EXCESIVA DESCOMPOSICION DE CELULOSA Y/O ACEITE, LA OPERACION CONTINUA PUEDE RESULTAR EN UNA FALLA DEL TRANSFORMADOR "
 	
 	ESTADO_DE_GASES=[]
+	
 	for i in range(len(GASES_DE_PRUEBA)):
 		if GASES_DE_PRUEBA[i]<=LIMITE_1[i]:
 			estado = "NORMAL"
@@ -97,7 +98,7 @@ def Total_gases_combustibles(request):
 		elif GASES_DE_PRUEBA[i]>LIMITE_2[i][0] and GASES_DE_PRUEBA[i]>LIMITE_2[i][0]:
 			estado = "ANORMAL EXESIVO"
 		else:
-			estado = "MUY ANORMAL"\
+			estado = "MUY ANORMAL"
 		ESTADO_DE_GASES.append(estado)
 	#return estado_trafo,NOMBRE_GAS_PRUEBA,ESTADO_DE_GASES
 	return render(request,'principal.html',locals())
