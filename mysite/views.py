@@ -64,7 +64,7 @@ def informacion(request):
 def principal(request):
   return render(request,'principal.html',locals())  
           
-def Total_gases_combustibles(request):
+def lotal_gases_combustibles(request):
 
 	#GASES=[Hidrogeno,Oxigeno,Nitrogeno,Metano,Monoxido_de_carbono,Etano,Dioxido_de_carbono,Etileno,Acetileno,Propileno,Propano,Butano]
 	
@@ -93,9 +93,9 @@ def Total_gases_combustibles(request):
 	for i in range(len(GASES_DE_PRUEBA)):
 		if GASES_DE_PRUEBA[i]<=LIMITE_1[i]:
 			estado = "NORMAL"
-		elif GASES_DE_PRUEBA[i]>LIMITE_2[i][0] and GASES_DE_PRUEBA[i]>LIMITE_2[i][0]:
+		elif GASES_DE_PRUEBA[i]>LIMITE_2[i][0] and GASES_DE_PRUEBA[i]<LIMITE_2[i][1]:
 			estado = "ANORMAL MODERDADO"
-		elif GASES_DE_PRUEBA[i]>LIMITE_2[i][0] and GASES_DE_PRUEBA[i]>LIMITE_2[i][0]:
+		elif GASES_DE_PRUEBA[i]>LIMITE_3[i][0] and GASES_DE_PRUEBA[i]<LIMITE_3[i][1]:
 			estado = "ANORMAL EXESIVO"
 		else:
 			estado = "MUY ANORMAL"
@@ -140,7 +140,49 @@ def IEC_60599(request):
 	pass
 def Relaciones_adicionales(request):
 	pass
-        
+#Hidrogeno H
+#Oxigeno   O2
+#Nitrogeno  N
+#Metano   CH4
+#Monoxido_de_carbono  C0
+#Etano   C2H6
+#Dioxido_de_carbono  CO2
+#Etileno  C2H4
+#Acetileno C2H2
+#Propileno C3H6 
+#Propano C3H8
+#Butano  C4H10  
+
+def limite_concentracion(request):
+	GASES      =[12         ,34       ,22     ,34          ,44     ,55        ,66       ,88        ,65       ,45       ,1        ,22  ]
+	NOMBRE_GAS_PRUEBA=["Hidrogeno H2"  ,"Metano CH4"  "MONOXIDO DE CARBONO"   ,"Etano C2H6"  ,   "Etileno C2H4",    "Acecetileno C2H2"]
+	GASES_DE_PRUEBA=  [GASES[0],         GASES[3],         GASES[4]             GASES[5],         GASES[7],          GASES[8]          ]  
+	SUMTDGC        =  GASES[0]+          GASES[3]+         GASES[4]+            GASES[5]+         GASES[7]+          GASES[8]       
+	
+
+	LIMITE_1=        [100             ,120               ,350					,65                ,50                 ,2              ]
+	LIMITE_2=        [(100,700)       ,(120,400)         ,(350,570)				,(65,100)          ,(50,100)           ,(2,5)         ]
+	LIMITE_3=        [700             ,400               ,570 					,100               ,100                ,5              ]
+
+	if SUMTDGC<=700:
+		estado_trafo="EN UN RANGO NORMAL: CONCENTRACION DE GASES DISUELTOS "
+	elif SUMTDGC>700 and SUMTDGC<=1900:
+		estado_trafo="PRECAUCION:  CONCENTRACION DE GASES DISUELTOS ELEVADOS"
+	else:
+		estado_trafo="ADVERTENCIA:  PROBLEMA GRAVE, INTERVENSION O REMOCION INMEDIATA"
+	
+	ESTADO_DE_GASES=[]
+	
+	for i in range(len(GASES_DE_PRUEBA)):
+		if GASES_DE_PRUEBA[i]<=LIMITE_1[i]:
+			estado = "NORMAL"
+		elif GASES_DE_PRUEBA[i]>LIMITE_2[i][0] and GASES_DE_PRUEBA[i]<LIMITE_2[i][1]:
+			estado = "PRECAUCION"
+		else:
+			estado = "ADVERTENCIA"
+		ESTADO_DE_GASES.append(estado)
+	#return estado_trafo,NOMBRE_GAS_PRUEBA,ESTADO_DE_GASES
+	return render(request,'principal.html',locals())
 
 #def Limite_conecentracion(request):
     #Hidrogeno=90
