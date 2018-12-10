@@ -19,7 +19,7 @@ sorl-thumbnail
 Pillow==2.7.0
 django-dbbackup
 numpy>= 1.15
-scipy==0.11.0
+#scipy==0.11.0
 setuptools
 matplotlib==1.1.0
 #scipy==0.11.0
