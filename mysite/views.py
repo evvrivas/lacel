@@ -103,15 +103,15 @@ def Total_gases_combustibles(request):
 	#return estado_trafo,NOMBRE_GAS_PRUEBA,ESTADO_DE_GASES
 	return render(request,'principal.html',locals())
 
-
+from django.shortcuts import render
+from matplotlib import pylab
+from pylab import *
+import PIL
+import PIL.Image
+import io
+from io import *
 def show(request):
-	from django.shortcuts import render
-	from matplotlib import pylab
-	from pylab import *
-	import PIL
-	import PIL.Image
-	import io
-	from io import *
+	
 	x = np.arange(10)
 	y = x
 	fig = plt.figure()
@@ -142,7 +142,7 @@ def Relaciones_adicionales(request):
 	pass
         
 
-def Limite_conecentracion():
+def Limite_conecentracion(request):
 	TDGC = Hidrogeno + Metano + Acetileno + Etileno + Etano + Monoxido_de_carbono
 	if TDGC<700 or Hidrogeno<100 or Metano<120 or Acetileno<2 or Etileno<50 or Etano<65 or Monoxido_de_carbono<350:
 		estado_trafo="NORMAL"
