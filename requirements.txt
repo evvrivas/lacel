@@ -22,7 +22,7 @@ numpy>= 1.15
 scipy==0.11.0
 setuptools
 matplotlib==1.1.0
-scipy==0.11.0
+#scipy==0.11.0
 
 #psycopg2==2.5.4
 #pyDatalog==0.15.2
