@@ -103,6 +103,29 @@ def total_gases_combustibles(request):
 	#return estado_trafo,NOMBRE_GAS_PRUEBA,ESTADO_DE_GASES
 	return render(request,'principal.html',locals())
 
+
+from django.http import HttpResponse
+
+from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+import matplotlib.pyplot as plt
+import numpy as np
+
+def index(request):
+    x = np.random.randn(100000)
+    f = plt.figure(111)
+    plt.hist(x, color='lightblue')
+    plt.xlabel('X')
+    plt.ylabel('Frequency')
+    plt.title('Histogram of Randomly Generated Values')
+    canvas = FigureCanvas(f)
+    response = HttpResponse(content_type='image/png')
+    canvas.print_png(response)
+    plt.close()
+    return response
+
+
+
+
 from django.shortcuts import render
 from matplotlib import pylab
 from pylab import *

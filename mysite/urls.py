@@ -25,7 +25,7 @@ from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from mysite.views import *
-
+from histogram import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/login/$', login,{'template_name': 'login.html'}),
@@ -36,8 +36,10 @@ urlpatterns = [
     url(r'^show/$', show),
     url(r'^total_gases_combustibles/$', total_gases_combustibles),
     url(r'^limite_concentracion/$', limite_concentracion),
-  
-            
+    url(r'^show2/$', views.index, name='index')
+      
+ 
+     
        
 ]
 
