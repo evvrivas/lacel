@@ -98,58 +98,6 @@ def ingresar_datos_trafo(request):
 
         
 
-def editar_usuario(request,acid):   
-       categoria=n_categorias()
-       n_usuarios, n_tiendas, n_productos=info_pagina()
-       mis_tiendas=Tiendas.objects.filter(id_usuario=request.user.username)
-       a=eval(acid)-1
-
-       acido=str(a)
-       f = Usuarios.objects.get(pk=acido)           
-       
-       if request.method == 'POST':
-            
-            form = UsuariosForm(request.POST,request.FILES,instance=f)
-       
-            if form.is_valid():
-
-                    contra = form.cleaned_data['clave'] 
-
-                    user = User.objects.get(username=request.user.username)
-                    user.set_password(contra)
-                    user.save()
-
-                    usu=form.save(commit=False)
-                    usu.id_usuario = request.user.username
-                    usu.save() # Guardar los datos en la base de datos 
-                    #return render_to_response('confirmar.html',locals(),context_instance=RequestContext(request))
-                    
-                    whatsapp=request.user.username
-                    fecha= datetime.datetime.now()
-                    mensaje= str(fecha)+"  "+str(whatsapp) + "EDITO SU ESTADO "+"\n"
-                    sender =str("xgangasx@gmail.com")
-                    asunto="edita"+" "+ str(whatsapp)
-                    try:
-                        send_mail(asunto, mensaje,"xgangasx@gmail.com",(sender,), fail_silently=False) 
-                    except:
-                         pass        
-                    connection.close()
-                    return render(request,'confirmar.html',locals())             
-            
-       else:
-            
-            form = UsuariosForm(instance=f)
-            
-
-        
-
-       connection.close()
-       #return render_to_response('formulario.html', locals(),context_instance=RequestContext(request))
-       return render(request,'formulario_editar_usuario.html',locals())   
-
-
-
-
 
 
 

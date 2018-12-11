@@ -25,7 +25,7 @@ from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from mysite.views import *
-from histogram import views
+#from histogram import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/login/$', login,{'template_name': 'login.html'}),
