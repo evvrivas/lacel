@@ -7,23 +7,24 @@ from django.forms import ModelForm, Textarea
 class UsuariosForm(ModelForm):
 	class Meta:
 		model= Usuarios		
-		exclude=[]
+		exclude=["fecha_ingreso","privilegio"]
 
-
+privilegio=models.CharField(max_length=30,choices=PRIVILEGIOS,default="'DE_BAJA")
+	      
 ########################  CEL  ##########################
-class CentralForm(ModelForm):
+class CentralForm(ModelForm):#usuario
 	class Meta:			
 		model=Central
-		exclude=[]
+		exclude=["fecha_ingreso"]
 				    
-class TransformadorForm(ModelForm):
+class TransformadorForm(ModelForm):#tiendas
 	class Meta:			
 		model=Transformador
-		exclude=[]
+		exclude=["fecha_ingreso"]
 		 
-class MedicionForm(ModelForm):
+class MedicionForm(ModelForm):#productos
 	class Meta:			
 		model=Medicion
-		exclude=[]
-
+		exclude=["fecha_ingreso"]
+    
 #########################################################

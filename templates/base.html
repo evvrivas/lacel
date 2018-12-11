@@ -99,11 +99,14 @@
 
         <div class="btn-group">
             <button type="button" class="btn btn-info dropdown-toggle"
-            data-toggle="dropdown">Ver <span class="caret"></span></button>
+            data-toggle="dropdown">CENTRALES ELECTRICAS <span class="caret"></span></button>
                                
-             <ul class="dropdown-menu" role="menu">
-                 <li><a href="">Todas las centrales</a></li> 
-                 <li><a href="">Todas los transformadores</a></li>
+             <ul class="dropdown-menu" role="menu">         
+
+                 {%  for key,val in centrales.items %}
+                 <li><a href="/ver_categorias/{{key}}">{{val}} : {{key}}</a></li>
+                 {%  endfor %} 
+
              </ul>
          </div>  
 

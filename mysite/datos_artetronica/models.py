@@ -17,14 +17,13 @@ from sorl.thumbnail import ImageField
 
 class Central(models.Model):
 	     
-	     nombre=models.CharField(max_length=60,blank=True)   
-	     cararcteristicas=models.TextField(blank=True)        
+	     nombre=models.CharField(max_length=60,blank=True)	         
 	     fecha_ingreso = models.DateField(default=datetime.now,editable = False)	     
 
 	     def __str__(self):
-		    		return  self.codigo
+		    		return  self.nombre
 	     class Admin:
-		    		list_display = ('codigo', 'marca', 'modelo','caracteristicas')
+		    		list_display = ('nombre', 'fecha_ingreso')
 
 
 PRIVILEGIOS=(
@@ -35,8 +34,6 @@ PRIVILEGIOS=(
 
 class Usuarios(models.Model):
 	     codigo=models.IntegerField()
-	     nombre=models.CharField(max_length=30)
-	     apellidos=models.CharField(max_length=30)
 	     pasword=models.CharField(max_length=4)
 	     email = models.EmailField(blank=True)
 	     privilegio=models.CharField(max_length=30,choices=PRIVILEGIOS,default="'DE_BAJA")
@@ -45,7 +42,7 @@ class Usuarios(models.Model):
 	     def __str__(self):
 		    		return  self.codigo
 	     class Admin:
-		    		list_display = ('id_usuario')
+		    		list_display = ('codigo')
 
 
 
@@ -55,11 +52,7 @@ class Transformador(models.Model):
 	     codigo=models.CharField(max_length=60,blank=True)
 	     marca=models.CharField(max_length=60,blank=True)
 	     modelo=models.CharField(max_length=60,blank=True)
-	     cararcteristicas=models.TextField(blank=True)  	     
-	     #imagen1      = models.ImageField(upload_to='tmp')	  
-	     imagen1 = ImageField(upload_to='tmp',blank=True)	    
-	     #nombre_recurso=models.CharField(max_length=40,blank=True)
-	     #recurso=models.URLField(blank=True)	     
+	     cararcteristicas=models.TextField(blank=True)  	      
 	     fecha_ingreso = models.DateField(default=datetime.now,editable = False)	     
 
 	     def __str__(self):

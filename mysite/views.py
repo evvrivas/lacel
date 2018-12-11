@@ -62,11 +62,27 @@ def informacion(request):
 
 
 def principal(request):
-  return render(request,'principal.html',locals())  
+    centrales=Centrales.objects.all()
+    return render(request,'principal.html',locals())  
 
 
+from random import *
+def datos_aleatorios():
 
+    usuarios=Usuarios(codigo="7807004",pasword="1111",privilegio="DE_BAJA",fecha_ingreso = =datetime.now)    
+    usuarios.save()
+    
+    centrales=Central( nombre="GUAJOYO", fecha_ingreso = datetime.now)         
+    centrales.save()
 
+    centrales=Central( nombre="5 DE NOVIEMBRE", fecha_ingreso = datetime.now)         
+    centrales.save()
+
+    centrales=Central( nombre="CERRON GRANDE", fecha_ingreso = datetime.now)         
+    centrales.save()
+        
+    
+    
 def ingresar_datos_trafo(request): 
         #!/usr/bin/python
         # -*- coding: latin-1 -*-        
@@ -104,40 +120,40 @@ def ingresar_datos_trafo(request):
           
 def total_gases_combustibles(request):
 
-	#GASES=[Hidrogeno,Oxigeno,Nitrogeno,Metano,Monoxido_de_carbono,Etano,Dioxido_de_carbono,Etileno,Acetileno,Propileno,Propano,Butano]
-	#INFERIOR=[H2           ,O2       ,N      ,CH4         ,CO     ,C2H6      ,CO2      ,C2H4      ,C2H2     ,propi    ,propa    ,buta]
-	GASES      =[12         ,34       ,22     ,34          ,44     ,55        ,66       ,88        ,65       ,45       ,1        ,22  ]
-	NOMBRE_GAS_PRUEBA=["Hidrogeno H2"  ,"Metano CH4"     ,"Etano C2H6"  ,   "Etileno C2H4",    "Acecetileno C2H2"]
-	GASES_DE_PRUEBA=  [GASES[0],         GASES[3],         GASES[5],         GASES[7],          GASES[8]         ]  
-	SUMTDGC        =  GASES[0]+          GASES[3]+         GASES[5]+         GASES[7]+          GASES[8]
-	LIMITE_1=        [100             ,120              ,65                ,50                 ,35              ]
-	LIMITE_2=        [(101,700)       ,(121,400)        ,(66,100)          ,(51,100)           ,(36,50)         ]
-	LIMITE_3=        [(701,1800)      ,(401,1000)       ,(101,150)         ,(101,200)          ,(51,80)         ]
-	LIMITE_4=        [1800            ,1000             ,150               ,200                ,80              ]
+    #GASES=[Hidrogeno,Oxigeno,Nitrogeno,Metano,Monoxido_de_carbono,Etano,Dioxido_de_carbono,Etileno,Acetileno,Propileno,Propano,Butano]
+    #INFERIOR=[H2           ,O2       ,N      ,CH4         ,CO     ,C2H6      ,CO2      ,C2H4      ,C2H2     ,propi    ,propa    ,buta]
+    GASES      =[12         ,34       ,22     ,34          ,44     ,55        ,66       ,88        ,65       ,45       ,1        ,22  ]
+    NOMBRE_GAS_PRUEBA=["Hidrogeno H2"  ,"Metano CH4"     ,"Etano C2H6"  ,   "Etileno C2H4",    "Acecetileno C2H2"]
+    GASES_DE_PRUEBA=  [GASES[0],         GASES[3],         GASES[5],         GASES[7],          GASES[8]         ]  
+    SUMTDGC        =  GASES[0]+          GASES[3]+         GASES[5]+         GASES[7]+          GASES[8]
+    LIMITE_1=        [100             ,120              ,65                ,50                 ,35              ]
+    LIMITE_2=        [(101,700)       ,(121,400)        ,(66,100)          ,(51,100)           ,(36,50)         ]
+    LIMITE_3=        [(701,1800)      ,(401,1000)       ,(101,150)         ,(101,200)          ,(51,80)         ]
+    LIMITE_4=        [1800            ,1000             ,150               ,200                ,80              ]
 
-	if SUMTDGC<=720:
-		estado_trafo="EL TRANSFORMADOR ESTA OPERANDO SATISFACTORIAMENTE"
-	elif SUMTDGC>720 and SUMTDGC<=1920:
-		estado_trafo="NIVEL ALTO DE GAS COMBUSTIBLE, HAY QUE HACER INVESTIGACION ADICIANAL E INDIVIDUAL DE GASES "
-	elif SUMTDGC>1920 and SUMTDGC<=4630:
-		estado_trafo="ALTO NIVEL DE DESCOMPOSICION DE CELULOSA Y/O ACEITE , HAY QUE HACER INVESTIGACION ADICIANAL E INDIVIDUAL DE GASES FUERA DE RRANGO, UNA FALLA O FALLES PROBABLEMENTE ESTE PRESENTE "
-	else:
-		estado_trafo="EXCESIVA DESCOMPOSICION DE CELULOSA Y/O ACEITE, LA OPERACION CONTINUA PUEDE RESULTAR EN UNA FALLA DEL TRANSFORMADOR "
-	
-	ESTADO_DE_GASES=[]
-	
-	for i in range(len(GASES_DE_PRUEBA)):
-		if GASES_DE_PRUEBA[i]<=LIMITE_1[i]:
-			estado = "NORMAL"
-		elif GASES_DE_PRUEBA[i]>LIMITE_2[i][0] and GASES_DE_PRUEBA[i]<LIMITE_2[i][1]:
-			estado = "ANORMAL MODERDADO"
-		elif GASES_DE_PRUEBA[i]>LIMITE_3[i][0] and GASES_DE_PRUEBA[i]<LIMITE_3[i][1]:
-			estado = "ANORMAL EXESIVO"
-		else:
-			estado = "MUY ANORMAL"
-		ESTADO_DE_GASES.append(estado)
-	#return estado_trafo,NOMBRE_GAS_PRUEBA,ESTADO_DE_GASES
-	return render(request,'principal.html',locals())
+    if SUMTDGC<=720:
+        estado_trafo="EL TRANSFORMADOR ESTA OPERANDO SATISFACTORIAMENTE"
+    elif SUMTDGC>720 and SUMTDGC<=1920:
+        estado_trafo="NIVEL ALTO DE GAS COMBUSTIBLE, HAY QUE HACER INVESTIGACION ADICIANAL E INDIVIDUAL DE GASES "
+    elif SUMTDGC>1920 and SUMTDGC<=4630:
+        estado_trafo="ALTO NIVEL DE DESCOMPOSICION DE CELULOSA Y/O ACEITE , HAY QUE HACER INVESTIGACION ADICIANAL E INDIVIDUAL DE GASES FUERA DE RRANGO, UNA FALLA O FALLES PROBABLEMENTE ESTE PRESENTE "
+    else:
+        estado_trafo="EXCESIVA DESCOMPOSICION DE CELULOSA Y/O ACEITE, LA OPERACION CONTINUA PUEDE RESULTAR EN UNA FALLA DEL TRANSFORMADOR "
+    
+    ESTADO_DE_GASES=[]
+    
+    for i in range(len(GASES_DE_PRUEBA)):
+        if GASES_DE_PRUEBA[i]<=LIMITE_1[i]:
+            estado = "NORMAL"
+        elif GASES_DE_PRUEBA[i]>LIMITE_2[i][0] and GASES_DE_PRUEBA[i]<LIMITE_2[i][1]:
+            estado = "ANORMAL MODERDADO"
+        elif GASES_DE_PRUEBA[i]>LIMITE_3[i][0] and GASES_DE_PRUEBA[i]<LIMITE_3[i][1]:
+            estado = "ANORMAL EXESIVO"
+        else:
+            estado = "MUY ANORMAL"
+        ESTADO_DE_GASES.append(estado)
+    #return estado_trafo,NOMBRE_GAS_PRUEBA,ESTADO_DE_GASES
+    return render(request,'principal.html',locals())
 
 
 
@@ -153,13 +169,14 @@ from io import *
 def grafico (request):
     pos = arange(10)+ 2 
 
-    barh(pos,(1,2,3,4,5,6,7,8,9,10),align = 'center')
+    barh(pos,(1,2,3,4,5,6,7,8,9,10,11,12,13),align = 'center')
 
     yticks(pos,('#hcsm','#ukmedlibs','#ImmunoChat','#HCLDR','#ICTD2015','#hpmglobal','#BRCA','#BCSM','#BTSM','#OTalk'))
-
-    xlabel('Popularidad')
-    ylabel('Hashtags')
-    title('Gráfico de Hashtags')
+    #yticks=[Hidrogeno,Oxigeno,Nitrogeno,Metano,Monoxido_de_carbono,Etano,Dioxido_de_carbono,Etileno,Acetileno,Propileno,Propano,Butano]
+    
+    xlabel('Tipo de aceitr')
+    ylabel('Concentracion')
+    title('GASES DISUELTOS EN ACEITE')
     subplots_adjust(left=0.21)
 
     buffer = io.BytesIO()
@@ -175,14 +192,14 @@ def grafico (request):
 
 def gas_clave(request):
         pass
-    	#suma de gases combustibles
-    	#GASES=[Hidrogeno,Oxigeno,Nitrogeno,Metano,Monoxido_de_carbono,Etano,Dioxido_de_carbono,Etileno,Acetileno,Propileno,Propano,Butano]
-    	#INFERIOR=[H2           ,O2       ,N      ,CH4         ,CO     ,C2H6      ,CO2      ,C2H4      ,C2H2     ,propi    ,propa    ,buta]
-    	#GASES      =[12         ,34       ,22     ,34          ,44     ,55        ,66       ,88        ,65       ,45       ,1        ,22  ]
-    	
-    	#NOMBRE_GAS_PRUEBA=["Hidrogeno H2"  ,"Metano CH4"    ,"MONOXIDO DE CARBONO CO" ,  "Etano C2H6"  ,   "Etileno C2H4",    "Acecetileno C2H2"]
-    	#GASES_DE_PRUEBA=  [GASES[0],         GASES[3],        GASES[4],                   GASES[5],         GASES[7],          GASES[8]         ]  
-    	#SUMTDGC        =  GASES[0]+          GASES[3]+        GASES[4]+                   GASES[5]+         GASES[7]+          GASES[8]
+        #suma de gases combustibles
+        #GASES=[Hidrogeno,Oxigeno,Nitrogeno,Metano,Monoxido_de_carbono,Etano,Dioxido_de_carbono,Etileno,Acetileno,Propileno,Propano,Butano]
+        #INFERIOR=[H2           ,O2       ,N      ,CH4         ,CO     ,C2H6      ,CO2      ,C2H4      ,C2H2     ,propi    ,propa    ,buta]
+        #GASES      =[12         ,34       ,22     ,34          ,44     ,55        ,66       ,88        ,65       ,45       ,1        ,22  ]
+        
+        #NOMBRE_GAS_PRUEBA=["Hidrogeno H2"  ,"Metano CH4"    ,"MONOXIDO DE CARBONO CO" ,  "Etano C2H6"  ,   "Etileno C2H4",    "Acecetileno C2H2"]
+        #GASES_DE_PRUEBA=  [GASES[0],         GASES[3],        GASES[4],                   GASES[5],         GASES[7],          GASES[8]         ]  
+        #SUMTDGC        =  GASES[0]+          GASES[3]+        GASES[4]+                   GASES[5]+         GASES[7]+          GASES[8]
         #SUMTDG=0
         #for i in GASES[0]:
         #    SUMTDG=SUMTDG+i
@@ -196,15 +213,15 @@ def gas_clave(request):
         #Vminimo=min( V_PORCENTAJE_GASES) 
         
         #if indice_Vmaximo==3:#ETANO C2H6
-        #		estado_trafo="SE DETECTO ACEITE SOBRE CALENTADO"
+        #       estado_trafo="SE DETECTO ACEITE SOBRE CALENTADO"
         #elif indice_Vmaximo==2:#MONOXIDO DE CARBONO CO
-        #		estado_trafo="SE DETECTO PAPEL SOBRECALENTADO"
+        #       estado_trafo="SE DETECTO PAPEL SOBRECALENTADO"
         #elif indice_Vmaximo==5:# ACETILENO C2H2
-        # 		estado_trafo="SE DETECTO ARCO INTERNO"
+        #       estado_trafo="SE DETECTO ARCO INTERNO"
        #elif indice_Vmaximo==0:#HIDROGENO H
-        #		estado_trafo="SE DETECTO EFECTO CORONA"
+        #       estado_trafo="SE DETECTO EFECTO CORONA"
         #else:
-        #	estado_trafo="NO APLICA"
+        #   estado_trafo="NO APLICA"
 
         #return render(request,'principal.html',locals())
 
@@ -214,15 +231,15 @@ def gas_clave(request):
 
 
 def Dornenberg(request):
-	pass
+    pass
 def Relaciones_roger(request):
-	pass
+    pass
 def Triangulo_duval(request):
-	pass
+    pass
 def IEC_60599(request):
-	pass
+    pass
 def Relaciones_adicionales(request):
-	pass
+    pass
 #Hidrogeno H
 #Oxigeno   O2
 #Nitrogeno  N
@@ -237,33 +254,33 @@ def Relaciones_adicionales(request):
 #Butano  C4H10  
 
 def limite_concentracion(request):
-	GASES      =[12         ,34       ,22     ,34          ,44     ,55        ,66       ,88        ,65       ,45       ,1        ,22  ]
-	NOMBRE_GAS_PRUEBA=["Hidrogeno H2"  ,"Metano CH4"  "MONOXIDO DE CARBONO"   ,"Etano C2H6"  ,   "Etileno C2H4",    "Acecetileno C2H2"]
-	GASES_DE_PRUEBA=  [GASES[0],         GASES[3],         GASES[4],            GASES[5],         GASES[7],          GASES[8]          ]  
-	SUMTDGC        =  GASES[0]+          GASES[3]+         GASES[4]+            GASES[5]+         GASES[7]+          GASES[8]       
-	
+    GASES      =[12         ,34       ,22     ,34          ,44     ,55        ,66       ,88        ,65       ,45       ,1        ,22  ]
+    NOMBRE_GAS_PRUEBA=["Hidrogeno H2"  ,"Metano CH4"  "MONOXIDO DE CARBONO"   ,"Etano C2H6"  ,   "Etileno C2H4",    "Acecetileno C2H2"]
+    GASES_DE_PRUEBA=  [GASES[0],         GASES[3],         GASES[4],            GASES[5],         GASES[7],          GASES[8]          ]  
+    SUMTDGC        =  GASES[0]+          GASES[3]+         GASES[4]+            GASES[5]+         GASES[7]+          GASES[8]       
+    
 
-	LIMITE_1=        [100             ,120               ,350					,65                ,50                 ,2              ]
-	LIMITE_2=        [(100,700)       ,(120,400)         ,(350,570)				,(65,100)          ,(50,100)           ,(2,5)         ]
-	LIMITE_3=        [700             ,400               ,570 					,100               ,100                ,5              ]
+    LIMITE_1=        [100             ,120               ,350                   ,65                ,50                 ,2              ]
+    LIMITE_2=        [(100,700)       ,(120,400)         ,(350,570)             ,(65,100)          ,(50,100)           ,(2,5)         ]
+    LIMITE_3=        [700             ,400               ,570                   ,100               ,100                ,5              ]
 
-	if SUMTDGC<=700:
-		estado_trafo="EN UN RANGO NORMAL: CONCENTRACION DE GASES DISUELTOS "
-	elif SUMTDGC>700 and SUMTDGC<=1900:
-		estado_trafo="PRECAUCION:  CONCENTRACION DE GASES DISUELTOS ELEVADOS"
-	else:
-		estado_trafo="ADVERTENCIA:  PROBLEMA GRAVE, INTERVENSION O REMOCION INMEDIATA"
-	
-	ESTADO_DE_GASES=[]
-	
-	for i in range(len(GASES_DE_PRUEBA)):
-		if GASES_DE_PRUEBA[i]<=LIMITE_1[i]:
-			estado = "NORMAL"
-		elif GASES_DE_PRUEBA[i]>LIMITE_2[i][0] and GASES_DE_PRUEBA[i]<LIMITE_2[i][1]:
-			estado = "PRECAUCION"
-		else:
-			estado = "ADVERTENCIA"
-		ESTADO_DE_GASES.append(estado)
-	#return estado_trafo,NOMBRE_GAS_PRUEBA,ESTADO_DE_GASES
-	return render(request,'principal.html',locals())
+    if SUMTDGC<=700:
+        estado_trafo="EN UN RANGO NORMAL: CONCENTRACION DE GASES DISUELTOS "
+    elif SUMTDGC>700 and SUMTDGC<=1900:
+        estado_trafo="PRECAUCION:  CONCENTRACION DE GASES DISUELTOS ELEVADOS"
+    else:
+        estado_trafo="ADVERTENCIA:  PROBLEMA GRAVE, INTERVENSION O REMOCION INMEDIATA"
+    
+    ESTADO_DE_GASES=[]
+    
+    for i in range(len(GASES_DE_PRUEBA)):
+        if GASES_DE_PRUEBA[i]<=LIMITE_1[i]:
+            estado = "NORMAL"
+        elif GASES_DE_PRUEBA[i]>LIMITE_2[i][0] and GASES_DE_PRUEBA[i]<LIMITE_2[i][1]:
+            estado = "PRECAUCION"
+        else:
+            estado = "ADVERTENCIA"
+        ESTADO_DE_GASES.append(estado)
+    #return estado_trafo,NOMBRE_GAS_PRUEBA,ESTADO_DE_GASES
+    return render(request,'principal.html',locals())
 

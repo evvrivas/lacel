@@ -1,0 +1,100 @@
+
+{% extends "base.html" %}
+{% load staticfiles %} 
+{% load thumbnail %}
+
+
+{% block cel %}
+      
+ {{estado_trafo}}
+ {{NOMBRE_GAS_PRUEBA}}
+ {{ESTADO_DE_GASES}}
+
+<div class="panel panel-info">
+      <div class="panel-heading">
+            <h2 class="panel-title"><center>ANALISIS DE GASES DISUELTOS EN ACEITE </center></h2>
+      </div>
+
+
+    <div class="panel-body">
+        <!-- ######################################################################  -->
+        <div class="row">
+             	<div class="col-md-3">
+            	</div>
+
+
+            	 <div class="col-md-6">
+               		 <div class="thumbnail">                                    
+		                    <div class="caption">
+		                    <h4><center>GASES PRESENTES EN ESTA MUESTRA</center></h4> 
+		                    <img src="/grafico">    
+		                    </div>  
+
+
+                     </div>
+                 </div>
+
+
+               <div class="col-md-3">
+               </div>
+        </div>
+        
+
+        <!-- ######################################################################  -->
+        <div class="row">
+             	<div class="col-md-3">
+            	</div>
+
+
+            	 <div class="col-md-6">
+               		 <div class="thumbnail">                                    
+		                    <div class="caption">
+		                    <h4><center>TENDENCIA DE GASES ACUMULADOS</center></h4> 
+		                    <img src="/grafico">    
+		                    </div>  
+
+
+                     </div>
+                 </div>
+
+
+               <div class="col-md-3">
+               </div>
+        </div>
+
+         
+        <!-- ######################################################################  -->
+        <div class="row">
+             	<div class="col-md-3">
+            	</div>
+
+
+            	 <div class="col-md-6">
+               		 <div class="thumbnail">                                    
+		                    <div class="caption">
+		                    <h4><center>ANALISIS DE GASES "LIMITES DE CONCENTRACION"</center></h4> 
+		                    <img src="/grafico">    
+		                    </div>  
+
+
+                     </div>
+                 </div>
+
+
+               <div class="col-md-3">
+               </div>
+        </div> 
+
+
+
+
+
+
+    </div>
+</div>
+
+                  
+ 
+
+<img src="/grafico">
+{% endblock %}
