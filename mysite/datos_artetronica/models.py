@@ -39,7 +39,7 @@ class Usuarios(models.Model):
 	     apellidos=models.CharField(max_length=30)
 	     pasword=models.CharField(max_length=4)
 	     email = models.EmailField(blank=True)
-	     privilegio=models.CharField(max_length=30,,choices=PRIVILEGIOS)
+	     privilegio=models.CharField(max_length=30,choices=PRIVILEGIOS,default="'DE_BAJA")
 	     fecha_ingreso = models.DateField(default=datetime.now,editable = False)	    
 	     
 	     def __str__(self):
