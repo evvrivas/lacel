@@ -66,20 +66,20 @@ def principal(request):
     return render(request,'principal.html',locals())  
 
 
-from random import *
-def datos_aleatorios():
+#from random import *
+#def datos_aleatorios():
 
-    usuarios=Usuarios(codigo="7807004",pasword="1111",privilegio="DE_BAJA",fecha_ingreso = =datetime.now)    
-    usuarios.save()
+#    usuarios=Usuarios(codigo="7807004",pasword="1111",privilegio="DE_BAJA",fecha_ingreso =datetime.now)    
+#    usuarios.save()
     
-    centrales=Central( nombre="GUAJOYO", fecha_ingreso = datetime.now)         
-    centrales.save()
+#    centrales=Central( nombre="GUAJOYO", fecha_ingreso = datetime.now)         
+#    centrales.save()
 
-    centrales=Central( nombre="5 DE NOVIEMBRE", fecha_ingreso = datetime.now)         
-    centrales.save()
+#    centrales=Central( nombre="5 DE NOVIEMBRE", fecha_ingreso = datetime.now)         
+#    centrales.save()
 
-    centrales=Central( nombre="CERRON GRANDE", fecha_ingreso = datetime.now)         
-    centrales.save()
+#    centrales=Central( nombre="CERRON GRANDE", fecha_ingreso = datetime.now)         
+#    centrales.save()
         
     
     
@@ -153,7 +153,7 @@ def total_gases_combustibles(request):
             estado = "MUY ANORMAL"
         ESTADO_DE_GASES.append(estado)
     #return estado_trafo,NOMBRE_GAS_PRUEBA,ESTADO_DE_GASES
-    return render(request,'principal.html',locals())
+    return render(request,'analisis.html',locals())
 
 
 
@@ -282,5 +282,5 @@ def limite_concentracion(request):
             estado = "ADVERTENCIA"
         ESTADO_DE_GASES.append(estado)
     #return estado_trafo,NOMBRE_GAS_PRUEBA,ESTADO_DE_GASES
-    return render(request,'principal.html',locals())
+    return render(request,'analisis.html',locals())
 
