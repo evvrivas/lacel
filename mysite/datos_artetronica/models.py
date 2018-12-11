@@ -27,13 +27,19 @@ class Central(models.Model):
 		    		list_display = ('codigo', 'marca', 'modelo','caracteristicas')
 
 
+PRIVILEGIOS=(
+			('DE_ALTA', 'DE_ALTA'),
+			('DE_BAJA', 'DE_BAJA'),
+		     )
+
+
 class Usuarios(models.Model):
-	     central=models.ForeignKey('Central')
 	     codigo=models.IntegerField()
 	     nombre=models.CharField(max_length=30)
 	     apellidos=models.CharField(max_length=30)
 	     pasword=models.CharField(max_length=4)
 	     email = models.EmailField(blank=True)
+	     privilegio=models.CharField(max_length=30,,choices=PRIVILEGIOS)
 	     fecha_ingreso = models.DateField(default=datetime.now,editable = False)	    
 	     
 	     def __str__(self):
@@ -68,8 +74,9 @@ class Transformador(models.Model):
 
 class Medicion(models.Model):
 
-	     equipo=models.ForeignKey('Transformador')	     
-	     fecha_ingreso = models.DateField(default=datetime.now,editable = False)	
+	     equipo=models.ForeignKey('Transformador')  	
+	     usuario=models.ForeignKey('Usuarios')
+
 	     Hidrogeno=models.FloatField(default=0,blank=True,null=True)
 	     Oxigeno=models.FloatField(default=0,blank=True,null=True)
 	     Nitrogeno=models.FloatField(default=0,blank=True,null=True)
@@ -82,7 +89,8 @@ class Medicion(models.Model):
 	     Propileno=models.FloatField(default=0,blank=True,null=True)
 	     Propano=models.FloatField(default=0,blank=True,null=True)
 	     Butano=models.FloatField(default=0,blank=True,null=True)
-	     	     
+	     
+	     fecha_ingreso = models.DateField(default=datetime.now,editable = False) 	     
 	     def __str__(self):
 		    		return  self.equipo
 	     class Admin:

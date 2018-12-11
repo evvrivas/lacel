@@ -33,10 +33,12 @@ urlpatterns = [
 
     
     url(r'^$', principal),
-    url(r'^show/$', show),
+    url(r'^grafico/$', grafico),
     url(r'^total_gases_combustibles/$', total_gases_combustibles),
     url(r'^limite_concentracion/$', limite_concentracion),
-    url(r'^show2/$', views.index, name='index')
+    url(r'^gas_clave/$', gas_clave),
+    
+   
       
  
      
