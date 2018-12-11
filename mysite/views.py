@@ -183,15 +183,12 @@ def gas_clave(request):
 	NOMBRE_GAS_PRUEBA=["Hidrogeno H2"  ,"Metano CH4"    ,"MONOXIDO DE CARBONO CO" ,  "Etano C2H6"  ,   "Etileno C2H4",    "Acecetileno C2H2"]
 	GASES_DE_PRUEBA=  [GASES[0],         GASES[3],        GASES[4],                   GASES[5],         GASES[7],          GASES[8]         ]  
 	SUMTDGC        =  GASES[0]+          GASES[3]+        GASES[4]+                   GASES[5]+         GASES[7]+          GASES[8]
-    
     SUMTDG=0
     for i in GASES[0]:
-    	 SUMTDG=SUMTDG+i
-    
+        SUMTDG=SUMTDG+i
     V_PORCENTAJE_GASES
     for i in GASES_DE_PRUEBA:
-    	 V_PORCENTAJE_GASES.append(100*i/SUMTDG) 
-    
+        V_PORCENTAJE_GASES.append(100*i/SUMTDG)
     Vmaximo=max( V_PORCENTAJE_GASES)
     indice_Vmaximo= V_PORCENTAJE_GASES.index(Vmaximo)
 
