@@ -175,37 +175,38 @@ def grafico (request):
 
 def gas_clave(request):
 
-	#suma de gases combustibles
-	#GASES=[Hidrogeno,Oxigeno,Nitrogeno,Metano,Monoxido_de_carbono,Etano,Dioxido_de_carbono,Etileno,Acetileno,Propileno,Propano,Butano]
-	#INFERIOR=[H2           ,O2       ,N      ,CH4         ,CO     ,C2H6      ,CO2      ,C2H4      ,C2H2     ,propi    ,propa    ,buta]
-	GASES      =[12         ,34       ,22     ,34          ,44     ,55        ,66       ,88        ,65       ,45       ,1        ,22  ]
-	
-	NOMBRE_GAS_PRUEBA=["Hidrogeno H2"  ,"Metano CH4"    ,"MONOXIDO DE CARBONO CO" ,  "Etano C2H6"  ,   "Etileno C2H4",    "Acecetileno C2H2"]
-	GASES_DE_PRUEBA=  [GASES[0],         GASES[3],        GASES[4],                   GASES[5],         GASES[7],          GASES[8]         ]  
-	SUMTDGC        =  GASES[0]+          GASES[3]+        GASES[4]+                   GASES[5]+         GASES[7]+          GASES[8]
-    SUMTDG=0
-    for i in GASES[0]:
-        SUMTDG=SUMTDG+i
-    V_PORCENTAJE_GASES
-    for i in GASES_DE_PRUEBA:
-        V_PORCENTAJE_GASES.append(100*i/SUMTDG)
-    Vmaximo=max( V_PORCENTAJE_GASES)
-    indice_Vmaximo= V_PORCENTAJE_GASES.index(Vmaximo)
+    	#suma de gases combustibles
+    	#GASES=[Hidrogeno,Oxigeno,Nitrogeno,Metano,Monoxido_de_carbono,Etano,Dioxido_de_carbono,Etileno,Acetileno,Propileno,Propano,Butano]
+    	#INFERIOR=[H2           ,O2       ,N      ,CH4         ,CO     ,C2H6      ,CO2      ,C2H4      ,C2H2     ,propi    ,propa    ,buta]
+    	GASES      =[12         ,34       ,22     ,34          ,44     ,55        ,66       ,88        ,65       ,45       ,1        ,22  ]
+    	
+    	NOMBRE_GAS_PRUEBA=["Hidrogeno H2"  ,"Metano CH4"    ,"MONOXIDO DE CARBONO CO" ,  "Etano C2H6"  ,   "Etileno C2H4",    "Acecetileno C2H2"]
+    	GASES_DE_PRUEBA=  [GASES[0],         GASES[3],        GASES[4],                   GASES[5],         GASES[7],          GASES[8]         ]  
+    	SUMTDGC        =  GASES[0]+          GASES[3]+        GASES[4]+                   GASES[5]+         GASES[7]+          GASES[8]
+        SUMTDG=0
+        for i in GASES[0]:
+            SUMTDG=SUMTDG+i
+        V_PORCENTAJE_GASES
 
-    #Vminimo=min( V_PORCENTAJE_GASES) 
-    
-    if indice_Vmaximo==3:#ETANO C2H6
-    		estado_trafo="SE DETECTO ACETE SOBRE CALENTADO"
-    elif indice_Vmaximo==2:#MONOXIDO DE CARBONO CO
-    		estado_trafo="SE DETECTO PAPEL SOBRECALENTADO"
-    elif indice_Vmaximo==5:# ACETILENO C2H2
-    		estado_trafo="SE DETECTO ARCO INTERNO"
-    elif indice_Vmaximo==0:#HIDROGENO H
-    		estado_trafo="SE DETECTO EFECTO CORONA"
-    else:
-    	estado_trafo="NO APLICA"
+        for i in GASES_DE_PRUEBA:
+            V_PORCENTAJE_GASES.append(100*i/SUMTDG)
+        Vmaximo=max( V_PORCENTAJE_GASES)
+        indice_Vmaximo= V_PORCENTAJE_GASES.index(Vmaximo)
 
-    return render(request,'principal.html',locals())
+        #Vminimo=min( V_PORCENTAJE_GASES) 
+        
+        if indice_Vmaximo==3:#ETANO C2H6
+        		estado_trafo="SE DETECTO ACEITE SOBRE CALENTADO"
+        elif indice_Vmaximo==2:#MONOXIDO DE CARBONO CO
+        		estado_trafo="SE DETECTO PAPEL SOBRECALENTADO"
+        elif indice_Vmaximo==5:# ACETILENO C2H2
+        		estado_trafo="SE DETECTO ARCO INTERNO"
+        elif indice_Vmaximo==0:#HIDROGENO H
+        		estado_trafo="SE DETECTO EFECTO CORONA"
+        else:
+        	estado_trafo="NO APLICA"
+
+        return render(request,'principal.html',locals())
 
 
 
