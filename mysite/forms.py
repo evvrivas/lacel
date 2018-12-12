@@ -9,8 +9,7 @@ class UsuariosForm(ModelForm):
 		model= Usuarios		
 		exclude=["fecha_ingreso","privilegio"]
 
-privilegio=models.CharField(max_length=30,choices=PRIVILEGIOS,default="'DE_BAJA")
-	      
+      
 ########################  CEL  ##########################
 class CentralesForm(ModelForm):#usuario
 	class Meta:			

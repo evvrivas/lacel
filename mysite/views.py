@@ -287,6 +287,10 @@ def limite_concentracion(request):
 
 
 
-def listado_de_transformadores(request,central_e):
+def listado_de_transformadores(request,central_x):
     lista_tranformadores=Transformadores.objects.all()
     return render(request,'lista_de_transformadores.html',locals())
+
+def listado_de_mediciones(request,transformador_x):
+    lista_mediciones=Mediciones.objects.all()
+    return render(request,'lista_de_mediciones.html',locals())

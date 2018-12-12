@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load staticfiles %} 
+{% load thumbnail %}
+{% block content %}
+      
+
+<div class="panel panel-info">
+      <div class="panel-heading">
+        <h2 class="panel-title"><center> MEDICIONES DE CONCENTRACIONES DE GAS</center></h2>
+      </div>
+
+
+    <div class="panel-body">
+
+            <div class="row">
+
+             <div class="col-md-12">
+                <div class="thumbnail">                                    
+                  <div class="caption">
+                    <h4><center>Concentraciones de gases </center></h4>
+
+                        <br>
+                        {%  for i in lista_mediciones %}
+                            <li><a href=""> {{i}}  analisis, tendencias</a></li>
+                            <br>
+                         {%  endfor %} 
+                        
+                   </div>                  
+              
+                
+                  
+                </div>
+            </div>
+
+
+          </div>
+
+        </div>
+  </div>

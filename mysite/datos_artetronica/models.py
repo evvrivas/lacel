@@ -48,7 +48,7 @@ class Usuarios(models.Model):
 
 class Transformadores(models.Model):
 
-	     central=models.ForeignKey('Central')
+	     central=models.ForeignKey('Centrales')
 	     codigo=models.CharField(max_length=60,blank=True)
 	     marca=models.CharField(max_length=60,blank=True)
 	     modelo=models.CharField(max_length=60,blank=True)
@@ -63,11 +63,9 @@ class Transformadores(models.Model):
 
 
 #from django.contrib.postgres.fields import ArrayField
-
-
 class Mediciones(models.Model):
 
-	     equipo=models.ForeignKey('Transformador')  	
+	     equipo=models.ForeignKey('Transformadores')  	
 	     usuario=models.ForeignKey('Usuarios')
 
 	     Hidrogeno=models.FloatField(default=0,blank=True,null=True)
