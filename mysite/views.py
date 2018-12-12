@@ -61,9 +61,7 @@ def informacion(request):
   return render(request,'informacion.html',locals())   
 
 
-def principal(request):
-    centrales=Central.objects.all()
-    return render(request,'principal.html',locals())  
+
 
 
 #from random import *
@@ -286,6 +284,9 @@ def limite_concentracion(request):
 
 
 
+def principal(request):
+    centrales=Centrales.objects.all()
+    return render(request,'principal.html',locals())  
 
 def listado_de_transformadores(request,central_x):
     lista_tranformadores=Transformadores.objects.all()
