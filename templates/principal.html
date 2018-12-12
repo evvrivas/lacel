@@ -22,9 +22,11 @@
 		                    <p>Una herramienta de de diagnostico, para evaluar y detectar fallas incipientes en transformadores.</p>
                         <br>
                         {%  for i in centrales %}
-                            {{i.nombre}}
-		                     {%  endf6r %}
-		                    
+                          <li><a href="/listado_de_transformadores/{{i.nombre}}" target="_blank">{{i.nombre}}</a></li>
+		                    {%  endfor %}
+		                                          
+                   
+
                         </div>  
 
 

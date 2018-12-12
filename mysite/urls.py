@@ -37,9 +37,11 @@ urlpatterns = [
     url(r'^total_gases_combustibles/$', total_gases_combustibles),
     url(r'^limite_concentracion/$', limite_concentracion),
     url(r'^gas_clave/$', gas_clave),
+
+    url(r'^listado_de_transformadores/([^/]+)/$', listado_de_transformadores),
     
    
-      
+ 
  
      
        

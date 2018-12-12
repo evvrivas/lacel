@@ -17,12 +17,15 @@
              <div class="col-md-12">
                 <div class="thumbnail">                                    
                   <div class="caption">
-                    <h4><center>Codigo de transformador !!</center></h2>  
-                               <h2><center>Editar datos !!</center></h2>  
-                               <h2><center>Ingresar datos de laboratorio !!</center></h2>  
-                               <h2><center>Analisis gases disueltos</center></h2>  
-                               <h2><center>Tendencia de gases disueltos</center></h2>  
-                    </div>                  
+                    <h4><center>Codigo de transformador !!</center></h4>
+
+                        <br>
+                        {%  for i in lista_tranformadores %}
+                            <li><a href=""> {{i.codigo}}  {{marca.codigo}}  {{modelo.codigo}}  ver datos</a></li>
+                            <br>
+                         {%  endfor %} 
+                        
+                   </div>                  
               
                 
                   

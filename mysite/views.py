@@ -284,3 +284,9 @@ def limite_concentracion(request):
     #return estado_trafo,NOMBRE_GAS_PRUEBA,ESTADO_DE_GASES
     return render(request,'analisis.html',locals())
 
+
+
+
+def listado_de_transformadores(request,central_e):
+    lista_tranformadores=Transformadores.objects.all()
+    return render(request,'lista_de_transformadores.html',locals())
