@@ -89,7 +89,7 @@ def ingresar_datos_trafo(request):
         import os, sys       
         if request.method == 'POST': # si el usuario est enviando el formulario con datos
                              
-                    form = MedicionForm(request.POST,request.FILES)                      
+                    form = MedicionesForm(request.POST,request.FILES)                      
                     
                     if form.is_valid() :
                            
@@ -108,7 +108,7 @@ def ingresar_datos_trafo(request):
 
         else:            
                          
-                         form=MedicionForm()
+                         form=MedicionesForm()
         connection.close()                  
         return render(request,'ingreso_de_datos.html',locals()) 
 

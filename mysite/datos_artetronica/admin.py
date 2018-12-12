@@ -15,17 +15,17 @@ class RulesAdmin(admin.ModelAdmin):
     form = UsuariosForm
 
 ###################  cel #####################
-admin.site.register(Central)
+admin.site.register(Centrales)
 class RulesAdmin(admin.ModelAdmin):
-    form = CentralForm
+    form = CentralesForm
 
-admin.site.register(Transformador)
+admin.site.register(Transformadores)
 class RulesAdmin(admin.ModelAdmin):
-    form = TransformadorForm
+    form = TransformadoresForm
 
-admin.site.register(Medicion)
+admin.site.register(Mediciones)
 class RulesAdmin(admin.ModelAdmin):
-    form = MedicionForm
+    form = MedicionesForm
 
   
  ########################################  

@@ -12,19 +12,19 @@ class UsuariosForm(ModelForm):
 privilegio=models.CharField(max_length=30,choices=PRIVILEGIOS,default="'DE_BAJA")
 	      
 ########################  CEL  ##########################
-class CentralForm(ModelForm):#usuario
+class CentralesForm(ModelForm):#usuario
 	class Meta:			
-		model=Central
+		model=Centrales
 		exclude=["fecha_ingreso"]
 				    
-class TransformadorForm(ModelForm):#tiendas
+class TransformadoresForm(ModelForm):#tiendas
 	class Meta:			
-		model=Transformador
+		model=Transformadores
 		exclude=["fecha_ingreso"]
 		 
-class MedicionForm(ModelForm):#productos
+class MedicionesForm(ModelForm):#productos
 	class Meta:			
-		model=Medicion
+		model=Mediciones
 		exclude=["fecha_ingreso"]
     
 #########################################################

@@ -15,7 +15,7 @@ from django.core.files.uploadedfile import InMemoryUploadedFile
 
 from sorl.thumbnail import ImageField
 
-class Central(models.Model):
+class Centrales(models.Model):
 	     
 	     nombre=models.CharField(max_length=60,blank=True)	         
 	     fecha_ingreso = models.DateField(default=datetime.now,editable = False)	     
@@ -46,7 +46,7 @@ class Usuarios(models.Model):
 
 
 
-class Transformador(models.Model):
+class Transformadores(models.Model):
 
 	     central=models.ForeignKey('Central')
 	     codigo=models.CharField(max_length=60,blank=True)
@@ -65,7 +65,7 @@ class Transformador(models.Model):
 #from django.contrib.postgres.fields import ArrayField
 
 
-class Medicion(models.Model):
+class Mediciones(models.Model):
 
 	     equipo=models.ForeignKey('Transformador')  	
 	     usuario=models.ForeignKey('Usuarios')
