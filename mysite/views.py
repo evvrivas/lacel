@@ -62,7 +62,7 @@ def informacion(request):
 
 
 def principal(request):
-    centrales=Centrales.objects.all()
+    centrales=Central.objects.all()
     return render(request,'principal.html',locals())  
 
 
