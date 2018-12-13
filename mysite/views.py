@@ -91,12 +91,13 @@ def ingresar_datos_trafo(request):
                     
                     if form.is_valid() :
                            
-                            fecha_agregada = form.save(commit=False)
+                            temp = form.save(commit=False)
                             # commit=False tells Django that "Don't send this to database yet.
                             # I have more things I want to do with it."
                             
-                            fecha_agregada.fecha=datetime.datetime.now()             
-                            fecha_agregada.save() #  
+                            temp.fecha_ingreso=datetime.datetime.now()  
+                            temp.codigo_usuario=request.user.username # Set the user object here    
+                            temp_agregada.save() #  
 
                             form.save() # Guardar los datos en la base de datos  print 
                             #return render_to_response('confirmar.html', locals() ,context_instance=RequestContext(request))
@@ -107,6 +108,7 @@ def ingresar_datos_trafo(request):
         else:            
                          
                          form=MedicionesForm()
+                         
         connection.close()                  
         return render(request,'ingreso_de_datos.html',locals()) 
 

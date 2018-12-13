@@ -66,7 +66,8 @@ class Transformadores(models.Model):
 class Mediciones(models.Model):
 
 	     equipo=models.ForeignKey('Transformadores')  	
-	     usuario=models.ForeignKey('Usuarios')
+	     
+	     codigo_usuario=models.CharField(max_length=60,blank=True)
 
 	     Hidrogeno=models.FloatField(default=0,blank=True,null=True)
 	     Oxigeno=models.FloatField(default=0,blank=True,null=True)
