@@ -30,6 +30,9 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/login/$', login,{'template_name': 'login.html'}),
     url(r'^accounts/logout/$', logout),
+    url(r'^informacion/$', informacion),
+
+
 
     
     url(r'^$', principal),
@@ -39,7 +42,8 @@ urlpatterns = [
     url(r'^gas_clave/$', gas_clave),
 
     url(r'^listado_de_transformadores/([^/]+)/$', listado_de_transformadores),
-    url(r'^listado_de_mediciones/([^/]+)/$', listado_de_mediciones),
+    url(r'^listado_de_mediciones/([^/]+)/([^/]+)/$', listado_de_mediciones),
+    url(r'^analisis/([^/]+)/([^/]+)/([^/]+)/$', analisis),
     
         
        

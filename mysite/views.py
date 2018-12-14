@@ -281,16 +281,22 @@ def limite_concentracion(request):
     #return estado_trafo,NOMBRE_GAS_PRUEBA,ESTADO_DE_GASES
     return render(request,'analisis.html',locals())
 
-
+def informacion(request):
+  return render(request,'informacion.html',locals())
 
 def principal(request):
     centrales=Centrales.objects.all()
-    return render(request,'principal.html',locals())  
+    return render(request,'principal.html',locals())
 
 def listado_de_transformadores(request,central_x):
     lista_transformadores=Transformadores.objects.all()
     return render(request,'lista_de_transformadores.html',locals())
 
-def listado_de_mediciones(request,transformador_x):
+def listado_de_mediciones(request,central_x,transformador_x):
     lista_mediciones=Mediciones.objects.all()
     return render(request,'lista_de_mediciones.html',locals())
+
+def analisis(request,central_x,transformador_x,id_datos_de_analisis):
+    gases_analisis=Mediciones.objects.filter(id=id_datos_de_analisis)
+
+    return render(request,'analisis.html',locals())
