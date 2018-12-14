@@ -64,10 +64,9 @@ class Transformadores(models.Model):
 
 #from django.contrib.postgres.fields import ArrayField
 class Mediciones(models.Model):
-         central=models.ForeignKey('Centrales') 
-	     transformador=models.ForeignKey('Transformadores')
-
-	     codigo_usuario=models.CharField(max_length=60,blank=True)
+         central=models.ForeignKey('Centrales')
+         transformador=models.ForeignKey('Transformadores')
+         codigo_usuario=models.CharField(max_length=60,blank=True)
 
 	     Hidrogeno=models.FloatField(default=0,blank=True,null=True)
 	     Oxigeno=models.FloatField(default=0,blank=True,null=True)
