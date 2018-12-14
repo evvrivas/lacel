@@ -167,13 +167,13 @@ from io import *
 def grafico (request):
     pos = arange(10)+ 2 
 
-    barh(pos,(1,2,3,4,5,6,7,8,9,10,11,12,13),align = 'center')
+    barh(pos,(23,2,11,4,9,6,7,41,9,15,11,6),align = 'center')
 
-    yticks(pos,('#hcsm','#ukmedlibs','#ImmunoChat','#HCLDR','#ICTD2015','#hpmglobal','#BRCA','#BCSM','#BTSM','#OTalk'))
+    yticks(pos,('H2','O2','N2','CH4','CO','C2H6','CO2','C2H4','C2H2','PROPI','PROPA','BUTA'))
     #yticks=[Hidrogeno,Oxigeno,Nitrogeno,Metano,Monoxido_de_carbono,Etano,Dioxido_de_carbono,Etileno,Acetileno,Propileno,Propano,Butano]
     
-    xlabel('Tipo de aceitr')
-    ylabel('Concentracion')
+    xlabel('Tipo de GASES')
+    ylabel('CONCENTRACIONES')
     title('GASES DISUELTOS EN ACEITE')
     subplots_adjust(left=0.21)
 
@@ -303,6 +303,8 @@ def listado_de_mediciones(request,central_x,transformador_x):
 
 def analisis(request,central_x,transformador_x,id_datos_de_analisis):
     centrales=Centrales.objects.all()
+
+
     lista_mediciones=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=transformador_x))
     
     gases_analisis=Mediciones.objects.get(id=id_datos_de_analisis)

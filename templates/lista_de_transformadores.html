@@ -22,6 +22,35 @@
                   <div class="caption">
                     <h4><center>Codigo de transformador !!</center></h4>
                            <br>
+
+                     <center>
+                         <table BORDER="0" CELLSPACING="1">
+                            
+                             <tr  align="center">
+                                    <td WIDTH="60">CENTRAL</td>                                    
+                                    <td WIDTH="60">Tx MARCA</td>                                    
+                                    <td WIDTH="60">Tx MODELO</td>
+                                    <td WIDTH="60">{{i.CODIGO}}</td>
+                                    <td WIDTH="60"> </td>
+                            
+
+
+                            {%  for i in lista_transformadores %}   
+                                
+
+                                    <td WIDTH="60">{{central_x}}</td>                                    
+                                    <td WIDTH="60">{{i.marca}}</td>                                    
+                                    <td WIDTH="60">{{i.modelo}}</td>
+                                    <td WIDTH="60">{{i.coodigo}}</td>
+                                    <td WIDTH="60"><li><a href="/listado_de_mediciones/{{i.central.nombre}}/{{i.codigo}}">   ver mediciones de gases   </a></li></td>
+                                
+                            {%  endfor %} 
+                          </tr >
+
+                        </table>
+                        </center>
+
+                       
                         {%  for i in lista_transformadores %}
                             <li><a href="/listado_de_mediciones/{{i.central.nombre}}/{{i.codigo}}"> {{central_x}}  {{i.codigo}}  {{i.marca}} {{i.modelo}}</a></li>
                             <br>

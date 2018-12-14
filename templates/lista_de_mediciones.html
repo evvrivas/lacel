@@ -20,11 +20,58 @@
                   <div class="caption">
                     <h4><center>Concentraciones de gases </center></h4>
 
-                        <br>
-                        {%  for i in lista_mediciones %}
-                            <li><a href="/analisis/{{i.central.nombre}}/{{i.transformador.codigo}}/{{i.id}}"> {{i}}  analisis</a></li>
-                            <br>
-                         {%  endfor %} 
+                        <center>
+                         <table BORDER="0" CELLSPACING="1">
+                            
+                             <tr  align="center">
+                                    <td WIDTH="60">Fecha</td>
+                                    <td WIDTH="60">CENTRAL</td>                                    
+                                    <td WIDTH="60">Codigo Tx</td>                                    
+                                    <td WIDTH="60"> </td>
+                                    <td WIDTH="60">Hidrogeno H</td>                                    
+                                    <td WIDTH="60">Oxigeno O</td>                                    
+                                    <td WIDTH="60">Nitrogeno N</td>
+                                    <td WIDTH="60">Metano</td>                                    
+                                    <td WIDTH="60">Monoxido_de_carbono</td>                                   
+                                    <td WIDTH="60">Etano </td>
+                                    <td WIDTH="60">Dioxido_de_carbono</td>                                    
+                                    <td WIDTH="60">Etileno</td>                                    
+                                    <td WIDTH="60">Acetileno </td>
+                                    <td WIDTH="60">Propileno</td>                                    
+                                    <td WIDTH="60">Propano</td>                                    
+                                    <td WIDTH="60">Butano </td>                            
+
+
+                            {%  for i in lista_mediciones %} 
+                                    
+
+                                    <td WIDTH="60">i.fecha_ingreso</td>
+                                    <td WIDTH="60">i.central.nombre</td>                                    
+                                    <td WIDTH="60">i.transformador.codigo</td>
+
+                                    <td WIDTH="60"> </td>
+                                    <td WIDTH="60">i.Hidrogeno</td>                                    
+                                    <td WIDTH="60">i.Oxigeno</td>                                    
+                                    <td WIDTH="60">i.Nitrogeno</td>
+                                    <td WIDTH="60">i.Metano</td>                                    
+                                    <td WIDTH="60">i.Monoxido_de_carbono</td>                                   
+                                    <td WIDTH="60">i.Etano </td>
+                                    <td WIDTH="60">i.Dioxido_de_carbono</td>                                    
+                                    <td WIDTH="60">i.Etileno</td>                                    
+                                    <td WIDTH="60">i.Acetileno </td>
+                                    <td WIDTH="60">i.Propileno</td>                                    
+                                    <td WIDTH="60">i.Propano</td>                                    
+                                    <td WIDTH="60">i.Butano </td>    
+                                    
+                                    <td WIDTH="60"><li><a href="/analisis/{{i.central.nombre}}/{{i.transformador.codigo}}/{{i.id}}"> Analizar</a></li></td>
+                                
+                            {%  endfor %} 
+                          </tr >
+
+                        </table>
+                        </center>
+
+                      
                         
                    </div>                  
               
