@@ -6,7 +6,7 @@
 
 <div class="panel panel-info">
       <div class="panel-heading">
-        <h2 class="panel-title"><center> Lista de Transformadores</center></h2>
+        <h2 class="panel-title"><center>  {{central_x}} Lista de Transformadores</center></h2>
       </div>
 
 
@@ -18,12 +18,16 @@
                 <div class="thumbnail">                                    
                   <div class="caption">
                     <h4><center>Codigo de transformador !!</center></h4>
-
-                        <br>
-                        {%  for i in lista_tranformadores %}
-                            <li><a href=""> {{i.codigo}}  {{marca.codigo}}  {{modelo.codigo}}  ver datos</a></li>
+                        {{lista_transformadores}}
+                    <h4><center>Codigo de transformador !!</center></h4>    <br>
+                        {%  for i in lista_transformadores %}
+                            <li><a href=""> {{i}}  {{marca.codigo}}  {{modelo.codigo}}  ver datos</a></li>
                             <br>
-                         {%  endfor %} 
+                        {%  endfor %} 
+
+                        {%  for i in centrales %}
+                          <li><a href="/listado_de_transformadores/{{i.nombre}}" target="_blank">{{i.nombre}}</a></li>
+                        {%  endfor %}
                         
                    </div>                  
               

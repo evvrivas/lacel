@@ -108,7 +108,7 @@ def ingresar_datos_trafo(request):
         else:            
                          
                          form=MedicionesForm()
-                         
+
         connection.close()                  
         return render(request,'ingreso_de_datos.html',locals()) 
 
@@ -155,9 +155,6 @@ def total_gases_combustibles(request):
     #return estado_trafo,NOMBRE_GAS_PRUEBA,ESTADO_DE_GASES
     return render(request,'analisis.html',locals())
 
-
-
-
 from django.shortcuts import render
 from matplotlib import pylab
 from pylab import *
@@ -198,7 +195,7 @@ def gas_clave(request):
         #GASES      =[12         ,34       ,22     ,34          ,44     ,55        ,66       ,88        ,65       ,45       ,1        ,22  ]
         
         #NOMBRE_GAS_PRUEBA=["Hidrogeno H2"  ,"Metano CH4"    ,"MONOXIDO DE CARBONO CO" ,  "Etano C2H6"  ,   "Etileno C2H4",    "Acecetileno C2H2"]
-        #GASES_DE_PRUEBA=  [GASES[0],         GASES[3],        GASES[4],                   GASES[5],         GASES[7],          GASES[8]         ]  
+        #GASES_DE_PRUEBA=  [GASES[0],         GASES[3],        GASES[4],                   GASES[5],         GASES[7],          GASES[8]         ]
         #SUMTDGC        =  GASES[0]+          GASES[3]+        GASES[4]+                   GASES[5]+         GASES[7]+          GASES[8]
         #SUMTDG=0
         #for i in GASES[0]:
@@ -291,7 +288,7 @@ def principal(request):
     return render(request,'principal.html',locals())  
 
 def listado_de_transformadores(request,central_x):
-    lista_tranformadores=Transformadores.objects.all()
+    lista_transformadores=Transformadores.objects.all()
     return render(request,'lista_de_transformadores.html',locals())
 
 def listado_de_mediciones(request,transformador_x):
