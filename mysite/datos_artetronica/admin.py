@@ -28,4 +28,4 @@ class RulesAdmin(admin.ModelAdmin):
     form = MedicionesForm
 
   
- ########################################  
+ ##########################
