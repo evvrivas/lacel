@@ -303,7 +303,6 @@ def listado_de_mediciones(request,central_x,transformador_x):
 
 def analisis(request,central_x,transformador_x,id_datos_de_analisis):
     centrales=Centrales.objects.all()
-   
     lista_mediciones=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=central_x))
     
     gases_analisis=Mediciones.objects.get(id=id_datos_de_analisis)
