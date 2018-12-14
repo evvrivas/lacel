@@ -42,7 +42,7 @@ class Usuarios(models.Model):
 	     def __str__(self):
 		    		return  self.codigo
 	     class Admin:
-		    		list_display = ('codigo')
+		    		list_display = ('codigo',' privilegio')
 
 
 
@@ -64,8 +64,8 @@ class Transformadores(models.Model):
 
 #from django.contrib.postgres.fields import ArrayField
 class Mediciones(models.Model):
-
-	     equipo=models.ForeignKey('Transformadores')  	
+         central=models.ForeignKey('Centrales') 
+	     transformador=models.ForeignKey('Transformadores')  	
 	     
 	     codigo_usuario=models.CharField(max_length=60,blank=True)
 
@@ -86,4 +86,4 @@ class Mediciones(models.Model):
 	     def __str__(self):
 		    		return  self.codigo_usuario
 	     class Admin:
-		    		list_display = ('equipo', 'fecha')
+		    		list_display = ('fecha','codigo_usuario','central','transformador')

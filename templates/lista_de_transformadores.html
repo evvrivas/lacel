@@ -3,12 +3,13 @@
 {% load thumbnail %}
 
 
-{% block content %}
-      
+{% block content %}}}
+
 
 <div class="panel panel-info">
       <div class="panel-heading">
         <h2 class="panel-title"><center>  {{central_x}} Lista de Transformadores</center></h2>
+        <h2 class="panel-title"><center> xxxxxxxx {{lista_transformadores}}  xxxxxx</center></h2>     
       </div>
 
 
@@ -22,7 +23,7 @@
                     <h4><center>Codigo de transformador !!</center></h4>
                            <br>
                         {%  for i in lista_transformadores %}
-                            <li><a href="/listado_de_mediciones/{{central_x}}/{{transformador_x}}"> {{central_x}}  {{transformador_x}} ver datos</a></li>
+                            <li><a href="/listado_de_mediciones/{{i.central.nombrer}}/{{i.transformador.codigo}}"> {{central_x}}  {{i.codigo}}  {{i.marca}} {{i.modelo}} </a></li>
                             <br>
                         {%  endfor %} 
 

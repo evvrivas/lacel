@@ -57,8 +57,9 @@ def logout(request):
     return HttpResponseRedirect("/")
 
 
-def informacion(request): 
-  return render(request,'informacion.html',locals())   
+def informacion(request):
+  centrales=Centrales.objects.all()
+  return render(request,'informacion.html',locals())
 
 
 
@@ -81,10 +82,10 @@ def informacion(request):
         
     
     
-def ingresar_datos_trafo(request): 
+def ingresar_datos_trafo(request):
         #!/usr/bin/python
         # -*- coding: latin-1 -*-        
-        import os, sys       
+        import os, sys
         if request.method == 'POST': # si el usuario est enviando el formulario con datos
                              
                     form = MedicionesForm(request.POST,request.FILES)                      
@@ -289,14 +290,22 @@ def principal(request):
     return render(request,'principal.html',locals())
 
 def listado_de_transformadores(request,central_x):
-    lista_transformadores=Transformadores.objects.all()
+    centrales=Centrales.objects.all()
+       
+    lista_transformadores=Transformadores.objects.filter(central__nombre__icontains=central_x)
     return render(request,'lista_de_transformadores.html',locals())
 
 def listado_de_mediciones(request,central_x,transformador_x):
-    lista_mediciones=Mediciones.objects.all()
+    centrales=Centrales.objects.all()
+                                        
+    lista_mediciones=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=central_x))
     return render(request,'lista_de_mediciones.html',locals())
 
 def analisis(request,central_x,transformador_x,id_datos_de_analisis):
-    gases_analisis=Mediciones.objects.filter(id=id_datos_de_analisis)
+    centrales=Centrales.objects.all()
+   
+    lista_mediciones=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=central_x))
+    
+    gases_analisis=Mediciones.objects.get(id=id_datos_de_analisis)
 
     return render(request,'analisis.html',locals())

@@ -7,6 +7,7 @@
 <div class="panel panel-info">
       <div class="panel-heading">
         <h2 class="panel-title"><center> MEDICIONES DE CONCENTRACIONES DE GAS</center></h2>
+         <h2 class="panel-title"><center> xxxxxxxx {{lista_mediciones}}  xxxxxx</center></h2>   
       </div>
 
 
@@ -21,7 +22,7 @@
 
                         <br>
                         {%  for i in lista_mediciones %}
-                            <li><a href=""> {{i}}  analisis, tendencias</a></li>
+                            <li><a href="/analisis/{{i.central.nombre}}/{{i.transformador.codigo}}/{{i.id}}"> {{i}}  analisis</a></li>
                             <br>
                          {%  endfor %} 
                         
