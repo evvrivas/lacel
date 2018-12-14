@@ -172,7 +172,7 @@ def grafico (request):
     yticks(pos,('H2','O2','N2','CH4','CO','C2H6','CO2','C2H4','C2H2','PROPI','PROPA','BUTA'))
     #yticks=[Hidrogeno,Oxigeno,Nitrogeno,Metano,Monoxido_de_carbono,Etano,Dioxido_de_carbono,Etileno,Acetileno,Propileno,Propano,Butano]
     
-    xlabel('Tipo de GASES')
+    xlabel('GASES')
     ylabel('CONCENTRACIONES')
     title('GASES DISUELTOS EN ACEITE')
     subplots_adjust(left=0.21)
