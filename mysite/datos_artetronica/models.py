@@ -56,7 +56,7 @@ class Transformadores(models.Model):
 	     fecha_ingreso = models.DateField(default=datetime.now,editable = False)	     
 
 	     def __str__(self):
-		    		return  self.central,self.codigo,self.marca,self.modelo
+		    		return  self.codigo
 	     class Admin:
 		    		list_display = ('codigo', 'marca', 'modelo','caracteristicas')
 
@@ -84,6 +84,6 @@ class Mediciones(models.Model):
 	     
 	     fecha_ingreso = models.DateField(default=datetime.now,editable = False) 	     
 	     def __str__(self):
-		    		return  self.codigo_usuario,self.equipo
+		    		return  self.codigo_usuario
 	     class Admin:
 		    		list_display = ('equipo', 'fecha')
