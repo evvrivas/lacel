@@ -165,7 +165,7 @@ import io
 from io import *
 
 def grafico (request):
-    pos = arange(10)+ 2 
+    pos = arange(12)+ 2 
 
     barh(pos,(23,2,11,4,9,6,7,41,9,15,11,6),align = 'center')
 
