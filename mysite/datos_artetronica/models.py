@@ -67,22 +67,20 @@ class Mediciones(models.Model):
          central=models.ForeignKey('Centrales')
          transformador=models.ForeignKey('Transformadores')
          codigo_usuario=models.CharField(max_length=60,blank=True)
-
-	     Hidrogeno=models.FloatField(default=0,blank=True,null=True)
-	     Oxigeno=models.FloatField(default=0,blank=True,null=True)
-	     Nitrogeno=models.FloatField(default=0,blank=True,null=True)
-	     Metano=models.FloatField(default=0,blank=True,null=True)
-	     Monoxido_de_carbono=models.FloatField(default=0,blank=True,null=True)
-	     Etano=models.FloatField(default=0,blank=True,null=True)
-	     Dioxido_de_carbono=models.FloatField(default=0,blank=True,null=True)
-	     Etileno=models.FloatField(default=0,blank=True,null=True)
-	     Acetileno=models.FloatField(default=0,blank=True,null=True)
-	     Propileno=models.FloatField(default=0,blank=True,null=True)
-	     Propano=models.FloatField(default=0,blank=True,null=True)
-	     Butano=models.FloatField(default=0,blank=True,null=True)
-	     
-	     fecha_ingreso = models.DateField(default=datetime.now,editable = False)
-	     def __str__(self):
-		    		return  self.codigo_usuario
-	     class Admin:
-		    		list_display = ('fecha','codigo_usuario','central','transformador')
+         Hidrogeno=models.FloatField(default=0,blank=True,null=True)
+         Oxigeno=models.FloatField(default=0,blank=True,null=True)
+         Nitrogeno=models.FloatField(default=0,blank=True,null=True)
+         Metano=models.FloatField(default=0,blank=True,null=True)
+         Monoxido_de_carbono=models.FloatField(default=0,blank=True,null=True)
+         Etano=models.FloatField(default=0,blank=True,null=True)
+         Dioxido_de_carbono=models.FloatField(default=0,blank=True,null=True)
+         Etileno=models.FloatField(default=0,blank=True,null=True)
+         Acetileno=models.FloatField(default=0,blank=True,null=True)
+         Propileno=models.FloatField(default=0,blank=True,null=True)
+         Propano=models.FloatField(default=0,blank=True,null=True)
+         Butano=models.FloatField(default=0,blank=True,null=True)
+         fecha_ingreso = models.DateField(default=datetime.now,editable = False)
+         def __str__(self):
+         	return  self.codigo_usuario
+         class Admin:
+         	list_display = ('fecha','codigo_usuario','central','transformador')
