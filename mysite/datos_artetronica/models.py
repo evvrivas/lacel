@@ -17,8 +17,8 @@ from sorl.thumbnail import ImageField
 
 class Centrales(models.Model):
 	     
-	     nombre=models.CharField(max_length=60,blank=True)	         
-	     fecha_ingreso = models.DateField(default=datetime.now,editable = False)	     
+	     nombre=models.CharField(max_length=60,blank=True)
+	     fecha_ingreso = models.DateField(default=datetime.now,editable = False)
 
 	     def __str__(self):
 		    		return  self.nombre
@@ -37,8 +37,8 @@ class Usuarios(models.Model):
 	     pasword=models.CharField(max_length=4)
 	     email = models.EmailField(blank=True)
 	     privilegio=models.CharField(max_length=30,choices=PRIVILEGIOS,default="'DE_BAJA")
-	     fecha_ingreso = models.DateField(default=datetime.now,editable = False)	    
-	     
+	     fecha_ingreso = models.DateField(default=datetime.now,editable = False)
+
 	     def __str__(self):
 		    		return  self.codigo
 	     class Admin:
@@ -52,8 +52,8 @@ class Transformadores(models.Model):
 	     codigo=models.CharField(max_length=60,blank=True)
 	     marca=models.CharField(max_length=60,blank=True)
 	     modelo=models.CharField(max_length=60,blank=True)
-	     cararcteristicas=models.TextField(blank=True)  	      
-	     fecha_ingreso = models.DateField(default=datetime.now,editable = False)	     
+	     cararcteristicas=models.TextField(blank=True)
+	     fecha_ingreso = models.DateField(default=datetime.now,editable = False)
 
 	     def __str__(self):
 		    		return  self.codigo
@@ -65,8 +65,8 @@ class Transformadores(models.Model):
 #from django.contrib.postgres.fields import ArrayField
 class Mediciones(models.Model):
          central=models.ForeignKey('Centrales') 
-	     transformador=models.ForeignKey('Transformadores')  	
-	     
+	     transformador=models.ForeignKey('Transformadores')
+
 	     codigo_usuario=models.CharField(max_length=60,blank=True)
 
 	     Hidrogeno=models.FloatField(default=0,blank=True,null=True)
@@ -82,7 +82,7 @@ class Mediciones(models.Model):
 	     Propano=models.FloatField(default=0,blank=True,null=True)
 	     Butano=models.FloatField(default=0,blank=True,null=True)
 	     
-	     fecha_ingreso = models.DateField(default=datetime.now,editable = False) 	     
+	     fecha_ingreso = models.DateField(default=datetime.now,editable = False)
 	     def __str__(self):
 		    		return  self.codigo_usuario
 	     class Admin:
