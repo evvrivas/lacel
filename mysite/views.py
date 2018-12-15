@@ -162,7 +162,7 @@ from io import *
 
 def datos_prueba(request):
 
-    date=datetime.now()
+    date=datetime.datetime.now()
 
     p1=Centrales(nombre="5 NOVIEMBRE",fecha_ingreso=date)   
     p1.save() 
