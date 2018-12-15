@@ -21,37 +21,30 @@
 		                    <br>
 		                    <p>Una herramienta de de diagnostico, para evaluar y detectar fallas incipientes en transformadores.</p>
                         <br>
-                        
-           		                                          
+                                  		                                          
                    
 
                     <center>
-                         <table BORDER="0" CELLSPACING="1">
+                         <table BORDER="1" CELLSPACING="1">
                             
-                             <tr  align="center">
-                                    <td WIDTH="60">CENTRAL</td>                                    
-                                    <td WIDTH="60">FECHA DE INICIO</td>                                    
-                                    <td WIDTH="60"> </td>
+                             <tr  align="center">                                    
+                                    <td WIDTH="80">FECHA DE INICIO</td>
+                                    <td WIDTH="80">CENTRAL</td>                 
+                                    <td WIDTH="80">VER</td> 
                               </tr >
 
 
                             {%  for i in centrales %}   
-                              <tr  align="center">                         
-                                    <td WIDTH="60">{{i.nombre}}</td>
-                                    <td WIDTH="60">{{i.fecha_ingreso}}</td>
-                                    <td WIDTH="60"><li><a href="/listado_de_transformadores/{{i.nombre}}" target="_blank">VER TRANSFORMADORES   </a></li></td>
+                              <tr  align="center">
+                                    <td WIDTH="80">{{i.fecha_ingreso}}</td>  
+                                    <td WIDTH="80">{{i.nombre}}</td>         
+                                    <td WIDTH="80"><li><a href="/listado_de_transformadores/{{i.nombre}}" target="_blank">VER TRANSFORMADORES   </a></li></td>
                               </tr >  
                             {%  endfor %} 
                           
 
                         </table>
                         </center>
-
-
-
-
-
-
 
 
                         </div>  

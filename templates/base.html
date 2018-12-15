@@ -83,6 +83,7 @@
             data-toggle="dropdown">Inicio <span class="caret"></span></button>
                                
             <ul class="dropdown-menu" role="menu">
+                <li><a href="/">Ir aL inicio </a></li>
                 <li><a href="">Informacion Basica </a></li>
                                         
                {%  if user.is_authenticated %}          
@@ -96,6 +97,8 @@
                {% endif %}
                  <br>
                    <li><a href="/admin">Administrar</a></li>
+                   <br>
+                   <li><a href="/datos_prueba">Datos prueba</a></li>
                    <br>
             </ul>
         </div>
@@ -135,6 +138,8 @@
 
 
          {% endblock %}
+          <br>
+         <center> <li><a href="/">Ir aL inicio </a></li></center>
         </div>
   </div>      
  </div>

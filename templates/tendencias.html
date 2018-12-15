@@ -5,10 +5,7 @@
 
 {% block content %}
       
- {{estado_trafo}}
- {{NOMBRE_GAS_PRUEBA}}
- {{ESTADO_DE_GASES}}
-
+ 
 <div class="panel panel-info">
       <div class="panel-heading">
             <h2 class="panel-title"><center>TENDENCIA DE LOS GASES DISUELTOS </center></h2>
@@ -22,13 +19,21 @@
              	<div class="col-md-3">
             	</div>
 
-
             	 <div class="col-md-6">
                		 <div class="thumbnail">                                    
 		                    <div class="caption">
-		                    <h4><center>GASES PRESENTES EN ESTA MUESTRA</center></h4> 
-                        <center><img src="/grafico"></center>
-		                    <img src="/grafico">    
+		                    <h4><center>TENDENCIAS</center></h4> 
+                        <center><img src="/tendencias/{{H2}}"></center>
+                        <center><img src="/tendencias/{{N}}"></center>
+                        <center><img src="/tendencias/{{CH4}}"></center>
+                        <center><img src="/tendencias/{{CO}}"></center>
+                        <center><img src="/tendencias/{{C2H6}}"></center>
+                        <center><img src="/tendencias/{{C2H4}}"></center>
+                        <center><img src="/tendencias/{{C2H2}}"></center>
+                        <center><img src="/tendencias/{{C3H6}}"></center>
+                        <center><img src="/tendencias/{{C3H8}}"></center>
+                        <center><img src="/tendencias/{{C4H10}}"></center>
+                            
 		                    </div>  
 
 

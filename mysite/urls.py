@@ -36,14 +36,22 @@ urlpatterns = [
 
     
     url(r'^$', principal),
-    url(r'^grafico/$', grafico),
+    url(r'^grafico/([^/]+)$', grafico),
+    url(r'^tendencias/([^/]+)$', tendencias),
+
+
+
     url(r'^total_gases_combustibles/$', total_gases_combustibles),
     url(r'^limite_concentracion/$', limite_concentracion),
     url(r'^gas_clave/$', gas_clave),
 
+    url(r'^informacion/$', informacion),
+
     url(r'^listado_de_transformadores/([^/]+)/$', listado_de_transformadores),
     url(r'^listado_de_mediciones/([^/]+)/([^/]+)/$', listado_de_mediciones),
     url(r'^analisis/([^/]+)/([^/]+)/(\d+)/$', analisis),
+
+    url(r'^datos_prueba/$', datos_prueba),
     
         
        

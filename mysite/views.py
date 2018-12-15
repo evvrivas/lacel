@@ -61,10 +61,6 @@ def informacion(request):
   centrales=Centrales.objects.all()
   return render(request,'informacion.html',locals())
 
-
-
-
-
 #from random import *
 #def datos_aleatorios():
 
@@ -164,10 +160,112 @@ import PIL.Image
 import io
 from io import *
 
-def grafico (request):
-    pos = arange(12)+ 2 
+def datos_prueba(request):
 
-    barh(pos,(23,2,11,4,9,6,7,41,9,15,11,6),align = 'center')
+    p1=Centrales(nombre="5 NOVIEMBRE",fecha_ingreso=datetime.now)   
+    p1.save() 
+
+
+    p21=Transformadores(central=p1,codigo="0001",marca="abbax",modelo="2121a",cararcteristicas="230v ac",fecha_ingreso=datetime.now)
+    p21.save()
+
+    p22=Transformadores(central=p1,codigo="0002",marca="xxxxx",modelo="xxxxx2",cararcteristicas="230v ac",fecha_ingreso=datetime.now)
+    p22.save()
+
+    p23=Transformadores(central=p1,codigo="0003",marca="yyyyy",modelo="xxxxx3",cararcteristicas="230v ac",fecha_ingreso=datetime.now)
+    p23.save()
+ 
+ 
+
+    p31=Mediciones(central=p1,transformador=p21,codigo_usuario="7807004",Hidrogeno=1,Oxigeno=2,Nitrogeno=6,Metano=1,Monoxido_de_carbono=63,Etano=2,Dioxido_de_carbono=17,Etileno=7,Acetileno=8,Propileno=9,Propano=0,Butano=61,fecha_ingreso=datetime.now)
+    p31.save()
+
+    p32=Mediciones(central=p1,transformador=p21,codigo_usuario="7807004",Hidrogeno=5,Oxigeno=8,Nitrogeno=3,Metano=2,Monoxido_de_carbono=44,Etano=6,Dioxido_de_carbono=7,Etileno=7,Acetileno=45,Propileno=3,Propano=30,Butano=1,fecha_ingreso=datetime.now)
+    p32.save()
+
+    p33=Mediciones(central=p1,transformador=p22,codigo_usuario="7807004",Hidrogeno=6,Oxigeno=6,Nitrogeno=87,Metano=14,Monoxido_de_carbono=4,Etano=112,Dioxido_de_carbono=47,Etileno=37,Acetileno=84,Propileno=9,Propano=0,Butano=21,fecha_ingreso=datetime.now)
+    p33.save()
+
+    p34=Mediciones(central=p1,transformador=p23,codigo_usuario="7807004",Hidrogeno=7,Oxigeno=3,Nitrogeno=33,Metano=34,Monoxido_de_carbono=53,Etano=6,Dioxido_de_carbono=73,Etileno=65,Acetileno=5,Propileno=90,Propano=04,Butano=12,fecha_ingreso=datetime.now)
+    p34.save()
+
+    p35=Mediciones(central=p1,transformador=p23,codigo_usuario="7807004",Hidrogeno=6,Oxigeno=12,Nitrogeno=23,Metano=42,Monoxido_de_carbono=25,Etano=6,Dioxido_de_carbono=27,Etileno=7,Acetileno=7,Propileno=19,Propano=60,Butano=1,fecha_ingreso=datetime.now)
+    p35.save()
+
+    p36=Mediciones(central=p1,transformador=p23,codigo_usuario="7807004",Hidrogeno=10,Oxigeno=21,Nitrogeno=31,Metano=4,Monoxido_de_carbono=5,Etano=6,Dioxido_de_carbono=74,Etileno=44,Acetileno=8,Propileno=9,Propano=0,Butano=1,fecha_ingreso=datetime.now)
+    p36.save()
+
+    p1=Centrales(nombre="GUAJOYO",fecha_ingreso=datetime.now)   
+    p1.save() 
+
+
+    p21=Transformadores(central=p1,codigo="000a",marca="abbax",modelo="2121a",cararcteristicas="230v ac",fecha_ingreso=datetime.now)
+    p21.save()
+
+    p22=Transformadores(central=p1,codigo="000b",marca="xxxxx",modelo="xxxxx2",cararcteristicas="230v ac",fecha_ingreso=datetime.now)
+    p22.save()
+
+    p23=Transformadores(central=p1,codigo="000c",marca="yyyyy",modelo="xxxxx3",cararcteristicas="230v ac",fecha_ingreso=datetime.now)
+    p23.save()
+ 
+ 
+
+    p31=Mediciones(central=p1,transformador=p21,codigo_usuario="7807002",Hidrogeno=1,Oxigeno=2,Nitrogeno=6,Metano=1,Monoxido_de_carbono=63,Etano=2,Dioxido_de_carbono=17,Etileno=7,Acetileno=8,Propileno=9,Propano=0,Butano=61,fecha_ingreso=datetime.now)
+    p31.save()
+
+    p32=Mediciones(central=p1,transformador=p21,codigo_usuario="7807002",Hidrogeno=5,Oxigeno=8,Nitrogeno=3,Metano=2,Monoxido_de_carbono=44,Etano=6,Dioxido_de_carbono=7,Etileno=7,Acetileno=45,Propileno=3,Propano=30,Butano=1,fecha_ingreso=datetime.now)
+    p32.save()
+
+    p33=Mediciones(central=p1,transformador=p22,codigo_usuario="7807002",Hidrogeno=6,Oxigeno=6,Nitrogeno=87,Metano=14,Monoxido_de_carbono=4,Etano=112,Dioxido_de_carbono=47,Etileno=37,Acetileno=84,Propileno=9,Propano=0,Butano=21,fecha_ingreso=datetime.now)
+    p33.save()
+
+    p34=Mediciones(central=p1,transformador=p23,codigo_usuario="7807002",Hidrogeno=7,Oxigeno=3,Nitrogeno=33,Metano=34,Monoxido_de_carbono=53,Etano=6,Dioxido_de_carbono=73,Etileno=65,Acetileno=5,Propileno=90,Propano=04,Butano=12,fecha_ingreso=datetime.now)
+    p34.save()
+
+    p35=Mediciones(central=p1,transformador=p23,codigo_usuario="7807002",Hidrogeno=6,Oxigeno=12,Nitrogeno=23,Metano=42,Monoxido_de_carbono=25,Etano=6,Dioxido_de_carbono=27,Etileno=7,Acetileno=7,Propileno=19,Propano=60,Butano=1,fecha_ingreso=datetime.now)
+    p35.save()
+
+    p36=Mediciones(central=p1,transformador=p23,codigo_usuario="7807002",Hidrogeno=10,Oxigeno=21,Nitrogeno=31,Metano=4,Monoxido_de_carbono=5,Etano=6,Dioxido_de_carbono=74,Etileno=44,Acetileno=8,Propileno=9,Propano=0,Butano=1,fecha_ingreso=datetime.now)
+    p36.save()
+
+    return render(request,'principal.html',locals())
+
+   
+
+
+def tendencias(request,datos):
+
+    d=len(datos)
+    pos = arange(d)+ 2 
+    barh(pos,datos,align = 'center')
+
+    yticks(pos,datos)
+    #yticks=[Hidrogeno,Oxigeno,Nitrogeno,Metano,Monoxido_de_carbono,Etano,Dioxido_de_carbono,Etileno,Acetileno,Propileno,Propano,Butano]
+    
+    xlabel('GASES')
+    ylabel('CONCENTRACIONES')
+    title('TENDENCIA DE GAS DISUELTO EN EL ACEITE')
+    subplots_adjust(left=0.21)
+
+    buffer = io.BytesIO()
+    canvas = pylab.get_current_fig_manager().canvas
+    canvas.draw()
+    graphIMG = PIL.Image.fromstring('RGB', canvas.get_width_height(), canvas.tostring_rgb())
+    graphIMG.save(buffer, "PNG")
+    pylab.close()
+
+    return HttpResponse (buffer.getvalue(), content_type="Image/png")
+
+
+
+
+def grafico (request,concentraciones):
+
+    d=len(concentraciones)
+
+    pos = arange(d)+ 2 
+
+    barh(pos,concentraciones,align = 'center')
 
     yticks(pos,('H2','O2','N2','CH4','CO','C2H6','CO2','C2H4','C2H2','PROPI','PROPA','BUTA'))
     #yticks=[Hidrogeno,Oxigeno,Nitrogeno,Metano,Monoxido_de_carbono,Etano,Dioxido_de_carbono,Etileno,Acetileno,Propileno,Propano,Butano]
@@ -271,7 +369,7 @@ def limite_concentracion(request):
     
     ESTADO_DE_GASES=[]
     
-    for i in range(len(GASES_DE_PRUEBA)):
+    for i in r/ange(len(GASES_DE_PRUEBA)):
         if GASES_DE_PRUEBA[i]<=LIMITE_1[i]:
             estado = "NORMAL"
         elif GASES_DE_PRUEBA[i]>LIMITE_2[i][0] and GASES_DE_PRUEBA[i]<LIMITE_2[i][1]:
@@ -302,14 +400,33 @@ def listado_de_mediciones(request,central_x,transformador_x):
     
     return render(request,'lista_de_mediciones.html',locals())
 
+def tendencias(request,central_x,transformador_x,id_datos_de_analisis):
+    centrales=Centrales.objects.all()
+
+    MedicionesF=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=transformador_x))
+
+    H2=MedicionesF.objects.values_list('Hidrogeno', flat=True)
+    O2=MedicionesF.objects.values_list('Oxigeno', flat=True)
+    N=MedicionesF.objects.values_list('Nitrogeno', flat=True)
+    CH4=MedicionesF.objects.values_list('Metano', flat=True)
+    CO=MedicionesF.objects.values_list('Monoxido_de_carbono', flat=True)
+    C2H6=MedicionesF.objects.values_list('Etano', flat=True)
+    CO2=MedicionesF.objects.values_list('Dioxido_de_carbono', flat=True)
+    C2H4=MedicionesF.objects.values_list('Etileno', flat=True)
+    C2H2=MedicionesF.objects.values_list('Acetileno', flat=True)
+    C3H6=MedicionesF.objects.values_list('Propileno', flat=True)
+    C3H8=MedicionesF.objects.values_list('Propano', flat=True)
+    C4H10=MedicionesF.objects.values_list('Butano', flat=True)
+    
+    return render(request,'tendencias.html',locals()) 
+
+
 def analisis(request,central_x,transformador_x,id_datos_de_analisis):
     centrales=Centrales.objects.all()
 
-
     lista_mediciones=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=transformador_x))
-    
     gases_analisis=Mediciones.objects.get(id=id_datos_de_analisis)
-
+    
     return render(request,'analisis.html',locals())
 
 
