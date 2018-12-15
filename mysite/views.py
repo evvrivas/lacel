@@ -297,8 +297,9 @@ def listado_de_transformadores(request,central_x):
 
 def listado_de_mediciones(request,central_x,transformador_x):
     centrales=Centrales.objects.all()
-                                        
+                                       
     lista_mediciones=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=transformador_x))
+    
     return render(request,'lista_de_mediciones.html',locals())
 
 def analisis(request,central_x,transformador_x,id_datos_de_analisis):
@@ -310,3 +311,14 @@ def analisis(request,central_x,transformador_x,id_datos_de_analisis):
     gases_analisis=Mediciones.objects.get(id=id_datos_de_analisis)
 
     return render(request,'analisis.html',locals())
+
+
+##############################ejemplito
+#class Make(models.Model):
+#    name = models.CharField(max_length=200)
+
+#class MakeContent(models.Model):
+#    make = models.ForeignKey(Make, related_name='makecontent')
+#    published = models.BooleanField()
+
+#Make.objects.filter(makecontent__published=True)

@@ -32,20 +32,20 @@
                                     <td WIDTH="60">Tx MODELO</td>
                                     <td WIDTH="60">{{i.CODIGO}}</td>
                                     <td WIDTH="60"> </td>
-                            
+                             </tr > 
 
 
                             {%  for i in lista_transformadores %}   
                                 
-
+                                <tr  align="center">
                                     <td WIDTH="60">{{central_x}}</td>                                    
                                     <td WIDTH="60">{{i.marca}}</td>                                    
                                     <td WIDTH="60">{{i.modelo}}</td>
                                     <td WIDTH="60">{{i.coodigo}}</td>
                                     <td WIDTH="60"><li><a href="/listado_de_mediciones/{{i.central.nombre}}/{{i.codigo}}">   ver mediciones de gases   </a></li></td>
-                                
+                                </tr >
                             {%  endfor %} 
-                          </tr >
+                          
 
                         </table>
                         </center>

@@ -21,7 +21,7 @@
                     <h4><center>Concentraciones de gases </center></h4>
 
                         <center>
-                         <table BORDER="0" CELLSPACING="1">
+                         <table BORDER="1" CELLSPACING="1">
                             
                              <tr  align="center">
                                     <td WIDTH="60">Fecha</td>
@@ -40,11 +40,11 @@
                                     <td WIDTH="60">Propileno</td>                                    
                                     <td WIDTH="60">Propano</td>                                    
                                     <td WIDTH="60">Butano </td>                            
-
+                               </tr >
 
                             {%  for i in lista_mediciones %} 
                                     
-
+                                <tr  align="center">
                                     <td WIDTH="60">i.fecha_ingreso</td>
                                     <td WIDTH="60">i.central.nombre</td>                                    
                                     <td WIDTH="60">i.transformador.codigo</td>
@@ -64,9 +64,10 @@
                                     <td WIDTH="60">i.Butano </td>    
                                     
                                     <td WIDTH="60"><li><a href="/analisis/{{i.central.nombre}}/{{i.transformador.codigo}}/{{i.id}}"> Analizar</a></li></td>
-                                
+                                </tr >
+
                             {%  endfor %} 
-                          </tr >
+                         
 
                         </table>
                         </center>

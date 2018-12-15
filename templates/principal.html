@@ -32,16 +32,17 @@
                                     <td WIDTH="60">CENTRAL</td>                                    
                                     <td WIDTH="60">FECHA DE INICIO</td>                                    
                                     <td WIDTH="60"> </td>
-                            
+                              </tr >
 
 
-                            {%  for i in centrales %}                            
+                            {%  for i in centrales %}   
+                              <tr  align="center">                         
                                     <td WIDTH="60">{{i.nombre}}</td>
                                     <td WIDTH="60">{{i.fecha_ingreso}}</td>
                                     <td WIDTH="60"><li><a href="/listado_de_transformadores/{{i.nombre}}" target="_blank">VER TRANSFORMADORES   </a></li></td>
-                                
+                              </tr >  
                             {%  endfor %} 
-                          </tr >
+                          
 
                         </table>
                         </center>
