@@ -62,9 +62,12 @@
                                     <td WIDTH="60">{{i.Acetileno}} </td>
                                     <td WIDTH="60">{{i.Propileno}}</td>                                    
                                     <td WIDTH="60">{{i.Propano}}</td>                                    
-                                    <td WIDTH="60">{{i.Butano}} </td>    
+                                    <td WIDTH="60">{{i.Butano}} </td>   
+                                    <td WIDTH="60"> ------- </td>   
                                     
                                     <td WIDTH="60"><li><a href="/analisis/{{i.central.nombre}}/{{i.transformador.codigo}}/{{i.id}}"> Analizar</a></li></td>
+
+                                    <td WIDTH="60"><li><a href="/tendencias/{{i.central.nombre}}/{{i.transformador.codigo}}/{{i.id}}"> Tendencias</a></li></td>
                                 </tr >
 
                             {%  endfor %} 

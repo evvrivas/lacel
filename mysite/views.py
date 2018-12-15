@@ -235,7 +235,7 @@ def datos_prueba(request):
    
 
 
-def tendencias(request,datos):
+def grafico_tendencias(request,datos):
 
     d=len(datos)
     pos = arange(d)+ 2 

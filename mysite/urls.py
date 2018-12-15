@@ -37,7 +37,7 @@ urlpatterns = [
     
     url(r'^$', principal),
     url(r'^grafico/([^/]+)$', grafico),
-    url(r'^tendencias/([^/]+)$', tendencias),
+    url(r'^tendencias/([^/]+)/([^/]+)/(\d+)/$', tendencias),
 
 
 
