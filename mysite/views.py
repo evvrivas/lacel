@@ -188,7 +188,7 @@ def datos_prueba(request):
     p33=Mediciones(central=p1,transformador=p22,codigo_usuario="7807004",Hidrogeno=6,Oxigeno=6,Nitrogeno=87,Metano=14,Monoxido_de_carbono=4,Etano=112,Dioxido_de_carbono=47,Etileno=37,Acetileno=84,Propileno=9,Propano=0,Butano=21,fecha_ingreso=date)
     p33.save()
 
-    p34=Mediciones(central=p1,transformador=p23,codigo_usuario="7807004",Hidrogeno=7,Oxigeno=3,Nitrogeno=33,Metano=34,Monoxido_de_carbono=53,Etano=6,Dioxido_de_carbono=73,Etileno=65,Acetileno=5,Propileno=90,Propano=04,Butano=12,fecha_ingreso=date)
+    p34=Mediciones(central=p1,transformador=p23,codigo_usuario="7807004",Hidrogeno=7,Oxigeno=3,Nitrogeno=33,Metano=34,Monoxido_de_carbono=53,Etano=6,Dioxido_de_carbono=73,Etileno=65,Acetileno=5,Propileno=90,Propano=4,Butano=12,fecha_ingreso=date)
     p34.save()
 
     p35=Mediciones(central=p1,transformador=p23,codigo_usuario="7807004",Hidrogeno=6,Oxigeno=12,Nitrogeno=23,Metano=42,Monoxido_de_carbono=25,Etano=6,Dioxido_de_carbono=27,Etileno=7,Acetileno=7,Propileno=19,Propano=60,Butano=1,fecha_ingreso=date)
@@ -221,7 +221,7 @@ def datos_prueba(request):
     p33=Mediciones(central=p1,transformador=p22,codigo_usuario="7807002",Hidrogeno=6,Oxigeno=6,Nitrogeno=87,Metano=14,Monoxido_de_carbono=4,Etano=112,Dioxido_de_carbono=47,Etileno=37,Acetileno=84,Propileno=9,Propano=0,Butano=21,fecha_ingreso=date)
     p33.save()
 
-    p34=Mediciones(central=p1,transformador=p23,codigo_usuario="7807002",Hidrogeno=7,Oxigeno=3,Nitrogeno=33,Metano=34,Monoxido_de_carbono=53,Etano=6,Dioxido_de_carbono=73,Etileno=65,Acetileno=5,Propileno=90,Propano=04,Butano=12,fecha_ingreso=date)
+    p34=Mediciones(central=p1,transformador=p23,codigo_usuario="7807002",Hidrogeno=7,Oxigeno=3,Nitrogeno=33,Metano=34,Monoxido_de_carbono=53,Etano=6,Dioxido_de_carbono=73,Etileno=65,Acetileno=5,Propileno=90,Propano=4,Butano=12,fecha_ingreso=date)
     p34.save()
 
     p35=Mediciones(central=p1,transformador=p23,codigo_usuario="7807002",Hidrogeno=6,Oxigeno=12,Nitrogeno=23,Metano=42,Monoxido_de_carbono=25,Etano=6,Dioxido_de_carbono=27,Etileno=7,Acetileno=7,Propileno=19,Propano=60,Butano=1,fecha_ingreso=date)
