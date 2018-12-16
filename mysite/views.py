@@ -225,19 +225,20 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
 
     MedicionesF=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=transformador_x))
     
-    datos=MedicionesF.values_list(gas_analizar, flat=True)               
+    datos=MedicionesF.values_list(gas_analizar, flat=True) 
+    fecha=MedicionesF.values_list("fecha_ingeso", flat=True)               
 
-    d=len(datos)
-    pos = arange(d)+ 2 
+    #d=len(datos)
+    #pos = arange(d)+ 2 
     #barh(pos,datos,align = 'center')
-    plot(pos,datos)
+    plot(fecha,datos)
     #yticks(pos,datos)
     #yticks=[Hidrogeno,Oxigeno,Nitrogeno,Metano,Monoxido_de_carbono,Etano,Dioxido_de_carbono,Etileno,Acetileno,Propileno,Propano,Butano]
     
     xlabel('GASES')
     ylabel('CONCENTRACIONES')
     titulo="TENDENCIA DE "+gas_analizar +"DISUELTO EN EL ACEITE"
-    subplots_adjust(left=0.21)
+    #subplots_adjust(left=0.21)
 
     buffer = io.BytesIO()
     canvas = pylab.get_current_fig_manager().canvas
