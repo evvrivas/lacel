@@ -375,7 +375,7 @@ def tendencias(request,central_x,transformador_x,id_datos_de_analisis):
     C3H8=[]
     C4H10=[]
     
-    for i in medicionesF:
+    for i in MedicionesF:
          H2.append(i[3])
          O2.append(i[4])
          N.append(i[5])
