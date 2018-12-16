@@ -226,7 +226,7 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
     MedicionesF=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=transformador_x))
     
     datos=MedicionesF.values_list(gas_analizar, flat=True) 
-    fecha=MedicionesF.values_list(fecha_ingreso, flat=True)               
+    fecha=MedicionesF.values_list("fecha_ingreso", flat=True)               
 
     #d=len(datos)
     #pos = arange(d)+ 2 
