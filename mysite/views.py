@@ -31,31 +31,21 @@ from django.contrib import auth
 from django.core.files.uploadedfile import SimpleUploadedFile 
 from django.contrib.auth.decorators import login_required
 
-
-
 from mysite.forms import *
 from mysite.datos_artetronica.models import *
-
-
 
 from django.contrib.auth.models import User  
 from django.core.mail import send_mail
 #from templates import *
 from django.db.models import Q
 
-
-
 from django.db import connection
-
 from random import sample
-
-
    
 def logout(request):
     auth.logout(request)
     
     return HttpResponseRedirect("/")
-
 
 def informacion(request):
   centrales=Centrales.objects.all()
@@ -108,11 +98,6 @@ def ingresar_datos_trafo(request):
 
         connection.close()                  
         return render(request,'ingreso_de_datos.html',locals()) 
-
-        
-
-
-
 
           
 def total_gases_combustibles(request):
@@ -259,35 +244,6 @@ def grafico_tendencias(request,datos):
     return HttpResponse (buffer.getvalue(), content_type="Image/png")
 
 
-
-
-def grafico (request,concentraciones):
-
-    d=len(concentraciones)
-
-    pos = arange(d)+ 2 
-
-    barh(pos,concentraciones,align = 'center')
-
-    yticks(pos,('H2','O2','N2','CH4','CO','C2H6','CO2','C2H4','C2H2','PROPI','PROPA','BUTA'))
-    #yticks=[Hidrogeno,Oxigeno,Nitrogeno,Metano,Monoxido_de_carbono,Etano,Dioxido_de_carbono,Etileno,Acetileno,Propileno,Propano,Butano]
-    
-    xlabel('GASES')
-    ylabel('CONCENTRACIONES')
-    title('GASES DISUELTOS EN ACEITE')
-    subplots_adjust(left=0.21)
-
-    buffer = io.BytesIO()
-    canvas = pylab.get_current_fig_manager().canvas
-    canvas.draw()
-    graphIMG = PIL.Image.fromstring('RGB', canvas.get_width_height(), canvas.tostring_rgb())
-    graphIMG.save(buffer, "PNG")
-    pylab.close()
-
-    return HttpResponse (buffer.getvalue(), content_type="Image/png")
-
-
-
 def gas_clave(request):
         pass
         #suma de gases combustibles
@@ -407,30 +363,53 @@ def tendencias(request,central_x,transformador_x,id_datos_de_analisis):
 
     MedicionesF=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=transformador_x))
 
-    H2=MedicionesF.objects.values_list('Hidrogeno', flat=True)
-    O2=MedicionesF.objects.values_list('Oxigeno', flat=True)
-    N=MedicionesF.objects.values_list('Nitrogeno', flat=True)
-    CH4=MedicionesF.objects.values_list('Metano', flat=True)
-    CO=MedicionesF.objects.values_list('Monoxido_de_carbono', flat=True)
-    C2H6=MedicionesF.objects.values_list('Etano', flat=True)
-    CO2=MedicionesF.objects.values_list('Dioxido_de_carbono', flat=True)
-    C2H4=MedicionesF.objects.values_list('Etileno', flat=True)
-    C2H2=MedicionesF.objects.values_list('Acetileno', flat=True)
-    C3H6=MedicionesF.objects.values_list('Propileno', flat=True)
-    C3H8=MedicionesF.objects.values_list('Propano', flat=True)
-    C4H10=MedicionesF.objects.values_list('Butano', flat=True)
+    H2=MedicionesF.objects.all().values_list('Hidrogeno', flat=True)
+    O2=MedicionesF.objects.all().values_list('Oxigeno', flat=True)
+    N=MedicionesF.objects.all().values_list('Nitrogeno', flat=True)
+    CH4=MedicionesF.objects.all().values_list('Metano', flat=True)
+    CO=MedicionesF.objects.all().values_list('Monoxido_de_carbono', flat=True)
+    C2H6=MedicionesF.objects.all().values_list('Etano', flat=True)
+    CO2=MedicionesF.objects.all().values_list('Dioxido_de_carbono', flat=True)
+    C2H4=MedicionesF.objects.all().values_list('Etileno', flat=True)
+    C2H2=MedicionesF.objects.all().values_list('Acetileno', flat=True)
+    C3H6=MedicionesF.objects.all().values_list('Propileno', flat=True)
+    C3H8=MedicionesF.objects.all().values_list('Propano', flat=True)
+    C4H10=MedicionesF.objects.all().values_list('Butano', flat=True)
+    
     
     return render(request,'tendencias.html',locals()) 
 
 
 def analisis(request,central_x,transformador_x,id_datos_de_analisis):
     centrales=Centrales.objects.all()
-
+    
     lista_mediciones=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=transformador_x))
     gases_analisis=Mediciones.objects.get(id=id_datos_de_analisis)
     
     return render(request,'analisis.html',locals())
 
+
+def grafico (request,concentraciones):
+
+    d=len(concentraciones)
+    pos = arange(d)+ 2 
+    barh(pos,concentraciones,align = 'center')
+    yticks(pos,('H2','O2','N2','CH4','CO','C2H6','CO2','C2H4','C2H2','PROPI','PROPA','BUTA'))
+    #yticks=[Hidrogeno,Oxigeno,Nitrogeno,Metano,Monoxido_de_carbono,Etano,Dioxido_de_carbono,Etileno,Acetileno,Propileno,Propano,Butano]
+    
+    xlabel('GASES')
+    ylabel('CONCENTRACIONES')
+    title('GASES DISUELTOS EN ACEITE')
+    subplots_adjust(left=0.21)
+
+    buffer = io.BytesIO()
+    canvas = pylab.get_current_fig_manager().canvas
+    canvas.draw()
+    graphIMG = PIL.Image.fromstring('RGB', canvas.get_width_height(), canvas.tostring_rgb())
+    graphIMG.save(buffer, "PNG")
+    pylab.close()
+
+    return HttpResponse (buffer.getvalue(), content_type="Image/png")
 
 ##############################ejemplito
 #class Make(models.Model):
