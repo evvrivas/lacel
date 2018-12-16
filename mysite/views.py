@@ -362,20 +362,33 @@ def tendencias(request,central_x,transformador_x,id_datos_de_analisis):
     centrales=Centrales.objects.all()
 
     MedicionesF=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=transformador_x))
-
-    H2=MedicionesF.objects.all().values_list('Hidrogeno', flat=True)
-    O2=MedicionesF.objects.all().values_list('Oxigeno', flat=True)
-    N=MedicionesF.objects.all().values_list('Nitrogeno', flat=True)
-    CH4=MedicionesF.objects.all().values_list('Metano', flat=True)
-    CO=MedicionesF.objects.all().values_list('Monoxido_de_carbono', flat=True)
-    C2H6=MedicionesF.objects.all().values_list('Etano', flat=True)
-    CO2=MedicionesF.objects.all().values_list('Dioxido_de_carbono', flat=True)
-    C2H4=MedicionesF.objects.all().values_list('Etileno', flat=True)
-    C2H2=MedicionesF.objects.all().values_list('Acetileno', flat=True)
-    C3H6=MedicionesF.objects.all().values_list('Propileno', flat=True)
-    C3H8=MedicionesF.objects.all().values_list('Propano', flat=True)
-    C4H10=MedicionesF.objects.all().values_list('Butano', flat=True)
+    H2=[]
+    O2=[]
+    N=[]
+    CH4=[]
+    CO=[]
+    C2H6=[]
+    CO2=[]
+    C2H4=[]
+    C2H2=[]
+    C3H6=[]
+    C3H8=[]
+    C4H10=[]
     
+    for i in medicionesF:
+         H2.append(i[3])
+         O2.append(i[4])
+         N.append(i[5])
+         CH4.append(i[6])
+         CO.append(i[7])
+         C2H6.append(i[8])
+         CO2.append(i[9])
+         C2H4.append(i[10])
+         C2H2.append(i[11])
+         C3H6.append(i[12])
+         C3H8.append(i[13])
+         C4H10.append(i[14])
+   
     
     return render(request,'tendencias.html',locals()) 
 
