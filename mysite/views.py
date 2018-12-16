@@ -162,7 +162,6 @@ def datos_prueba(request):
     p23=Transformadores(central=p1,codigo="0003",marca="yyyyy",modelo="xxxxx3",cararcteristicas="230v ac",fecha_ingreso=date)
     p23.save()
  
- 
 
     p31=Mediciones(central=p1,transformador=p21,codigo_usuario="7807004",Hidrogeno=1,Oxigeno=2,Nitrogeno=6,Metano=1,Monoxido_de_carbono=63,Etano=2,Dioxido_de_carbono=17,Etileno=7,Acetileno=8,Propileno=9,Propano=0,Butano=61,fecha_ingreso=date)
     p31.save()
