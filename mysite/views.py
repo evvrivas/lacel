@@ -229,14 +229,14 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
 
     d=len(datos)
     pos = arange(d)+ 2 
-    barh(pos,datos,align = 'center')
-
-    yticks(pos,datos)
+    #barh(pos,datos,align = 'center')
+    plot(pos,datos)
+    #yticks(pos,datos)
     #yticks=[Hidrogeno,Oxigeno,Nitrogeno,Metano,Monoxido_de_carbono,Etano,Dioxido_de_carbono,Etileno,Acetileno,Propileno,Propano,Butano]
     
     xlabel('GASES')
     ylabel('CONCENTRACIONES')
-    title('TENDENCIA DE GAS DISUELTO EN EL ACEITE')
+    titulo="TENDENCIA DE "+gas_analizar +"DISUELTO EN EL ACEITE"
     subplots_adjust(left=0.21)
 
     buffer = io.BytesIO()
@@ -246,6 +246,7 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
     graphIMG.save(buffer, "PNG")
     pylab.close()
 
+    
     return HttpResponse (buffer.getvalue(), content_type="Image/png")
 
 
