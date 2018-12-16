@@ -228,13 +228,16 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
     datos=MedicionesF.values_list(gas_analizar, flat=True) 
     fecha=MedicionesF.values_list("fecha_ingreso", flat=True)               
 
-    #d=len(datos)
-    #pos = arange(d)+ 2 
+    d=len(datos)
+    pos = arange(d)
     #barh(pos,datos,align = 'center')
-    plot(fecha,datos)
-    yticks(fecha,datos)
+    plot(fecha,pos)
+    yticks(pos,datos)
     #yticks=[Hidrogeno,Oxigeno,Nitrogeno,Metano,Monoxido_de_carbono,Etano,Dioxido_de_carbono,Etileno,Acetileno,Propileno,Propano,Butano]
-    
+    #xticks(fecha)
+
+
+
     xlabel('GASES')
     ylabel('CONCENTRACIONES')
     titulo="TENDENCIA DE "+gas_analizar +"DISUELTO EN EL ACEITE"
