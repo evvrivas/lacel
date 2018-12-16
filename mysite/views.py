@@ -219,7 +219,12 @@ def datos_prueba(request):
    
 
 
-def grafico_tendencias(request,datos):
+def grafico_tendencias(request,central_x,transformador_x,id_datos_de_analisis,gas_analizar):
+    centrales=Centrales.objects.all()
+
+    MedicionesF=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=transformador_x))
+    
+    datos=MedicionesF.values_list('gas_analizar', flat=True)               
 
     d=len(datos)
     pos = arange(d)+ 2 
@@ -357,33 +362,12 @@ def listado_de_mediciones(request,central_x,transformador_x):
     
     return render(request,'lista_de_mediciones.html',locals())
 
-def tendencias(request,central_x,transformador_x,id_datos_de_analisis):
-    centrales=Centrales.objects.all()
-
-    MedicionesF=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=transformador_x))
-   
-    H2=MedicionesF.values_list('Hidrogeno', flat=True)
-    O2=MedicionesF.values_list('Oxigeno', flat=True)
-    N=MedicionesF.values_list('Nitrogeno', flat=True)
-    CH4=MedicionesF.values_list('Metano', flat=True)
-    CO=MedicionesF.values_list('Monoxido_de_carbono', flat=True)
-    C2H6=MedicionesF.values_list('Etano', flat=True)
-    CO2=MedicionesF.values_list('Dioxido_de_carbono', flat=True)
-    C2H4=MedicionesF.values_list('Etileno', flat=True)
-    C2H2=MedicionesF.values_list('Acetileno', flat=True)
-    C3H6=MedicionesF.values_list('Propileno', flat=True)
-    C3H8=MedicionesF.values_list('Propano', flat=True)
-    C4H10=MedicionesF.values_list('Butano', flat=True)
-       
+def tendencias(request,central_x,transformador_x,):
     return render(request,'tendencias.html',locals()) 
 
 
 def analisis(request,central_x,transformador_x,id_datos_de_analisis):
-    centrales=Centrales.objects.all()
-    
-    lista_mediciones=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=transformador_x))
-    gases_analisis=Mediciones.objects.get(id=id_datos_de_analisis)
-    
+   
     return render(request,'analisis.html',locals())
 
 
