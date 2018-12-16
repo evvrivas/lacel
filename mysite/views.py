@@ -219,7 +219,8 @@ def datos_prueba(request):
    
 
 
-def grafico_tendencias(request,central_x,transformador_x,id_datos_de_analisis,gas_analizar):
+def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
+    
     centrales=Centrales.objects.all()
 
     MedicionesF=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=transformador_x))
@@ -362,7 +363,10 @@ def listado_de_mediciones(request,central_x,transformador_x):
     
     return render(request,'lista_de_mediciones.html',locals())
 
-def tendencias(request,central_x,transformador_x,):
+def tendencias(request,central_x,transformador_x):
+    central=central_x
+    transformador=transformador_x
+
     return render(request,'tendencias.html',locals()) 
 
 
