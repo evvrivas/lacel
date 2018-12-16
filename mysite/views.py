@@ -226,13 +226,13 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
     MedicionesF=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=transformador_x))
     
     datos=MedicionesF.values_list(gas_analizar, flat=True) 
-    fecha=MedicionesF.values_list(fecha_ingeso, flat=True)               
+    fecha=MedicionesF.values_list(fecha_ingreso, flat=True)               
 
     #d=len(datos)
     #pos = arange(d)+ 2 
     #barh(pos,datos,align = 'center')
     plot(fecha,datos)
-    #yticks(pos,datos)
+    yticks(fecha,datos)
     #yticks=[Hidrogeno,Oxigeno,Nitrogeno,Metano,Monoxido_de_carbono,Etano,Dioxido_de_carbono,Etileno,Acetileno,Propileno,Propano,Butano]
     
     xlabel('GASES')
