@@ -24,6 +24,6 @@ class TransformadoresForm(ModelForm):#tiendas
 class MedicionesForm(ModelForm):#productos
 	class Meta:			
 		model=Mediciones
-		exclude=["fecha_ingreso"]
+		exclude=[]
     
 #########################################################
