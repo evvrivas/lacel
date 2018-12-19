@@ -148,22 +148,22 @@ def datos_prueba(request):
     p23.save()
  
 
-    p31=Mediciones(central=p1,transformador=p21,codigo_usuario="7807004",Hidrogeno=1,Oxigeno=2,Nitrogeno=6,Metano=1,Monoxido_de_carbono=63,Etano=2,Dioxido_de_carbono=17,Etileno=7,Acetileno=8,Propileno=9,Propano=0,Butano=61,fecha_ingreso=date)
+    p31=Mediciones(central=p1,transformador=p21,codigo_usuario="7807004",Hidrogeno=1,Oxigeno=2,Nitrogeno=6,Metano=1,Monoxido_de_carbono=63,Etano=2,Dioxido_de_carbono=17,Etileno=7,Acetileno=8,Propileno=9,Propano=0,Butano=61,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
-    p32=Mediciones(central=p1,transformador=p21,codigo_usuario="7807004",Hidrogeno=5,Oxigeno=8,Nitrogeno=3,Metano=2,Monoxido_de_carbono=44,Etano=6,Dioxido_de_carbono=7,Etileno=7,Acetileno=45,Propileno=3,Propano=30,Butano=1,fecha_ingreso=date)
+    p32=Mediciones(central=p1,transformador=p21,codigo_usuario="7807004",Hidrogeno=5,Oxigeno=8,Nitrogeno=3,Metano=2,Monoxido_de_carbono=44,Etano=6,Dioxido_de_carbono=7,Etileno=7,Acetileno=45,Propileno=3,Propano=30,Butano=1,fecha_ingreso=date,fecha_del_analisis=date)
     p32.save()
 
-    p33=Mediciones(central=p1,transformador=p22,codigo_usuario="7807004",Hidrogeno=6,Oxigeno=6,Nitrogeno=87,Metano=14,Monoxido_de_carbono=4,Etano=112,Dioxido_de_carbono=47,Etileno=37,Acetileno=84,Propileno=9,Propano=0,Butano=21,fecha_ingreso=date)
+    p33=Mediciones(central=p1,transformador=p22,codigo_usuario="7807004",Hidrogeno=6,Oxigeno=6,Nitrogeno=87,Metano=14,Monoxido_de_carbono=4,Etano=112,Dioxido_de_carbono=47,Etileno=37,Acetileno=84,Propileno=9,Propano=0,Butano=21,fecha_ingreso=date,fecha_del_analisis=date)
     p33.save()
 
-    p34=Mediciones(central=p1,transformador=p23,codigo_usuario="7807004",Hidrogeno=7,Oxigeno=3,Nitrogeno=33,Metano=34,Monoxido_de_carbono=53,Etano=6,Dioxido_de_carbono=73,Etileno=65,Acetileno=5,Propileno=90,Propano=4,Butano=12,fecha_ingreso=date)
+    p34=Mediciones(central=p1,transformador=p23,codigo_usuario="7807004",Hidrogeno=7,Oxigeno=3,Nitrogeno=33,Metano=34,Monoxido_de_carbono=53,Etano=6,Dioxido_de_carbono=73,Etileno=65,Acetileno=5,Propileno=90,Propano=4,Butano=12,fecha_ingreso=date,fecha_del_analisis=date)
     p34.save()
 
-    p35=Mediciones(central=p1,transformador=p23,codigo_usuario="7807004",Hidrogeno=6,Oxigeno=12,Nitrogeno=23,Metano=42,Monoxido_de_carbono=25,Etano=6,Dioxido_de_carbono=27,Etileno=7,Acetileno=7,Propileno=19,Propano=60,Butano=1,fecha_ingreso=date)
+    p35=Mediciones(central=p1,transformador=p23,codigo_usuario="7807004",Hidrogeno=6,Oxigeno=12,Nitrogeno=23,Metano=42,Monoxido_de_carbono=25,Etano=6,Dioxido_de_carbono=27,Etileno=7,Acetileno=7,Propileno=19,Propano=60,Butano=1,fecha_ingreso=date,fecha_del_analisis=date)
     p35.save()
 
-    p36=Mediciones(central=p1,transformador=p23,codigo_usuario="7807004",Hidrogeno=10,Oxigeno=21,Nitrogeno=31,Metano=4,Monoxido_de_carbono=5,Etano=6,Dioxido_de_carbono=74,Etileno=44,Acetileno=8,Propileno=9,Propano=0,Butano=1,fecha_ingreso=date)
+    p36=Mediciones(central=p1,transformador=p23,codigo_usuario="7807004",Hidrogeno=10,Oxigeno=21,Nitrogeno=31,Metano=4,Monoxido_de_carbono=5,Etano=6,Dioxido_de_carbono=74,Etileno=44,Acetileno=8,Propileno=9,Propano=0,Butano=1,fecha_ingreso=date,fecha_del_analisis=date)
     p36.save()
 
     p1=Centrales(nombre="GUAJOYO",fecha_ingreso=date)   
@@ -181,22 +181,22 @@ def datos_prueba(request):
  
  
 
-    p31=Mediciones(central=p1,transformador=p21,codigo_usuario="7807002",Hidrogeno=1,Oxigeno=2,Nitrogeno=6,Metano=1,Monoxido_de_carbono=63,Etano=2,Dioxido_de_carbono=17,Etileno=7,Acetileno=8,Propileno=9,Propano=0,Butano=61,fecha_ingreso=date)
+    p31=Mediciones(central=p1,transformador=p21,codigo_usuario="7807002",Hidrogeno=1,Oxigeno=2,Nitrogeno=6,Metano=1,Monoxido_de_carbono=63,Etano=2,Dioxido_de_carbono=17,Etileno=7,Acetileno=8,Propileno=9,Propano=0,Butano=61,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
-    p32=Mediciones(central=p1,transformador=p21,codigo_usuario="7807002",Hidrogeno=5,Oxigeno=8,Nitrogeno=3,Metano=2,Monoxido_de_carbono=44,Etano=6,Dioxido_de_carbono=7,Etileno=7,Acetileno=45,Propileno=3,Propano=30,Butano=1,fecha_ingreso=date)
+    p32=Mediciones(central=p1,transformador=p21,codigo_usuario="7807002",Hidrogeno=5,Oxigeno=8,Nitrogeno=3,Metano=2,Monoxido_de_carbono=44,Etano=6,Dioxido_de_carbono=7,Etileno=7,Acetileno=45,Propileno=3,Propano=30,Butano=1,fecha_ingreso=date,fecha_del_analisis=date)
     p32.save()
 
-    p33=Mediciones(central=p1,transformador=p22,codigo_usuario="7807002",Hidrogeno=6,Oxigeno=6,Nitrogeno=87,Metano=14,Monoxido_de_carbono=4,Etano=112,Dioxido_de_carbono=47,Etileno=37,Acetileno=84,Propileno=9,Propano=0,Butano=21,fecha_ingreso=date)
+    p33=Mediciones(central=p1,transformador=p22,codigo_usuario="7807002",Hidrogeno=6,Oxigeno=6,Nitrogeno=87,Metano=14,Monoxido_de_carbono=4,Etano=112,Dioxido_de_carbono=47,Etileno=37,Acetileno=84,Propileno=9,Propano=0,Butano=21,fecha_ingreso=date,fecha_del_analisis=date)
     p33.save()
 
-    p34=Mediciones(central=p1,transformador=p23,codigo_usuario="7807002",Hidrogeno=7,Oxigeno=3,Nitrogeno=33,Metano=34,Monoxido_de_carbono=53,Etano=6,Dioxido_de_carbono=73,Etileno=65,Acetileno=5,Propileno=90,Propano=4,Butano=12,fecha_ingreso=date)
+    p34=Mediciones(central=p1,transformador=p23,codigo_usuario="7807002",Hidrogeno=7,Oxigeno=3,Nitrogeno=33,Metano=34,Monoxido_de_carbono=53,Etano=6,Dioxido_de_carbono=73,Etileno=65,Acetileno=5,Propileno=90,Propano=4,Butano=12,fecha_ingreso=date,fecha_del_analisis=date)
     p34.save()
 
-    p35=Mediciones(central=p1,transformador=p23,codigo_usuario="7807002",Hidrogeno=6,Oxigeno=12,Nitrogeno=23,Metano=42,Monoxido_de_carbono=25,Etano=6,Dioxido_de_carbono=27,Etileno=7,Acetileno=7,Propileno=19,Propano=60,Butano=1,fecha_ingreso=date)
+    p35=Mediciones(central=p1,transformador=p23,codigo_usuario="7807002",Hidrogeno=6,Oxigeno=12,Nitrogeno=23,Metano=42,Monoxido_de_carbono=25,Etano=6,Dioxido_de_carbono=27,Etileno=7,Acetileno=7,Propileno=19,Propano=60,Butano=1,fecha_ingreso=date,fecha_del_analisis=date)
     p35.save()
 
-    p36=Mediciones(central=p1,transformador=p23,codigo_usuario="7807002",Hidrogeno=10,Oxigeno=21,Nitrogeno=31,Metano=4,Monoxido_de_carbono=5,Etano=6,Dioxido_de_carbono=74,Etileno=44,Acetileno=8,Propileno=9,Propano=0,Butano=1,fecha_ingreso=date)
+    p36=Mediciones(central=p1,transformador=p23,codigo_usuario="7807002",Hidrogeno=10,Oxigeno=21,Nitrogeno=31,Metano=4,Monoxido_de_carbono=5,Etano=6,Dioxido_de_carbono=74,Etileno=44,Acetileno=8,Propileno=9,Propano=0,Butano=1,fecha_ingreso=date,fecha_del_analisis=date)
     p36.save()
 
     return render(request,'principal.html',locals())
@@ -216,7 +216,7 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
     d=len(datos)
     pos = arange(d)
     #barh(pos,datos,align = 'center')
-    plot(d,pos)
+    plot(datos,fecha)
     
     yticks(datos,color="b")
     xticks(fecha,sze="small",color="b",rotation=45)
