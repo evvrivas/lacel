@@ -51,21 +51,6 @@ def informacion(request):
   centrales=Centrales.objects.all()
   return render(request,'informacion.html',locals())
 
-#from random import *
-#def datos_aleatorios():
-
-#    usuarios=Usuarios(codigo="7807004",pasword="1111",privilegio="DE_BAJA",fecha_ingreso =datetime.now)    
-#    usuarios.save()
-    
-#    centrales=Central( nombre="GUAJOYO", fecha_ingreso = datetime.now)         
-#    centrales.save()
-
-#    centrales=Central( nombre="5 DE NOVIEMBRE", fecha_ingreso = datetime.now)         
-#    centrales.save()
-
-#    centrales=Central( nombre="CERRON GRANDE", fecha_ingreso = datetime.now)         
-#    centrales.save()
-        
     
     
 def ingresar_datos_trafo(request):
@@ -231,12 +216,10 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
     d=len(datos)
     pos = arange(d)
     #barh(pos,datos,align = 'center')
-    plot(fecha,pos)
-    yticks(pos,datos)
-    #yticks=[Hidrogeno,Oxigeno,Nitrogeno,Metano,Monoxido_de_carbono,Etano,Dioxido_de_carbono,Etileno,Acetileno,Propileno,Propano,Butano]
-    #xticks(fecha)
-
-
+    plot(d,pos)
+    
+    yticks(datos,color="b")
+    xticks(fecha,sze="small",color="b",rotation=45)
 
     xlabel('GASES')
     ylabel('CONCENTRACIONES')

@@ -79,6 +79,7 @@ class Mediciones(models.Model):
          Propileno=models.FloatField(default=0,blank=True,null=True)
          Propano=models.FloatField(default=0,blank=True,null=True)
          Butano=models.FloatField(default=0,blank=True,null=True)
+         fecha_del_analisis = models.DateField(default=datetime.now,null=False)
          fecha_ingreso = models.DateField(default=datetime.now,editable = True)
          def __str__(self):
          	return  self.codigo_usuario
