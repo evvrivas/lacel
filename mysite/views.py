@@ -219,7 +219,7 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
     plot(datos,fecha)
     
     yticks(datos,color="b")
-    xticks(fecha,sze="small",color="b",rotation=45)
+    #xticks(fecha,size="small",color="b",rotation=45)
 
     xlabel('GASES')
     ylabel('CONCENTRACIONES')
