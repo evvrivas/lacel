@@ -216,10 +216,10 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
     d=len(datos)
     pos = arange(d)
     #barh(pos,datos,align = 'center')
-    plot(datos,fecha)
+    plot(fecha,datos)
     
     yticks(datos,color="b")
-    #xticks(fecha,size="small",color="b",rotation=45)
+    xticks(pos,size="small",color="b",rotation=45)
 
     xlabel('GASES')
     ylabel('CONCENTRACIONES')
