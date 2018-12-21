@@ -90,14 +90,53 @@ def ingresar_datos_trafo(request):
 
 
       
-def total_gases_combustibles(request):
+def total_gases_combustibles(request,central_x,transformador_x):
+    MedicionesF=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=transformador_x))
+    
+    gases=["Hidrogeno","Metano","Monoxido_de_carbono","Etano","Etileno","Acetileno"]
+   
+    gas_analisis=[]
+    valor=[]
+    for i in gases:
+        datos=MedicionesF.values_list(i, flat=True) 
+        for y in datos: 
+            if y!=0 and y!="":
+                valor.append(y)
 
+        gas_analisis.append((i,valor[-1]))        
+
+    nombre_gases=[]
+    valor_gases=[]
+    
+    SUMTDGC=0 
+    for i in gas_analisis:
+
+        SUMTDGC=SUMTDGC+i[1]
+        
+        if i[0]=="Hidrogeno":
+            GASES[0]=i[1]
+        elif i[0]=="Metano":
+            GASES[3]=i[1]
+       
+        elif i[0]=="Etano":
+            GASES[5]=i[1]
+        elif i[0]=="Etileno":
+            GASES[7]=i[1]
+        elif i[0]=="Acetileno":
+            GASES[8]=i[1]
+        else:
+            pass
+    
     #GASES=[Hidrogeno,Oxigeno,Nitrogeno,Metano,Monoxido_de_carbono,Etano,Dioxido_de_carbono,Etileno,Acetileno,Propileno,Propano,Butano]
     #INFERIOR=[H2           ,O2       ,N      ,CH4         ,CO     ,C2H6      ,CO2      ,C2H4      ,C2H2     ,propi    ,propa    ,buta]
-    GASES      =[12         ,34       ,22     ,34          ,44     ,55        ,66       ,88        ,65       ,45       ,1        ,22  ]
+    #GASES      =[12         ,34       ,22     ,34          ,44     ,55        ,66       ,88        ,65       ,45       ,1        ,22  ]
+    
     NOMBRE_GAS_PRUEBA=["Hidrogeno H2"  ,"Metano CH4"     ,"Etano C2H6"  ,   "Etileno C2H4",    "Acecetileno C2H2"]
     GASES_DE_PRUEBA=  [GASES[0],         GASES[3],         GASES[5],         GASES[7],          GASES[8]         ]  
-    SUMTDGC        =  GASES[0]+          GASES[3]+         GASES[5]+         GASES[7]+          GASES[8]
+   
+
+
+
     LIMITE_1=        [100             ,120              ,65                ,50                 ,35              ]
     LIMITE_2=        [(101,700)       ,(121,400)        ,(66,100)          ,(51,100)           ,(36,50)         ]
     LIMITE_3=        [(701,1800)      ,(401,1000)       ,(101,150)         ,(101,200)          ,(51,80)         ]
@@ -126,11 +165,6 @@ def total_gases_combustibles(request):
         ESTADO_DE_GASES.append(estado)
     #return estado_trafo,NOMBRE_GAS_PRUEBA,ESTADO_DE_GASES
     
-
-
-
-
-
 
     return render(request,'analisis.html',locals())
 
@@ -584,30 +618,6 @@ def analisis(request,central_x,transformador_x):
    
     return render(request,'analisis.html',locals())
 
-
-def grafico (request,concentraciones):
-
-    d=len(concentraciones)
-    pos = arange(d)+ 2 
-    barh(pos,concentraciones,align = 'center')
-    yticks(pos,('H2','O2','N2','CH4','CO','C2H6','CO2','C2H4','C2H2','PROPI','PROPA','BUTA'))
-    #yticks=[Hidrogeno,Oxigeno,Nitrogeno,Metano,Monoxido_de_carbono,Etano,Dioxido_de_carbono,Etileno,Acetileno,Propileno,Propano,Butano]
-    
-    xlabel('GASES')
-    ylabel('CONCENTRACIONES')
-    title('GASES DISUELTOS EN ACEITE')
-    subplots_adjust(left=0.21)
-
-    buffer = io.BytesIO()
-    canvas = pylab.get_current_fig_manager().canvas
-    canvas.draw()
-    graphIMG = PIL.Image.fromstring('RGB', canvas.get_width_height(), canvas.tostring_rgb())
-    graphIMG.save(buffer, "PNG")
-    pylab.close()
-
-
-    return HttpResponse (buffer.getvalue(), content_type="Image/png")
-
 ##############################ejemplito
 #class Make(models.Model):
 #    name = models.CharField(max_length=200)
@@ -625,6 +635,62 @@ def grafico_gases_presentes(request,central_x,transformador_x):
     MedicionesF=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=transformador_x))
     
     gases=["Hidrogeno","Oxigeno","Nitrogeno","Metano","Monoxido_de_carbono","Etano","Dioxido_de_carbono","Etileno","Acetileno"]
+   
+    gas_analisis=[]
+    valor=[]
+    for i in gases:
+        datos=MedicionesF.values_list(i, flat=True) 
+        for y in datos: 
+            if y!=0 and y!="":
+                valor.append(y)
+
+        gas_analisis.append((i,valor[-1]))        
+
+    nombre_gases=[]
+    valor_gases=[]
+
+    for i in gas_analisis:
+        nombre_gases.append(i[0])
+        valor_gases.append(i[1])
+     
+    plt.figure()
+    barh(nombre_gases,valor_gases,align = 'center')
+    #plt.plot(anios,limitemax, 'r')
+    #plt.plot(anios,datos)
+    
+    #plt.yticks(limitemax,color="r")
+    #plt.yticks(datos,color="b")    
+    #plt.xticks(anios,size="small",color="b",rotation=45)
+
+    plt.xlabel('Nombre del gas ')
+    plt.ylabel('CONCENTRACIONES ppm')
+    titulo="Presencia del gases  disueltos en aceite"
+    plt.title(titulo)
+    subplots_adjust(left=0.21)
+    
+
+
+    #subplots_adjust(left=0.21)
+
+    buffer = io.BytesIO()
+    canvas = pylab.get_current_fig_manager().canvas
+    canvas.draw()
+
+    
+    graphIMG = PIL.Image.fromstring('RGB', canvas.get_width_height(), canvas.tostring_rgb())
+    graphIMG.save(buffer, "PNG")
+    pylab.close()
+    
+    
+
+    return HttpResponse (buffer.getvalue(), content_type="Image/png")
+
+def grafico_gases_combustibles(request,central_x,transformador_x):  
+    
+   
+    MedicionesF=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=transformador_x))
+    
+    gases=["Hidrogeno","Metano","Monoxido_de_carbono","Etano","Etileno","Acetileno"]
    
     gas_analisis=[]
     valor=[]
