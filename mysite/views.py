@@ -90,7 +90,7 @@ def ingresar_datos_trafo(request):
 
 
       
-def total_gases_combustibles(request,central_x,transformador_x):
+def total_gases_combustibles(central_x,transformador_x):
     MedicionesF=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=transformador_x))
     
     gases=["Hidrogeno","Metano","Monoxido_de_carbono","Etano","Etileno","Acetileno"]
@@ -109,6 +109,7 @@ def total_gases_combustibles(request,central_x,transformador_x):
     valor_gases=[]
     
     SUMTDGC=0 
+    GASES=[0,0,0,0,0,0,0,0,0]
     for i in gas_analisis:
 
         SUMTDGC=SUMTDGC+i[1]
@@ -163,10 +164,11 @@ def total_gases_combustibles(request,central_x,transformador_x):
         else:
             estado = "MUY ANORMAL"
         ESTADO_DE_GASES.append(estado)
-    #return estado_trafo,NOMBRE_GAS_PRUEBA,ESTADO_DE_GASES
+    
+    return estado_trafo,NOMBRE_GAS_PRUEBA,ESTADO_DE_GASES
     
 
-    return render(request,'analisis.html',locals())
+    #return render(request,'analisis.html',locals())
 
 
 
@@ -717,10 +719,18 @@ def grafico_gases_combustibles(request,central_x,transformador_x):
     #plt.yticks(limitemax,color="r")
     #plt.yticks(datos,color="b")    
     #plt.xticks(anios,size="small",color="b",rotation=45)
+    trafo,nombre_gas,estado_gas=total_gases_combustibles(central_x,transformador_x):
 
     plt.xlabel('Nombre del gas ')
     plt.ylabel('CONCENTRACIONES ppm')
-    titulo="Presencia del gases  disueltos en aceite"
+    titulo="Presencia del gases combustibles\n"+"Estado del Tx "+ trafo="\n"+"Nombre de gases "+ nombre_gas="\n"+"Estado del gas "+ estado_gas="\n"
+
+
+    
+    
+
+
+
     plt.title(titulo)
     subplots_adjust(left=0.21)
     
