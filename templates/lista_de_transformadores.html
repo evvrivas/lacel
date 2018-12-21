@@ -8,7 +8,8 @@
 
 <div class="panel panel-info">
       <div class="panel-heading">
-        <h2 class="panel-title"><center>   Lista de Transformadores de {{central_x}}</center></h2>
+        <h2 class="panel-title"><center>Lista de Transformadores de 
+        </center></h2>
           
       </div>
 
@@ -18,14 +19,16 @@
             <div class="row">
 
              <div class="col-md-12">
-                <div class="thumbnail">                                    
+                <div class="thumbnail"> 
+                    <center> <h2 class="panel-title">  Lista de Transformadores de {{central_x}}</h2></center>
+                    <br>                                   
                   <div class="caption">
                     
                      <center>
                          <table BORDER="1" CELLSPACING="1">
                             
                              <tr  align="center">
-                                    <td WIDTH="80">CENTRAL</td>
+                                   
                                     <td WIDTH="80">Tx CODIGO</td>                 
                                     <td WIDTH="80">Tx MARCA</td>               
                                     <td WIDTH="80">Tx MODELO</td>
@@ -37,12 +40,12 @@
                             {%  for i in lista_transformadores %}   
                                 
                                 <tr  align="center">
-                                    <td WIDTH="80">{{central_x}}</td> 
-                                    <td WIDTH="80">{{i.coodigo}}</td>              
-                                    <td WIDTH="80">{{i.marca}}</td>           
+                                    
+                                    <td WIDTH="80">{{i.codigo}}</td>              
+                                    <td WIDTH="120">{{i.marca}}</td>           
                                     <td WIDTH="80">{{i.modelo}}</td>
                                     
-                                    <td WIDTH="80"><li><a href="/listado_de_mediciones/{{i.central.nombre}}/{{i.codigo}}">   Ver % de gases   </a></li></td>
+                                    <td WIDTH="80"><li><a href="/listado_de_mediciones/{{i.central.nombre}}/{{i.codigo}}"> ver % GDA  </a></li></td>
                                 </tr >
                             {%  endfor %} 
                           

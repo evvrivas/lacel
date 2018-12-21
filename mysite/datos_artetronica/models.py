@@ -76,9 +76,6 @@ class Mediciones(models.Model):
          Dioxido_de_carbono=models.FloatField(default=0,blank=True,null=True)
          Etileno=models.FloatField(default=0,blank=True,null=True)
          Acetileno=models.FloatField(default=0,blank=True,null=True)
-         Propileno=models.FloatField(default=0,blank=True,null=True)
-         Propano=models.FloatField(default=0,blank=True,null=True)
-         Butano=models.FloatField(default=0,blank=True,null=True)
          fecha_del_analisis = models.DateField(default=datetime.now,null=False)
          fecha_ingreso = models.DateField(default=datetime.now,editable = True)
          def __str__(self):

@@ -18,16 +18,15 @@
              <div class="col-md-12">
                 <div class="thumbnail">                                    
                   <div class="caption">
-                    <h4><center>Concentraciones de gases </center></h4>
+                    <h4><center>{{i.central.nombre}} Transformador {{i.transformador.nombre}}, codigo  {{i.transformador.codigo}}  </center></h4>
 
                         <center>
                          <table BORDER="1" CELLSPACING="1">
                             
                              <tr  align="center">
-                                    <td WIDTH="60">Fecha</td>
-                                    <td WIDTH="60">CENTRAL</td>                                    
-                                    <td WIDTH="60">Codigo Tx</td>                                    
-                                    <td WIDTH="60"> ----</td>
+                                   
+                                                                        
+                                   
                                     <td WIDTH="60">H2</td>                                    
                                     <td WIDTH="60">O2</td>                                    
                                     <td WIDTH="60">N</td>
@@ -37,20 +36,19 @@
                                     <td WIDTH="60">CO2</td>                                    
                                     <td WIDTH="60">C2H4</td>                                    
                                     <td WIDTH="60">C2H2</td>
-                                    <td WIDTH="60">C3H6</td>                                    
-                                    <td WIDTH="60">C3H8</td>                                    
-                                    <td WIDTH="60">C4H10</td>
-                                    <td WIDTH="60">------</td>                            
+                                   
+                                    
+                                     <td WIDTH="60">Ver</td>
+                                      <td WIDTH="60">Ver</td>
+
+                                     <td WIDTH="100">Fecha</td>                            
                                </tr >
 
                             {%  for i in lista_mediciones %} 
                                     
                                 <tr  align="center">
-                                    <td WIDTH="60">{{i.fecha_ingreso}}</td>
-                                    <td WIDTH="60">{{i.central.nombre}}</td>                                    
-                                    <td WIDTH="60">{{i.transformador.codigo}}</td>
-
-                                    <td WIDTH="60">---- </td>
+                                   
+                                    
                                     <td WIDTH="60">{{i.Hidrogeno}}</td>                                    
                                     <td WIDTH="60">{{i.Oxigeno}}</td>                                    
                                     <td WIDTH="60">{{i.Nitrogeno}}</td>
@@ -60,14 +58,14 @@
                                     <td WIDTH="60">{{i.Dioxido_de_carbono}}</td>                                    
                                     <td WIDTH="60">{{i.Etileno}}</td>                                    
                                     <td WIDTH="60">{{i.Acetileno}} </td>
-                                    <td WIDTH="60">{{i.Propileno}}</td>                                    
-                                    <td WIDTH="60">{{i.Propano}}</td>                                    
-                                    <td WIDTH="60">{{i.Butano}} </td>   
-                                    <td WIDTH="60"> ------- </td>   
+                                   
+                                     
                                     
                                     <td WIDTH="60"><li><a href="/analisis/{{i.central.nombre}}/{{i.transformador.codigo}}/{{i.id}}"> Analizar</a></li></td>
 
                                     <td WIDTH="60"><li><a href="/tendencias/{{i.central.nombre}}/{{i.transformador.codigo}}"> Tendencias</a></li></td>
+
+                                     <td WIDTH="100">{{i.fecha_ingreso}}</td>
                                 </tr >
 
 
