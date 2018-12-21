@@ -472,7 +472,7 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
     plt.plot(anios,datos)
     
     plt.yticks(limitemax,color="r")
-    #plt.yticks(datos,color="b")    
+    plt.yticks(datos,color="b")    
     #plt.xticks(anios,size="small",color="b",rotation=45)
 
     plt.xlabel('Fecha de la prueba ')
