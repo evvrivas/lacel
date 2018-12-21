@@ -360,14 +360,14 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
     
     plt.yticks(datos,color="b")
     
-    plt.xticks(anio,size="small",color="b",rotation=45)
+    #plt.xticks(anio,size="small",color="b",rotation=45)
 
     plt.xlabel('GASES')
     plt.ylabel('CONCENTRACIONES ppm')
     titulo="TENDENCIA DE "+gas_analizar +"DISUELTO EN EL ACEITE"
     plt.title(titulo)
     
-    
+
 
     #subplots_adjust(left=0.21)
 
