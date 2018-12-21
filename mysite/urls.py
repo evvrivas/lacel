@@ -40,7 +40,8 @@ urlpatterns = [
 
     url(r'^tendencias/([^/]+)/([^/]+)/$', tendencias),
     url(r'^grafico_tendencias/([^/]+)/([^/]+)/([^/]+)/$', grafico_tendencias),
-
+    
+    url(r'^grafico_gases_presentes/([^/]+)/([^/]+)/$', grafico_gases_presentes),
 
 
 

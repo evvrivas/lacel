@@ -84,7 +84,12 @@ def ingresar_datos_trafo(request):
         connection.close()                  
         return render(request,'ingreso_de_datos.html',locals()) 
 
-          
+
+
+
+
+
+      
 def total_gases_combustibles(request):
 
     #GASES=[Hidrogeno,Oxigeno,Nitrogeno,Metano,Monoxido_de_carbono,Etano,Dioxido_de_carbono,Etileno,Acetileno,Propileno,Propano,Butano]
@@ -120,7 +125,24 @@ def total_gases_combustibles(request):
             estado = "MUY ANORMAL"
         ESTADO_DE_GASES.append(estado)
     #return estado_trafo,NOMBRE_GAS_PRUEBA,ESTADO_DE_GASES
+    
+
+
+
+
+
+
     return render(request,'analisis.html',locals())
+
+
+
+
+
+
+
+
+
+
 
 from django.shortcuts import render
 from matplotlib import pylab
@@ -380,10 +402,7 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
     for i in limites:
         if gas_analizar==i[0]:
             limite=i[1]
-            break
-
-
-    
+            break    
     
     centrales=Centrales.objects.all()
 
@@ -404,10 +423,11 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
     plt.plot(anios,limitemax, 'r')
     plt.plot(anios,datos)
     
-    plt.yticks(datos,color="b")    
+    #plt.yticks(limitemax,color="r")
+    #plt.yticks(datos,color="b")    
     #plt.xticks(anios,size="small",color="b",rotation=45)
 
-    plt.xlabel('GASES')
+    plt.xlabel('Fecha de la prueba ')
     plt.ylabel('CONCENTRACIONES ppm')
     titulo="Tendencia del gas "+gas_analizar +" disuelto en aceite"
     plt.title(titulo)
@@ -554,7 +574,6 @@ def listado_de_mediciones(request,central_x,transformador_x):
 def tendencias(request,central_x,transformador_x):
     central=central_x
     transformador=transformador_x
-
     return render(request,'tendencias.html',locals()) 
 
 
@@ -595,3 +614,60 @@ def grafico (request,concentraciones):
 #    published = models.BooleanField()
 
 #Make.objects.filter(makecontent__published=True)
+
+
+def grafico_gases_presentes(request,central_x,transformador_x):  
+    
+    centrales=Centrales.objects.all()
+    MedicionesF=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=transformador_x))
+    
+    gases=["Hidrogeno","Oxigeno","Nitrogeno","Metano","Monoxido_de_carbono","Etano","Dioxido_de_carbono","Etileno","Acetileno"]
+   
+    gas_analisis=[]
+    valor=[]
+    for i in gases:
+        datos=MedicionesF.values_list(i, flat=True) 
+        for y in datos: 
+            if y!=0 and y!="":
+                valor.append(y)
+
+        gas_analisis.append((i,valor[-1]))        
+
+    nombre_gases=[]
+    valor_gases=[]
+
+    for i in gas_analisis:
+        nombre_gases.append(i[0])
+        valor_gases.append(i[1])
+     
+    plt.figure()
+    barh(nombre_gases,valor_gases,align = 'center')
+    #plt.plot(anios,limitemax, 'r')
+    #plt.plot(anios,datos)
+    
+    #plt.yticks(limitemax,color="r")
+    #plt.yticks(datos,color="b")    
+    #plt.xticks(anios,size="small",color="b",rotation=45)
+
+    plt.xlabel('Nombre del gas ')
+    plt.ylabel('CONCENTRACIONES ppm')
+    titulo="Presencia del gas "+gas_analizar +" disuelto en aceite"
+    plt.title(titulo)
+    subplots_adjust(left=0.21)
+    
+
+
+    #subplots_adjust(left=0.21)
+
+    buffer = io.BytesIO()
+    canvas = pylab.get_current_fig_manager().canvas
+    canvas.draw()
+
+    
+    graphIMG = PIL.Image.fromstring('RGB', canvas.get_width_height(), canvas.tostring_rgb())
+    graphIMG.save(buffer, "PNG")
+    pylab.close()
+    
+    
+
+    return HttpResponse (buffer.getvalue(), content_type="Image/png")
