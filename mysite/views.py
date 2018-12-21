@@ -374,13 +374,14 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
     buffer = io.BytesIO()
     canvas = pylab.get_current_fig_manager().canvas
     canvas.draw()
+
+    
     graphIMG = PIL.Image.fromstring('RGB', canvas.get_width_height(), canvas.tostring_rgb())
     graphIMG.save(buffer, "PNG")
     pylab.close()
+    buffer.close()
     
-    plt.clf()
-    plt.cla()
-    plt.close()
+   
     return HttpResponse (buffer.getvalue(), content_type="Image/png")
 
 
