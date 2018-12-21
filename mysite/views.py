@@ -723,7 +723,7 @@ def grafico_gases_combustibles(request,central_x,transformador_x):
 
     plt.xlabel('Nombre del gas ')
     plt.ylabel('CONCENTRACIONES ppm')
-    titulo="Presencia del gases combustibles\n"+"Estado del Tx "+ trafo="\n"+"Nombre de gases "+ nombre_gas="\n"+"Estado del gas "+ estado_gas="\n"
+    titulo="Presencia del gases combustibles \n"+"Estado del Tx "+ trafo="\n"+"Nombre de gases "+ nombre_gas+"\n"+"Estado del gas "+ estado_gas+"\n"
 
 
     
