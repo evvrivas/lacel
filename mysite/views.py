@@ -392,14 +392,16 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
     datos=MedicionesF.values_list(gas_analizar, flat=True) 
     fecha=MedicionesF.values_list("fecha_del_analisis", flat=True)     
     anios=[]
+    limitemax=[]
 
     for i in  fecha:
         an=i.strftime('%Y') 
-        anios.append(an)     
+        anios.append(an)
+        limitemax.append(limite)    
      
     plt.figure()
     #barh(pos,datos,align = 'center')
-    plt.plot(limite, 'r')
+    plt.plot(anios,limitemax, 'r')
     plt.plot(anios,datos)
     
     plt.yticks(datos,color="b")    
