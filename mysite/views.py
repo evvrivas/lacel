@@ -91,6 +91,10 @@ def ingresar_datos_trafo(request):
 
       
 def total_gases_combustibles(request,central_x,transformador_x):
+    central=central_x
+    transformador=transformador_x
+   
+    
     MedicionesF=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=transformador_x))
     
     gases=["Hidrogeno","Metano","Monoxido_de_carbono","Etano","Etileno","Acetileno"]
