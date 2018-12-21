@@ -152,23 +152,23 @@ def datos_prueba(request):
       
     #EFACET U1
     #2014
-    date=datetime.datetime(2014,06,30)
+    date=datetime.datetime(2014,6,30)
     p31=Mediciones(central=p1,transformador=p21,codigo_usuario="7807004",Hidrogeno=3,Oxigeno=0,Nitrogeno=0,Metano=1,Monoxido_de_carbono=4,Etano=1,Dioxido_de_carbono=203.41,Etileno=0.17,Acetileno=0.7,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
     #2015
-    date=datetime.datetime(2015,06,30)
+    date=datetime.datetime(2015,6,30)
     p32=Mediciones(central=p1,transformador=p21,codigo_usuario="7807004",Hidrogeno=5.38,Oxigeno=29.92,Nitrogeno=36320,Metano=8.8,Monoxido_de_carbono=4.97,Etano=2.1,Dioxido_de_carbono=926,Etileno=0.68,Acetileno=1.2,fecha_ingreso=date,fecha_del_analisis=date)
     p32.save()
     #2016
-    date=datetime.datetime(2016,06,30)
+    date=datetime.datetime(2016,6,30)
     p33=Mediciones(central=p1,transformador=p21,codigo_usuario="7807004",Hidrogeno=2,Oxigeno=0,Nitrogeno=0,Metano=50,Monoxido_de_carbono=137,Etano=67,Dioxido_de_carbono=2010,Etileno=5,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
     p33.save()
     #2017
-    date=datetime.datetime(2017,06,30)
+    date=datetime.datetime(2017,6,30)
     p34=Mediciones(central=p1,transformador=p21,codigo_usuario="7807004",Hidrogeno=5,Oxigeno=0,Nitrogeno=0,Metano=57,Monoxido_de_carbono=155,Etano=79,Dioxido_de_carbono=2037,Etileno=10,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
     p34.save()
     #2018
-    date=datetime.datetime(2018,06,30)
+    date=datetime.datetime(2018,6,30)
     p35=Mediciones(central=p1,transformador=p21,codigo_usuario="7807004",Hidrogeno=15,Oxigeno=0,Nitrogeno=0,Metano=89,Monoxido_de_carbono=159,Etano=134,Dioxido_de_carbono=2308,Etileno=12,Acetileno=3,fecha_ingreso=date,fecha_del_analisis=date)
     p35.save()
 
@@ -179,28 +179,28 @@ def datos_prueba(request):
     p22=Transformadores(central=p1,codigo="33562",marca="TUBOS TRRANS ELECTRIC",modelo="NA",cararcteristicas="U2",fecha_ingreso=date)
     p22.save()
     #2010
-    date=datetime.datetime(2010,06,30)
+    date=datetime.datetime(2010,6,30)
     p31=Mediciones(central=p1,transformador=p22,codigo_usuario="7807004",Hidrogeno=5,Oxigeno=0,Nitrogeno=0,Metano=4,Monoxido_de_carbono=132,Etano=12,Dioxido_de_carbono=2027,Etileno=25,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
     #2012
-    date=datetime.datetime(2012,06,30)
+    date=datetime.datetime(2012,6,30)
     p32=Mediciones(central=p1,transformador=p22,codigo_usuario="7807004",Hidrogeno=24,Oxigeno=0,Nitrogeno=0,Metano=7,Monoxido_de_carbono=352,Etano=10,Dioxido_de_carbono=3641,Etileno=34,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
     p32.save()
     #2013
-    date=datetime.datetime(2013,06,30)
+    date=datetime.datetime(2013,6,30)
     p33=Mediciones(central=p1,transformador=p22,codigo_usuario="7807004",Hidrogeno=17,Oxigeno=0,Nitrogeno=87500,Metano=9,Monoxido_de_carbono=463,Etano=11,Dioxido_de_carbono=4140,Etileno=40,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
     p33.save()
     #2014
-    date=datetime.datetime(2014,06,30)
+    date=datetime.datetime(2014,6,30)
     p34=Mediciones(central=p1,transformador=p22,codigo_usuario="7807004",Hidrogeno=16,Oxigeno=0,Nitrogeno=0,Metano=4,Monoxido_de_carbono=42,Etano=7,Dioxido_de_carbono=680,Etileno=11,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
     p34.save()
     #2015
-    date=datetime.datetime(2015,06,30)
+    date=datetime.datetime(2015,6,30)
     p35=Mediciones(central=p1,transformador=p22,codigo_usuario="7807004",Hidrogeno=12,Oxigeno=0,Nitrogeno=0,Metano=11,Monoxido_de_carbono=228,Etano=3,Dioxido_de_carbono=2226,Etileno=5,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
     p35.save()
 
     #2016
-    date=datetime.datetime(2016,06,30)
+    date=datetime.datetime(2016,6,30)
     p35=Mediciones(central=p1,transformador=p22,codigo_usuario="7807004",Hidrogeno=15,Oxigeno=0,Nitrogeno=0,Metano=9,Monoxido_de_carbono=247,Etano=9,Dioxido_de_carbono=2381,Etileno=14,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
     p35.save()
 
@@ -213,31 +213,31 @@ def datos_prueba(request):
     p23.save()
 
      #2012
-    date=datetime.datetime(2012,06,30)
+    date=datetime.datetime(2012,6,30)
     p31=Mediciones(central=p1,transformador=p23,codigo_usuario="7807004",Hidrogeno=106,Oxigeno=0,Nitrogeno=0,Metano=17,Monoxido_de_carbono=552,Etano=8,Dioxido_de_carbono=6920,Etileno=34,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
     #2013
-    date=datetime.datetime(2013,06,30)
+    date=datetime.datetime(2013,6,30)
     p32=Mediciones(central=p1,transformador=p23,codigo_usuario="7807004",Hidrogeno=74,Oxigeno=0,Nitrogeno=0,Metano=14,Monoxido_de_carbono=553,Etano=6,Dioxido_de_carbono=6798,Etileno=32,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
     p32.save()
     #2014
-    date=datetime.datetime(2014,06,30)
+    date=datetime.datetime(2014,6,30)
     p33=Mediciones(central=p1,transformador=p23,codigo_usuario="7807004",Hidrogeno=74,Oxigeno=727,Nitrogeno=65942,Metano=12,Monoxido_de_carbono=427,Etano=3,Dioxido_de_carbono=4351,Etileno=17,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
     p33.save()
     #2015
-    date=datetime.datetime(2015,06,30)
+    date=datetime.datetime(2015,6,30)
     p34=Mediciones(central=p1,transformador=p23,codigo_usuario="7807004",Hidrogeno=43,Oxigeno=0,Nitrogeno=0,Metano=8,Monoxido_de_carbono=334,Etano=8,Dioxido_de_carbono=4162,Etileno=18,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
     p34.save()
     #2016
-    date=datetime.datetime(2016,06,30)
+    date=datetime.datetime(2016,6,30)
     p35=Mediciones(central=p1,transformador=p23,codigo_usuario="7807004",Hidrogeno=46,Oxigeno=0,Nitrogeno=0,Metano=9,Monoxido_de_carbono=330,Etano=8,Dioxido_de_carbono=4320,Etileno=17,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
     p35.save()
     #2017
-    date=datetime.datetime(2017,06,30)
+    date=datetime.datetime(2017,6,30)
     p35=Mediciones(central=p1,transformador=p23,codigo_usuario="7807004",Hidrogeno=5,Oxigeno=0,Nitrogeno=0,Metano=1,Monoxido_de_carbono=9,Etano=2,Dioxido_de_carbono=151,Etileno=0,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
     p35.save()
      #2018
-    date=datetime.datetime(2018,06,30)
+    date=datetime.datetime(2018,6,30)
     p35=Mediciones(central=p1,transformador=p23,codigo_usuario="7807004",Hidrogeno=11,Oxigeno=0,Nitrogeno=0,Metano=4,Monoxido_de_carbono=177,Etano=5,Dioxido_de_carbono=1896,Etileno=5,Acetileno=3,fecha_ingreso=date,fecha_del_analisis=date)
     p35.save()
 
@@ -249,27 +249,27 @@ def datos_prueba(request):
     p24.save()
 
      #2012
-    date=datetime.datetime(2012,06,30)
+    date=datetime.datetime(2012,6,30)
     p31=Mediciones(central=p1,transformador=p24,codigo_usuario="7807004",Hidrogeno=36,Oxigeno=0,Nitrogeno=0,Metano=22,Monoxido_de_carbono=522,Etano=6,Dioxido_de_carbono=1953,Etileno=9,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
     #2013
-    date=datetime.datetime(2013,06,30)
+    date=datetime.datetime(2013,6,30)
     p32=Mediciones(central=p1,transformador=p24,codigo_usuario="7807004",Hidrogeno=24,Oxigeno=0,Nitrogeno=0,Metano=29,Monoxido_de_carbono=708,Etano=7,Dioxido_de_carbono=2512,Etileno=8,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
     p32.save()
     #2014
-    date=datetime.datetime(2014,06,30)
+    date=datetime.datetime(2014,6,30)
     p33=Mediciones(central=p1,transformador=p24,codigo_usuario="7807004",Hidrogeno=34,Oxigeno=0,Nitrogeno=0,Metano=29,Monoxido_de_carbono=771,Etano=3,Dioxido_de_carbono=2633,Etileno=10,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
     p33.save()
     #2015
-    date=datetime.datetime(2015,06,30)
+    date=datetime.datetime(2015,6,30)
     p34=Mediciones(central=p1,transformador=p24,codigo_usuario="7807004",Hidrogeno=36,Oxigeno=0,Nitrogeno=0,Metano=32,Monoxido_de_carbono=785,Etano=3,Dioxido_de_carbono=2745,Etileno=8,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
     p34.save()
     #2016
-    date=datetime.datetime(2016,06,30)
+    date=datetime.datetime(2016,6,30)
     p35=Mediciones(central=p1,transformador=p24,codigo_usuario="7807004",Hidrogeno=26,Oxigeno=0,Nitrogeno=0,Metano=33,Monoxido_de_carbono=916,Etano=8,Dioxido_de_carbono=2978,Etileno=12,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
     p35.save()
     #2017
-    date=datetime.datetime(2017,06,30)
+    date=datetime.datetime(2017,6,30)
     p35=Mediciones(central=p1,transformador=p24,codigo_usuario="7807004",Hidrogeno=0,Oxigeno=0,Nitrogeno=0,Metano=30,Monoxido_de_carbono=1006,Etano=7,Dioxido_de_carbono=3281,Etileno=8,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
     p35.save()
 
@@ -281,23 +281,23 @@ def datos_prueba(request):
     p25.save()
 
     #2012
-    date=datetime.datetime(2012,06,30)
+    date=datetime.datetime(2012,6,30)
     p31=Mediciones(central=p1,transformador=p25,codigo_usuario="7807004",Hidrogeno=30,Oxigeno=0,Nitrogeno=0,Metano=11,Monoxido_de_carbono=328,Etano=23,Dioxido_de_carbono=15922,Etileno=14,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
     #2013
-    date=datetime.datetime(2013,06,30)
+    date=datetime.datetime(2013,6,30)
     p32=Mediciones(central=p1,transformador=p25,codigo_usuario="7807004",Hidrogeno=21,Oxigeno=0,Nitrogeno=0,Metano=13,Monoxido_de_carbono=308,Etano=20,Dioxido_de_carbono=15521,Etileno=10,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
     p32.save()
     #2014
-    date=datetime.datetime(2014,06,30)
+    date=datetime.datetime(2014,6,30)
     p33=Mediciones(central=p1,transformador=p25,codigo_usuario="7807004",Hidrogeno=18,Oxigeno=0,Nitrogeno=0,Metano=9,Monoxido_de_carbono=194,Etano=15,Dioxido_de_carbono=4940,Etileno=8,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
     p33.save()
     #2015
-    date=datetime.datetime(2015,06,30)
+    date=datetime.datetime(2015,6,30)
     p34=Mediciones(central=p1,transformador=p25,codigo_usuario="7807004",Hidrogeno=10,Oxigeno=0,Nitrogeno=112000,Metano=7,Monoxido_de_carbono=219,Etano=3,Dioxido_de_carbono=8150,Etileno=3,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
     p34.save()
     #2016
-    date=datetime.datetime(2016,06,30)
+    date=datetime.datetime(2016,6,30)
     p35=Mediciones(central=p1,transformador=p25,codigo_usuario="7807004",Hidrogeno=16,Oxigeno=0,Nitrogeno=0,Metano=1,Monoxido_de_carbono=234,Etano=35,Dioxido_de_carbono=8630,Etileno=10,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
     p35.save()
 
@@ -315,11 +315,11 @@ def datos_prueba(request):
     p26.save()
 
      #2016
-    date=datetime.datetime(2016,06,30)
+    date=datetime.datetime(2016,6,30)
     p31=Mediciones(central=p1,transformador=p26,codigo_usuario="7807004",Hidrogeno=10,Oxigeno=7760,Nitrogeno=26500,Metano=5,Monoxido_de_carbono=212,Etano=2,Dioxido_de_carbono=677,Etileno=2,Acetileno=2,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
     #2018
-    date=datetime.datetime(2018,06,30)
+    date=datetime.datetime(2018,6,30)
     p32=Mediciones(central=p1,transformador=p26,codigo_usuario="7807004",Hidrogeno=18,Oxigeno=0,Nitrogeno=0,Metano=29,Monoxido_de_carbono=785,Etano=3,Dioxido_de_carbono=4062,Etileno=6,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
     p32.save()
 
@@ -333,11 +333,11 @@ def datos_prueba(request):
     p27.save()
 
     #2016
-    date=datetime.datetime(2016,06,30)
+    date=datetime.datetime(2016,6,30)
     p31=Mediciones(central=p1,transformador=p27,codigo_usuario="7807004",Hidrogeno=10,Oxigeno=7760,Nitrogeno=26500,Metano=5,Monoxido_de_carbono=212,Etano=2,Dioxido_de_carbono=677,Etileno=2,Acetileno=2,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
     #2018
-    date=datetime.datetime(2018,06,30)
+    date=datetime.datetime(2018,6,30)
     p32=Mediciones(central=p1,transformador=p27,codigo_usuario="7807004",Hidrogeno=21,Oxigeno=0,Nitrogeno=0,Metano=32,Monoxido_de_carbono=887,Etano=6,Dioxido_de_carbono=4395,Etileno=8,Acetileno=3,fecha_ingreso=date,fecha_del_analisis=date)
     p32.save()
 
@@ -350,19 +350,19 @@ def datos_prueba(request):
     p28.save()
 
     #2012
-    date=datetime.datetime(2012,06,30)
+    date=datetime.datetime(2012,6,30)
     p31=Mediciones(central=p1,transformador=p28,codigo_usuario="7807004",Hidrogeno=48,Oxigeno=0,Nitrogeno=0,Metano=2,Monoxido_de_carbono=12,Etano=61,Dioxido_de_carbono=4166,Etileno=19,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
     #2013
-    date=datetime.datetime(2013,06,30)
+    date=datetime.datetime(2013,6,30)
     p32=Mediciones(central=p1,transformador=p28,codigo_usuario="7807004",Hidrogeno=33,Oxigeno=0,Nitrogeno=0,Metano=3,Monoxido_de_carbono=11,Etano=60,Dioxido_de_carbono=3999,Etileno=6,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
     p32.save()
     #2014
-    date=datetime.datetime(2014,06,30)
+    date=datetime.datetime(2014,6,30)
     p33=Mediciones(central=p1,transformador=p28,codigo_usuario="7807004",Hidrogeno=8,Oxigeno=250,Nitrogeno=82.065,Metano=8,Monoxido_de_carbono=14,Etano=53,Dioxido_de_carbono=4781,Etileno=0,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
     p33.save()
     #2015
-    date=datetime.datetime(2015,06,30)
+    date=datetime.datetime(2015,6,30)
     p34=Mediciones(central=p1,transformador=p28,codigo_usuario="7807004",Hidrogeno=30,Oxigeno=0,Nitrogeno=89.8,Metano=4.9,Monoxido_de_carbono=4.9,Etano=44,Dioxido_de_carbono=4900,Etileno=1.9,Acetileno=1.9,fecha_ingreso=date,fecha_del_analisis=date)
     p34.save()
 
