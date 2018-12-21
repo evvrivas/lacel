@@ -421,6 +421,7 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
     plt.figure()
     #barh(pos,datos,align = 'center')
     plt.plot(anios,limitemax, 'r')
+    plt.figure()
     plt.plot(anios,datos)
     
     #plt.yticks(limitemax,color="r")
@@ -653,7 +654,7 @@ def grafico_gases_presentes(request,central_x,transformador_x):
 
     plt.xlabel('Nombre del gas ')
     plt.ylabel('CONCENTRACIONES ppm')
-    titulo="Presencia del gas "+gas_analizar +" disuelto en aceite"
+    titulo="Presencia del gases  disueltos en aceite"
     plt.title(titulo)
     subplots_adjust(left=0.21)
     
