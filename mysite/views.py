@@ -351,17 +351,19 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
     MedicionesF=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=transformador_x))
     
     datos=MedicionesF.values_list(gas_analizar, flat=True) 
-    fecha=MedicionesF.values_list("fecha_del_analisis", flat=True)               
+    fecha=MedicionesF.values_list("fecha_del_analisis", flat=True)     
+    anios=[]
 
-    d=len(datos)
-    pos = arange(d)
+    for i in  fecha:
+        an=i.strftime('%Y') 
+        anios.append(an)     
+
     plt.figure()
     #barh(pos,datos,align = 'center')
-    plt.plot(datos,fecha)
+    plt.plot(datos,anios)
     
-    plt.yticks(datos,color="b")
-    
-    #plt.xticks(anio,size="small",color="b",rotation=45)
+    plt.yticks(datos,color="b")    
+    #plt.xticks(anios,size="small",color="b",rotation=45)
 
     plt.xlabel('GASES')
     plt.ylabel('CONCENTRACIONES ppm')
@@ -504,7 +506,7 @@ def listado_de_mediciones(request,central_x,transformador_x):
     centrales=Centrales.objects.all()
                                        
     lista_mediciones=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=transformador_x))
-    
+    identificador=lista_mediciones.first()
     return render(request,'lista_de_mediciones.html',locals())
 
 def tendencias(request,central_x,transformador_x):

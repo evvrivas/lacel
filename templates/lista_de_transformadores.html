@@ -29,9 +29,9 @@
                             
                              <tr  align="center">
                                    
-                                    <td WIDTH="80">Tx CODIGO</td>                 
-                                    <td WIDTH="80">Tx MARCA</td>               
-                                    <td WIDTH="80">Tx MODELO</td>
+                                    <td WIDTH="90">Tx CODIGO</td>                 
+                                    <td WIDTH="120">Tx MARCA</td>               
+                                   
                                     
                                     <td WIDTH="80">VER % </td>
                              </tr > 
@@ -41,11 +41,11 @@
                                 
                                 <tr  align="center">
                                     
-                                    <td WIDTH="80">{{i.codigo}}</td>              
+                                    <td WIDTH="90">{{i.codigo}}</td>              
                                     <td WIDTH="120">{{i.marca}}</td>           
-                                    <td WIDTH="80">{{i.modelo}}</td>
+                                   
                                     
-                                    <td WIDTH="80"><li><a href="/listado_de_mediciones/{{i.central.nombre}}/{{i.codigo}}"> ver % GDA  </a></li></td>
+                                    <td WIDTH="80"><li><a href="/listado_de_mediciones/{{i.central.nombre}}/{{i.codigo}}"> % GDA  </a></li></td>
                                 </tr >
                             {%  endfor %} 
                           
