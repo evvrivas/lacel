@@ -90,7 +90,7 @@ def ingresar_datos_trafo(request):
 
 
       
-def total_gases_combustibles(central_x,transformador_x):
+def total_gases_combustibles(request,central_x,transformador_x):
     MedicionesF=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=transformador_x))
     
     gases=["Hidrogeno","Metano","Monoxido_de_carbono","Etano","Etileno","Acetileno"]
@@ -165,10 +165,10 @@ def total_gases_combustibles(central_x,transformador_x):
             estado = "MUY ANORMAL"
         ESTADO_DE_GASES.append(estado)
     
-    return estado_trafo,NOMBRE_GAS_PRUEBA,ESTADO_DE_GASES
+    #return estado_trafo,NOMBRE_GAS_PRUEBA,ESTADO_DE_GASES
     
 
-    #return render(request,'analisis.html',locals())
+    return render(request,'analisis.html',locals())
 
 
 
@@ -723,10 +723,7 @@ def grafico_gases_combustibles(request,central_x,transformador_x):
 
     plt.xlabel('Nombre del gas ')
     plt.ylabel('CONCENTRACIONES ppm')
-    titulo="Presencia del gases combustibles \n"+"Estado del Tx "+ trafo+"\n"+"Nombre de gases "+ nombre_gas+"\n"+"Estado del gas "+ estado_gas+"\n"
-
-
-    
+    titulo="Presencia del gases combustibles" 
     
 
 
