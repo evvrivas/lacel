@@ -355,6 +355,7 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
 
     d=len(datos)
     pos = arange(d)
+    plt.figure()
     #barh(pos,datos,align = 'center')
     plt.plot(datos)
     
@@ -379,9 +380,9 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
     graphIMG = PIL.Image.fromstring('RGB', canvas.get_width_height(), canvas.tostring_rgb())
     graphIMG.save(buffer, "PNG")
     pylab.close()
-    buffer.close()
     
-   
+    
+
     return HttpResponse (buffer.getvalue(), content_type="Image/png")
 
 
