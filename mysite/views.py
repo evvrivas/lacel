@@ -374,6 +374,15 @@ def datos_prueba(request):
 
 
 def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
+
+
+    limites=[("Hidrogeno",150),("Oxigeno",16),("Nitrogeno",8.6),("Metano",110),("Monoxido_de_carbono",900),("Etano",90),("Dioxido_de_carbono",2500),("Etileno",280),("Acetileno",3)]
+    for i in limite:
+        if gas_analizar==i[0]:
+            limite=i[1]
+
+
+    
     
     centrales=Centrales.objects.all()
 
@@ -389,6 +398,7 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
      
     plt.figure()
     #barh(pos,datos,align = 'center')
+    plt.plot(limite, 'r')
     plt.plot(anios,datos)
     
     plt.yticks(datos,color="b")    
@@ -396,7 +406,7 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
 
     plt.xlabel('GASES')
     plt.ylabel('CONCENTRACIONES ppm')
-    titulo="Tendencia del gas "+gas_analizar +" disuelto en aceitr"
+    titulo="Tendencia del gas "+gas_analizar +" disuelto en aceite"
     plt.title(titulo)
     
 
