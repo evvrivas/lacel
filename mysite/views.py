@@ -167,7 +167,9 @@ def total_gases_combustibles(request,central_x,transformador_x):
             estado = "ANORMAL EXESIVO"
         else:
             estado = "MUY ANORMAL"
-        ESTADO_DE_GASES.append(estado)
+
+
+        ESTADO_DE_GASES.append((NOMBRE_GAS_PRUEBA[i],estado))
     
     #return estado_trafo,NOMBRE_GAS_PRUEBA,ESTADO_DE_GASES
     
@@ -723,7 +725,7 @@ def grafico_gases_combustibles(request,central_x,transformador_x):
     #plt.yticks(limitemax,color="r")
     #plt.yticks(datos,color="b")    
     #plt.xticks(anios,size="small",color="b",rotation=45)
-    trafo,nombre_gas,estado_gas=total_gases_combustibles(central_x,transformador_x)
+   
 
     plt.xlabel('Nombre del gas ')
     plt.ylabel('CONCENTRACIONES ppm')
