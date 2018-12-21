@@ -360,10 +360,10 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
 
     plt.figure()
     #barh(pos,datos,align = 'center')
-    plt.plot(datos,anios)
+    plt.plot(datos)
     
     plt.yticks(datos,color="b")    
-    #plt.xticks(anios,size="small",color="b",rotation=45)
+    plt.xticks(anios,size="small",color="b",rotation=45)
 
     plt.xlabel('GASES')
     plt.ylabel('CONCENTRACIONES ppm')
