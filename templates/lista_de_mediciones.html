@@ -20,14 +20,14 @@
                 <div class="thumbnail">                                    
                   <div class="caption">
                     <h4><center> {{central_x}} Transformador {{transformador_x}} </center></h4>
-                    <h4><center> codigo {{identificador.transformador.codigo}}</center></h4>
+                    <h4><center> codigo {{identificador.transformador.marca}} Unidad {{identificador.transformador.descripcion}}</center></h4>
                         <center>
                          <table BORDER="1" CELLSPACING="1">
                             
                              <tr  align="center">
                                    
                                                                         
-                                   
+                                     <td WIDTH="100">Fecha</td> 
                                     <td WIDTH="60">H2</td>                                    
                                     <td WIDTH="60">O2</td>                                    
                                     <td WIDTH="60">N</td>
@@ -42,14 +42,14 @@
                                      <td WIDTH="60">Ver</td>
                                       <td WIDTH="60">Ver</td>
 
-                                     <td WIDTH="100">Fecha</td>                            
+                                                               
                                </tr >
 
                             {%  for i in lista_mediciones %} 
                                     
                                 <tr  align="center">
                                    
-                                    
+                                    <td WIDTH="100">{{i.fecha_del_analisis}}</td>
                                     <td WIDTH="60">{{i.Hidrogeno}}</td>                                    
                                     <td WIDTH="60">{{i.Oxigeno}}</td>                                    
                                     <td WIDTH="60">{{i.Nitrogeno}}</td>
@@ -66,7 +66,7 @@
 
                                     <td WIDTH="60"><li><a href="/tendencias/{{i.central.nombre}}/{{i.transformador.codigo}}"> Tendencias</a></li></td>
 
-                                     <td WIDTH="100">{{i.fecha_ingreso}}</td>
+                                     
                                 </tr >
 
 
