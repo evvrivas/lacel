@@ -130,6 +130,13 @@ import PIL.Image
 import io
 from io import *
 
+##########################
+import numpy as np
+import matplotlib.pyplot as plt
+#################################
+
+
+
 def datos_prueba(request):
 
     date=datetime.datetime.now()
@@ -349,14 +356,19 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
     d=len(datos)
     pos = arange(d)
     #barh(pos,datos,align = 'center')
-    plot(datos)
+    plt.plot(datos)
     
-    yticks(datos,color="b")
-    #xticks(pos,size="small",color="b",rotation=45)
+    plt.yticks(datos,color="b")
+    
+    plt.xticks(anio,size="small",color="b",rotation=45)
 
-    xlabel('GASES')
-    ylabel('CONCENTRACIONES')
+    plt.xlabel('GASES')
+    plt.ylabel('CONCENTRACIONES ppm')
     titulo="TENDENCIA DE "+gas_analizar +"DISUELTO EN EL ACEITE"
+    plt.title(titulo)
+    
+    
+
     #subplots_adjust(left=0.21)
 
     buffer = io.BytesIO()
@@ -366,6 +378,9 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
     graphIMG.save(buffer, "PNG")
     pylab.close()
     
+    plt.clf()
+    plt.cla()
+    plt.close()
     return HttpResponse (buffer.getvalue(), content_type="Image/png")
 
 
@@ -521,6 +536,7 @@ def grafico (request,concentraciones):
     graphIMG = PIL.Image.fromstring('RGB', canvas.get_width_height(), canvas.tostring_rgb())
     graphIMG.save(buffer, "PNG")
     pylab.close()
+
 
     return HttpResponse (buffer.getvalue(), content_type="Image/png")
 
