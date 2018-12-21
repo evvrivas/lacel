@@ -404,7 +404,7 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
             limite=i[1]
             break    
     
-    centrales=Centrales.objects.all()
+    
 
     MedicionesF=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=transformador_x))
     
@@ -577,7 +577,9 @@ def tendencias(request,central_x,transformador_x):
     return render(request,'tendencias.html',locals()) 
 
 
-def analisis(request,central_x,transformador_x,id_datos_de_analisis):
+def analisis(request,central_x,transformador_x):
+    central=central_x
+    transformador=transformador_x
    
     return render(request,'analisis.html',locals())
 
@@ -618,7 +620,7 @@ def grafico (request,concentraciones):
 
 def grafico_gases_presentes(request,central_x,transformador_x):  
     
-    centrales=Centrales.objects.all()
+   
     MedicionesF=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=transformador_x))
     
     gases=["Hidrogeno","Oxigeno","Nitrogeno","Metano","Monoxido_de_carbono","Etano","Dioxido_de_carbono","Etileno","Acetileno"]

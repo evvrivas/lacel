@@ -53,7 +53,7 @@ urlpatterns = [
 
     url(r'^listado_de_transformadores/([^/]+)/$', listado_de_transformadores),
     url(r'^listado_de_mediciones/([^/]+)/([^/]+)/$', listado_de_mediciones),
-    url(r'^analisis/([^/]+)/([^/]+)/(\d+)/$', analisis),
+    url(r'^analisis/([^/]+)/([^/]+)/$', analisis),
 
     url(r'^datos_prueba/$', datos_prueba),
     
