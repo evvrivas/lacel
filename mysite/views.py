@@ -783,3 +783,167 @@ def grafico_gases_combustibles(request,central_x,transformador_x):
     
 
     return HttpResponse (buffer.getvalue(), content_type="Image/png")
+
+
+#Hidrogeno H2
+#Metano   CH4
+#Acetileno C2H2
+#Etileno  C2H4
+#Etano   C2H6
+#Monoxido_de_carbono  C0
+
+#Oxigeno   O2
+#Nitrogeno  N2
+#Dioxido_de_carbono  CO2
+
+
+
+################################################################################
+################################################################################
+################################################################################
+def datos_de_analisis(central_x, transformador_x):
+
+    MedicionesF=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=transformador_x))
+       
+    SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
+    NOMBRE_GAS_PRUEBA=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono","Oxigeno","Nitrogeno","Dioxido_de_carbono"]
+   
+    gas_analisis=[]
+    valor=[]
+    
+    for i in NOMBRE_GAS_PRUEBA:
+        datos=MedicionesF.values_list(i, flat=True) 
+        
+        for y in datos: 
+            if y!=0 and y!="":
+                valor.append(y)
+
+        gas_analisis.append((i,valor[-1])) 
+
+    return gas_analisis
+
+
+################################################################################
+################################################################################
+################################################################################
+
+def total_de_gases_combustibles(request, central_x, transformador_x):
+        #SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
+        #NOMBRE_GAS_PRUEBA=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono","Oxigeno","Nitrogeno","Dioxido_de_carbono"]
+        VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)  
+
+        SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO"]
+        NOMBRE_GAS_PRUEBA=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono"]
+
+        LIMITE_1=["100","120","35","50","65","350"]
+        LIMITE_2=["700","400","50","100","100","570"]
+        LIMITE_3=["1800","1000","80","200","150","1400"]
+
+
+        SUMTDGC=0
+        for i in range(len LIMITE_1):
+            SUMTDGC+=VALOR_DEL_GAS[i]
+
+        if SUMTDGC<720:
+            estado_trafo="EL TRANSFORMADOR ESTA OPERANDO SATISFACTORIAMENTE"
+        elif SUMTDGC>=720 and SUMTDGC <1920 :
+            estado_trafo="EL TRANSFORMADOR PRESENTA NIVEL DE GASES MAS ALTO QUE LO NORMAL,\n INVESTIGAR LOS LIMITES PARA CADA GAS"
+        elif SUMTDGC>=1921 and SUMTDGC <4630 :
+            estado_trafo="EL TRANSFORMADOR PRESENTA UN ALTO GRADO DE DESCOMPOSICION DE\n CELULOSA Y/O ACEITE, INVESTIGAR LOS LIMITES PARA CADA GAS"
+        else:
+            estado_trafo="EL TRANSFORMADOR PRESENTA UN ALTO GRADO DE DESCOMPOSICION DE\n CELULOSA Y/O ACEITE, LA OPERACION CONTINUA DEL TTRANSFORMADOR \nPUEDE RESULTAR EN FALLA DEL MISMO"
+
+        return estado_trafo
+
+################################################################################
+################################################################################
+################################################################################
+
+def gas_key(request, central_x, transformador_x):
+        
+        VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)     
+
+        SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
+        NOMBRE_GAS_PRUEBA=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono","Oxigeno","Nitrogeno","Dioxido_de_carbono"]
+
+        SIMBOLO_GAS_COMBUSTIBLE=["H2","CH4","C2H2","C2H4","C2H6","CO"]
+        NOMBRE_GAS_COMBUSTIBLE=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono"]
+
+        SUMTDG=0
+        for i in range(len VALOR_DEL_GAS):
+            SUMTDG+=VALOR_DEL_GAS[i]
+
+        PORCENTAJES=[]
+        for i in VALOR_DEL_GAS:
+            valor=100*i/SUMTDG
+            PORCENTAJES.append(valor)
+
+        Vmaximo=max( PORCENTAJES)
+        indice_Vmaximo= PORCENTAJES.index(Vmaximo)
+
+        if indice_Vmaximo==0:#hidrogeno H2
+                    estado_trafo="SE DETECTO EFECTO CORONA"              
+                       
+        elif indice_Vmaximo==2:# acetileno C2H2
+                        estado_trafo="SE DETECTO ARCO INTERNO"
+
+        elif indice_Vmaximo==3:#etileno C2H4            
+                        estado_trafo="SE DETECTO ACEITE SOBRE CALENTADO"
+
+        elif indice_Vmaximo==5:#monoxido de carbono CO
+                        estado_trafo="SE DETECTO PAPEL SOBRECALENTADO"
+
+        else:
+                    estado_trafo="NO APLICA"
+
+
+        return estado_trafo
+
+################################################################################
+################################################################################
+################################################################################
+
+################################################################################
+################################################################################
+################################################################################
+
+def roger(request, central_x, transformador_x):
+        
+        VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)     
+
+        #SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
+        #NOMBRE_GAS_PRUEBA=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono","Oxigeno","Nitrogeno","Dioxido_de_carbono"]
+
+        #SIMBOLO_GAS_COMBUSTIBLE=["H2","CH4","C2H2","C2H4","C2H6","CO"]
+        #NOMBRE_GAS_COMBUSTIBLE=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono"]
+
+        R1=VALOR_DEL_GAS[2]/VALOR_DEL_GAS[3]
+        R2=VALOR_DEL_GAS[1]/VALOR_DEL_GAS[0]
+        R3=VALOR_DEL_GAS[3]/VALOR_DEL_GAS[4]
+
+        if R1<0.1 and R2>0.1 and R2<1 and R3<1 :
+            estado_trafo="Estado Normal"
+
+        if R1<0.1 and R2<0.1 and R3<1 :
+            estado_trafo="Descarga parcial (corona)\n Arco de baja dencidad de energia"
+
+        if R1>0.1 and R1<3 and R2>0.1 and R2<1 and R3>3 :
+            estado_trafo="Arco\n Descarga de alta energia"
+
+        if R1<0.1 and R2>0.1 and R2<1 and R3>1 and R3<3  :
+            estado_trafo="Sobrecalentamiento termico a baja temperatura" 
+        
+        if R1<0.1 and R2>0.1 and R3>1 and R3<3  :
+            estado_trafo="Calentamiento de alta temperatura menor de 700 grados celcius"
+
+        if R1<0.1 and R2>0.1 and R3>3  :
+            estado_trafo="Calentamiento de alta temperatura mayor de 700 grados celcius"
+        
+        else:
+            estado_trafo="NO APLICA" 
+
+        return estado_trafo
+
+################################################################################
+################################################################################
+################################################################################
