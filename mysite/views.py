@@ -729,7 +729,7 @@ def grafico_gases_presentes(request,central_x,transformador_x):
 
     plt.gca().set_xscale('log')
 
-    barh(nombre_gases,valor_gases,align = 'center')
+    plt.barh(nombre_gases,valor_gases,align = 'center')
   
     plt.xlabel('Concentraciones de gas (ppm) ')
     plt.ylabel('Gases analizados')
