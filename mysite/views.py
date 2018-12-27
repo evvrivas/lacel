@@ -779,7 +779,7 @@ def grafico_gases_presentes(request,central_x,transformador_x):
         plt.figure()
 
         plt.gca().set_yscale('log')
-        plt.bar(X, Y1, facecolor='#9999ff', edgecolor='white')
+        plt.bar(Y1, facecolor='#9999ff', edgecolor='white')
        
 
         for x, y in zip(X, Y1):
@@ -792,7 +792,7 @@ def grafico_gases_presentes(request,central_x,transformador_x):
         plt.ylabel('Gases analizados')
         titulo="Presencia del gases  disueltos en aceite"
         plt.title(titulo)
-        plt.yticks(valor_gases,color="b")
+        plt.xticks(nombre_gases,color="b")
         subplots_adjust(left=0.21)
 
        
