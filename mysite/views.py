@@ -714,7 +714,7 @@ def analisis(request,central_x,transformador_x):
 
 
 
-def grafico_gases_presentes(request,central_x,transformador_x):  
+def grafico_gases_presentes2(request,central_x,transformador_x):  
     
    
     VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)             
@@ -730,23 +730,19 @@ def grafico_gases_presentes(request,central_x,transformador_x):
 
     pl.gca().set_xscale('log')
 
-    pl.barh(nombre_gases,valor_gases,align = 'center',facecolor='#9999ff', edgecolor='white')
+    pl.bar(nombre_gases,valor_gases,align = 'center',facecolor='#9999ff', edgecolor='white')
 
-
-    valor_gases2=[str(j) for j in valor_gases]
-    
-    for y,x in zip(nombre_gases, valor_gases2):
-            pl.text(str(x) + 0.4, y + 0.05, '%.2f' % y, ha='center', va= 'bottom')
+    for x, y in zip(nombre_gases, valor_gases):
+            pl.text(x + 0.4, y + 0.05, '%.2f' % y, ha='center', va= 'bottom')
     
   
-    pl.xlabel('Concentraciones de gas (ppm) ')
-    pl.ylabel('Gases analizados')
+    plt.xlabel('Concentraciones de gas (ppm) ')
+    plt.ylabel('Gases analizados')
     titulo="Presencia del gases  disueltos en aceite"
-    pl.title(titulo)
+    plt.title(titulo)
     subplots_adjust(left=0.21)
 
-    
-    
+        
     buffer = io.BytesIO()
     canvas = pylab.get_current_fig_manager().canvas
     canvas.draw()
@@ -758,3 +754,56 @@ def grafico_gases_presentes(request,central_x,transformador_x):
     return HttpResponse (buffer.getvalue(), content_type="Image/png")
 
 
+
+      
+        
+
+def grafico_gases_presentes(request,central_x,transformador_x):  
+        n = 12
+        X = np.arange(n)
+        Y11 = (1 - X / float(n)) * np.random.uniform(0.5, 1.0, n)
+        Y21 = (1 - X / float(n)) * np.random.uniform(0.5, 1.0, n)
+        
+        VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)             
+
+        nombre_gases=[]
+        valor_gases=[]
+
+        for i in VALOR_DEL_GAS:
+            nombre_gases.append(i[0])
+            valor_gases.append(i[1])
+        
+        X=nombre_gases
+        Y1=valor_gases
+
+
+
+
+        pl.figure()
+
+        pl.axes([0.025, 0.025, 0.95, 0.95])
+        pl.bar(X, +Y1, facecolor='#9999ff', edgecolor='white')
+        pl.bar(X, -Y2, facecolor='#ff9999', edgecolor='white')
+
+        for x, y in zip(X, Y1):
+            pl.text(x + 0.4, y + 0.05, '%.2f' % y, ha='center', va= 'bottom')
+
+        for x, y in zip(X, Y2):
+            pl.text(x + 0.4, -y - 0.05, '%.2f' % y, ha='center', va= 'top')
+
+        pl.xlim(-.5, n)
+        pl.xticks(())
+        pl.ylim(-1.25, 1.25)
+        pl.yticks(())
+
+       
+
+        buffer = io.BytesIO()
+        canvas = pylab.get_current_fig_manager().canvas
+        canvas.draw()
+        
+        graphIMG = PIL.Image.fromstring('RGB', canvas.get_width_height(), canvas.tostring_rgb())
+        graphIMG.save(buffer, "PNG")
+        pylab.close()  
+        
+        return HttpResponse (buffer.getvalue(), content_type="Image/png")
