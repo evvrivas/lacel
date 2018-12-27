@@ -949,3 +949,40 @@ def roger(request, central_x, transformador_x):
 ################################################################################
 
 """
+
+def duval(request, central_x, transformador_x):
+        
+        VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)     
+
+        #SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
+        #NOMBRE_GAS_PRUEBA=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono","Oxigeno","Nitrogeno","Dioxido_de_carbono"]
+
+        #SIMBOLO_GAS_COMBUSTIBLE=["H2","CH4","C2H2","C2H4","C2H6","CO"]
+        #NOMBRE_GAS_COMBUSTIBLE=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono"]
+
+        R1=VALOR_DEL_GAS[2]/VALOR_DEL_GAS[3]
+        R2=VALOR_DEL_GAS[1]/VALOR_DEL_GAS[0]
+        R3=VALOR_DEL_GAS[3]/VALOR_DEL_GAS[4]
+
+        if R1<0.1 and R2>0.1 and R2<1 and R3<1 :
+            estado_trafo="Estado Normal"
+
+        if R1<0.1 and R2<0.1 and R3<1 :
+            estado_trafo="Descarga parcial (corona)\n Arco de baja dencidad de energia"
+
+        if R1>0.1 and R1<3 and R2>0.1 and R2<1 and R3>3 :
+            estado_trafo="Arco\n Descarga de alta energia"
+
+        if R1<0.1 and R2>0.1 and R2<1 and R3>1 and R3<3  :
+            estado_trafo="Sobrecalentamiento termico a baja temperatura" 
+        
+        if R1<0.1 and R2>0.1 and R3>1 and R3<3  :
+            estado_trafo="Calentamiento de alta temperatura menor de 700 grados celcius"
+
+        if R1<0.1 and R2>0.1 and R3>3  :
+            estado_trafo="Calentamiento de alta temperatura mayor de 700 grados celcius"
+        
+        else:
+            estado_trafo="NO APLICA" 
+
+        return estado_trafo
