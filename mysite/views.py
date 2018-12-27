@@ -745,7 +745,7 @@ def grafico_gases_presentes(request,central_x,transformador_x):
     graphIMG.save(buffer, "PNG")
     pylab.close()  
     
-    return HttpResponse (buffer.getvalue(), content_type="Image/png",locals())
+    return HttpResponse (buffer.getvalue(), content_type="Image/png")
 
 
 
