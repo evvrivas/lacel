@@ -462,7 +462,7 @@ def total_gases_combustibles(request, central_x, transformador_x):
 
         ESTADO_DE_GASES=[]
     
-        for i in range(len(VALOR_DEL_GAS)):
+        for i in range(len(LIMITE_1)):
             if VALOR_DEL_GAS[i][1]<=LIMITE_1[i]:
                 estado = "NORMAL"
             elif VALOR_DEL_GAS[i][1]>LIMITE_1[i] and VALOR_DEL_GAS[i][1]<LIMITE_2[i]:
