@@ -594,7 +594,6 @@ def Relaciones_adicionales(request):
 
 
 
-
 from django.shortcuts import render
 from matplotlib import pylab
 from pylab import *
@@ -761,9 +760,9 @@ def grafico_gases_presentes2(request,central_x,transformador_x):
 def grafico_gases_presentes(request,central_x,transformador_x):  
         n = 12
         X = np.arange(n)
-        Y11 = (1 - X / float(n)) * np.random.uniform(0.5, 1.0, n)
-        Y21 = (1 - X / float(n)) * np.random.uniform(0.5, 1.0, n)
+        Y1 = (1 - X / float(n)) * np.random.uniform(0.5, 1.0, n)
         
+
         VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)             
 
         nombre_gases=[]
@@ -772,29 +771,23 @@ def grafico_gases_presentes(request,central_x,transformador_x):
         for i in VALOR_DEL_GAS:
             nombre_gases.append(i[0])
             valor_gases.append(i[1])
-        
-        X=nombre_gases
-        Y1=valor_gases
+        X= np.arange(len(nombre_gases))
+        Y1=valor_gases.append(float(i[1]))
 
+        plt.figure()
 
-
-
-        pl.figure()
-
-        pl.axes([0.025, 0.025, 0.95, 0.95])
-        pl.bar(X, +Y1, facecolor='#9999ff', edgecolor='white')
-        pl.bar(X, -Y2, facecolor='#ff9999', edgecolor='white')
+        plt.axes([0.025, 0.025, 0.95, 0.95])
+        plt.bar(X, +Y1, facecolor='#9999ff', edgecolor='white')
+       
 
         for x, y in zip(X, Y1):
-            pl.text(x + 0.4, y + 0.05, '%.2f' % y, ha='center', va= 'bottom')
+            plt.text(x + 0.4, y + 0.05, '%.2f' % y, ha='center', va= 'bottom')
 
-        for x, y in zip(X, Y2):
-            pl.text(x + 0.4, -y - 0.05, '%.2f' % y, ha='center', va= 'top')
-
-        pl.xlim(-.5, n)
-        pl.xticks(())
-        pl.ylim(-1.25, 1.25)
-        pl.yticks(())
+       
+        plt.xlim(-.5, n)
+        plt.xticks(())
+        plt.ylim(-1.25, 1.25)
+        plt.yticks(())
 
        
 
