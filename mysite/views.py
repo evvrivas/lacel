@@ -713,7 +713,7 @@ def analisis(request,central_x,transformador_x):
 
 
 
-def grafico_gases_presentes(request,central_x,transformador_x):  
+def grafico_gases_presentes2(request,central_x,transformador_x):  
     
    
     VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)             
@@ -753,7 +753,42 @@ def grafico_gases_presentes(request,central_x,transformador_x):
 
 
 
+      
+        
+import pylab as pl
+import numpy as np
+def grafico_gases_presentes(request,central_x,transformador_x):  
+        n = 12
+        X = np.arange(n)
+        Y1 = (1 - X / float(n)) * np.random.uniform(0.5, 1.0, n)
+        Y2 = (1 - X / float(n)) * np.random.uniform(0.5, 1.0, n)
 
 
+        pl.figure()
+
+        pl.axes([0.025, 0.025, 0.95, 0.95])
+        pl.bar(X, +Y1, facecolor='#9999ff', edgecolor='white')
+        pl.bar(X, -Y2, facecolor='#ff9999', edgecolor='white')
+
+        for x, y in zip(X, Y1):
+            pl.text(x + 0.4, y + 0.05, '%.2f' % y, ha='center', va= 'bottom')
+
+        for x, y in zip(X, Y2):
+            pl.text(x + 0.4, -y - 0.05, '%.2f' % y, ha='center', va= 'top')
+
+        pl.xlim(-.5, n)
+        pl.xticks(())
+        pl.ylim(-1.25, 1.25)
+        pl.yticks(())
+
+       
+
+        buffer = io.BytesIO()
+        canvas = pylab.get_current_fig_manager().canvas
+        canvas.draw()
         
+        graphIMG = PIL.Image.fromstring('RGB', canvas.get_width_height(), canvas.tostring_rgb())
+        graphIMG.save(buffer, "PNG")
+        pylab.close()  
         
+        return HttpResponse (buffer.getvalue(), content_type="Image/png")
