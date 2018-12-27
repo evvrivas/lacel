@@ -725,20 +725,19 @@ def grafico_gases_presentes2(request,central_x,transformador_x):
         nombre_gases.append(i[0])
         valor_gases.append(i[1])
      
-    pl.figure()
+    plt.figure()
 
-    pl.gca().set_xscale('log')
+    plt.gca().set_xscale('log')
 
-    pl.bar(nombre_gases,valor_gases,align = 'center',facecolor='#9999ff', edgecolor='white')
+    plt.barh(nombre_gases,valor_gases,align = 'center',facecolor='#9999ff', edgecolor='white')
 
-    for x, y in zip(nombre_gases, valor_gases):
-            pl.text(x + 0.4, y + 0.05, '%.2f' % y, ha='center', va= 'bottom')
-    
-  
     plt.xlabel('Concentraciones de gas (ppm) ')
     plt.ylabel('Gases analizados')
     titulo="Presencia del gases  disueltos en aceite"
     plt.title(titulo)
+
+    plt.xticks(valor_gases,color="b")
+    
     subplots_adjust(left=0.21)
 
         
@@ -758,11 +757,7 @@ def grafico_gases_presentes2(request,central_x,transformador_x):
       
 
 def grafico_gases_presentes(request,central_x,transformador_x):  
-        n = 12
-        X = np.arange(n)
-        Y1 = (1 - X / float(n)) * np.random.uniform(0.5, 1.0, n)
-        
-
+       
         VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)             
 
         nombre_gases=[]
@@ -779,18 +774,21 @@ def grafico_gases_presentes(request,central_x,transformador_x):
 
         plt.figure()
 
-        plt.axes([0.025, 0.025, 0.95, 0.95])
-        plt.bar(X, +Y1, facecolor='#9999ff', edgecolor='white')
+        
+        plt.bar(X, Y1, facecolor='#9999ff', edgecolor='white')
        
 
         for x, y in zip(X, Y1):
             plt.text(x + 0.4, y + 0.05, '%.2f' % y, ha='center', va= 'bottom')
-
+         
        
-        plt.xlim(-.5, n)
-        plt.xticks(())
-        plt.ylim(-1.25, 1.25)
-        plt.yticks(())
+           
+       
+        plt.xlabel('Concentraciones de gas (ppm) ')
+        plt.ylabel('Gases analizados')
+        titulo="Presencia del gases  disueltos en aceite"
+        plt.title(titulo)
+        subplots_adjust(left=0.21)
 
        
 
