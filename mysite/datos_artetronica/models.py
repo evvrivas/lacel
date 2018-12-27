@@ -60,9 +60,7 @@ class Transformadores(models.Model):
 	     class Admin:
 		    		list_display = ('codigo', 'marca', 'modelo','caracteristicas')
 
- NOMBRE_GAS_PRUEBA=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono","Oxigeno","Nitrogeno","Dioxido_de_carbono"]
-   
-
+ 
 #from django.contrib.postgres.fields import ArrayField
 class Mediciones(models.Model):
          central=models.ForeignKey('Centrales')
@@ -75,8 +73,8 @@ class Mediciones(models.Model):
          Etano=models.FloatField(default=0,blank=True,null=True)
          Monoxido_de_carbono=models.FloatField(default=0,blank=True,null=True)
          Oxigeno=models.FloatField(default=0,blank=True,null=True)
-         Nitrogeno=models.FloatField(default=0,blank=True,null=True)        
-         Dioxido_de_carbono=models.FloatField(default=0,blank=True,null=True)        
+         Nitrogeno=models.FloatField(default=0,blank=True,null=True)
+         Dioxido_de_carbono=models.FloatField(default=0,blank=True,null=True)
          fecha_del_analisis = models.DateField(default=datetime.now,null=False)
          fecha_ingreso = models.DateField(default=datetime.now,editable = True)
          def __str__(self):
