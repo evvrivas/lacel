@@ -736,6 +736,10 @@ def grafico_gases_presentes(request,central_x,transformador_x):
     titulo="Presencia del gases  disueltos en aceite"
     plt.title(titulo)
     subplots_adjust(left=0.21)
+
+    # Etiquetar los puntos
+    for i, txt in enumerate(valor_gases):
+        plt.annotate(str(txt), (nombre_gases[i],valor_gases[i]))
     
     buffer = io.BytesIO()
     canvas = pylab.get_current_fig_manager().canvas
