@@ -732,7 +732,10 @@ def grafico_gases_presentes(request,central_x,transformador_x):
 
     pl.barh(nombre_gases,valor_gases,align = 'center',facecolor='#9999ff', edgecolor='white')
 
-    for y,x in zip(nombre_gases, valor_gases):
+
+    valor_gases2=[str(j) for j in valor_gases]
+    
+    for y,x in zip(nombre_gases, valor_gases2):
             pl.text(str(x) + 0.4, y + 0.05, '%.2f' % y, ha='center', va= 'bottom')
     
   
