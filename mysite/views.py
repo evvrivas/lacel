@@ -727,7 +727,7 @@ def grafico_gases_presentes(request,central_x,transformador_x):
      
     plt.figure()
 
-    plt.gca().set_yscale('log')
+    plt.gca().set_xscale('log')
 
     barh(nombre_gases,valor_gases,align = 'center')
   
@@ -745,7 +745,7 @@ def grafico_gases_presentes(request,central_x,transformador_x):
     graphIMG.save(buffer, "PNG")
     pylab.close()  
     
-    return HttpResponse (buffer.getvalue(), content_type="Image/png")
+    return HttpResponse (buffer.getvalue(), content_type="Image/png",locals())
 
 
 
