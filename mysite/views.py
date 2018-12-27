@@ -772,7 +772,8 @@ def grafico_gases_presentes(request,central_x,transformador_x):
             nombre_gases.append(i[0])
             valor_gases.append(i[1])
         X= np.arange(len(nombre_gases))
-        Y1=valor_gases.append(float(i[1]))
+        
+        Y1=valor_gases
 
         plt.figure()
 
