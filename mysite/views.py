@@ -348,7 +348,7 @@ def datos_de_analisis(central_x, transformador_x):
 
 ################################################################################
 
-def gas_clave(request, central_x, transformador_x):
+def gas_clave( central_x, transformador_x):
         
         VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)     
 
