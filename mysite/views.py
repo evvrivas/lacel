@@ -400,8 +400,8 @@ def limite_concentracion(request, central_x, transformador_x):
         SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO"]
         NOMBRE_GAS_PRUEBA=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono"]
 
-        LIMITE_1=["100","120","2","50","65","350"]
-        LIMITE_2=["700","400","5","100","570","1900"]
+        LIMITE_1=[100,120,2,50,65,350]
+        LIMITE_2=[700,400,5,100,570,1900]
        
         SUMTDGC=0
         for i in range(len (LIMITE_1)):
@@ -441,9 +441,9 @@ def total_gases_combustibles(request, central_x, transformador_x):
         SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO"]
         NOMBRE_GAS_PRUEBA=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono"]
 
-        LIMITE_1=["100","120","35","50","65","350"]
-        LIMITE_2=["700","400","50","100","100","570"]
-        LIMITE_3=["1800","1000","80","200","150","1400"]
+        LIMITE_1=[100,120,35,50,65,350]
+        LIMITE_2=[700,400,50,100,100,570]
+        LIMITE_3=[1800,1000,80,200,150,1400]
 
 
         SUMTDGC=0
