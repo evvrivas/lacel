@@ -569,9 +569,9 @@ def duval( central_x, transformador_x):
         #NOMBRE_GAS_COMBUSTIBLE=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono"]
         SUMAGASES=VALOR_DEL_GAS[1]+VALOR_DEL_GAS[2]+VALOR_DEL_GAS[3]
 
-        PCH4=VALOR_DEL_GAS[1]/SUMAGASES
-        PC2H2=VALOR_DEL_GAS[2]/SUMAGASES
-        PC2H4=VALOR_DEL_GAS[3]/SUMAGASES        
+        PCH4=VALOR_DEL_GAS[1][1]/SUMAGASES
+        PC2H2=VALOR_DEL_GAS[2][1]/SUMAGASES
+        PC2H4=VALOR_DEL_GAS[3][1]/SUMAGASES        
         respuesta=[PCH4,PC2H2,PC2H4]
         return respuesta 
         #return render(request,'analisis.html',locals())
