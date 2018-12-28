@@ -41,11 +41,6 @@ urlpatterns = [
     url(r'^grafico_tendencias/([^/]+)/([^/]+)/([^/]+)/$', grafico_tendencias),
     
     url(r'^grafico_gases_presentes/([^/]+)/([^/]+)/$', grafico_gases_presentes),
-    url(r'^grafico_gases_presentes2/([^/]+)/([^/]+)/$', grafico_gases_presentes2),
-    
-     
-
-
 
     url(r'^total_gases_combustibles/([^/]+)/([^/]+)/$', total_gases_combustibles),
     url(r'^limite_concentracion/$', limite_concentracion),
