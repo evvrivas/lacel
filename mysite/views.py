@@ -785,21 +785,16 @@ def grafico_gases_presentes(request,central_x,transformador_x):
       
         z=0 
         for x, y in zip(X, Y1):
-            plt.text(x, y ,str(y)+"\n"+nombre_gases[z]+"\n"+SIMBOLO_GAS[z], ha='center', va= 'bottom')
+            plt.text(x, y ,str(y)+ "\n" +SIMBOLO_GAS[z], ha='center', va= 'bottom')
             z=z+1
-         
        
-           
-       
-        plt.xlabel('Gases analizados')
+        plt.xlabel('Gases combustibles H2,CH4,C2H2,C2H4,C2H6) + CO, O2 ,N2 ,CO2 ')
         plt.ylabel('Concentraciones de gas (ppm) ')
-        titulo="Presencia del gases  disueltos en aceite"
+        
         plt.title(titulo)
         plt.xticks(())
 
-        subplots_adjust(left=0.21)
-
-       
+        subplots_adjust(left=0.21)       
 
         buffer = io.BytesIO()
         canvas = pylab.get_current_fig_manager().canvas
