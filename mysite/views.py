@@ -359,12 +359,12 @@ def gas_clave( central_x, transformador_x):
         NOMBRE_GAS_COMBUSTIBLE=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono"]
 
         SUMTDG=0
-        for i in range(len (VALOR_DEL_GAS)):
+        for i in range(len (SIMBOLO_GAS_COMBUSTIBLE)):
             SUMTDG+=VALOR_DEL_GAS[i][1]
 
         PORCENTAJES=[]
-        for i in VALOR_DEL_GAS:
-            valor=100*i[1]/SUMTDG
+        for i in range(len (SIMBOLO_GAS_COMBUSTIBLE)):
+            valor=100*VALOR_DEL_GAS[i]/SUMTDG
             PORCENTAJES.append(valor)
 
         Vmaximo=max( PORCENTAJES)
@@ -401,7 +401,7 @@ def limite_concentracion(central_x, transformador_x):
         NOMBRE_GAS_PRUEBA=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono"]
 
         LIMITE_1=[100,120,2,50,65,350]
-        LIMITE_2=[700,400,5,100,570,1900]
+        LIMITE_2=[700,400,5,100,100,570]
        
         SUMTDGC=0
         for i in range(len (LIMITE_1)):
@@ -418,14 +418,14 @@ def limite_concentracion(central_x, transformador_x):
         
         ESTADO_DE_GASES=[]
         for i in range(len(LIMITE_1)):
-            if VALOR_DEL_GAS[i][1]<=LIMITE_1[i]:
+            if VALOR_DEL_GAS[i][1]<LIMITE_1[i]:
                 estado = "NORMAL"
-            elif VALOR_DEL_GAS[i][1]>LIMITE_1[i] and VALOR_DEL_GAS[i][1]<LIMITE_2[i]:
+            elif VALOR_DEL_GAS[i][1]>=LIMITE_1[i] and VALOR_DEL_GAS[i][1]<LIMITE_2[i]:
                 estado = "PRECAUCION"
             else:
                 estado = "ADVERTENCIA"
             
-            vector=[NOMBRE_GAS_PRUEBA[i][0], SIMBOLO_GAS[i][0],VALOR_DEL_GAS[i][0],estado]
+            vector=[NOMBRE_GAS_PRUEBA[i], SIMBOLO_GAS[i],VALOR_DEL_GAS[i][0],estado]
             ESTADO_DE_GASES.append(vector)
         
         respuesta= [estado_trafo,ESTADO_DE_GASES]
@@ -456,7 +456,7 @@ def total_gases_combustibles(central_x, transformador_x):
             estado_trafo="EL TRANSFORMADOR ESTA OPERANDO SATISFACTORIAMENTE"
         elif SUMTDGC>=720 and SUMTDGC <1920 :
             estado_trafo="EL TRANSFORMADOR PRESENTA NIVEL DE GASES MAS ALTO QUE LO NORMAL,\n INVESTIGAR LOS LIMITES PARA CADA GAS"
-        elif SUMTDGC>=1921 and SUMTDGC <4630 :
+        elif SUMTDGC>=1920 and SUMTDGC <4630 :
             estado_trafo="EL TRANSFORMADOR PRESENTA UN ALTO GRADO DE DESCOMPOSICION DE\n CELULOSA Y/O ACEITE, INVESTIGAR LOS LIMITES PARA CADA GAS"
         else:
             estado_trafo="EL TRANSFORMADOR PRESENTA UN ALTO GRADO DE DESCOMPOSICION DE\n CELULOSA Y/O ACEITE, LA OPERACION CONTINUA DEL TTRANSFORMADOR \nPUEDE RESULTAR EN FALLA DEL MISMO"
@@ -465,17 +465,17 @@ def total_gases_combustibles(central_x, transformador_x):
         ESTADO_DE_GASES=[]
     
         for i in range(len(LIMITE_1)):
-            if VALOR_DEL_GAS[i][1]<=LIMITE_1[i]:
+            if VALOR_DEL_GAS[i][1]<LIMITE_1[i]:
                 estado = "NORMAL"
-            elif VALOR_DEL_GAS[i][1]>LIMITE_1[i] and VALOR_DEL_GAS[i][1]<LIMITE_2[i]:
+            elif VALOR_DEL_GAS[i][1]>=LIMITE_1[i] and VALOR_DEL_GAS[i][1]<LIMITE_2[i]:
                 estado = "ANORMAL MODERDADO"
 
-            elif VALOR_DEL_GAS[i][1]>LIMITE_2[i] and VALOR_DEL_GAS[i][1]<LIMITE_3[i]:
+            elif VALOR_DEL_GAS[i][1]>=LIMITE_2[i] and VALOR_DEL_GAS[i][1]<LIMITE_3[i]:
                 estado = "ANORMAL EXESIVO"
             else:
                 estado = "MUY ANORMAL"
 
-            vector=[NOMBRE_GAS_PRUEBA[i][0], SIMBOLO_GAS[i][0],VALOR_DEL_GAS[i][0],estado]
+            vector=[NOMBRE_GAS_PRUEBA[i], SIMBOLO_GAS[i],VALOR_DEL_GAS[i][0],estado]
             ESTADO_DE_GASES.append(vector)         
         
         
@@ -542,13 +542,13 @@ def donenberg(central_x, transformador_x):
         R1=VALOR_DEL_GAS[1][1]/VALOR_DEL_GAS[0][1]
         R2=VALOR_DEL_GAS[2][1]/VALOR_DEL_GAS[3][1]
 
-        if R1>1 and R1<100 and R2>0.01 and R2<1  :
+        if R1>0.87 and R1<=100 and R2>=0.01 and R2<=0.87  :
             estado_trafo="Se detecto un problema termico"
 
-        if R1>0.1 and R1<1 and R2>0.1 and R2<100 :
+        if R1>=0.087 and R1<=0.87 and R2>0.1 and R2<=110 :
             estado_trafo="Se detecto un problema de Arco"
 
-        if R1>0 and R1<0.1 and R2>0.1 and R2<100 :
+        if R1>=0 and R1<=0.087 and R2>0.087 and R2<100 :
             estado_trafo="Se detecto un problema de efecto Corona"       
         
         else:
@@ -582,17 +582,6 @@ def IEC_60599(request):
     pass
 def Relaciones_adicionales(request):
     pass
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -659,13 +648,6 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
     return HttpResponse (buffer.getvalue(), content_type="Image/png")
 ##############################
 ##########################################
-
-
-
-
-
-
-
 
 
 def informacion(request):

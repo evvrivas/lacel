@@ -72,10 +72,7 @@
 
                             {%  endfor %} 
                          
-                        <td WIDTH="60"><li><a href="/analisis/{{i.central.nombre}}/{{i.transformador.codigo}}"> Analizar</a></li></td>
-
-                        <td WIDTH="60"><li><a href="/tendencias/{{i.central.nombre}}/{{i.transformador.codigo}}"> Tendencias</a></li></td>
-
+                        
                         </table>
                         </center>
 
@@ -83,9 +80,9 @@
                         
                    </div>     
 
-                    <li><a href="/total_gases_combustibles/{{i.central_x.nombre}}/{{i.transformador_x.codigo}}"> Analizar</a></li>
+                    <li><a href="/total_gases_combustibles/{{identificador.central_x.nombre}}/{{identificador.transformador_x.codigo}}"> Analizar</a></li>
 
-                    <li><a href="/tendencias/{{i.central_x.nombre}}/{{i.transformador_x.codigo}}"> Tendencias</a></li>            
+                    <li><a href="/tendencias/{{identificador.central_x.nombre}}/{{identificador.transformador_x.codigo}}"> Tendencias</a></li>            
               
                 
                   
