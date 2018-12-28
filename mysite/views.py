@@ -795,7 +795,7 @@ def grafico_gases_presentes(request,central_x,transformador_x):
         plt.ylabel('Concentraciones de gas (ppm) ')
         titulo="Presencia del gases  disueltos en aceite"
         plt.title(titulo)
-        plt.xticks(nombre_gases,color="b")
+        plt.xticks(())
 
         subplots_adjust(left=0.21)
 
