@@ -572,8 +572,8 @@ def duval( central_x, transformador_x):
         PCH4=VALOR_DEL_GAS[1]/SUMAGASES
         PC2H2=VALOR_DEL_GAS[2]/SUMAGASES
         PC2H4=VALOR_DEL_GAS[3]/SUMAGASES        
-
-        return  PCH4,PC2H2,PC2H4
+        respuesta=[PCH4,PC2H2,PC2H4]
+        return respuesta 
         #return render(request,'analisis.html',locals())
 
 ################################################################################
@@ -703,7 +703,7 @@ def analisis(request,central_x,transformador_x):
     concentraciones_limite=limite_concentracion(central, transformador)#vector
     gases_combustibles= total_gases_combustibles(central, transformador)#vector    
     
-    PCH4,PC2H2,PC2H4=duval( central, transformador)    
+    Triangulo_duval=duval( central, transformador)    
     segun_donenberg=donenberg(central, transformador)
     segun_roger=roger(central, transformador)         
    
