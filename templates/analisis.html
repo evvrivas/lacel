@@ -13,68 +13,83 @@
      </div>
 
 
-    <div class="panel-body">
+<div class="panel-body">
         <!-- ######################################################################  -->
         <div class="row">
              
 
 
-            	 <div class="col-md-12>
+            	 <div class="col-md-12">
                		 <div class="thumbnail">                                    
 		                    <div class="caption">
 		                    <h4><center>GASES PRESENTES EN EL TRANSFORMADOR</center></h4> 
                         <center><img src="/grafico_gases_presentes/{{central_x}}/{{transformador_x}}"></center>
-                        
-                        <BR>
-                        <center><canvas id="canvas" width=650 height=580></canvas>  </center>
-                        <center><button id="bt1" onClick="calcOpr(50,30,20)"> Analizar </button>  </center>  
+     
+    
+
+                    <div class="container">
+                         <center><h2>ANALISIS</h2></center>                             
+                         <p>Estos analisis son de rreferencia, se requiere de un experto para interpretar estos analisis</p>
+                         <BR>
+
+
+                              <div class="alert alert-success">
+                              <strong>ANALISIS DE GAS CLAVE</strong> {{segun_gas_clave}}
+
+
+                              </div>
+
+
+
+                              <div class="alert alert-info">
+                                <strong>ANALISIS DE LIMITE DE CONCENTRACIONES</strong> {{concentraciones_limite}}
+                              </div>
+
+
+                              <div class="alert alert-warning">
+                                <strong>ANLISIS DE GASES COMBUSTIBLES</strong> {{gases_combustibles}}
+                              </div>
+
+
+                              <div class="alert alert-danger">
+                                <strong>ANALISIS METODO DE DONENBERG</strong> {{segun_donenberg}}
+                              </div>
+
+
+                              <div class="alert alert-primary">
+                                <strong>ANALISIS METODO DE ROGER</strong> {{ segun_roger}}
+                             </div>
+
+
+                              <div class="alert alert-secondary">
+                                <strong>ANALISIS METODO TRIANGULO DE DUVAL</strong> 
+                            <center><canvas id="canvas" width=550 height=580></canvas>  </center>
+                        <center><button id="bt1" onClick="calcOpr({{PCH4}},{{PC2H2}},{{PC2H4}})"> Analizar </button>  </center>  
                        
-                      <!--   
-
-                        <BR>
-
-                        <center><p>Fenomeno detectado {{estado_segun_gaskey}}</p></center>
-                        <BR>
-                        <h4><center>#########################################################</center></h4> 
-                        <BR>
-                        
-
-		                    <h4><center>GASES COMBUSTIBLES PRESENTES EN EL TRANSFORMADOR</center></h4> 
-                        <BR>
-                        <center><img src="/grafico_gases_combustibles/{{central}}/{{transformador}}"></center>
-		                    </div>  
-
-                      <p><center>Estado del Transformador </p></center>
-                      <p><center>{{estado_trafo}}</p></center>
-                                            
-
-                        <br>
-                        <p><center> Estado de los gases</p></center> 
-                        <p><center>{{ESTADO_DE_GASES}}</p>
-                        
-                        <h4><center>#########################################################</center></h4> 
-                        <BR>
-                        <BR>
--->
-                        
-                     </div>
-                 </div>
+                              </div>
 
 
-               
+                              <div class="alert alert-dark">
+                                <strong>ANALISIS NORMA</strong> Dark grey alert.
+                              </div>
+
+
+                              <div class="alert alert-light">
+                                <strong>ANALISIS ANANALITICO</strong> Light grey alert.
+                               
+                              </div>
+                    </div>
+          
+           </div>             
         </div>
-        
-
-        
+      </div>
 
 
 
 
 
-
-    </div>
 </div>
-
+</div>
                 
  
 

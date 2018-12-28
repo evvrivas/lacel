@@ -391,7 +391,7 @@ def gas_clave( central_x, transformador_x):
 ################################################################################
 
 ################################################################################
-def limite_concentracion(request, central_x, transformador_x):
+def limite_concentracion(central_x, transformador_x):
         #Segun IEEE c57.104-1991
         #SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
         #NOMBRE_GAS_PRUEBA=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono","Oxigeno","Nitrogeno","Dioxido_de_carbono"]
@@ -417,7 +417,7 @@ def limite_concentracion(request, central_x, transformador_x):
                 
         
         ESTADO_DE_GASES=[]
-        for i in range(len(VALOR_DEL_GAS)):
+        for i in range(len(LIMITE_1)):
             if VALOR_DEL_GAS[i][1]<=LIMITE_1[i]:
                 estado = "NORMAL"
             elif VALOR_DEL_GAS[i][1]>LIMITE_1[i] and VALOR_DEL_GAS[i][1]<LIMITE_2[i]:
@@ -425,15 +425,16 @@ def limite_concentracion(request, central_x, transformador_x):
             else:
                 estado = "ADVERTENCIA"
             
-            ESTADO_DE_GASES.append(VALOR_DEL_GAS[i][0],estado)
-           
-        #return estado_trafo,NOMBRE_GAS_PRUEBA,ESTADO_DE_GASES
+            ESTADO_DE_GASES.append(NOMBRE_GAS_PRUEBA[i][0], SIMBOLO_GAS[i][0],VALOR_DEL_GAS[i][0],estado)
+        
+        respuesta= [estado_trafo,ESTADO_DE_GASES] 
+        return respuesta
 
-        return render(request,'analisis.html',locals())
+        #return render(request,'analisis.html',locals())
 
 ################################################################################
 ################################################################################
-def total_gases_combustibles(request, central_x, transformador_x):
+def total_gases_combustibles(central_x, transformador_x):
         #SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
         #NOMBRE_GAS_PRUEBA=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono","Oxigeno","Nitrogeno","Dioxido_de_carbono"]
         VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)  
@@ -476,17 +477,19 @@ def total_gases_combustibles(request, central_x, transformador_x):
 
             ESTADO_DE_GASES.append((NOMBRE_GAS_PRUEBA[i],estado))
 
+        ESTADO_DE_GASES.append(NOMBRE_GAS_PRUEBA[i][0], SIMBOLO_GAS[i][0],VALOR_DEL_GAS[i][0],estado)
+        
+        respuesta= [estado_trafo,ESTADO_DE_GASES]     
 
-
-        #return estado_trafo
-        estado_segun_gaskey=gas_clave(central_x,transformador_x)
-        return render(request,'analisis.html',locals())
+        return respuesta
+        
+        #return render(request,'analisis.html',locals())
 
 ################################################################################
 
 ################################################################################
 
-def roger(request, central_x, transformador_x):
+def roger(central_x, transformador_x):
         
         VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)     
 
@@ -521,12 +524,12 @@ def roger(request, central_x, transformador_x):
         else:
             estado_trafo="NO APLICA" 
 
-        #return estado_trafo
-        return render(request,'analisis.html',locals())
+        return estado_trafo
+        #return render(request,'analisis.html',locals())
 
 ################################################################################
 
-def donenberg(request, central_x, transformador_x):
+def donenberg(central_x, transformador_x):
         
         VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)     
 
@@ -551,11 +554,11 @@ def donenberg(request, central_x, transformador_x):
         else:
             estado_trafo="NO APLICA" 
 
-        #return estado_trafo
-        return render(request,'analisis.html',locals())
+        return estado_trafo
+        #return render(request,'analisis.html',locals())
 ################################################################################
 
-def duval(request, central_x, transformador_x):
+def duval( central_x, transformador_x):
         
         VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)     
 
@@ -568,11 +571,10 @@ def duval(request, central_x, transformador_x):
 
         PCH4=VALOR_DEL_GAS[1]/SUMAGASES
         PC2H2=VALOR_DEL_GAS[2]/SUMAGASES
-        PC2H4=VALOR_DEL_GAS[3]/SUMAGASES
-        
+        PC2H4=VALOR_DEL_GAS[3]/SUMAGASES        
 
-        #return  PCH4,PC2H2,PC2H4
-        return render(request,'analisis.html',locals())
+        return  PCH4,PC2H2,PC2H4
+        #return render(request,'analisis.html',locals())
 
 ################################################################################
 
@@ -695,6 +697,15 @@ def tendencias(request,central_x,transformador_x):
 def analisis(request,central_x,transformador_x):
     central=central_x
     transformador=transformador_x
+
+    segun_gas_clave=gas_clave(central, transformador)#valor
+    
+    concentraciones_limite=limite_concentracion(central, transformador)#vector
+    gases_combustibles= total_gases_combustibles(central, transformador)#vector    
+    
+    PCH4,PC2H2,PC2H4=duval( central, transformador)    
+    segun_donenberg=donenberg(central, transformador)
+    segun_roger=roger(central, transformador)         
    
     return render(request,'analisis.html',locals())
 
@@ -708,58 +719,6 @@ def analisis(request,central_x,transformador_x):
 
 #Make.objects.filter(makecontent__published=True)
 
-
-
-
-
-
-def grafico_gases_presentes2(request,central_x,transformador_x):  
-    
-   
-    VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)             
-
-    nombre_gases=[]
-    valor_gases=[]
-
-    for i in VALOR_DEL_GAS:
-        nombre_gases.append(i[0])
-        valor_gases.append(i[1])
-     
-    plt.figure()
-
-    plt.gca().set_xscale('log')
-
-    plt.barh(nombre_gases,valor_gases,align = 'center',facecolor='#9999ff', edgecolor='white')
-       
-    X= np.arange(len(nombre_gases))
-    Y1=valor_gases
-    for x, y in zip(X, Y1):
-            plt.text(x , y , '%.1f' % y, ha='center', va= 'bottom')
-
-    plt.xlabel('Concentraciones de gas (ppm) ')
-    plt.ylabel('Gases analizados')
-    titulo="Presencia del gases  disueltos en aceite"
-    plt.title(titulo)
-
-    plt.xticks(valor_gases,color="b")
-    
-    subplots_adjust(left=0.21)
-
-        
-    buffer = io.BytesIO()
-    canvas = pylab.get_current_fig_manager().canvas
-    canvas.draw()
-    
-    graphIMG = PIL.Image.fromstring('RGB', canvas.get_width_height(), canvas.tostring_rgb())
-    graphIMG.save(buffer, "PNG")
-    pylab.close()  
-    
-    return HttpResponse (buffer.getvalue(), content_type="Image/png")
-
-
-
-      
-      
 
 def grafico_gases_presentes(request,central_x,transformador_x):  
        
