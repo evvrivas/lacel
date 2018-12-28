@@ -425,9 +425,10 @@ def limite_concentracion(central_x, transformador_x):
             else:
                 estado = "ADVERTENCIA"
             
-            ESTADO_DE_GASES.append(NOMBRE_GAS_PRUEBA[i][0], SIMBOLO_GAS[i][0],VALOR_DEL_GAS[i][0],estado)
+            vector=[NOMBRE_GAS_PRUEBA[i][0], SIMBOLO_GAS[i][0],VALOR_DEL_GAS[i][0],estado]
+            ESTADO_DE_GASES.append(vector)
         
-        respuesta= [estado_trafo,ESTADO_DE_GASES] 
+        respuesta= [estado_trafo,ESTADO_DE_GASES]
         return respuesta
 
         #return render(request,'analisis.html',locals())
@@ -474,12 +475,11 @@ def total_gases_combustibles(central_x, transformador_x):
             else:
                 estado = "MUY ANORMAL"
 
-
-            ESTADO_DE_GASES.append((NOMBRE_GAS_PRUEBA[i],estado))
-
-        ESTADO_DE_GASES.append(NOMBRE_GAS_PRUEBA[i][0], SIMBOLO_GAS[i][0],VALOR_DEL_GAS[i][0],estado)
+            vector=[NOMBRE_GAS_PRUEBA[i][0], SIMBOLO_GAS[i][0],VALOR_DEL_GAS[i][0],estado]
+            ESTADO_DE_GASES.append(vector)         
         
-        respuesta= [estado_trafo,ESTADO_DE_GASES]     
+        
+        respuesta= [estado_trafo,ESTADO_DE_GASES]
 
         return respuesta
         
