@@ -732,6 +732,7 @@ def grafico_gases_presentes2(request,central_x,transformador_x):
     plt.barh(nombre_gases,valor_gases,align = 'center',facecolor='#9999ff', edgecolor='white')
        
     X= np.arange(len(nombre_gases))
+    Y1=valor_gases
     for x, y in zip(X, Y1):
             plt.text(x , y , '%.1f' % y, ha='center', va= 'bottom')
 
@@ -781,15 +782,16 @@ def grafico_gases_presentes(request,central_x,transformador_x):
         plt.gca().set_yscale('log')
         plt.bar(X, Y1, facecolor='#9999ff', edgecolor='white')
        
-
-        for x, y,z in zip(X, Y1),nombre_gases:
-            plt.text(x, y ,str(y)+"\n"+z, ha='center', va= 'bottom')
+        z=0 
+        for x, y in zip(X, Y1),:
+            plt.text(x, y ,str(y)+"\n"+nombre_gases[z], ha='center', va= 'bottom')
+            z=z+1
          
        
            
        
-        plt.xlabel('Concentraciones de gas (ppm) ')
-        plt.ylabel('Gases analizados')
+        plt.xlabel('Gases analizados')
+        plt.ylabel('Concentraciones de gas (ppm) ')
         titulo="Presencia del gases  disueltos en aceite"
         plt.title(titulo)
         plt.xticks(nombre_gases,color="b")
