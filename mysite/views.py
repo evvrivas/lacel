@@ -567,7 +567,7 @@ def duval( central_x, transformador_x):
 
         #SIMBOLO_GAS_COMBUSTIBLE=["H2","CH4","C2H2","C2H4","C2H6","CO"]
         #NOMBRE_GAS_COMBUSTIBLE=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono"]
-        SUMAGASES=VALOR_DEL_GAS[1]+VALOR_DEL_GAS[2]+VALOR_DEL_GAS[3]
+        SUMAGASES=VALOR_DEL_GAS[1][1]+VALOR_DEL_GAS[2][1]+VALOR_DEL_GAS[3][1]
 
         PCH4=VALOR_DEL_GAS[1][1]/SUMAGASES
         PC2H2=VALOR_DEL_GAS[2][1]/SUMAGASES
