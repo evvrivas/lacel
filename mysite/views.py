@@ -364,7 +364,7 @@ def gas_clave( central_x, transformador_x):
 
         PORCENTAJES=[]
         for i in range(len (SIMBOLO_GAS_COMBUSTIBLE)):
-            valor=100*VALOR_DEL_GAS[i]/SUMTDG
+            valor=100*VALOR_DEL_GAS[i][1]/SUMTDG
             PORCENTAJES.append(valor)
 
         Vmaximo=max( PORCENTAJES)
