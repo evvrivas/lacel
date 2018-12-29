@@ -8,7 +8,7 @@
 
 <div class="panel panel-info">
       <div class="panel-heading">
-        <h2 class="panel-title"><center>Lista de Transformadores de 
+        <h2 class="panel-title"><center>Transformadores {{central_x}} 
         </center></h2>
           
       </div>
@@ -20,9 +20,7 @@
 
              <div class="col-md-12">
                 <div class="thumbnail"> 
-                    <center> <h2 class="panel-title">  Lista de Transformadores de {{central_x}}</h2></center>
-                    <br>                                   
-                  <div class="caption">
+                     <div class="caption">
                     
                      <center>
                          <table BORDER="1" CELLSPACING="1">
@@ -30,12 +28,12 @@
                              <tr  align="center">
                                     
                                     <td WIDTH="60">Unidad</td>  
-                                    <td WIDTH="100">Tx CODIGO</td>                 
-                                    <td WIDTH="150">Tx MARCA</td>
+                                    <td WIDTH="120">Tx CODIGO</td>                 
+                                    <td WIDTH="170">Tx MARCA</td>
 
                                    
                                     
-                                    <td WIDTH="80">VER % </td>
+                                    <td WIDTH="80">Ver </td>
                              </tr > 
 
 
@@ -48,7 +46,7 @@
                                     <td WIDTH="150">{{i.marca}}</td>           
                                    
                                     
-                                    <td WIDTH="80"><li><a href="/listado_de_mediciones/{{i.central.nombre}}/{{i.codigo}}"> % GDA  </a></li></td>
+                                    <td WIDTH="80"><a href="/listado_de_mediciones/{{i.central.nombre}}/{{i.codigo}}">AGDA</a></td>
                                 </tr >
                             {%  endfor %} 
                           

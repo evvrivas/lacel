@@ -27,7 +27,7 @@
                              <tr  align="center">
                                    
                                                                         
-                                     <td WIDTH="100">Fecha</td> 
+                                    <td WIDTH="100">Fecha</td> 
                                     <td WIDTH="60">H2</td>                                    
                                     <td WIDTH="60">O2</td>                                    
                                     <td WIDTH="60">N</td>
@@ -77,12 +77,33 @@
                         </center>
 
                       
+                   <h4><center> Gases a analizar</center></h4>
+                     
+                     {%  for i in VALOR_DEL_GAS %} 
+                                    
+                               <center> <tr  align="center">
+                                   
+                                    <td WIDTH="100">{{i.0}}</td>
+                                    <td WIDTH="100">{{i.1}}</td>
+                                                                                                           
+                                </tr ></center>
+
+
+                            {%  endfor %} 
+
+                          <li><a href="/tendencias/{{identificador.central.nombre}}/{{identificador.transformador.codigo}}"> Tendencias</a></li>       
+
+
                         
-                   </div>     
+                   </div>
 
-                    <li><a href="/total_gases_combustibles/{{identificador.central_x.nombre}}/{{identificador.transformador_x.codigo}}"> Analizar</a></li>
 
-                    <li><a href="/tendencias/{{identificador.central_x.nombre}}/{{identificador.transformador_x.codigo}}"> Tendencias</a></li>            
+
+
+
+
+                  
+                       
               
                 
                   
