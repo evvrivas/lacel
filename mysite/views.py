@@ -590,6 +590,7 @@ from matplotlib import pylab
 from pylab import *
 import PIL
 import PIL.Image
+import StringIO
 import io
 from io import *
 
@@ -603,7 +604,7 @@ import pylab as pl
 from django.http import HttpResponse
 
 
-import PIL, PIL.Image, StringIO
+#import PIL, PIL.Image, StringIO
 
 def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
 
