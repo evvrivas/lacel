@@ -6,7 +6,10 @@ body {
 
 #canvas {
     border: 1px solid red;
-    margin-left: 380px;
+    
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
 }
 
 div.inputs {
