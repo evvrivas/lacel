@@ -669,7 +669,14 @@ def listado_de_mediciones(request,central_x,transformador_x):
     lista_mediciones=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=transformador_x))
     identificador=lista_mediciones.first()
     
-    VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)  
+    VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x) 
+
+        
+
+
+
+
+
     return render(request,'lista_de_mediciones.html',locals())
 
 def tendencias(request,central_x,transformador_x):

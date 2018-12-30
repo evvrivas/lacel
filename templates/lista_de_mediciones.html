@@ -79,6 +79,14 @@
                       
                    <h4><center> Gases a analizar</center></h4>
                      
+
+
+
+                    <table BORDER="1" CELLSPACING="1"> 
+
+                    {{VALOR_DEL_GAS.0.1}}
+
+
                      {%  for i in VALOR_DEL_GAS %} 
                                     
                                <center> <tr  align="center">
@@ -90,7 +98,7 @@
 
 
                             {%  endfor %} 
-
+                   </table>
                           <li><a href="/tendencias/{{identificador.central.nombre}}/{{identificador.transformador.codigo}}"> Tendencias</a></li>       
 
 
