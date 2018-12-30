@@ -600,12 +600,6 @@ import matplotlib.pyplot as plt
 import pylab as pl
 
 
-from django.http import HttpResponse
-from io import StringIO
-
-
-#import PIL, PIL.Image, StringIO
-
 def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
 
     limites=[("Hidrogeno",150),("Oxigeno",16),("Nitrogeno",8.6),("Metano",110),("Monoxido_de_carbono",900),("Etano",90),("Dioxido_de_carbono",2500),("Etileno",280),("Acetileno",3)]
@@ -735,11 +729,9 @@ def grafico_gases_presentes(request,central_x,transformador_x):
             nombre_gases.append(i[0])
             valor_gases.append(i[1])
 
-
         X= np.arange(len(nombre_gases))
         Y1 = np.asarray(valor_gases)  
         
-
         plt.figure()
 
         plt.gca().set_yscale('log')
@@ -750,9 +742,8 @@ def grafico_gases_presentes(request,central_x,transformador_x):
         for x, y in zip(X, Y1):
             plt.text(x, y ,str(y)+ "\n"+SIMBOLO_GAS[z], ha='center', va= 'bottom')
             z=z+1
-           
-           
-       
+ 
+      
         plt.xlabel('Gases combustibles (H2,CH4,C2H2,C2H4,C2H6) +CO +O2 +N2 +CO2 ')
         plt.ylabel('Concentraciones de gas (ppm) ')
         titulo=""
@@ -760,22 +751,14 @@ def grafico_gases_presentes(request,central_x,transformador_x):
         plt.xticks(())
 
         subplots_adjust(left=0.21)
+      
 
-
-        buffer = io.StringIO()
+        buffer = io.BytesIO()
         canvas = pylab.get_current_fig_manager().canvas
-        canvas.draw()
-        pilImage = PIL.Image.frombytes("RGB", canvas.get_width_height(), canvas.tostring_rgb())
-        pilImage.save(buffer, "PNG")
-        pylab.close()
-        
-
-        #buffer = io.BytesIO()
-        #canvas = pylab.get_current_fig_manager().canvas
-        #canvas.draw()        
-        #graphIMG = PIL.Image.fromstring('RGB', canvas.get_width_height(), canvas.tostring_rgb())
-        #graphIMG.save(buffer, "PNG")
-        #pylab.close()  
+        canvas.draw()        
+        graphIMG = PIL.Image.fromstring('RGB', canvas.get_width_height(), canvas.tostring_rgb())
+        graphIMG.save(buffer, "PNG")
+        pylab.close()  
         
         return HttpResponse (buffer.getvalue(), content_type="Image/png")
 
