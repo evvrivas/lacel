@@ -762,7 +762,7 @@ def grafico_gases_presentes(request,central_x,transformador_x):
         subplots_adjust(left=0.21)
 
 
-        buffer = StringIO.StringIO()
+        buffer = io.StringIO()
         canvas = pylab.get_current_fig_manager().canvas
         canvas.draw()
         pilImage = PIL.Image.frombytes("RGB", canvas.get_width_height(), canvas.tostring_rgb())
