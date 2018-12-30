@@ -698,6 +698,13 @@ def analisis(request,central_x,transformador_x):
     segun_donenberg=donenberg(central, transformador)
     segun_roger=roger(central, transformador)         
    
+
+    lista_mediciones=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=transformador_x))
+    identificador=lista_mediciones.first()
+    
+    VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)
+
+
     return render(request,'analisis.html',locals())
 
 ##############################ejemplito
