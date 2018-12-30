@@ -590,7 +590,6 @@ from matplotlib import pylab
 from pylab import *
 import PIL
 import PIL.Image
-import StringIO
 import io
 from io import *
 
@@ -602,6 +601,7 @@ import pylab as pl
 
 
 from django.http import HttpResponse
+from io import StringIO
 
 
 #import PIL, PIL.Image, StringIO
