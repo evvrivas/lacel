@@ -18,9 +18,6 @@
 <div class="panel-body">
         <!-- ######################################################################  -->
 
-
-
-
         <div class="row">
              
 
@@ -28,15 +25,17 @@
             	 <div class="col-md-12">
                		 <div class="thumbnail">                                    
 		                    <div class="caption">
-		                    <h4><center>GASES PRESENTES EN EL TRANSFORMADOR</center></h4> 
-                        <center><div class="container">
-                        <img src="/grafico_gases_presentes/{{central_x}}/{{transformador_x}}">
-                        </div></center>
-
+		                                   
 
 
                     <h4><center> {{central_x}} Transformador {{transformador_x}} </center></h4>
-                    <h4><center> codigo {{identificador.transformador.marca}} Unidad {{identificador.transformador.descripcion}}</center></h4>
+                    <h4><center>
+                     Codigo {{identificador.transformador.codigo}}
+                     Marca {{identificador.transformador.marca}}  </center></h4>
+                       <center></h4>Modelo {{identificador.transformador.modelo}}  
+                     Unidad {{identificador.transformador.cararcteristicas}}
+                    </center></h4>
+                    <br>
                         <center>
                          <table BORDER="1" CELLSPACING="1">
                             
@@ -96,13 +95,9 @@
                    <h4><center> Gases a analizar</center></h4>
                      
 
+                  <center>  <table BORDER="1" CELLSPACING="1"> 
 
-
-                    <table BORDER="1" CELLSPACING="1"> 
-
-                    {{VALOR_DEL_GAS.0.1}}
-
-
+                   
                      {%  for i in VALOR_DEL_GAS %} 
                                     
                                <center> <tr  align="center">
@@ -114,38 +109,15 @@
 
 
                             {%  endfor %} 
-                   </table>
-                          <li><a href="/tendencias/{{identificador.central.nombre}}/{{identificador.transformador.codigo}}"> Tendencias</a></li>       
+                   </table></center>
 
 
-                        
+                                             
                
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ <h4><center> GASES DE ANALISIS (LIMITES Segun IEEE c57.104-1991) </center></h4>
+                        <center><div class="container">
+                        <img src="/grafico_gases_presentes/{{central_x}}/{{transformador_x}}">
+                        </div></center>
 
 
 
