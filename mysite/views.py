@@ -680,9 +680,11 @@ def listado_de_mediciones(request,central_x,transformador_x):
 
     return render(request,'lista_de_mediciones.html',locals())
 
-def tendencias(request,central_x,transformador_x):
+def tendencias(request,central_x,transformador_x,gas_x):
     central=central_x
     transformador=transformador_x
+    gas=gas_x
+
     return render(request,'tendencias.html',locals()) 
 
 
