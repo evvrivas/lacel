@@ -636,7 +636,7 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
 
     z=0 
     for x, y in zip(X, Y1):
-            plt.text(x, y ,str(y)+, ha='center', va= 'bottom')
+            plt.text(x, y ,str(y), ha='center', va= 'bottom')
             z=z+1
 
 
