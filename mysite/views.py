@@ -621,7 +621,7 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
         anios.append(an)
         limitemax.append(limite)    
      
-    plt.figure()
+    f=plt.figure()
     #barh(pos,datos,align = 'center')
     plt.plot(anios,limitemax, 'r')
     plt.plot(anios,datos)
@@ -644,6 +644,7 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
     graphIMG = PIL.Image.fromstring('RGB', canvas.get_width_height(), canvas.tostring_rgb())
     graphIMG.save(buffer, "PNG")
     pylab.close()   
+    f.clear()
 
     return HttpResponse (buffer.getvalue(), content_type="Image/png")
 ##############################
@@ -732,7 +733,7 @@ def grafico_gases_presentes(request,central_x,transformador_x):
         X= np.arange(len(nombre_gases))
         Y1 = np.asarray(valor_gases)  
         
-        plt.figure()
+        f=plt.figure()
 
         plt.gca().set_yscale('log')
         plt.bar(X, Y1, facecolor='#9999ff', edgecolor='white')
@@ -759,6 +760,8 @@ def grafico_gases_presentes(request,central_x,transformador_x):
         graphIMG = PIL.Image.fromstring('RGB', canvas.get_width_height(), canvas.tostring_rgb())
         graphIMG.save(buffer, "PNG")
         pylab.close()  
+
+        f.clear()
         
         return HttpResponse (buffer.getvalue(), content_type="Image/png")
 
