@@ -749,11 +749,18 @@ def grafico_gases_presentes(request,central_x,transformador_x):
 
         X= np.arange(len(nombre_gases))
         Y1 = np.asarray(valor_gases)  
+
+        LIMITE_1=[100,120,2,50,65,350]
+        LIMITE_2=[700,400,5,100,100,570]
+        Y2= np.asarray(LIMITE_1)
+
         
         f=plt.figure()
 
         plt.gca().set_yscale('log')
         plt.bar(X, Y1, facecolor='#9999ff', edgecolor='white')
+        plt.bar(X, Y2,width=0.05 facecolor='#6666ff', edgecolor='white')
+
         SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
       
         z=0 
