@@ -620,14 +620,28 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
         an=i.strftime('%Y') 
         anios.append(an)
         limitemax.append(limite)    
-     
+    
+
+    
+
+    X= np.arange(len(fecha))
+    Y1 = np.asarray(datos) 
+   
+
     f=plt.figure()
     #barh(pos,datos,align = 'center')
     plt.plot(anios,limitemax, 'r')
     plt.plot(anios,datos)
-    
+
+
+    z=0 
+    for x, y in zip(X, Y1):
+            plt.text(x, y ,str(y)+, ha='center', va= 'bottom')
+            z=z+1
+
+
     plt.yticks(limitemax,color="r")
-    plt.yticks(datos,color="b")    
+    #plt.yticks(datos,color="b")    
     #plt.xticks(anios,size="small",color="b",rotation=45)
 
     plt.xlabel('Fecha de la prueba ')
