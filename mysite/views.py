@@ -63,11 +63,18 @@ def crear_ususario_cel(request):
                     if form.is_valid() :
                            
                             temp = form.save(commit=False)
-                            # commit=False tells Django that "Don't send this to database yet.
-                            # I have more things I want to do with it."
-                            
                             temp.fecha_ingreso=datetime.datetime.now()  
                             temp.save() #  
+
+                            usuariocel = form.cleaned_data['codigo_usuario']
+                            contracel = form.cleaned_data['pasword']
+                            correo=form.cleaned_data['email']
+                            nom=form.cleaned_data['nombres']
+                            apell=form.cleaned_data['apellidos']                     
+                            
+
+                            user = User.objects.create_user(username=usuariocel, password=contracel,email=correo,first_name=nom,last_name=apell)
+                            user.save() 
 
                             form.save() # Guardar los datos en la base de datos  print 
                             #return render_to_response('confirmar.html', locals() ,context_instance=RequestContext(request))
@@ -83,8 +90,6 @@ def crear_ususario_cel(request):
         return render(request,'ingreso_de_datos.html',locals()) 
     
     
-
-
 
 
 def ingresar_datos_trafo(request):
@@ -347,7 +352,11 @@ def datos_prueba(request):
     p34=Mediciones(central=p1,transformador=p28,codigo_usuario="7807004",Hidrogeno=30,Oxigeno=0,Nitrogeno=89.8,Metano=4.9,Monoxido_de_carbono=4.9,Etano=44,Dioxido_de_carbono=4900,Etileno=1.9,Acetileno=1.9,fecha_ingreso=date,fecha_del_analisis=date)
     p34.save()
 
-     
+
+    u1=User.objects.create_user(username="7807004", password="4690",email="evvaldez@cel.gob.sv",first_name="Ernesto Vladimir",apellidos="Valdez Rivas")
+    u1.save()
+    u1=Usuarios.objects.create_user(codigo_usuario="7807004", pasword="4690",email="evvaldez@cel.gob.sv",nombres="Ernesto Vladimir",last_name="Valdez Rivas",privilegio="DE_BAJA",fecha_ingreso=date)
+    u1.save()
 
     return render(request,'principal.html',locals())
 
@@ -700,6 +709,7 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
 
 
 def informacion(request):
+  centrales=Centrales.objects.all()
   return render(request,'informacion.html',locals())
 
 def principal(request):
@@ -708,6 +718,7 @@ def principal(request):
 
 def listado_de_transformadores(request,central_x):
     centrales=Centrales.objects.all()
+    usuario_comun=Usuarios.objects.get(codigo_usuario=request.user.username)
        
     lista_transformadores=Transformadores.objects.filter(central__nombre__icontains=central_x)
     return render(request,'lista_de_transformadores.html',locals())
@@ -738,6 +749,7 @@ def tendencias(request,central_x,transformador_x,gas_x):
 
 
 def analisis(request,central_x,transformador_x):
+    centrales=Centrales.objects.all()
     central=central_x
     transformador=transformador_x
 
@@ -785,8 +797,8 @@ def grafico_gases_presentes(request,central_x,transformador_x):
         X2= np.arange(len(valor_gases))
         Y1 = np.asarray(valor_gases)  
 
-        LIMITE_1=[100,120,2,50,65,350]
-        LIMITE_2=[700,400,5,100,100,570]
+        LIMITE_1=[100,120,35,50,65,350,0,0,2500]     
+                   
         Y2= np.asarray(LIMITE_1)
 
         

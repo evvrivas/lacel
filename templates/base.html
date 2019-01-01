@@ -47,13 +47,9 @@
                  <center>
 
                                                    
-                          <form action="/busqueda/" method="post">
-                                       {% csrf_token %}                                                  
+                                                                          
                                        <center><img src='{% static "logo_cel.gif" %}' alt='img' />   
-                                       <input type="text" id="name" name="nombre" size="30"/>
-                                       <input type="submit" value="Buscar"></center>
-                                       
-                          </form>
+                                      
                  
                 
                           {%  if user.is_authenticated %}          
@@ -86,7 +82,7 @@
             data-toggle="dropdown">Inicio <span class="caret"></span></button>
                                
             <ul class="dropdown-menu" role="menu">
-                <li><a href="/">Ir aL inicio </a></li>
+                <li><a href="/">Ir al inicio </a></li>
                 <li><a href="/informacion">Informacion Basica </a></li>
                                         
                {%  if user.is_authenticated %}          

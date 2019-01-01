@@ -46,7 +46,15 @@
                                     <td WIDTH="150">{{i.marca}}</td>           
                                    
                                     
-                                    <td WIDTH="80"><a href="/analisis/{{i.central.nombre}}/{{i.codigo}}">AGDA</a></td>
+                                    <td WIDTH="80">
+
+                                    {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" %}  
+                                    <a href="/analisis/{{i.central.nombre}}/{{i.codigo}}">AGDA</a></td>
+                                    {%  else  %}  
+                                    <p>AGDA</p>
+
+                                    {% endif %}                                                                
+                                  
 
                                     
                                 </tr >

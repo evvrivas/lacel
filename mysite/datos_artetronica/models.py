@@ -33,10 +33,12 @@ PRIVILEGIOS=(
 
 
 class Usuarios(models.Model):
-	     codigo=models.IntegerField()
+	     codigo_usuario=models.CharField(max_length=7)
 	     pasword=models.CharField(max_length=4)
+	     nombres=models.CharField(max_length=30)
+	     apellidos=models.CharField(max_length=30)
 	     email = models.EmailField(blank=True)
-	     privilegio=models.CharField(max_length=30,choices=PRIVILEGIOS,default="'DE_BAJA")
+	     privilegio=models.CharField(max_length=30,choices=PRIVILEGIOS,default="DE_BAJA")
 	     fecha_ingreso = models.DateField(default=datetime.now,editable = False)
 
 	     def __str__(self):

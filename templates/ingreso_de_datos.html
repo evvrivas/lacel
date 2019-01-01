@@ -2,15 +2,15 @@
 {% block content %}
 {% load staticfiles %} 
 
-
+<center>
 <div class="col-md-12">
           <div class="thumbnail"> 
                                                   
                       <div class="caption">
                                <h4><center>INGRESO DE DATOS</center></h4>  
                       </div> 
-<!--                           
--->
+<!--                           -->
+                      <center> 
                       <form action="." method="post" enctype="multipart/form-data" > 
                             {% csrf_token %}                
 
@@ -18,11 +18,12 @@
                            <br>             
                            <input type="submit" value="GUARDAR"  />                      
                       </form>
+                      </center> 
                                 
           </div> 
 
 
 </div>
-      
+  </center>    
 
 {% endblock %}
