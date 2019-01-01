@@ -759,7 +759,7 @@ def grafico_gases_presentes(request,central_x,transformador_x):
 
         plt.gca().set_yscale('log')
         plt.bar(X, Y1, facecolor='#9999ff', edgecolor='white')
-        plt.bar(X, Y2,width=0.05 facecolor='#6666ff', edgecolor='white')
+        plt.bar(X+0.2, Y2,width=0.2 facecolor='#6666ff', edgecolor='white')
 
         SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
       
