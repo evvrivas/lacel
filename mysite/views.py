@@ -817,7 +817,7 @@ def grafico_gases_presentes(request,central_x,transformador_x):
       
         z=0 
         for x, y in zip(X, Y1):
-            plt.text(x, y ,str(y)+ "\n"+SIMBOLO_GAS[z], ha='center', va= 'bottom')
+            plt.text(x, y+1 ,str(y)+ "\n"+SIMBOLO_GAS[z], ha='center', va= 'bottom')
             z=z+1
  
       
