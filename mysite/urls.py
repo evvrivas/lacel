@@ -31,6 +31,7 @@ urlpatterns = [
     url(r'^accounts/login/$', login,{'template_name': 'login.html'}),
     url(r'^accounts/logout/$', logout),
     url(r'^informacion/$', informacion),
+    url(r'^crear_ususario_cel/$',crear_ususario_cel),
 
 
 

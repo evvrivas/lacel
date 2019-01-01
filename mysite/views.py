@@ -51,8 +51,42 @@ def informacion(request):
   centrales=Centrales.objects.all()
   return render(request,'informacion.html',locals())
 
+
+
+
+def crear_ususario_cel(request):
+        import os, sys
+        if request.method == 'POST': # si el usuario est enviando el formulario con datos
+                             
+                    form = UsuariosForm(request.POST,request.FILES)                      
+                    
+                    if form.is_valid() :
+                           
+                            temp = form.save(commit=False)
+                            # commit=False tells Django that "Don't send this to database yet.
+                            # I have more things I want to do with it."
+                            
+                            temp.fecha_ingreso=datetime.datetime.now()  
+                            temp.save() #  
+
+                            form.save() # Guardar los datos en la base de datos  print 
+                            #return render_to_response('confirmar.html', locals() ,context_instance=RequestContext(request))
+                            connection.close()
+                            return render(request,'confirmar.html',locals())                  
+                
+
+        else:            
+                         
+            form=UsuariosForm()
+
+        connection.close()                  
+        return render(request,'ingreso_de_datos.html',locals()) 
     
     
+
+
+
+
 def ingresar_datos_trafo(request):
         #!/usr/bin/python
         # -*- coding: latin-1 -*-        
@@ -758,8 +792,11 @@ def grafico_gases_presentes(request,central_x,transformador_x):
         f=plt.figure()
 
         plt.gca().set_yscale('log')
-        plt.bar(X, Y1, facecolor='#9999ff', edgecolor='white')
-        plt.bar(X+0.2, Y2,width=0.2, facecolor='#6666ff', edgecolor='white')
+        bar_width = 0.45
+        plt.bar(X, Y1, bar_width, facecolor='#9999ff', edgecolor='white')
+
+        bar_width = 0.1
+        plt.bar(X, Y2, bar_width, facecolor='#6666ff', edgecolor='white',color='r')
 
         SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
       
