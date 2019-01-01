@@ -810,8 +810,8 @@ def grafico_gases_presentes(request,central_x,transformador_x):
         bar_width = 0.45
         plt.bar(X, Y1, bar_width, facecolor='#9999ff', edgecolor='white')
 
-        bar_width = 0.1
-        plt.bar(X2, Y2, bar_width, facecolor='#6666ff', edgecolor='white',color='r')
+        bar_width = 0.01
+        plt.bar(X, Y2, bar_width, color='r')
 
         SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
       
@@ -821,7 +821,7 @@ def grafico_gases_presentes(request,central_x,transformador_x):
             z=z+1
  
       
-        plt.xlabel('Gases combustibles (H2,CH4,C2H2,C2H4,C2H6) +CO +O2 +N2 +CO2 ')
+        plt.xlabel('\nGases combustibles (H2,CH4,C2H2,C2H4,C2H6) +CO +O2 +N2 +CO2 ')
         plt.ylabel('Concentraciones de gas (ppm) ')
         titulo=""
         plt.title(titulo)
