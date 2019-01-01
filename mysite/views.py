@@ -790,13 +790,15 @@ def grafico_gases_presentes(request,central_x,transformador_x):
 
         
         f=plt.figure()
+        ax = f.add_subplot(111)
+        f, axes = plt.subplots(ncols=1, nrows=1)
 
         plt.gca().set_yscale('log')
         bar_width = 0.45
-        bar1=plt.bar(X, Y1, bar_width, facecolor='#9999ff', edgecolor='white')
+        axes.bar(X, Y1, bar_width, facecolor='#9999ff', edgecolor='white')
 
         bar_width = 0.1
-        bar2=plt.bar(X, Y2, bar_width, facecolor='#6666ff', edgecolor='white',color='r')
+        axes.bar(X, Y2, bar_width, facecolor='#6666ff', edgecolor='white',color='r')
 
         SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
       
@@ -806,11 +808,11 @@ def grafico_gases_presentes(request,central_x,transformador_x):
             z=z+1
  
       
-        plt.xlabel('Gases combustibles (H2,CH4,C2H2,C2H4,C2H6) +CO +O2 +N2 +CO2 ')
-        plt.ylabel('Concentraciones de gas (ppm) ')
+        axes.xlabel('Gases combustibles (H2,CH4,C2H2,C2H4,C2H6) +CO +O2 +N2 +CO2 ')
+        axes.ylabel('Concentraciones de gas (ppm) ')
         titulo=""
-        plt.title(titulo)
-        plt.xticks(())
+        axes.title(titulo)
+        axes.xticks(())
 
         subplots_adjust(left=0.21)
       
