@@ -42,9 +42,9 @@ class Usuarios(models.Model):
 	     fecha_ingreso = models.DateField(default=datetime.now,editable = False)
 
 	     def __str__(self):
-		    		return  self.codigo
+		    		return  self.codigo_usuario
 	     class Admin:
-		    		list_display = ('codigo',' privilegio')
+		    		list_display = ('codigo_usuario',' privilegio')
 
 
 
