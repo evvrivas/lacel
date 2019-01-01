@@ -355,7 +355,7 @@ def datos_prueba(request):
 
     u1=User.objects.create_user(username="7807004", password="4690",email="evvaldez@cel.gob.sv",first_name="Ernesto Vladimir",last_name="Valdez Rivas")
     u1.save()
-    u1=Usuarios.objects.create_user(codigo_usuario="7807004", pasword="4690",email="evvaldez@cel.gob.sv",nombres="Ernesto Vladimir",apellidos="Valdez Rivas",privilegio="DE_BAJA",fecha_ingreso=date)
+    u1=Usuarios(codigo_usuario="7807004", pasword="4690",email="evvaldez@cel.gob.sv",nombres="Ernesto Vladimir",apellidos="Valdez Rivas",privilegio="DE_BAJA",fecha_ingreso=date)
     u1.save()
 
     return render(request,'principal.html',locals())
