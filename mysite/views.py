@@ -850,7 +850,7 @@ def analisis(request,central_x,transformador_x):
 
 def grafico_gases_presentes(request,VALOR_DEL_GAS):  
        
-        #VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)
+        VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)
         LIMITE_1=[100,120,35,50,65,350,0,0,2500]             
 
         nombre_gases=[]
