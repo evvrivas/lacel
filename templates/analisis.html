@@ -77,7 +77,11 @@
                                 </tr >
 
 
-                            {%  endfor %}                                                     
+                            {%  endfor %} 
+
+
+                                    
+                         
                         
 
 
@@ -116,7 +120,7 @@
                
  <h4><center> GASES DE ANALISIS (LIMITES Segun IEEE c57.104-1991) </center></h4>
                         <center><div class="container">
-                        <img src="/grafico_gases_presentes/{{ VALOR_DEL_GAS|index:x|index:y }}">
+                        <img src="/grafico_gases_presentes/{{central_x}}/{{transformador_x}}">
                         </div></center>
 
 
@@ -159,7 +163,7 @@
                               <div class="alert alert-secondary">
                                 <strong>ANALISIS METODO TRIANGULO DE DUVAL</strong> 
                             <center>
-                            <div class="container"><canvas id="canvas" width=550 height=580></canvas> 
+                            <div class="container"><canvas id="canvas" width=650 height=580></canvas> 
                             <br>
                             <center><button id="bt1" onClick="calcOpr({{Triangulo_duval.0}},{{Triangulo_duval.1}},{{Triangulo_duval.2}})"> Analizar </button>  </center>  
 

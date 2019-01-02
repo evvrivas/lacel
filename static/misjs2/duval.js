@@ -20,7 +20,7 @@ var v2 = {
 var triangle = [v0, v1, v2];
 //Legends color
 ctx.font = '14px arial black';
-ctx.fillText("Duval's Triangle DGA", 220, 20, 300);
+ctx.fillText("Triangulo de Duval DGA", 220, 20, 300);
 //PD
 ctx.fillStyle = 'rgb(255,0,0)';
 ctx.fillRect(50, 454, 20, 10);
@@ -43,7 +43,7 @@ ctx.fillRect(50, 529, 20, 10);
 ctx.fillStyle = 'rgb(153,0,153)';
 ctx.fillRect(50, 544, 20, 10);
 ctx.fillStyle="black";
-ctx.fillText("Diagnosis Result:",350,538,300);
+ctx.fillText("Diagnostico Resultado:",350,538,300);
 //TextFields for Gases:
 var ch4x, ch4y, c2h4x, c2h4y, c2h2x, c2h2y;
 // Define all your segments here
@@ -243,15 +243,14 @@ var arrowheadWidth = 8;
 var arrowhead = document.createElement('canvas');
 premakeArrowhead();
 
-var legendTexts = ['PD = Partial Discharge',
-  'T1 = Thermal fault < 300 celcius',
-  'T2 = Thermal fault 300 < T < 700 celcius',
-  'T3 = Thermal fault < 300 celcius',
-  'D1 = Thermal fault T > 700 celcius',
-  'D2 = Discharge of High Energy',
-  'DT = Electrical and Thermal'
+var legendTexts = ['PD = Descarga Parcial',
+  'T1 = Falla térmica  < 300 celcius',
+  'T2 = Falla térmica 300 < T < 700 celcius',
+  'T3 = Falla térmica < 300 celcius',
+  'D1 = Falla térmica T > 700 celcius',
+  'D2 = Descarga de Alta Energía',
+  'DT = Eléctrica y Térmica'
 ];
-
 
 // start drawing
 /////////////////////
