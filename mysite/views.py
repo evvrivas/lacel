@@ -850,10 +850,12 @@ def analisis(request,central_x,transformador_x):
 
 def grafico_gases_presentes(request,central_x,transformador_x):  
        
-        VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)             
+        VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)
+        LIMITE_1=[100,120,35,50,65,350,0,0,2500]             
 
         nombre_gases=[]
         valor_gases=[]
+
 
         for i in VALOR_DEL_GAS:
             nombre_gases.append(i[0])
@@ -862,8 +864,9 @@ def grafico_gases_presentes(request,central_x,transformador_x):
         X= np.arange(len(nombre_gases))
         
         Y1 = np.asarray(valor_gases)  
+        Y2 = np.asarray(LIMITE_1)
 
-        LIMITE_1=[100,120,35,50,65,350,0,0,2500]     
+             
                    
                
         plt.figure()
