@@ -873,9 +873,9 @@ def grafico_gases_presentes(request,central_x, transformador_x):
         plt.gca().set_yscale('log')
 
         bar_width = 0.02
-        plt.bar(X-0.3, Y2, bar_width, color='r')
+        plt.bar(X-0.25, Y2, bar_width, color='r')
         bar_width = 0.45
-        plt.bar(X, Y1, bar_width, facecolor='#9999ff', edgecolor='white')
+        plt.bar(X, Y1, bar_width, color='b')
 
         
 
