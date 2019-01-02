@@ -108,7 +108,7 @@ def ingresar_datos_trafo(request):
                             
                             temp.fecha_ingreso=datetime.datetime.now()  
                             temp.codigo_usuario=request.user.username # Set the user object here    
-                            temp_agregada.save() #  
+                            temp.save() #  
 
                             form.save() # Guardar los datos en la base de datos  print 
                             #return render_to_response('confirmar.html', locals() ,context_instance=RequestContext(request))
@@ -117,7 +117,8 @@ def ingresar_datos_trafo(request):
                 
 
         else:            
-                         
+                         formC=CentralesForm()
+                         formT=TransformadoresForm()
                          form=MedicionesForm()
 
         connection.close()                  

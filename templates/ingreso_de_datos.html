@@ -12,16 +12,16 @@
 <!--                           -->
                       <center> 
                       <form action="." method="post" enctype="multipart/form-data" > 
-                            {% csrf_token %}                
-
-                            <p> {{ form.as_p }} </p>                                                              
+                            {% csrf_token %}  
+                            <p> {{ formC.as_p }} </p>
+                            <p> {{ formT.as_p }} </p>
+                            <br>
+                            <p> {{ form.as_p }} </p>                                                             
                            <br>             
                            <input type="submit" value="GUARDAR"  />                      
                       </form>
                       </center> 
-                                
-          </div> 
-
+            </div> 
 
 </div>
   </center>    
