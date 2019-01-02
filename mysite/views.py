@@ -359,6 +359,69 @@ def datos_prueba(request):
     u1=Usuarios(codigo_usuario="7807004", pasword="4690",email="evvaldez@cel.gob.sv",nombres="Ernesto Vladimir",apellidos="Valdez Rivas",privilegio="DE_BAJA",fecha_ingreso=date)
     u1.save()
 
+
+
+    p1=Centrales(nombre="Guajoyo",fecha_ingreso=date)   
+    p1.save() 
+
+
+    p21=Transformadores(central=p1,codigo="00001111",marca="GUAJOYOX",modelo="NA",cararcteristicas="U1",fecha_ingreso=date)
+    p21.save()
+      
+    #EFACET U1
+    #2014
+    date=datetime.datetime(2014,6,30)
+    p31=Mediciones(central=p1,transformador=p21,codigo_usuario="7807004",Hidrogeno=3,Oxigeno=0,Nitrogeno=0,Metano=1,Monoxido_de_carbono=4,Etano=1,Dioxido_de_carbono=203.41,Etileno=0.17,Acetileno=0.7,fecha_ingreso=date,fecha_del_analisis=date)
+    p31.save()
+    #2015
+    date=datetime.datetime(2015,6,30)
+    p32=Mediciones(central=p1,transformador=p21,codigo_usuario="7807004",Hidrogeno=5.38,Oxigeno=29.92,Nitrogeno=36320,Metano=8.8,Monoxido_de_carbono=4.97,Etano=2.1,Dioxido_de_carbono=926,Etileno=0.68,Acetileno=1.2,fecha_ingreso=date,fecha_del_analisis=date)
+    p32.save()
+    #2016
+    date=datetime.datetime(2016,6,30)
+    p33=Mediciones(central=p1,transformador=p21,codigo_usuario="7807004",Hidrogeno=2,Oxigeno=0,Nitrogeno=0,Metano=50,Monoxido_de_carbono=137,Etano=67,Dioxido_de_carbono=2010,Etileno=5,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
+    p33.save()
+    #2017
+    date=datetime.datetime(2017,6,30)
+    p34=Mediciones(central=p1,transformador=p21,codigo_usuario="7807004",Hidrogeno=5,Oxigeno=0,Nitrogeno=0,Metano=57,Monoxido_de_carbono=155,Etano=79,Dioxido_de_carbono=2037,Etileno=10,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
+    p34.save()
+    #2018
+    date=datetime.datetime(2018,6,30)
+    p35=Mediciones(central=p1,transformador=p21,codigo_usuario="7807004",Hidrogeno=15,Oxigeno=0,Nitrogeno=0,Metano=89,Monoxido_de_carbono=159,Etano=134,Dioxido_de_carbono=2308,Etileno=12,Acetileno=3,fecha_ingreso=date,fecha_del_analisis=date)
+    p35.save()
+
+
+
+
+
+    p22=Transformadores(central=p1,codigo="222222",marca="Guajoyos23",modelo="NA",cararcteristicas="U2",fecha_ingreso=date)
+    p22.save()
+    #2010
+    date=datetime.datetime(2010,6,30)
+    p31=Mediciones(central=p1,transformador=p22,codigo_usuario="7807004",Hidrogeno=5,Oxigeno=0,Nitrogeno=0,Metano=4,Monoxido_de_carbono=132,Etano=12,Dioxido_de_carbono=2027,Etileno=25,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
+    p31.save()
+    #2012
+    date=datetime.datetime(2012,6,30)
+    p32=Mediciones(central=p1,transformador=p22,codigo_usuario="7807004",Hidrogeno=24,Oxigeno=0,Nitrogeno=0,Metano=7,Monoxido_de_carbono=352,Etano=10,Dioxido_de_carbono=3641,Etileno=34,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
+    p32.save()
+    #2013
+    date=datetime.datetime(2013,6,30)
+    p33=Mediciones(central=p1,transformador=p22,codigo_usuario="7807004",Hidrogeno=17,Oxigeno=0,Nitrogeno=87500,Metano=9,Monoxido_de_carbono=463,Etano=11,Dioxido_de_carbono=4140,Etileno=40,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
+    p33.save()
+    #2014
+    date=datetime.datetime(2014,6,30)
+    p34=Mediciones(central=p1,transformador=p22,codigo_usuario="7807004",Hidrogeno=16,Oxigeno=0,Nitrogeno=0,Metano=4,Monoxido_de_carbono=42,Etano=7,Dioxido_de_carbono=680,Etileno=11,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
+    p34.save()
+    #2015
+    date=datetime.datetime(2015,6,30)
+    p35=Mediciones(central=p1,transformador=p22,codigo_usuario="7807004",Hidrogeno=12,Oxigeno=0,Nitrogeno=0,Metano=11,Monoxido_de_carbono=228,Etano=3,Dioxido_de_carbono=2226,Etileno=5,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
+    p35.save()
+
+    #2016
+    date=datetime.datetime(2016,6,30)
+    p35=Mediciones(central=p1,transformador=p22,codigo_usuario="7807004",Hidrogeno=15,Oxigeno=0,Nitrogeno=0,Metano=9,Monoxido_de_carbono=247,Etano=9,Dioxido_de_carbono=2381,Etileno=14,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date)
+    p35.save()
+
     return render(request,'principal.html',locals())
 
 ################################################################################
