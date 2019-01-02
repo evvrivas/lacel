@@ -530,7 +530,7 @@ def limite_concentracion(VALOR_DEL_GAS):
             else:
                 estado = "ADVERTENCIA"
             
-            vector=[NOMBRE_GAS_PRUEBA[i], SIMBOLO_GAS[i],VALOR_DEL_GAS[i][0],estado]
+            vector=[NOMBRE_GAS_PRUEBA[i], SIMBOLO_GAS[i],VALOR_DEL_GAS[i][1],estado]
             ESTADO_DE_GASES.append(vector)
         
         respuesta= [estado_trafo,ESTADO_DE_GASES]
@@ -580,7 +580,7 @@ def total_gases_combustibles(VALOR_DEL_GAS):
             else:
                 estado = "MUY ANORMAL"
 
-            vector=[NOMBRE_GAS_PRUEBA[i], SIMBOLO_GAS[i],VALOR_DEL_GAS[i][0],estado]
+            vector=[NOMBRE_GAS_PRUEBA[i], SIMBOLO_GAS[i],VALOR_DEL_GAS[i][1],estado]
             ESTADO_DE_GASES.append(vector)         
         
         
@@ -873,7 +873,7 @@ def grafico_gases_presentes(request,central_x, transformador_x):
         plt.gca().set_yscale('log')
 
         bar_width = 0.02
-        plt.bar(X-0.225, Y2, bar_width, color='r')
+        plt.bar(X-0.3, Y2, bar_width, color='r')
         bar_width = 0.45
         plt.bar(X, Y1, bar_width, facecolor='#9999ff', edgecolor='white')
 

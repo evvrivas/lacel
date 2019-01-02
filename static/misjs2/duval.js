@@ -490,6 +490,7 @@ function calcOprByValue(ch4, c2h2, c2h4) {
   drawCoordinates(res.x, res.y);
   drawCords(res.x, res.y);
 }
+
 function findAndDisplayColor(color){
   var red,green,blue;
     red=color.r;
@@ -497,25 +498,25 @@ function findAndDisplayColor(color){
     blue=color.b;
     var diagResult;
   if(color.r==255&&color.g==0&&color.b==0){
-    diagResult="PD = Partial Discharge";
+    diagResult="PD = Descarga Parcial";
   }
   else if(color.r==255&&color.g==102&&color.b==153){
-    diagResult='T1 = Thermal fault < 300 celcius';
+    diagResult='T1 = Falla térmica < 300 celcius';
   }
   else if(color.r==255&&color.g==204&&color.b==0){
-    diagResult='T2 = Thermal fault 300 < T < 700 celcius';
+    diagResult='T2 = Falla térmica 300 < T < 700 celcius';
   }
   else if(color.r==0&&color.g==0&&color.b==0){
-    diagResult='T3 = Thermal fault < 300 celcius';
+    diagResult='T3 = Falla térmica < 300 celcius';
   }
   else if(color.r==172&&color.g==236&&color.b==222){
-    diagResult='D1 = Thermal fault T > 700 celcius';
+    diagResult='D1 = Falla térmica T > 700 celcius';
   }
   else if(color.r==51&&color.g==51&&color.b==153){
-    diagResult='D2 = Discharge of High Energy';
+    diagResult='D2 = Descarga de Alta Energía';
   }
   else{
-    diagResult='DT = Electrical and Thermal';
+    diagResult='DT = Eléctrica y Térmica';
   }
   ctx.fillStyle = 'rgb('+red+','+green+','+blue+')';
   ctx.fillRect(350, 550, 25, 12);
