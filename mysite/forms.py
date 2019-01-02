@@ -29,6 +29,11 @@ class MedicionesForm(ModelForm):#productos
 		model=Mediciones
 		exclude=["fecha_ingreso"]
 
+
+class Mediciones_rapidasForm(ModelForm):#productos
+	class Meta:			
+		model=Mediciones_rapidas
+		exclude=[""]
 	
     
 #########################################################

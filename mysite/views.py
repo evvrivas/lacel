@@ -453,9 +453,9 @@ def datos_de_analisis(central_x, transformador_x):
 
 ################################################################################
 
-def gas_clave( central_x, transformador_x):
+def gas_clave( VALOR_DEL_GAS):
         
-        VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)     
+        #VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)     
 
         SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
         NOMBRE_GAS_PRUEBA=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono","Oxigeno","Nitrogeno","Dioxido_de_carbono"]
@@ -496,11 +496,11 @@ def gas_clave( central_x, transformador_x):
 ################################################################################
 
 ################################################################################
-def limite_concentracion(central_x, transformador_x):
+def limite_concentracion(VALOR_DEL_GAS):
         #Segun IEEE c57.104-1991
         #SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
         #NOMBRE_GAS_PRUEBA=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono","Oxigeno","Nitrogeno","Dioxido_de_carbono"]
-        VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)  
+        #VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)  
 
         SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO"]
         NOMBRE_GAS_PRUEBA=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono"]
@@ -540,10 +540,10 @@ def limite_concentracion(central_x, transformador_x):
 
 ################################################################################
 ################################################################################
-def total_gases_combustibles(central_x, transformador_x):
+def total_gases_combustibles(VALOR_DEL_GAS):
         #SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
         #NOMBRE_GAS_PRUEBA=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono","Oxigeno","Nitrogeno","Dioxido_de_carbono"]
-        VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)  
+        #VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)  
 
         SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO"]
         NOMBRE_GAS_PRUEBA=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono"]
@@ -594,9 +594,9 @@ def total_gases_combustibles(central_x, transformador_x):
 
 ################################################################################
 
-def roger(central_x, transformador_x):
+def roger(VALOR_DEL_GAS):
         
-        VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)     
+        #VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)     
 
         #SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
         #NOMBRE_GAS_PRUEBA=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono","Oxigeno","Nitrogeno","Dioxido_de_carbono"]
@@ -634,9 +634,9 @@ def roger(central_x, transformador_x):
 
 ################################################################################
 
-def donenberg(central_x, transformador_x):
+def donenberg(VALOR_DEL_GAS):
         
-        VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)     
+        #VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)     
 
         #SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
         #NOMBRE_GAS_PRUEBA=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono","Oxigeno","Nitrogeno","Dioxido_de_carbono"]
@@ -663,9 +663,9 @@ def donenberg(central_x, transformador_x):
         #return render(request,'analisis.html',locals())
 ################################################################################
 
-def duval( central_x, transformador_x):
+def duval( VALOR_DEL_GAS):
         
-        VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)     
+        #VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)     
 
         #SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
         #NOMBRE_GAS_PRUEBA=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono","Oxigeno","Nitrogeno","Dioxido_de_carbono"]
@@ -813,25 +813,27 @@ def tendencias(request,central_x,transformador_x,gas_x):
 
 
 def analisis(request,central_x,transformador_x):
+
+    VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)
+    
     centrales=Centrales.objects.all()
     central=central_x
     transformador=transformador_x
 
-    segun_gas_clave=gas_clave(central, transformador)#valor
+    segun_gas_clave=gas_clave(VALOR_DEL_GAS)#valor
     
-    concentraciones_limite=limite_concentracion(central, transformador)#vector
-    gases_combustibles= total_gases_combustibles(central, transformador)#vector    
+    concentraciones_limite=limite_concentracion(VALOR_DEL_GAS)#vector
+    gases_combustibles= total_gases_combustibles(VALOR_DEL_GAS)#vector    
     
-    Triangulo_duval=duval( central, transformador)    
-    segun_donenberg=donenberg(central, transformador)
-    segun_roger=roger(central, transformador)         
+    Triangulo_duval=duval( VALOR_DEL_GAS)    
+    segun_donenberg=donenberg(VALOR_DEL_GAS)
+    segun_roger=roger(VALOR_DEL_GAS)         
    
 
     lista_mediciones=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=transformador_x))
     identificador=lista_mediciones.first()
     
-    VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)
-
+    
 
     return render(request,'analisis.html',locals())
 
@@ -846,9 +848,9 @@ def analisis(request,central_x,transformador_x):
 #Make.objects.filter(makecontent__published=True)
 
 
-def grafico_gases_presentes(request,central_x,transformador_x):  
+def grafico_gases_presentes(request,VALOR_DEL_GAS):  
        
-        VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)
+        #VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)
         LIMITE_1=[100,120,35,50,65,350,0,0,2500]             
 
         nombre_gases=[]
@@ -864,13 +866,14 @@ def grafico_gases_presentes(request,central_x,transformador_x):
         Y1 = np.asarray(valor_gases)  
         Y2 = np.asarray(LIMITE_1)
      
-        plt.figure()
+                   
+               
+        f=plt.figure()
        
         plt.gca().set_yscale('log')
 
         bar_width = 0.02
         plt.bar(X-0.225, Y2, bar_width, color='r')
-
         bar_width = 0.45
         plt.bar(X, Y1, bar_width, facecolor='#9999ff', edgecolor='white')
 
