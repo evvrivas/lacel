@@ -92,7 +92,7 @@ def crear_ususario_cel(request):
     
 
 
-def ingresar_datos_trafo(request):
+def ingresar_datos_trafo(request,central_x,transformador_x):
         #!/usr/bin/python
         # -*- coding: latin-1 -*-        
         import os, sys
@@ -117,8 +117,7 @@ def ingresar_datos_trafo(request):
                 
 
         else:            
-                         formC=CentralesForm()
-                         formT=TransformadoresForm()
+                         
                          form=MedicionesForm()
 
         connection.close()                  
@@ -865,8 +864,7 @@ def grafico_gases_presentes(request,central_x,transformador_x):
         
         Y1 = np.asarray(valor_gases)  
         Y2 = np.asarray(LIMITE_1)
-
-             
+     
                    
                
         plt.figure()
@@ -875,8 +873,8 @@ def grafico_gases_presentes(request,central_x,transformador_x):
         bar_width = 0.45
         plt.bar(X, Y1, bar_width, facecolor='#9999ff', edgecolor='white')
 
-        bar_width = 0.01
-        plt.bar(X, Y2, bar_width, color='r')
+        bar_width = 0.02
+        plt.bar(X-0.225, Y2, bar_width, color='r')
 
         SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
       
@@ -892,7 +890,7 @@ def grafico_gases_presentes(request,central_x,transformador_x):
         plt.title(titulo)
         plt.xticks(())
 
-        #subplots_adjust(left=0.21)
+        subplots_adjust(left=0.21)
       
 
         buffer = io.BytesIO()
@@ -902,7 +900,7 @@ def grafico_gases_presentes(request,central_x,transformador_x):
         graphIMG.save(buffer, "PNG")
         pylab.close()  
 
-        #f.clear()
+        f.clear()
         
         return HttpResponse (buffer.getvalue(), content_type="Image/png")
 
