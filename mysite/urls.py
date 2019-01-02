@@ -33,7 +33,7 @@ urlpatterns = [
     url(r'^informacion/$', informacion),
     url(r'^crear_usuario_cel/$',crear_ususario_cel),
     url(r'^ingresar_datos_trafo/$',ingresar_datos_trafo),
-    url(r'^analisis_rapido/$',analisis_rapido),  
+   
 
 
 
