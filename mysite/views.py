@@ -128,7 +128,6 @@ def datos_prueba(request):
     date=datetime.datetime.now()
 
 
-
     p1=Centrales(nombre="CH 5 NOVIEMBRE",fecha_ingreso=date)   
     p1.save() 
 
@@ -865,16 +864,17 @@ def grafico_gases_presentes(request,central_x,transformador_x):
         Y1 = np.asarray(valor_gases)  
         Y2 = np.asarray(LIMITE_1)
      
-                   
-               
         plt.figure()
        
         plt.gca().set_yscale('log')
-        bar_width = 0.45
-        plt.bar(X, Y1, bar_width, facecolor='#9999ff', edgecolor='white')
 
         bar_width = 0.02
         plt.bar(X-0.225, Y2, bar_width, color='r')
+
+        bar_width = 0.45
+        plt.bar(X, Y1, bar_width, facecolor='#9999ff', edgecolor='white')
+
+        
 
         SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
       

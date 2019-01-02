@@ -21,10 +21,7 @@ class TransformadoresForm(ModelForm):#tiendas
 		model=Transformadores
 		exclude=["fecha_ingreso"]
 	
-	def __init__(self, *args, **kwargs):
-		super(TransformadoresForm, self).__init__(*args, **kwargs)
-		self.fields['central'].queryset=Centrales.objects.all()
-		#self.fields['ccomercial'].queryset=Ccomercial.objects.filter(id_usuario=user)
+	
 	
 
 class MedicionesForm(ModelForm):#productos
@@ -32,10 +29,7 @@ class MedicionesForm(ModelForm):#productos
 		model=Mediciones
 		exclude=["fecha_ingreso"]
 
-	def __init__(self, *args, **kwargs):
-		super(MedicionesForm, self).__init__(*args, **kwargs)		
-		self.fields['transformador'].queryset=Tranformador.objects.all()
-
+	
     
 #########################################################
 
