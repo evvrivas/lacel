@@ -92,7 +92,7 @@ def crear_ususario_cel(request):
     
 
 
-def ingresar_datos_trafo(request,central_x,transformador_x):
+def ingresar_datos_trafo(request):
         #!/usr/bin/python
         # -*- coding: latin-1 -*-        
         import os, sys
