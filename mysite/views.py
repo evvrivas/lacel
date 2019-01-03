@@ -608,6 +608,10 @@ def roger(VALOR_DEL_GAS):
         R2=VALOR_DEL_GAS[1][1]/VALOR_DEL_GAS[0][1]#CH4/H2
         R3=VALOR_DEL_GAS[3][1]/VALOR_DEL_GAS[4][1]#C2H4/C2H6
 
+        R1=round(R1,2)
+        R2=round(R2,2)
+        R3=round(R3,2)
+
         
         if R1<0.1 and R2>0.1 and R2<1 and R3<1 :
             estado_trafo=" Estado Normal"
@@ -648,7 +652,11 @@ def donenberg(VALOR_DEL_GAS):
         #NOMBRE_GAS_COMBUSTIBLE=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono"]
         
         R1=VALOR_DEL_GAS[1][1]/VALOR_DEL_GAS[0][1]#CH4/H2
+
         R2=VALOR_DEL_GAS[2][1]/VALOR_DEL_GAS[3][1]#C2H2/C2H4
+        R1=round(R1,2)
+        R2=round(R2,2)
+        
 
         if R1>0.87 and R1<=100 and R2>=0.01 and R2<=0.87  :
             estado_trafo=" Se detecto un problema termico"
@@ -680,7 +688,12 @@ def duval( VALOR_DEL_GAS):
 
         PCH4=VALOR_DEL_GAS[1][1]/SUMAGASES
         PC2H2=VALOR_DEL_GAS[2][1]/SUMAGASES
-        PC2H4=VALOR_DEL_GAS[3][1]/SUMAGASES        
+        PC2H4=VALOR_DEL_GAS[3][1]/SUMAGASES 
+
+        PCH4=round(PCH4,2)
+        PC2H2=round(PC2H2,2)
+        PC2H4=round(PC2H4,2)
+
         respuesta=[PCH4,PC2H2,PC2H4]
         return respuesta 
         #return render(request,'analisis.html',locals())
@@ -690,9 +703,14 @@ def duval( VALOR_DEL_GAS):
 def IEC_60599(VALOR_DEL_GAS):
     #SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
     #NOMBRE_GAS_PRUEBA=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono","Oxigeno","Nitrogeno","Dioxido_de_carbono"]
+    
     X1=VALOR_DEL_GAS[2][1]/VALOR_DEL_GAS[3][1]
     X2=VALOR_DEL_GAS[1][1]/VALOR_DEL_GAS[0][1]
     X3=VALOR_DEL_GAS[2][1]/VALOR_DEL_GAS[4][1]
+
+    X1=round(X1,2)
+    X2=round(X2,2)
+    X3=round(X3,2)
 
     if X2<0.1 and X3<0.2:
         estado_trafo="DP: Descargas parciales"
@@ -745,6 +763,7 @@ def analitico_CO2_CO(VALOR_DEL_GAS):
     #SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
     #NOMBRE_GAS_PRUEBA=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono","Oxigeno","Nitrogeno","Dioxido_de_carbono"]
     R1=VALOR_DEL_GAS[8][1]/VALOR_DEL_GAS[5][1]
+    R1=round(R1,2)
 
     if R1<3:
         respuesta="Degradacion excesiva del papel, con algun grado de carbonizacion CO2/CO="+str(R1) 
@@ -756,7 +775,7 @@ def analitico_CO2_CO(VALOR_DEL_GAS):
         respuesta="la relacion  CO2/CO es"+ str(R1)+ ", Lo normal es un valor proximo a 7"
 
     else:
-        respuesta="Altas concentraciones de de CO2 y bajas de CO indica un sobrecalentamiento general CO2/CO="+str(R1)
+        respuesta="Altas concentraciones de de CO2 y bajas de CO indican \n un sobrecalentamiento general CO2/CO="+str(R1)
      
     return respuesta
 
@@ -764,9 +783,10 @@ def analitico_C2H2_H2(VALOR_DEL_GAS):
     #SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
     #NOMBRE_GAS_PRUEBA=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono","Oxigeno","Nitrogeno","Dioxido_de_carbono"]
     R1=VALOR_DEL_GAS[2][1]/VALOR_DEL_GAS[0][1]
+    R1=round(R1,2)
 
     if R1>3:
-        respuesta="C2H2/H2="+ str(R1) + ", Indica contaminacion del aceite del tanque principal  por aceite del cambiador de derivacion bajo carga en transformador con respiradero abiert" 
+        respuesta="C2H2/H2="+ str(R1) + ", Indica contaminacion del aceite del tanque principal \n por aceite del cambiador de derivacion bajo carga \n en transformador con respiradero abierto" 
     else:
         respuesta="C2H2/H2="+ str(R1) + ",No aplica diagnostico con este metodo" 
 
@@ -779,9 +799,10 @@ def analitico_O2_N2(lista_mediciones):
     for i in lista_mediciones:        
         try:
             R=i[6]/i[7]
+            R=round(R,2)
             O2_N2.append(R)
         except:
-            R=" "
+            R="--"
             O2_N2.append(R)
     
     respuesta=["O2/N2 a la baja indica exesivo calentamiento",O2_N2]
