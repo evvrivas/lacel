@@ -941,8 +941,8 @@ def analisis(request,central_x,transformador_x):
     identificador=lista_mediciones.first()
     
     segun_IEC_60599=IEC_60599(VALOR_DEL_GAS):    
-    segun_analitico_CO2_CO=analitico_CO2_CO(VALOR_DEL_GAS):
-    segun_analitico_C2H2_H2=analitico_C2H2_H2(VALOR_DEL_GAS):
+    segun_analitico_CO2_CO=analitico_CO2_CO(VALOR_DEL_GAS)
+    segun_analitico_C2H2_H2=analitico_C2H2_H2(VALOR_DEL_GAS)
     segun_analitico_O2_N2=analitico_O2_N2(lista_mediciones)    
 
     return render(request,'analisis.html',locals())
