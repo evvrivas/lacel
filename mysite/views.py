@@ -745,7 +745,7 @@ def analitico_CO2_CO(VALOR_DEL_GAS):
         respuesta="Degradacion excesiva del papel, con algun grado de carbonizacion CO2/CO="+str(R1) 
     
     elif R1>=3 and R1<6.5:
-        respuesta="la relacion  CO2/CO="+str(R1) + ", esta es mayor a 3 y menor a 6.5, 7 es una relacion normal"
+        respuesta="la relacion  CO2/CO="+str(R1) + ", Esta es mayor a 3 y menor a 6.5, 7 es una relacion normal"
     
     elif R1>=6.5 and R1<=7.5:
         respuesta="la relacion  CO2/CO es"+ str(R1)+ ", Lo normal es un valor proximo a 7"
