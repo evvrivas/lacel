@@ -784,7 +784,7 @@ def analitico_O2_N2(lista_mediciones):
             R=" "
             O2_N2.append(R)
     
-    Respuesta=["O2/N2 a la baja indica exesivo calentamiento",O2_N2]
+    respuesta=["O2/N2 a la baja indica exesivo calentamiento",O2_N2]
 
     return respuesta
 
