@@ -693,21 +693,22 @@ def IEC_60599(VALOR_DEL_GAS):
     if X2<0.1 and X3<0.2:
         estado_trafo="DP: Descargas parciales"
 
-    if X1>1 and X2>=0.1 and X2<=0.5 and X3>1:
+    elif X1>1 and X2>=0.1 and X2<=0.5 and X3>1:
         estado_trafo="D1: Descargas de BAJA energia"
 
-    if X1>=0.6 and X1<=2.5 and X2>=0.1 and X2<=1 and X3>2:
+    elif X1>=0.6 and X1<=2.5 and X2>=0.1 and X2<=1 and X3>2:
         estado_trafo="D2: Descargas de ALTA energia"
 
-    if X3<1:
+    elif X3<1:
         estado_trafo="T1: Descargas de baja energia"
 
-    if X1<0.1 and X2>1 and X3>1 and X3>=1 and X3<=4:
+    elif X1<0.1 and X2>1 and X3>1 and X3>=1 and X3<=4:
         estado_trafo="T2: Defecto termico 300 oC < T < 700 oC"
 
-    if X1<0.2 and X2>1 and X3>4:
+    elif X1<0.2 and X2>1 and X3>4:
         estado_trafo="T3: Defecto termico T > 700 oC"
-      
+    else:  
+        estado_trafo="No aplica"
     
     SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
     NOMBRE_GAS_PRUEBA=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono","Oxigeno","Nitrogeno","Dioxido_de_carbono"]
