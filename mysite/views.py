@@ -934,10 +934,7 @@ def analisis(request,central_x,transformador_x):
     Triangulo_duval=duval( VALOR_DEL_GAS)    
     segun_donenberg=donenberg(VALOR_DEL_GAS)
     segun_roger=roger(VALOR_DEL_GAS)     
-    segun_IEC_60599=IEC_60599(VALOR_DEL_GAS)
-    segun_IEC_60599=IEC_60599(VALOR_DEL_GAS)
-    analisis_analitico=analitico(VALOR_DEL_GAS)    
-
+   
     lista_mediciones=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=transformador_x))
     identificador=lista_mediciones.first()
     
