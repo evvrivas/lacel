@@ -630,7 +630,7 @@ def roger(VALOR_DEL_GAS):
         else:
             estado_trafo=" No aplica diagnostico con este metodo" 
         
-        estado_trafo2 = "C2H2/C2H4=" + str(R1) + "  CH4/H2="+str(R2) "  C2H4/C2H6="+str(R3) + estado_trafo
+        estado_trafo2 = "C2H2/C2H4=" + str(R1) + "  CH4/H2="+str(R2) + "  C2H4/C2H6="+str(R3) + estado_trafo
         
         return estado_trafo2
         #return render(request,'analisis.html',locals())
