@@ -604,32 +604,35 @@ def roger(VALOR_DEL_GAS):
         #SIMBOLO_GAS_COMBUSTIBLE=["H2","CH4","C2H2","C2H4","C2H6","CO"]
         #NOMBRE_GAS_COMBUSTIBLE=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono"]
 
-        R1=VALOR_DEL_GAS[2][1]/VALOR_DEL_GAS[3][1]
-        R2=VALOR_DEL_GAS[1][1]/VALOR_DEL_GAS[0][1]
-        R3=VALOR_DEL_GAS[3][1]/VALOR_DEL_GAS[4][1]
+        R1=VALOR_DEL_GAS[2][1]/VALOR_DEL_GAS[3][1]#C2H2/C2H4
+        R2=VALOR_DEL_GAS[1][1]/VALOR_DEL_GAS[0][1]#CH4/H2
+        R3=VALOR_DEL_GAS[3][1]/VALOR_DEL_GAS[4][1]#C2H4/C2H6
 
+        
         if R1<0.1 and R2>0.1 and R2<1 and R3<1 :
-            estado_trafo="Estado Normal"
+            estado_trafo=" Estado Normal"
 
         if R1<0.1 and R2<0.1 and R3<1 :
-            estado_trafo="Descarga parcial (corona)\n Arco de baja dencidad de energia"
+            estado_trafo=" Descarga parcial (corona)\n Arco de baja dencidad de energia"
 
         if R1>0.1 and R1<3 and R2>0.1 and R2<1 and R3>3 :
-            estado_trafo="Arco\n Descarga de alta energia"
+            estado_trafo=" Arco\n Descarga de alta energia"
 
         if R1<0.1 and R2>0.1 and R2<1 and R3>1 and R3<3  :
-            estado_trafo="Sobrecalentamiento termico a baja temperatura" 
+            estado_trafo=" Sobrecalentamiento termico a baja temperatura" 
         
         if R1<0.1 and R2>0.1 and R3>1 and R3<3  :
-            estado_trafo="Calentamiento de alta temperatura menor de 700 grados celcius"
+            estado_trafo=" Calentamiento de alta temperatura menor de 700 grados celcius"
 
         if R1<0.1 and R2>0.1 and R3>3  :
-            estado_trafo="Calentamiento de alta temperatura mayor de 700 grados celcius"
+            estado_trafo=" Calentamiento de alta temperatura mayor de 700 grados celcius"
         
         else:
-            estado_trafo="NO APLICA" 
-
-        return estado_trafo
+            estado_trafo=" No aplica diagnostico con este metodo" 
+        
+        estado_trafo2 = "C2H2/C2H4=" + str(R1) + "  CH4/H2="+str(R2) "  C2H4/C2H6="+str(R3) + estado_trafo
+        
+        return estado_trafo2
         #return render(request,'analisis.html',locals())
 
 ################################################################################
@@ -644,22 +647,23 @@ def donenberg(VALOR_DEL_GAS):
         #SIMBOLO_GAS_COMBUSTIBLE=["H2","CH4","C2H2","C2H4","C2H6","CO"]
         #NOMBRE_GAS_COMBUSTIBLE=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono"]
         
-        R1=VALOR_DEL_GAS[1][1]/VALOR_DEL_GAS[0][1]
-        R2=VALOR_DEL_GAS[2][1]/VALOR_DEL_GAS[3][1]
+        R1=VALOR_DEL_GAS[1][1]/VALOR_DEL_GAS[0][1]#CH4/H2
+        R2=VALOR_DEL_GAS[2][1]/VALOR_DEL_GAS[3][1]#C2H2/C2H4
 
         if R1>0.87 and R1<=100 and R2>=0.01 and R2<=0.87  :
-            estado_trafo="Se detecto un problema termico"
+            estado_trafo=" Se detecto un problema termico"
 
         if R1>=0.087 and R1<=0.87 and R2>0.1 and R2<=110 :
-            estado_trafo="Se detecto un problema de Arco"
+            estado_trafo=" Se detecto un problema de Arco"
 
         if R1>=0 and R1<=0.087 and R2>0.087 and R2<100 :
-            estado_trafo="Se detecto un problema de efecto Corona"       
+            estado_trafo=" Se detecto un problema de efecto Corona"       
         
         else:
-            estado_trafo="NO APLICA" 
-
-        return estado_trafo
+            estado_trafo=" No aplica diagnostico con este metodo" 
+        
+        estado_trafo2 = "CH4/H2=" + str(R1) + "  C2H2/C2H4="+str(R2)  + estado_trafo
+        return estado_trafo2
         #return render(request,'analisis.html',locals())
 ################################################################################
 
@@ -708,7 +712,7 @@ def IEC_60599(VALOR_DEL_GAS):
     elif X1<0.2 and X2>1 and X3>4:
         estado_trafo="T3: Defecto termico T > 700 oC"
     else:  
-        estado_trafo="No aplica"
+        estado_trafo="No aplica diagnostico con este metodo"
     
     SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
     NOMBRE_GAS_PRUEBA=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono","Oxigeno","Nitrogeno","Dioxido_de_carbono"]
@@ -763,7 +767,8 @@ def analitico_C2H2_H2(VALOR_DEL_GAS):
 
     if R1>3:
         respuesta="C2H2/H2="+ str(R1) + ", Indica contaminacion del aceite del tanque principal  por aceite del cambiador de derivacion bajo carga en transformador con respiradero abiert" 
-    
+    else:
+        respuesta="C2H2/H2="+ str(R1) + ",No aplica diagnostico con este metodo" 
 
     return respuesta
 
