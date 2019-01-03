@@ -28,9 +28,9 @@
 		                                   
 
 
-                    <h4><center> {{central_x}} Transformador {{transformador_x}} </center></h4>
+                    <h4><center> {{central_x}} </center></h4>
                     <h4><center>
-                     Codigo {{identificador.transformador.codigo}}
+                     Transformador Codigo {{identificador.transformador.codigo}}
                      Marca {{identificador.transformador.marca}}  </center></h4>
                        <center></h4>Modelo {{identificador.transformador.modelo}}  
                      Unidad {{identificador.transformador.cararcteristicas}}
@@ -39,6 +39,22 @@
                         <center>
                          <table BORDER="1" CELLSPACING="1">
                             
+
+                            <tr  align="center">                                 
+                                                                        
+                                    <td WIDTH="100"></td> 
+                                    <td WIDTH="60">ppm</td>                                    
+                                    <td WIDTH="60">ppm</td>                                    
+                                    <td WIDTH="60">ppm</td>
+                                    <td WIDTH="60">ppm</td>                                    
+                                    <td WIDTH="60">ppm</td>                                   
+                                    <td WIDTH="60">ppm </td>
+                                    <td WIDTH="60">ppm</td>                                    
+                                    <td WIDTH="60">ppm</td>                                    
+                                    <td WIDTH="60">ppm</td>                                  
+                                    
+                                                                                                    
+                               </tr >
                              <tr  align="center">
                                    
                                                                         
@@ -71,23 +87,14 @@
                                     <td WIDTH="60">{{i.Etileno}}</td>                                    
                                     <td WIDTH="60">{{i.Acetileno}} </td>
                                    
-                                                                                                     
+                                                                                                 
 
                                      
                                 </tr >
 
 
                             {%  endfor %} 
-
-
-                                    
-                         
-                        
-
-
-
-
-                        </table>
+                     </table>
                         </center>
 
                       <br>
@@ -98,14 +105,24 @@
 
                   <center>  <table BORDER="1" CELLSPACING="1"> 
 
-                   
-                     {%  for i in VALOR_DEL_GAS %} 
+                         <center> <tr  align="center">
+                                    <td WIDTH="100">Limite(ppm)</td>
+                                    <td WIDTH="100">GAS</td>
+                                    <td WIDTH="100">ppm</td>
+                                    <td WIDTH="100">   </td>
+                                     
+
+                                                                    
+                                </tr ></center>
+
+                      
+                     {%  for i in VALOR_GAS_LIMITES %} 
                                     
                                <center> <tr  align="center">
-                                   
+                                    <td WIDTH="100">{{i.2}}</td>
                                     <td WIDTH="100">{{i.0}}</td>
                                     <td WIDTH="100">{{i.1}}</td>
-                                    <td WIDTH="100"><a href="/tendencias/{{central_x}}/{{identificador.transformador.codigo}}/{{i.0}}"> Tendencias</a></li></td></td>
+                                    <td WIDTH="100"><a href="/tendencias/{{central_x}}/{{identificador.transformador.codigo}}/{{i.0}}"> Tendencias</a></li></td>
                                      
 
                                                                     
@@ -160,6 +177,25 @@
                              </div>
 
 
+                              <div class="alert alert-dark">
+                                <strong>ANALISIS IEC_60599</strong> {{segun_IEC_60599}}.
+                              </div>
+
+
+                              <div class="alert alert-light">
+                                <strong>Metodo analitico CO2/CO</strong> {{segun_analitico_CO2_CO}}
+                               
+                              </div>
+
+                              <div class="alert alert-success">
+                              <strong>Metodo analitico C2H2/H2</strong> {{segun_analitico_C2H2_H2}}
+                              </div>
+
+                              <div class="alert alert-info">
+                                <strong>Metodo analitico O2/N2</strong> {{segun_analitico_O2_N2}}
+                              </div>
+
+
                               <div class="alert alert-secondary">
                                 <strong>ANALISIS METODO TRIANGULO DE DUVAL</strong> 
                             <center>
@@ -167,30 +203,17 @@
                             <br>
                             <center><button id="bt1" onClick="calcOpr({{Triangulo_duval.0}},{{Triangulo_duval.1}},{{Triangulo_duval.2}})"> Analizar </button>  </center>  
 
-
-
                             </div> 
                             </center>
                         
                        
-                              </div>
-
-
-                              <div class="alert alert-dark">
-                                <strong>ANALISIS NORMA</strong> Dark grey alert.
-                              </div>
-
-
-                              <div class="alert alert-light">
-                                <strong>ANALISIS ANANALITICO</strong> Light grey alert.
-                               
                               </div>
                     </div>
           
            </div>             
         </div>
 
-
+ 
 
       </div>
 

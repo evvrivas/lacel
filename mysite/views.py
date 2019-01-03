@@ -683,10 +683,109 @@ def duval( VALOR_DEL_GAS):
 
 ################################################################################
 
-def IEC_60599(request):
-    pass
-def Relaciones_adicionales(request):
-    pass
+def IEC_60599(VALOR_DEL_GAS):
+    #SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
+    #NOMBRE_GAS_PRUEBA=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono","Oxigeno","Nitrogeno","Dioxido_de_carbono"]
+    X1=VALOR_DEL_GAS[2][1]/VALOR_DEL_GAS[3][1]
+    X2=VALOR_DEL_GAS[1][1]/VALOR_DEL_GAS[0][1]
+    X3=VALOR_DEL_GAS[2][1]/VALOR_DEL_GAS[4][1]
+
+    if X2<0.1 and X3<0.2:
+        estado_trafo="DP: Descargas parciales"
+
+    if X1>1 and X2>=0.1 and X2<=0.5 and X3>1:
+        estado_trafo="D1: Descargas de BAJA energia"
+
+    if X1>=0.6 and X1<=2.5 and X2>=0.1 and X2<=1 and X3>2:
+        estado_trafo="D2: Descargas de ALTA energia"
+
+    if X3<1:
+        estado_trafo="T1: Descargas de baja energia"
+
+    if X1<0.1 and X2>1 and X3>1 and X3>=1 and X3<=4:
+        estado_trafo="T2: Defecto termico 300 oC < T < 700 oC"
+
+    if X1<0.2 and X2>1 and X3>4:
+        estado_trafo="T3: Defecto termico T > 700 oC"
+      
+    
+    SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
+    NOMBRE_GAS_PRUEBA=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono","Oxigeno","Nitrogeno","Dioxido_de_carbono"]
+    
+    LIMITE_1=[ 60, 40, 3, 60,50,540,0,0,5100]
+    LIMITE_2=[150,110,50,280,90,900,0,0,13000]
+     
+           
+    ESTADO_DE_GASES=[]
+    for i in range(len(LIMITE_1)):
+        
+        if i!=6 and i!=7:
+            if VALOR_DEL_GAS[i][1]>=LIMITE_1[i] and VALOR_DEL_GAS[i][1]<LIMITE_2[i]:
+                estado = "En valor tipico"
+            else:
+                estado = "Fuera del rango tipico"
+        else:
+                estado = "No aplica"
+
+        vector=[NOMBRE_GAS_PRUEBA[i], SIMBOLO_GAS[i],VALOR_DEL_GAS[i][1],estado]
+        ESTADO_DE_GASES.append(vector)
+        
+    respuesta= [estado_trafo,ESTADO_DE_GASES]
+    return respuesta
+   
+
+
+
+def analitico_CO2_CO(VALOR_DEL_GAS):
+    #SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
+    #NOMBRE_GAS_PRUEBA=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono","Oxigeno","Nitrogeno","Dioxido_de_carbono"]
+    R1=VALOR_DEL_GAS[8][1]/VALOR_DEL_GAS[5][1]
+
+    if R1<3:
+        respuesta="Degradacion excesiva del papel, con algun grado de carbonizacion CO2/CO="+str(R1) 
+    
+    elif R1>=3 and R1<6.5:
+        respuesta="la relacion  CO2/CO="+str(R1) ", esta es mayor a 3 y menor a 6.5, 7 es una relacion normal"
+    
+    elif R1>=6.5 and R1<=7.5:
+        respuesta="la relacion  CO2/CO es"+ str(R1) ", Lo normal es un valor proximo a 7"
+
+    else:
+        respuesta="Altas concentraciones de de CO2 y bajas de CO indica un sobrecalentamiento general CO2/CO="+str(R1)
+     
+    return respuesta
+
+def analitico_C2H2_H2(VALOR_DEL_GAS):
+    #SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
+    #NOMBRE_GAS_PRUEBA=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono","Oxigeno","Nitrogeno","Dioxido_de_carbono"]
+    R1=VALOR_DEL_GAS[2][1]/VALOR_DEL_GAS[0][1]
+
+    if R1>3:
+        respuesta="C2H2/H2="+str(R1)+", Indica contaminacion del aceite del tanque principal  por aceite del cambiador de derivacion bajo carga en transformador con respiradero abiert" 
+    
+
+    return respuesta
+
+def analitico_O2_N2(lista_mediciones):
+    #SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
+    #NOMBRE_GAS_PRUEBA=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono","Oxigeno","Nitrogeno","Dioxido_de_carbono"]
+    O2_N2=[]
+    for i in lista_mediciones:        
+        try:
+            R=i[6]/i[7]
+            O2_N2.append(R)
+        except:
+            R=" "
+            O2_N2.append(R)
+    
+    Respuesta=["O2/N2 a la baja indica exesivo calentamiento",O2_N2]
+
+    return respuesta
+
+
+
+
+
 
 
 
@@ -815,7 +914,13 @@ def tendencias(request,central_x,transformador_x,gas_x):
 def analisis(request,central_x,transformador_x):
 
     VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)
-    
+
+    VALOR_GAS_LIMITES=[]
+    LIMITES_GAS=["100","120","2--35","50","65","350","-","-","-"]    
+    for i in range(len(VALOR_DEL_GAS)):   
+        a=[VALOR_DEL_GAS[i][0],VALOR_DEL_GAS[i][1],LIMITES_GAS[i]]
+        VALOR_GAS_LIMITES.append(a)
+        
     centrales=Centrales.objects.all()
     central=central_x
     transformador=transformador_x
@@ -827,12 +932,19 @@ def analisis(request,central_x,transformador_x):
     
     Triangulo_duval=duval( VALOR_DEL_GAS)    
     segun_donenberg=donenberg(VALOR_DEL_GAS)
-    segun_roger=roger(VALOR_DEL_GAS)         
-   
+    segun_roger=roger(VALOR_DEL_GAS)     
+    segun_IEC_60599=IEC_60599(VALOR_DEL_GAS)
+    segun_IEC_60599=IEC_60599(VALOR_DEL_GAS)
+    analisis_analitico=analitico(VALOR_DEL_GAS)    
 
     lista_mediciones=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(transformador__codigo__icontains=transformador_x))
     identificador=lista_mediciones.first()
     
+    segun_IEC_60599=IEC_60599(VALOR_DEL_GAS):    
+    segun_analitico_CO2_CO=analitico_CO2_CO(VALOR_DEL_GAS):
+    segun_analitico_C2H2_H2=analitico_C2H2_H2(VALOR_DEL_GAS):
+    segun_analitico_O2_N2=analitico_O2_N2(lista_mediciones)
+
     
 
     return render(request,'analisis.html',locals())
