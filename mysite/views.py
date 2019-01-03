@@ -745,10 +745,10 @@ def analitico_CO2_CO(VALOR_DEL_GAS):
         respuesta="Degradacion excesiva del papel, con algun grado de carbonizacion CO2/CO="+str(R1) 
     
     elif R1>=3 and R1<6.5:
-        respuesta="la relacion  CO2/CO="+str(R1) ", esta es mayor a 3 y menor a 6.5, 7 es una relacion normal"
+        respuesta="la relacion  CO2/CO="+str(R1) + ", esta es mayor a 3 y menor a 6.5, 7 es una relacion normal"
     
     elif R1>=6.5 and R1<=7.5:
-        respuesta="la relacion  CO2/CO es"+ str(R1) ", Lo normal es un valor proximo a 7"
+        respuesta="la relacion  CO2/CO es"+ str(R1)+ ", Lo normal es un valor proximo a 7"
 
     else:
         respuesta="Altas concentraciones de de CO2 y bajas de CO indica un sobrecalentamiento general CO2/CO="+str(R1)
@@ -761,7 +761,7 @@ def analitico_C2H2_H2(VALOR_DEL_GAS):
     R1=VALOR_DEL_GAS[2][1]/VALOR_DEL_GAS[0][1]
 
     if R1>3:
-        respuesta="C2H2/H2="+str(R1)+", Indica contaminacion del aceite del tanque principal  por aceite del cambiador de derivacion bajo carga en transformador con respiradero abiert" 
+        respuesta="C2H2/H2="+ str(R1) + ", Indica contaminacion del aceite del tanque principal  por aceite del cambiador de derivacion bajo carga en transformador con respiradero abiert" 
     
 
     return respuesta
@@ -943,9 +943,7 @@ def analisis(request,central_x,transformador_x):
     segun_IEC_60599=IEC_60599(VALOR_DEL_GAS):    
     segun_analitico_CO2_CO=analitico_CO2_CO(VALOR_DEL_GAS):
     segun_analitico_C2H2_H2=analitico_C2H2_H2(VALOR_DEL_GAS):
-    segun_analitico_O2_N2=analitico_O2_N2(lista_mediciones)
-
-    
+    segun_analitico_O2_N2=analitico_O2_N2(lista_mediciones)    
 
     return render(request,'analisis.html',locals())
 
