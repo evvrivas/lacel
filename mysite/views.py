@@ -465,7 +465,7 @@ def datos_prueba(request):
 
 def datos_de_analisis_rapido(central_x, transformador_x):
 
-    x=Mediciones_rapidas.objects.get(central=central_x)
+    x=Mediciones_rapidas.objects.filter(central=central_x).first()
     SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
     NG=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono","Oxigeno","Nitrogeno","Dioxido_de_carbono"]
     gas_analisis=[ (x[2],NG[0]),(x[3],NG[1]),(x[4],NG[2]),(x[5],NG[3]),(x[6],NG[4]),(x[7],NG[5]),(x[8],NG[6]),(x[9],NG[7]),(x[10],NG[8]) ]
