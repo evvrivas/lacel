@@ -123,6 +123,42 @@ def ingresar_datos_trafo(request):
         connection.close()                  
         return render(request,'ingreso_de_datos.html',locals()) 
 
+def ingresar_datos_analisis_rapido(request):
+        #!/usr/bin/python
+        # -*- coding: latin-1 -*-        
+        import os, sys
+        if request.method == 'POST': # si el usuario est enviando el formulario con datos
+                             
+                    form = Mediciones_rapidasForm(request.POST,request.FILES)                      
+                    
+                    if form.is_valid() :
+                            #SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
+                            Mediciones_rapidas.objects.all().delete()                                             
+
+                            form.save() # Guardar los datos en la base de datos  print 
+                            #return render_to_response('confirmar.html', locals() ,context_instance=RequestContext(request))
+                            connection.close()
+
+                            analisis_rapido(request,cent,trafo)
+
+                            return render(request,'confirmar.html',locals())                  
+                
+
+        else:            
+                         
+                         form=Mediciones_rapidasForm()
+
+        connection.close()                  
+        return render(request,'ingreso_de_datos.html',locals()) 
+
+
+
+
+
+
+
+
+
 def datos_prueba(request):
 
     date=datetime.datetime.now()
@@ -425,6 +461,14 @@ def datos_prueba(request):
 ################################################################################
 
 
+def datos_de_analisis_rapido(central_x, transformador_x):
+
+    x=Mediciones_rapidas.objects.get(central=central_x)
+    SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
+    NG=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono","Oxigeno","Nitrogeno","Dioxido_de_carbono"]
+    gas_analisis=[ (x[2],NG[0]),(x[3],NG[1]),(x[4],NG[2]),(x[5],NG[3]),(x[6],NG[4]),(x[7],NG[5]),(x[8],NG[6]),(x[9],NG[7]),(x[10],NG[8]) ]
+       
+    return gas_analisis
 
 ################################################################################
 def datos_de_analisis(central_x, transformador_x):
@@ -937,11 +981,35 @@ def tendencias(request,central_x,transformador_x,gas_x):
 
     return render(request,'tendencias.html',locals()) 
 
+def analisis_rapido(request,central_x,transformador_x):
+
+    VALOR_DEL_GAS= datos_de_analisis_rapido(central_x, transformador_x)
+   
+    VALOR_GAS_LIMITES=[]
+    LIMITES_GAS=["100","120","2--35","50","65","350","-","-","-"]    
+    for i in range(len(VALOR_DEL_GAS)):   
+        a=[VALOR_DEL_GAS[i][0],VALOR_DEL_GAS[i][1],LIMITES_GAS[i]]
+        VALOR_GAS_LIMITES.append(a)
+        
+    central=central_x
+    transformador=transformador_x
+    segun_gas_clave=gas_clave(VALOR_DEL_GAS)#valor
+    concentraciones_limite=limite_concentracion(VALOR_DEL_GAS)#vector
+    gases_combustibles= total_gases_combustibles(VALOR_DEL_GAS)#vector    
+    Triangulo_duval=duval( VALOR_DEL_GAS)    
+    segun_donenberg=donenberg(VALOR_DEL_GAS)
+    segun_roger=roger(VALOR_DEL_GAS)     
+    segun_IEC_60599=IEC_60599(VALOR_DEL_GAS)    
+    segun_analitico_CO2_CO=analitico_CO2_CO(VALOR_DEL_GAS)
+    segun_analitico_C2H2_H2=analitico_C2H2_H2(VALOR_DEL_GAS)
+    segun_analitico_O2_N2=analitico_O2_N2(lista_mediciones)    
+
+    return render(request,'analisis.html',locals())
 
 def analisis(request,central_x,transformador_x):
 
     VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)
-
+    
     VALOR_GAS_LIMITES=[]
     LIMITES_GAS=["100","120","2--35","50","65","350","-","-","-"]    
     for i in range(len(VALOR_DEL_GAS)):   

@@ -84,7 +84,11 @@ class Mediciones(models.Model):
          class Admin:
          	list_display = ('fecha','codigo_usuario','central','transformador')
 
+  
+#from django.contrib.postgres.fields import ArrayField
 class Mediciones_rapidas(models.Model):
+         central=models.models.CharField(max_length=60,blank=True)
+         transformador=models.CharField(max_length=60,blank=True)         
          Hidrogeno=models.FloatField(default=0,blank=True,null=True)
          Metano=models.FloatField(default=0,blank=True,null=True)
          Acetileno=models.FloatField(default=0,blank=True,null=True)
@@ -94,8 +98,9 @@ class Mediciones_rapidas(models.Model):
          Oxigeno=models.FloatField(default=0,blank=True,null=True)
          Nitrogeno=models.FloatField(default=0,blank=True,null=True)
          Dioxido_de_carbono=models.FloatField(default=0,blank=True,null=True)
+         fecha_del_analisis = models.DateField(default=datetime.now,null=False)
          
          def __str__(self):
-         	return  0
+         	return  self.codigo_usuario
          class Admin:
-         	list_display = ('')
+         	list_display = ('fecha','codigo_usuario','central','transformador')

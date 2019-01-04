@@ -35,6 +35,6 @@ class Mediciones_rapidasForm(ModelForm):#productos
 		model=Mediciones_rapidas
 		exclude=[""]
 	
-    
+   
 #########################################################
 
