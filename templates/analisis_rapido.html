@@ -1,0 +1,218 @@
+
+{% extends "base.html" %}
+{% load staticfiles %} 
+{% load thumbnail %}
+
+
+{% block content %}
+      
+
+<div class="panel panel-info">
+      <div class="panel-heading">
+            <h2 class="panel-title"><center>ANALISIS RAPIDO DE GASES DISUELTOS EN ACEITE </center></h2>
+       
+                      
+     </div>
+
+
+<div class="panel-body">
+        <!-- ######################################################################  -->
+
+        <div class="row">
+             
+
+
+            	 <div class="col-md-12">
+               		 <div class="thumbnail">                                    
+		                    <div class="caption">
+		                                   
+
+
+                    <h4><center> {{central_x}} </center></h4>
+                    <h4><center>
+                     Transformador {transformador_x}}  </center></h4>
+                       
+                    <br>
+                        <center>
+                         <table BORDER="1" CELLSPACING="1">
+                            
+
+                            <tr  align="center">                                 
+                                                                        
+                                    <td WIDTH="100"></td> 
+                                    <td WIDTH="60">ppm</td>                                    
+                                    <td WIDTH="60">ppm</td>                                    
+                                    <td WIDTH="60">ppm</td>
+                                    <td WIDTH="60">ppm</td>                                    
+                                    <td WIDTH="60">ppm</td>                                   
+                                    <td WIDTH="60">ppm </td>
+                                    <td WIDTH="60">ppm</td>                                    
+                                    <td WIDTH="60">ppm</td>                                    
+                                    <td WIDTH="60">ppm</td>                                  
+                                    
+                                                                                                    
+                               </tr >
+                             <tr  align="center">
+                                   
+                                                                        
+                                    <td WIDTH="100">Fecha</td> 
+                                    <td WIDTH="60">H2</td>                                    
+                                    <td WIDTH="60">O2</td>                                    
+                                    <td WIDTH="60">N</td>
+                                    <td WIDTH="60">CH4</td>                                    
+                                    <td WIDTH="60">CO</td>                                   
+                                    <td WIDTH="60">C2H6 </td>
+                                    <td WIDTH="60">CO2</td>                                    
+                                    <td WIDTH="60">C2H4</td>                                    
+                                    <td WIDTH="60">C2H2</td>                                  
+                                    
+                                                                                                    
+                               </tr >
+
+                            {%  for i in lista_mediciones %} 
+                                    
+                                <tr  align="center">
+                                   
+                                    <td WIDTH="100">{{i.fecha_del_analisis}}</td>
+                                    <td WIDTH="60">{{i.Hidrogeno}}</td>                                    
+                                    <td WIDTH="60">{{i.Oxigeno}}</td>                                    
+                                    <td WIDTH="60">{{i.Nitrogeno}}</td>
+                                    <td WIDTH="60">{{i.Metano}}</td>                                    
+                                    <td WIDTH="60">{{i.Monoxido_de_carbono}}</td>                                   
+                                    <td WIDTH="60">{{i.Etano}} </td>
+                                    <td WIDTH="60">{{i.Dioxido_de_carbono}}</td>                                    
+                                    <td WIDTH="60">{{i.Etileno}}</td>                                    
+                                    <td WIDTH="60">{{i.Acetileno}} </td>
+                                   
+                                                                                                 
+
+                                     
+                                </tr >
+
+
+                            {%  endfor %} 
+                     </table>
+                        </center>
+
+                      <br>
+                       <br>
+                   <h4><center> Gases a analizar</center></h4>
+                      <br> 
+           
+
+                  <center>  <table BORDER="1" CELLSPACING="1"> 
+
+                         <center> <tr  align="center">
+                                    <td WIDTH="100">Limite(ppm)</td>
+                                    <td WIDTH="100">GAS</td>
+                                    <td WIDTH="100">ppm</td>
+                                    
+                                     
+
+                                                                    
+                                </tr ></center>
+
+                      
+                     {%  for i in VALOR_GAS_LIMITES %} 
+                                    
+                               <center> <tr  align="center">
+                                    <td WIDTH="100">{{i.2}}</td>
+                                    <td WIDTH="100">{{i.0}}</td>
+                                    <td WIDTH="100">{{i.1}}</td>                                                                                                                                            
+                                </tr ></center>
+
+
+                            {%  endfor %} 
+                   </table></center>
+
+                         <br> <br>
+                     
+               
+ <h4><center> GASES DE ANALISIS (LIMITES Segun IEEE c57.104-1991) </center></h4>
+                        <center><div class="container">
+                        <img src="/grafico_gases_presentes_rapido/{{central_x}}/{{transformador_x}}">
+                        </div></center>
+
+
+
+     
+    
+
+                    <div class="container">
+                         <center><h2>ANALISIS</h2></center>                             
+                         <p>Estos analisis son de rreferencia, se requiere de un experto para interpretar estos analisis</p>
+                         <BR>
+
+
+                              <div class="alert alert-success">
+                              <strong>ANALISIS DE GAS CLAVE</strong> {{segun_gas_clave}}
+                              </div>
+
+
+
+                              <div class="alert alert-info">
+                                <strong>ANALISIS DE LIMITE DE CONCENTRACIONES</strong> {{concentraciones_limite}}
+                              </div>
+
+
+                              <div class="alert alert-warning">
+                                <strong>ANLISIS DE GASES COMBUSTIBLES</strong> {{gases_combustibles}}
+                              </div>
+
+
+                              <div class="alert alert-danger">
+                                <strong>ANALISIS METODO DE DONENBERG</strong> {{segun_donenberg}}
+                              </div>
+
+
+                              <div class="alert alert-info">
+                                <strong>ANALISIS METODO DE ROGER</strong> {{ segun_roger}}
+                             </div>
+
+
+                              <div class="alert alert-warning">
+                                <strong>ANALISIS IEC_60599</strong> {{segun_IEC_60599}}.
+                              </div>
+
+
+                              <div class="alert alert-warning">
+                                <strong>Metodo analitico CO2/CO</strong> {{segun_analitico_CO2_CO}}
+                               
+                              </div>
+
+                              <div class="alert alert-success">
+                              <strong>Metodo analitico C2H2/H2</strong> {{segun_analitico_C2H2_H2}}
+                              </div>
+
+                              
+                              <div class="alert alert-secondary">
+                                <strong>ANALISIS METODO TRIANGULO DE DUVAL</strong> 
+                            <center>
+                            <div class="container"><canvas id="canvas" width=650 height=580></canvas> 
+                            <br>
+                            <center><button id="bt1" onClick="calcOpr({{Triangulo_duval.0}},{{Triangulo_duval.1}},{{Triangulo_duval.2}})"> Analizar </button>  </center>  
+
+                            </div> 
+                            </center>
+                        
+                       
+                              </div>
+                    </div>
+          
+           </div>             
+        </div>
+
+ 
+
+      </div>
+
+
+
+
+
+</div>
+</div>
+                
+ 
+
+{% endblock %}

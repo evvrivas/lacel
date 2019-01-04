@@ -133,7 +133,9 @@ def ingresar_datos_analisis_rapido(request):
                     
                     if form.is_valid() :
                             #SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
-                            Mediciones_rapidas.objects.all().delete()                                             
+                            Mediciones_rapidas.objects.all().delete()  
+                            cent=form.cleaned_data['central']
+                            trafo= form.cleaned_data['transformador']                                                                                             
 
                             form.save() # Guardar los datos en la base de datos  print 
                             #return render_to_response('confirmar.html', locals() ,context_instance=RequestContext(request))
@@ -1001,10 +1003,9 @@ def analisis_rapido(request,central_x,transformador_x):
     segun_roger=roger(VALOR_DEL_GAS)     
     segun_IEC_60599=IEC_60599(VALOR_DEL_GAS)    
     segun_analitico_CO2_CO=analitico_CO2_CO(VALOR_DEL_GAS)
-    segun_analitico_C2H2_H2=analitico_C2H2_H2(VALOR_DEL_GAS)
-    segun_analitico_O2_N2=analitico_O2_N2(lista_mediciones)    
+    segun_analitico_C2H2_H2=analitico_C2H2_H2(VALOR_DEL_GAS)      
 
-    return render(request,'analisis.html',locals())
+    return render(request,'analisis_rapido.html',locals())
 
 def analisis(request,central_x,transformador_x):
 
