@@ -141,9 +141,29 @@ def ingresar_datos_analisis_rapido(request):
                             #return render_to_response('confirmar.html', locals() ,context_instance=RequestContext(request))
                             connection.close()
 
-                            analisis_rapido(request,cent,trafo)
+                            #analisis_rapido(request,cent,trafo)
 
-                            return render(request,'confirmar.html',locals())                  
+                            VALOR_DEL_GAS= datos_de_analisis_rapido(central_x, transformador_x)
+   
+                            VALOR_GAS_LIMITES=[]
+                            LIMITES_GAS=["100","120","2--35","50","65","350","-","-","-"]    
+                            for i in range(len(VALOR_DEL_GAS)):   
+                                a=[VALOR_DEL_GAS[i][0],VALOR_DEL_GAS[i][1],LIMITES_GAS[i]]
+                                VALOR_GAS_LIMITES.append(a)
+                                
+                            central=central_x
+                            transformador=transformador_x
+                            segun_gas_clave=gas_clave(VALOR_DEL_GAS)#valor
+                            concentraciones_limite=limite_concentracion(VALOR_DEL_GAS)#vector
+                            gases_combustibles= total_gases_combustibles(VALOR_DEL_GAS)#vector    
+                            Triangulo_duval=duval( VALOR_DEL_GAS)    
+                            segun_donenberg=donenberg(VALOR_DEL_GAS)
+                            segun_roger=roger(VALOR_DEL_GAS)     
+                            segun_IEC_60599=IEC_60599(VALOR_DEL_GAS)    
+                            segun_analitico_CO2_CO=analitico_CO2_CO(VALOR_DEL_GAS)
+                            segun_analitico_C2H2_H2=analitico_C2H2_H2(VALOR_DEL_GAS)
+
+                            return render(request,'analisis_rapido.html',locals())                  
                 
 
         else:            
