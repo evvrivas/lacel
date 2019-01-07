@@ -143,7 +143,7 @@ def ingresar_datos_analisis_rapido(request):
 
                             #analisis_rapido(request,cent,trafo)
 
-                            VALOR_DEL_GAS= datos_de_analisis_rapido(central_x, transformador_x)
+                            VALOR_DEL_GAS= datos_de_analisis_rapido(cent, trafo)
    
                             VALOR_GAS_LIMITES=[]
                             LIMITES_GAS=["100","120","2--35","50","65","350","-","-","-"]    
