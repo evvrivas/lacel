@@ -469,7 +469,7 @@ def datos_de_analisis_rapido(central_x, transformador_x):
     SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
     NG=["Hidrogeno","Metano","Acetileno","Etileno","Etano","Monoxido_de_carbono","Oxigeno","Nitrogeno","Dioxido_de_carbono"]
     
-    gas_analisis=[ (x.Hidrogeno,NG[0]),(x.Metano,NG[1]),(x.Acetileno,NG[2]),(x.Etileno,NG[3]),(x.Etano,NG[4]),(x.Monoxido_de_carbono,NG[5]),(x.Oxigeno,NG[6]),(x.Nitrogeno,NG[7]),(x.Dioxido_de_carbono,NG[8]) ]
+    gas_analisis=[ (NG[0],x.Hidrogeno),(NG[1],x.Metano),(NG[2],x.Acetileno),(NG[3],x.Etileno),(NG[4],x.Etano),(NG[5],x.Monoxido_de_carbono),(NG[6],x.Oxigeno),(NG[7],x.Nitrogeno),(NG[8],x.Dioxido_de_carbono) ]
               
     return gas_analisis
 
