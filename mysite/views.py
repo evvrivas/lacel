@@ -1136,4 +1136,61 @@ def grafico_gases_presentes(request,central_x, transformador_x):
  # Store image in a string buffer
     
  
-  
+  def grafico_gases_presentes_rapido(request,central_x, transformador_x):  
+       
+        VALOR_DEL_GAS= datos_de_analisis_rapido(central_x, transformador_x)
+        LIMITE_1=[100,120,35,50,65,350,0,0,2500]             
+
+        nombre_gases=[]
+        valor_gases=[]
+
+
+        for i in VALOR_DEL_GAS:
+            nombre_gases.append(i[0])
+            valor_gases.append(i[1])
+
+        X= np.arange(len(nombre_gases))
+        
+        Y1 = np.asarray(valor_gases)  
+        Y2 = np.asarray(LIMITE_1)
+     
+                   
+               
+        f=plt.figure()
+       
+        plt.gca().set_yscale('log')
+
+        bar_width = 0.02
+        plt.bar(X-0.25, Y2, bar_width, color='r')
+        bar_width = 0.45
+        plt.bar(X, Y1, bar_width, color='b')
+
+        
+
+        SIMBOLO_GAS=["H2","CH4","C2H2","C2H4","C2H6","CO","O2","N2","CO2"]
+      
+        z=0 
+        for x, y in zip(X, Y1):
+            plt.text(x, y+1 ,str(y)+ "\n"+SIMBOLO_GAS[z], ha='center', va= 'bottom')
+            z=z+1
+ 
+      
+        plt.xlabel('\nGases combustibles (H2,CH4,C2H2,C2H4,C2H6) +CO +O2 +N2 +CO2 ')
+        plt.ylabel('Concentraciones de gas (ppm) ')
+        titulo=""
+        plt.title(titulo)
+        plt.xticks(())
+
+        subplots_adjust(left=0.21)
+      
+
+        buffer = io.BytesIO()
+        canvas = pylab.get_current_fig_manager().canvas
+        canvas.draw()        
+        graphIMG = PIL.Image.fromstring('RGB', canvas.get_width_height(), canvas.tostring_rgb())
+        graphIMG.save(buffer, "PNG")
+        pylab.close()  
+
+        f.clear()
+        
+        return HttpResponse (buffer.getvalue(), content_type="Image/png")
