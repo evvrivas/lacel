@@ -151,8 +151,8 @@ def ingresar_datos_analisis_rapido(request):
                                 a=[VALOR_DEL_GAS[i][0],VALOR_DEL_GAS[i][1],LIMITES_GAS[i]]
                                 VALOR_GAS_LIMITES.append(a)
                                 
-                            central=central_x
-                            transformador=transformador_x
+                            central=cent
+                            transformador=trafo
                             segun_gas_clave=gas_clave(VALOR_DEL_GAS)#valor
                             concentraciones_limite=limite_concentracion(VALOR_DEL_GAS)#vector
                             gases_combustibles= total_gases_combustibles(VALOR_DEL_GAS)#vector    
