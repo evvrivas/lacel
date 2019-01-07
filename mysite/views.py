@@ -140,10 +140,12 @@ def ingresar_datos_analisis_rapido(request):
                             form.save() # Guardar los datos en la base de datos  print 
                             #return render_to_response('confirmar.html', locals() ,context_instance=RequestContext(request))
                             connection.close()
+                            central_x=cent
+                            transformador_x=trafo
 
                             #analisis_rapido(request,cent,trafo)
 
-                            VALOR_DEL_GAS= datos_de_analisis_rapido(cent, trafo)
+                            VALOR_DEL_GAS= datos_de_analisis_rapido(central_x, transformador_x)
    
                             VALOR_GAS_LIMITES=[]
                             LIMITES_GAS=["100","120","2--35","50","65","350","-","-","-"]    
@@ -151,8 +153,8 @@ def ingresar_datos_analisis_rapido(request):
                                 a=[VALOR_DEL_GAS[i][0],VALOR_DEL_GAS[i][1],LIMITES_GAS[i]]
                                 VALOR_GAS_LIMITES.append(a)
                                 
-                            central=cent
-                            transformador=trafo
+                            central=central_x
+                            transformador=transformador_x
                             segun_gas_clave=gas_clave(VALOR_DEL_GAS)#valor
                             concentraciones_limite=limite_concentracion(VALOR_DEL_GAS)#vector
                             gases_combustibles= total_gases_combustibles(VALOR_DEL_GAS)#vector    
