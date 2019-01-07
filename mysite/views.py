@@ -1136,7 +1136,7 @@ def grafico_gases_presentes(request,central_x, transformador_x):
  # Store image in a string buffer
     
  
-  def grafico_gases_presentes_rapido(request,central_x, transformador_x):  
+def grafico_gases_presentes_rapido(request,central_x, transformador_x):  
        
         VALOR_DEL_GAS= datos_de_analisis_rapido(central_x, transformador_x)
         LIMITE_1=[100,120,35,50,65,350,0,0,2500]             
