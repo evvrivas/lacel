@@ -41,6 +41,9 @@ from django.db.models import Q
 
 from django.db import connection
 from random import sample
+
+
+from views_datos import *
    
 def logout(request):
     auth.logout(request)
@@ -1191,7 +1194,7 @@ def grafico_gases_presentes_rapido(request,central_x, transformador_x):
 
 
 
-def ingreso_datos_dp():
+def ingreso_datos_dp(request):
      #!/usr/bin/python
         # -*- coding: latin-1 -*-        
         import os, sys
