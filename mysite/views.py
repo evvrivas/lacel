@@ -43,7 +43,7 @@ from django.db import connection
 from random import sample
 
 
-from views_datos import *
+from mysite.views_datos import *
    
 def logout(request):
     auth.logout(request)
