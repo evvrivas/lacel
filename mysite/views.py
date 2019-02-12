@@ -1192,7 +1192,7 @@ def grafico_gases_presentes_rapido(request,central_x, transformador_x):
         
         return HttpResponse (buffer.getvalue(), content_type="Image/png")
 
-
+#
 
 def ingreso_datos_dp(request):
      #!/usr/bin/python
@@ -1516,7 +1516,7 @@ def datos_prueba_DP(request):
     p31.save()
 
 
-    date=datetime.datetime(2018,11,5,10,45)
+    date=datetime.datetime(2018,11,5,10,46)
     p31=Mediciones_DP(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=59.95,  potencia_activa=19.06, potencia_reactiva=3.9, temperatura_promedio=68.43, temperatura_calent=0, humedad_relativa=75, CAG="SI",
