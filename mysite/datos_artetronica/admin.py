@@ -23,9 +23,16 @@ admin.site.register(Transformadores)
 class RulesAdmin(admin.ModelAdmin):
     form = TransformadoresForm
 
+admin.site.register(Generadores)
+class RulesAdmin(admin.ModelAdmin):
+    form = GeneradoresForm
+
 admin.site.register(Mediciones)
 class RulesAdmin(admin.ModelAdmin):
     form = MedicionesForm
 
+admin.site.register(Mediciones_DP)
+class RulesAdmin(admin.ModelAdmin):
+    form = Mediciones_DPForm
   
  ##########################

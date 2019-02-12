@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+{% load staticfiles %} 
+
+<center>
+<div class="col-md-12">
+          <div class="thumbnail"> 
+                                                  
+                      <div class="caption">
+                               <h4><center>INGRESO DE DATOS DP</center></h4>  
+                      </div> 
+<!--                           -->
+                      <center> 
+                      <form action="." method="post" enctype="multipart/form-data" > 
+                            {% csrf_token %}  
+                           
+                            <br>
+                            <p> {{ form.as_p }} </p>                                                             
+                           <br>             
+                           <input type="submit" value="GUARDAR"  />                      
+                      </form>
+                      </center> 
+            </div> 
+
+</div>
+  </center>    
+
+{% endblock %}

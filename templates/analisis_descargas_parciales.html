@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load staticfiles %} 
+{% load thumbnail %}
+
+
+{% block content %}
+      
+
+<div class="panel panel-info">
+      <div class="panel-heading">
+            <h2 class="panel-title"><center> ANALISIS DE DESCARGAS PARCIALES </center></h2>
+       
+                      
+     </div>
+
+<div class="panel-body">
+    
+        <div class="row">         
+
+            	 <div class="col-md-12">
+               		 <div class="thumbnail">                                    
+		                    <div class="caption">		            
+
+                    <h4><center> {{central_x}} </center></h4>
+                    <h4><center>
+                     GENERADOR {{identificador.generador.codigo}}
+                     Marca {{identificador.generador.marca}}  </center></h4>
+                       <center></h4>Modelo {{identificador.generador.modelo}}  
+                     Unidad {{identificador.generador.cararcteristicas}}
+                     
+                     <br>
+
+                     <h4><center> Grafica de tendencias NQN QMAX A) </center></h4>
+                     <img src="/grafico_tendencias_DP/{{central_x}}/{{generador_x}}">
+                        </div></center>
+                                                                     
+                        </div>
+                    </div>          
+                </div>             
+        </div>
+
+ 
+ </div>
+
+</div>
+                
+ {% endblock %}

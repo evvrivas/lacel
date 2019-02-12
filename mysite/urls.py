@@ -34,13 +34,11 @@ urlpatterns = [
     url(r'^crear_usuario_cel/$',crear_ususario_cel),
     url(r'^ingresar_datos_trafo/$',ingresar_datos_trafo),
     url(r'^ingresar_datos_analisis_rapido/$',ingresar_datos_analisis_rapido),
-    
+    url(r'^ingreso_datos_dp/$',ingreso_datos_dp),
+   
    
 
-
-
-
-    
+   
     url(r'^$', principal),
    
     url(r'^tendencias/([^/]+)/([^/]+)/([^/]+)/$', tendencias),
@@ -48,13 +46,17 @@ urlpatterns = [
     
     url(r'^grafico_gases_presentes/([^/]+)/([^/]+)/$', grafico_gases_presentes),
     url(r'^grafico_gases_presentes_rapido/([^/]+)/([^/]+)/$', grafico_gases_presentes_rapido),
+    url(r'^grafico_tendencias_DP/([^/]+)/([^/]+)/$', grafico_tendencias_DP),
+  
    
 
     url(r'^informacion/$', informacion),
 
-    url(r'^listado_de_transformadores/([^/]+)/$', listado_de_transformadores),
+    url(r'^listado_de_equipos/([^/]+)/$', listado_de_equipos),
     url(r'^listado_de_mediciones/([^/]+)/([^/]+)/$', listado_de_mediciones),
     url(r'^analisis/([^/]+)/([^/]+)/$', analisis),
+    url(r'^analisis_dp/([^/]+)/([^/]+)/$', analisis_dp),
+   
 
     url(r'^datos_prueba/$', datos_prueba),
     

@@ -118,9 +118,12 @@
 
 
                     {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" %}  
+                         <li><a href="/ingreso_datos_dp">Ingresar DP</a></li>
                          <li><a href="/ingresar_datos_trafo">Ingresar GDA</a></li>
-                         <li><a href="/ingresar_datos_analisis_rapido">Analisis rapido GDA</a></li>
+                         <li><a href="/ingresar_datos_analisis_rapido">
+                         Analisis rapido GDA</a></li>
                     {%  else  %}  
+                       <li><a href="/ingreso_datos_dp">Ingresar DP</a></li>
                        <li><a href="/ingresar_datos_trafo">Ingresar GDA</a></li>
                        <li><a href="/ingresar_datos_analisis_rapido">Analisis rapido GDA</a></li>
                    {% endif %} 

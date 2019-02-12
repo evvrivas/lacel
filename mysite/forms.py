@@ -21,20 +21,30 @@ class TransformadoresForm(ModelForm):#tiendas
 		model=Transformadores
 		exclude=["fecha_ingreso"]
 	
-	
+class GeneradoresForm(ModelForm):#tiendas
+	class Meta:			
+		model=Generadores
+		exclude=["fecha_ingreso"]	
 	
 
 class MedicionesForm(ModelForm):#productos
 	class Meta:			
 		model=Mediciones
-		exclude=["fecha_ingreso"]
+		widgets = {'comentario': Textarea(attrs={'cols': 40, 'rows': 3}),}
+		exclude=["fecha_ingreso","codigo_usuario"]
 
 
 class Mediciones_rapidasForm(ModelForm):#productos
 	class Meta:			
 		model=Mediciones_rapidas
+		widgets = {'comentario': Textarea(attrs={'cols': 40, 'rows': 3}),}
 		exclude=[""]
 	
    
 #########################################################
 
+class Mediciones_DPForm(ModelForm):#productos
+	class Meta:			
+		model=Mediciones_DP
+		widgets = {'comentario': Textarea(attrs={'cols': 40, 'rows': 3}),}
+		exclude=["fecha_ingreso]

@@ -8,7 +8,7 @@
 
 <div class="panel panel-info">
       <div class="panel-heading">
-        <h2 class="panel-title"><center>Transformadores {{central_x}} 
+        <h2 class="panel-title"><center>EQUIPOS EN ESTUDIO DE {{central_x}} 
         </center></h2>
           
       </div>
@@ -21,6 +21,8 @@
              <div class="col-md-12">
                 <div class="thumbnail"> 
                      <div class="caption">
+                      <center><h2 class="panel-title"> Transformadores</h2></center>
+                      <br>
                     
                      <center>
                          <table BORDER="1" CELLSPACING="1">
@@ -76,6 +78,76 @@
 
 
           </div>
+
+<br>
+<br>
+
+
+
+<div class="row">
+
+             <div class="col-md-12">
+                <div class="thumbnail"> 
+                     <div class="caption">
+                     <center><h2 class="panel-title"> Generadores</h2></center>
+                     <br>
+                     <center>
+                         <table BORDER="1" CELLSPACING="1">
+                            
+                             <tr  align="center">
+                                    
+                                    <td WIDTH="60">Unidad</td>  
+                                    <td WIDTH="120">Gx CODIGO</td>                 
+                                    <td WIDTH="170">Gx MARCA</td>
+
+                                   
+                                    
+                                    <td WIDTH="80">Ver </td>
+                             </tr > 
+
+
+                            {%  for i in lista_generadores %}   
+                                
+                                <tr  align="center">
+                                    
+                                    <td WIDTH="60">{{i.cararcteristicas}}</td>   
+                                    <td WIDTH="100">{{i.codigo}}</td>              
+                                    <td WIDTH="150">{{i.marca}}</td>           
+                                   
+                                    
+                                    <td WIDTH="80">
+
+                                    {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" %}  
+                                    <a href="/analisis_dp/{{i.central.nombre}}/{{i.codigo}}">ADP</a></td>
+                                    {%  else  %}  
+                                    <p>ADP</p>
+
+                                    {% endif %}                                                                
+                                  
+
+                                    
+                                </tr >
+                            {%  endfor %} 
+                          
+
+                        </table>
+                        </center>
+
+                       
+                        
+                                                
+                   </div>                  
+              
+                
+                  
+                </div>
+            </div>
+
+
+          </div>
+
+
+
 
         </div>
   </div>
