@@ -47,4 +47,4 @@ class Mediciones_DPForm(ModelForm):#productos
 	class Meta:			
 		model=Mediciones_DP
 		widgets = {'comentario': Textarea(attrs={'cols': 40, 'rows': 3}),}
-		exclude=["fecha_ingreso]
+		exclude=["fecha_ingreso"]
