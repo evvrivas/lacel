@@ -1233,8 +1233,8 @@ def analisis_dp(request,central_x,generador_x):
     
     centrales=Centrales.objects.all()
      
-    lista_mediciones=Mediciones.objects.filter(Q(central__nombre__icontains=central_x) &  Q(generador__codigo__icontains=generador_x)).order_by("fecha_del_analisis")
-    identificador=lista_mediciones.first()    
+    lista_mediciones=Mediciones_DP.objects.filter(Q(central__nombre__icontains=central_x) &  Q(generador__codigo__icontains=generador_x)).order_by("fecha_del_analisis")
+    identificador=lista_mediciones_DP.first()    
    
     return render(request,'analisis_descargas_parciales.html',locals())
 
