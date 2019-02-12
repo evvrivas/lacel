@@ -132,6 +132,7 @@ class Mediciones_DP(models.Model):
          codigo_usuario = models.CharField(max_length=60,blank=True)
          
          fecha_del_analisis = models.DateField(default=datetime.now,null=False)
+         fecha_ingreso= models.DateField(default=datetime.now,null=False)
               
          frecuencia=models.FloatField(default=0,blank=True,null=True)
          potencia_activa=models.FloatField(default=0,blank=True,null=True)
