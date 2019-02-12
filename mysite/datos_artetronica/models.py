@@ -137,10 +137,11 @@ class Mediciones_DP(models.Model):
          potencia_activa=models.FloatField(default=0,blank=True,null=True)
          potencia_reactiva=models.FloatField(default=0,blank=True,null=True)
          temperatura_promedio=models.FloatField(default=0,blank=True,null=True)
-         temperatura_celent=models.FloatField(default=0,blank=True,null=True)
+         temperatura_calent=models.FloatField(default=0,blank=True,null=True)
          humedad_relativa=models.FloatField(default=0,blank=True,null=True)
          CAG=models.CharField(max_length=30,choices=CAG_SI_NO,default="SI")
 
+         
          NQNC1posA1=models.FloatField(default=0,blank=True,null=True)
          NQNC2posA1=models.FloatField(default=0,blank=True,null=True)        
          NQNC1negA1=models.FloatField(default=0,blank=True,null=True)
