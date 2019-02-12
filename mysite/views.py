@@ -1347,8 +1347,9 @@ def grafico_tendencias_DP(request,central_x, generador_x):
 
 def datos_prueba_DP(request):
 
-    p1=Centrales.objects.get(nombre="CH 5 NOVIEMBRE")   
+    p1=Centrales.objects.get(nombre="CH 5 NOVIEMBRE")  
 
+    date=datetime.datetime(2018,29,10,16,58) 
     p21=Generadores(central=p1,codigo="C0848A",marca="ELIM",modelo="NA",cararcteristicas="U1",fecha_ingreso=date)
     p21.save()
       
