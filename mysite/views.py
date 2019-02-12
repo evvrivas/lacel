@@ -1242,40 +1242,8 @@ def analisis_dp(request,central_x,generador_x):
 def grafico_tendencias_DP(request,central_x, generador_x):
         centrales=Centrales.objects.all()
 
-        datosDP=Mediciones_DP.objects.filter(Q(central__nombre__icontains=central_x) &  Q(generador__codigo__icontains=generador_x)).order_by("fecha_del_analisis")
-
-        datosfml=datos.values_list("fml", flat=True)
-        datosgan=datos.values_list("gan", flat=True)
-        datosvamo=datos.values_list("vamo", flat=True)
-        datosalianza=datos.values_list("alianza", flat=True)
-        datosaren=datos.values_list("aren", flat=True)
-        datospc=datos.values_list("pc", flat=True)
-        datospd=datos.values_list("pd", flat=True)
-        datosdsv=datos.values_list("dsv", flat=True)   
-        datosns_nr=datos.values_list("ns_nr", flat=True)        
-
-        X= np.arange(len(datosfml))
-           
-        Y1 = np.asarray(datosfml)  
-        Y2 = np.asarray(datosgan)
-        Y3 = np.asarray(datosvamo)
-        Y4 = np.asarray(datosalianza)
-        Y5 = np.asarray(datosaren)
-        Y6 = np.asarray(datospc)
-        Y7 = np.asarray(datospd)        
-        Y8 = np.asarray(datosdsv)   
-        Y9 = np.asarray(datosns_nr) 
-
-        fecha_del_analisis = models.DateField(default=datetime.now,null=False)
-                  
-        frecuencia
-        potencia_activa
-        potencia_reactiva
-        temperatura_promedio
-        temperatura_celent
-        humedad_relativa
-        CAGCAG_SI_NO
-
+        datos=Mediciones_DP.objects.filter(Q(central__nombre__icontains=central_x) &  Q(generador__codigo__icontains=generador_x)).order_by("fecha_del_analisis")
+      
         NQNC1posA1=datos.values_list("NQNC1posA1", flat=True)
         NQNC2posA1=datos.values_list("NQNC2posA1", flat=True)
         NQNC1negA1=datos.values_list("NQNC1negA1", flat=True)
@@ -1343,6 +1311,53 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         QMAXC4posC2=datos.values_list("QMAXC4posC2", flat=True)         
         QMAXC3negC2=datos.values_list("QMAXC3negC2", flat=True)
         QMAXC4negC2=datos.values_list("QMAXC4negC2", flat=True)
+
+       
+
+        X= np.arange(len(NQNC1posA1))
+        
+        Y1 = np.asarray(NQNC1posA1)  
+        Y2 = np.asarray(NQNC2posA1)
+        Y3 = np.asarray( NQNC1negA1)
+        Y4 = np.asarray(NQNC2negA1)
+        
+               
+        #barh(pos,datos,align = 'center')
+        f=plt.figure()
+        plt.plot(X,Y1, 'red')
+        plt.plot(X,Y2, 'aqua')
+        plt.plot(X,Y3, 'darkblue')
+        plt.plot(X,Y4, 'gray')   
+
+        plt.grid()     
+       
+        leyenda="rojo=NQNC1posA1   aqua=NQNC2posA1  azul=NQNC1negA1  gris=NQNC2negA1 "
+        plt.xlabel(leyenda)
+           
+        plt.ylabel('NQN+   NQN-')
+        titulo="Tendencia "
+        #plt.xticks(())
+        plt.yticks(())
+      
+        #titulo="Tendencia del las preferencias\n"+" fml "+str(fml)+ "%    "+  "gan "+str(gan)+ "%    "+"vamo "+str(vamo)+ "%    "+"alian "+str(aaa)+ "%" +  "NS+NR "+str(ns_nr)+ "%"
+        plt.title(titulo)  
+                     
+        subplots_adjust(left=0.21)      
+
+        buffer = io.BytesIO()
+        canvas = pylab.get_current_fig_manager().canvas
+        canvas.draw()        
+        graphIMG = PIL.Image.fromstring('RGB', canvas.get_width_height(), canvas.tostring_rgb())
+        graphIMG.save(buffer, "PNG")
+        pylab.close()  
+
+        f.clear()
+        
+        return HttpResponse (buffer.getvalue(), content_type="Image/png")
+
+
+
+
 
 
 def datos_prueba_DP(request):
