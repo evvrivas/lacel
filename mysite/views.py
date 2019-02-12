@@ -1357,7 +1357,7 @@ def datos_prueba_DP(request):
     #2018
 
     date=datetime.datetime(2018,1,11,16,58)
-    p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
+    p31=Mediciones_DP(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=16.11, potencia_reactiva=2.0, temperatura_promedio=59.3, temperatura_calent=35, humedad_relativa=61, CAG="SI",
          NQNC1posA1= 1522, NQNC2posA1=0 , NQNC1negA1=2157,NQNC2negA1=0, QMAXC1posA1=425, QMAXC2posA1=0, QMAXC1negA1=330, QMAXC2negA1=0, 
@@ -1373,7 +1373,7 @@ def datos_prueba_DP(request):
     
 
     date=datetime.datetime(2018,2,12,14,15)
-    p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
+    p31=Mediciones_DP(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=15.9, potencia_reactiva=4.7, temperatura_promedio=63.6, temperatura_calent=33, humedad_relativa=57, CAG="SI",
          NQNC1posA1= 1697, NQNC2posA1=5 , NQNC1negA1=1818,NQNC2negA1=6, QMAXC1posA1=425, QMAXC2posA1=72, QMAXC1negA1=425, QMAXC2negA1=72, 
@@ -1389,7 +1389,7 @@ def datos_prueba_DP(request):
 
 
     date=datetime.datetime(2018,3,17,13,43)
-    p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
+    p31=Mediciones_DP(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=17.47, potencia_reactiva=4.8, temperatura_promedio=66, temperatura_calent=35, humedad_relativa=63, CAG="SI",
          NQNC1posA1= 1523, NQNC2posA1=11 , NQNC1negA1=1693,NQNC2negA1=16, QMAXC1posA1=330, QMAXC2posA1=20, QMAXC1negA1=256, QMAXC2negA1=16, 
@@ -1405,7 +1405,7 @@ def datos_prueba_DP(request):
 
 
     date=datetime.datetime(2018,4,26,17,5)
-    p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
+    p31=Mediciones_DP(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60,  potencia_activa=15.06, potencia_reactiva=1.7, temperatura_promedio=36, temperatura_calent=35, humedad_relativa=71, CAG="SI",
          NQNC1posA1= 1323, NQNC2posA1=2 , NQNC1negA1=1994,NQNC2negA1=3, QMAXC1posA1=200, QMAXC2posA1=12, QMAXC1negA1=150, QMAXC2negA1=26, 
@@ -1421,7 +1421,7 @@ def datos_prueba_DP(request):
 
 
     date=datetime.datetime(2018,5,3,14,20)
-    p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
+    p31=Mediciones_DP(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=59.99,  potencia_activa=16.51, potencia_reactiva=4.7, temperatura_promedio=66.38, temperatura_calent=37, humedad_relativa=67, CAG="SI",
          NQNC1posA1= 1204, NQNC2posA1=1 , NQNC1negA1=1470,NQNC2negA1=1, QMAXC1posA1=298, QMAXC2posA1=34, QMAXC1negA1=192, QMAXC2negA1=26, 
@@ -1437,7 +1437,7 @@ def datos_prueba_DP(request):
 
 
     date=datetime.datetime(2018,6,1,14,34)
-    p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
+    p31=Mediciones_DP(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60,  potencia_activa=17.03, potencia_reactiva=0.2, temperatura_promedio=60.03, temperatura_calent=39, humedad_relativa=74, CAG="SI",
          NQNC1posA1= 1240, NQNC2posA1=1 , NQNC1negA1=1793,NQNC2negA1=2, QMAXC1posA1=317, QMAXC2posA1=16, QMAXC1negA1=256, QMAXC2negA1=16, 
@@ -1453,7 +1453,7 @@ def datos_prueba_DP(request):
 
 
     date=datetime.datetime(2018,7,10,10,45)
-    p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
+    p31=Mediciones_DP(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60,  potencia_activa=18.14, potencia_reactiva=3.8, temperatura_promedio=68, temperatura_calent=32, humedad_relativa=77, CAG="SI",
          NQNC1posA1= 1381, NQNC2posA1=2 , NQNC1negA1=1725,NQNC2negA1=0, QMAXC1posA1=313, QMAXC2posA1=0, QMAXC1negA1=256, QMAXC2negA1=0, 
@@ -1469,7 +1469,7 @@ def datos_prueba_DP(request):
 
 
     date=datetime.datetime(2018,8,13,14,27)
-    p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
+    p31=Mediciones_DP(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60.01,  potencia_activa=16.88, potencia_reactiva=1.8, temperatura_promedio=64.62, temperatura_calent=37, humedad_relativa=75, CAG="SI",
          NQNC1posA1= 2311, NQNC2posA1=815 , NQNC1negA1=1589, NQNC2negA1=741, QMAXC1posA1=0.199, QMAXC2posA1=0.12, QMAXC1negA1=0.093, QMAXC2negA1=0.093, 
@@ -1485,7 +1485,7 @@ def datos_prueba_DP(request):
 
 
     date=datetime.datetime(2018,9,17,13,15)
-    p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
+    p31=Mediciones_DP(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60.01,  potencia_activa=16.94, potencia_reactiva=3.6, temperatura_promedio=66.01, temperatura_calent=35, humedad_relativa=78, CAG="SI",
          NQNC1posA1= 1296, NQNC2posA1=796 , NQNC1negA1=1319,NQNC2negA1=509, QMAXC1posA1=0.256, QMAXC2posA1=0.12, QMAXC1negA1=0.256, QMAXC2negA1=0.12, 
@@ -1501,7 +1501,7 @@ def datos_prueba_DP(request):
 
 
     date=datetime.datetime(2018,10,3,13,23)
-    p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
+    p31=Mediciones_DP(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60,  potencia_activa=18.6, potencia_reactiva=3.6, temperatura_promedio=67.8, temperatura_calent=0, humedad_relativa=75, CAG="SI",
          NQNC1posA1= 1289, NQNC2posA1=1255 , NQNC1negA1=1379, NQNC2negA1=943, QMAXC1posA1=254, QMAXC2posA1=120, QMAXC1negA1=249, QMAXC2negA1=117, 
@@ -1517,7 +1517,7 @@ def datos_prueba_DP(request):
 
 
     date=datetime.datetime(2018,11,5,10,45)
-    p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
+    p31=Mediciones_DP(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=59.95,  potencia_activa=19.06, potencia_reactiva=3.9, temperatura_promedio=68.43, temperatura_calent=0, humedad_relativa=75, CAG="SI",
          NQNC1posA1= 1573, NQNC2posA1=570 , NQNC1negA1=1483, NQNC2negA1=522, QMAXC1posA1=330, QMAXC2posA1=199, QMAXC1negA1=330, QMAXC2negA1=150, 
