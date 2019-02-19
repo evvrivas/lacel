@@ -1323,7 +1323,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         Y4 = np.asarray(NQNC2negA1)
 
         Y5=Y1+Y2
-        y6=Y3+Y4
+        Y6=Y3+Y4
         
                
         #barh(pos,datos,align = 'center')
