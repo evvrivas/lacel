@@ -134,12 +134,12 @@ class Mediciones_DP(models.Model):
          fecha_del_analisis = models.DateField(default=datetime.now,null=False)
          fecha_ingreso= models.DateField(default=datetime.now,null=False)
               
-         frecuencia_Hz=models.FloatField(default=0,blank=True,null=True)
-         potencia_activa_MW=models.FloatField(default=0,blank=True,null=True)
-         potencia_reactiva_MVAR=models.FloatField(default=0,blank=True,null=True)
-         temperatura_promedio_C=models.FloatField(default=0,blank=True,null=True)
-         temperatura_calent_C=models.FloatField(default=0,blank=True,null=True)
-         humedad_relativa_POR=models.FloatField(default=0,blank=True,null=True)
+         frecuencia=models.FloatField(default=0,blank=True,null=True)
+         potencia_activa=models.FloatField(default=0,blank=True,null=True)
+         potencia_reactiva=models.FloatField(default=0,blank=True,null=True)
+         temperatura_promedio=models.FloatField(default=0,blank=True,null=True)
+         temperatura_calent=models.FloatField(default=0,blank=True,null=True)
+         humedad_relativa=models.FloatField(default=0,blank=True,null=True)
          CAG=models.CharField(max_length=30,choices=CAG_SI_NO,default="SI")
 
          
