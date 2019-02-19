@@ -25,7 +25,7 @@ class GeneradoresForm(ModelForm):#tiendas
 	class Meta:			
 		model=Generadores
 		exclude=["fecha_ingreso"]	
-	
+
 
 class MedicionesForm(ModelForm):#productos
 	class Meta:			
@@ -39,8 +39,7 @@ class Mediciones_rapidasForm(ModelForm):#productos
 		model=Mediciones_rapidas
 		widgets = {'comentario': Textarea(attrs={'cols': 40, 'rows': 3}),}
 		exclude=[""]
-	
-   
+  
 #########################################################
 
 class Mediciones_DPForm(ModelForm):#productos

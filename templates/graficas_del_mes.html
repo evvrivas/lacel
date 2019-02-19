@@ -30,11 +30,28 @@
                      Unidad {{identificador.generador.cararcteristicas}}
                      
                      <br>
+                                        
+                     {% for j in datos_DP %} 
 
-                     <h4><center> Grafica de tendencias NQN QMAX A) </center></h4>
-                     <img src="/grafico_tendencias_DP/{{central_x}}/{{generador_x}}">
+                             {% thumbnail j.imagen_PRPDD_1 "200" crop="center" as im %}
+                              <a href="" target="_blank"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a> 
+                             {% endthumbnail %}  
 
-                     <br>
+                             <br> 
+
+                              {% thumbnail j.ver imagen_3D_1  "200" crop="center" as im %}
+                              <a href="" target="_blank"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a> 
+                             {% endthumbnail %}   
+
+                             <br>
+
+                              {% thumbnail j.imagen_PHD_1 "200" crop="center" as im %}
+                              <a href="" target="_blank"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a> 
+                             {% endthumbnail %}   
+               
+                     
+                     {% endfor %}                             
+
 
                         </div></center>
                                                                      

@@ -178,9 +178,6 @@ def ingresar_datos_analisis_rapido(request):
 
 
 
-
-
-
 def datos_prueba(request):
 
     date=datetime.datetime.now()
@@ -246,7 +243,6 @@ def datos_prueba(request):
     date=datetime.datetime(2016,6,30)
     p35=Mediciones(central=p1,transformador=p22,codigo_usuario="7807004",Hidrogeno=15,Oxigeno=0,Nitrogeno=0,Metano=9,Monoxido_de_carbono=247,Etano=9,Dioxido_de_carbono=2381,Etileno=14,Acetileno=0,fecha_ingreso=date,fecha_del_analisis=date,comentario="Sin comentario")
     p35.save()
-
 
 
 
@@ -1234,7 +1230,9 @@ def analisis_dp(request,central_x,generador_x):
     centrales=Centrales.objects.all()
      
     lista_mediciones=Mediciones_DP.objects.filter(Q(central__nombre__icontains=central_x) &  Q(generador__codigo__icontains=generador_x)).order_by("fecha_del_analisis")
-    identificador=lista_mediciones.first()    
+    identificador=lista_mediciones.first()  
+
+
    
     return render(request,'analisis_descargas_parciales.html',locals())
 
@@ -1246,6 +1244,9 @@ def grafico_tendencias_DP(request,central_x, generador_x):
       
         NQNC1posA1=datos.values_list("NQNC1posA1", flat=True)
         NQNC2posA1=datos.values_list("NQNC2posA1", flat=True)
+
+
+
         NQNC1negA1=datos.values_list("NQNC1negA1", flat=True)
         NQNC2negA1=datos.values_list("NQNC2negA1", flat=True)
          
@@ -1320,18 +1321,21 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         Y2 = np.asarray(NQNC2posA1)
         Y3 = np.asarray( NQNC1negA1)
         Y4 = np.asarray(NQNC2negA1)
+
+        Y5=Y1+Y2
+        y6=Y3+Y4
         
                
         #barh(pos,datos,align = 'center')
         f=plt.figure()
-        plt.plot(X,Y1, 'red')
-        plt.plot(X,Y2, 'aqua')
-        plt.plot(X,Y3, 'darkblue')
-        plt.plot(X,Y4, 'gray')   
+        plt.plot(X,Y5, 'red')
+        plt.plot(X,Y6, 'darkblue')
+        #plt.plot(X,Y3, 'darkblue')
+        #plt.plot(X,Y4, 'gray')   
 
         plt.grid()     
        
-        leyenda="rojo=NQNC1posA1   aqua=NQNC2posA1  azul=NQNC1negA1  gris=NQNC2negA1 "
+        leyenda="rojo=NQN  azul=QMAX "
         plt.xlabel(leyenda)
            
         plt.ylabel('NQN+   NQN-')
@@ -1356,7 +1360,12 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         return HttpResponse (buffer.getvalue(), content_type="Image/png")
 
 
+def  ver_graficas_mensuales(id_imagen):
+    centrales=Centrales.objects.all()
 
+    datos_DP=Mediciones_DP.objects(pk=id_imagen)
+
+    return render(request,'graficas_del_mes.html',locals())
 
 
 

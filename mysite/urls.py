@@ -47,6 +47,8 @@ urlpatterns = [
     url(r'^grafico_gases_presentes/([^/]+)/([^/]+)/$', grafico_gases_presentes),
     url(r'^grafico_gases_presentes_rapido/([^/]+)/([^/]+)/$', grafico_gases_presentes_rapido),
     url(r'^grafico_tendencias_DP/([^/]+)/([^/]+)/$', grafico_tendencias_DP),
+    
+    url(r'^ver_graficas_mensuales/(\d+)/$',ver_graficas_mensuales),
   
    
 
