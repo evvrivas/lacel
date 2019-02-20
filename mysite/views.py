@@ -1313,34 +1313,22 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         QMAXC3negC2=datos.values_list("QMAXC3negC2", flat=True)
         QMAXC4negC2=datos.values_list("QMAXC4negC2", flat=True)
 
-        X=datos.values_list("fecha_del_analisis", flat=True)
-
-
-
+        
 
 
         fecha=datos.values_list("fecha_del_analisis", flat=True)     
         anios=[]
-        limitemax=[]
+      
 
         for i in  fecha:
             an=i.strftime('%M%Y') 
             anios.append(an)
-            limitemax.append(limite)           
-
-        X= np.arange(len(fecha))
-
-
+            
+        #X= np.arange(len(fecha))
+        X=anios
 
 
-
-
-
-
-
-
-
-        X= np.arange(len(NQNC1posA1))
+        #X= np.arange(len(NQNC1posA1))
         
         Y1 = np.asarray(NQNC1posA1)  
         Y2 = np.asarray(NQNC2posA1)
@@ -1349,15 +1337,12 @@ def grafico_tendencias_DP(request,central_x, generador_x):
 
         Y5=Y1+Y2
         Y6=Y3+Y4
-
-
- 
         
                
         #barh(pos,datos,align = 'center')
         f=plt.figure()
-        plt.plot(X,Y5,'o', 'red')
-        plt.plot(X,Y6,'o', 'darkblue')
+        plt.plot(X,Y5, 'red')
+        plt.plot(X,Y6, 'darkblue')
         #plt.plot(X,Y3, 'darkblue')
         #plt.plot(X,Y4, 'gray')   
 
@@ -1368,7 +1353,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
            
         plt.ylabel('NQN+   NQN-')
         titulo="Tendencia "
-        #plt.xticks(())
+        plt.xticks(rotation='vertical')
         plt.yticks(())
       
         #titulo="Tendencia del las preferencias\n"+" fml "+str(fml)+ "%    "+  "gan "+str(gan)+ "%    "+"vamo "+str(vamo)+ "%    "+"alian "+str(aaa)+ "%" +  "NS+NR "+str(ns_nr)+ "%"
@@ -1391,7 +1376,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
 def  ver_graficas_mensuales(request,id_imagen):
     centrales=Centrales.objects.all()
 
-    datos_DP=Mediciones_DP.objects(pk=id_imagen)
+    datos_DP=Mediciones_DP.objects.get(pk=id_imagen)
 
     return render(request,'graficas_del_mes.html',locals())
 
