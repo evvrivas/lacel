@@ -915,7 +915,7 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
     limitemax=[]
 
     for i in  fecha:
-        an=i.strftime('%Y') 
+        an=i.strftime('%d%m%Y') 
         anios.append(an)
         limitemax.append(limite)    
         
@@ -927,7 +927,7 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
     f=plt.figure()
     #barh(pos,datos,align = 'center')
     plt.plot(anios,limitemax, 'r')
-    plt.plot(anios,datos)
+    plt.plot(anios,datos,'o')
 
 
     z=0 
@@ -1313,7 +1313,32 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         QMAXC3negC2=datos.values_list("QMAXC3negC2", flat=True)
         QMAXC4negC2=datos.values_list("QMAXC4negC2", flat=True)
 
-       
+        X=datos.values_list("fecha_del_analisis", flat=True)
+
+
+
+
+
+        fecha=datos.values_list("fecha_del_analisis", flat=True)     
+        anios=[]
+        limitemax=[]
+
+        for i in  fecha:
+            an=i.strftime('%M%Y') 
+            anios.append(an)
+            limitemax.append(limite)           
+
+        X= np.arange(len(fecha))
+
+
+
+
+
+
+
+
+
+
 
         X= np.arange(len(NQNC1posA1))
         
@@ -1324,12 +1349,15 @@ def grafico_tendencias_DP(request,central_x, generador_x):
 
         Y5=Y1+Y2
         Y6=Y3+Y4
+
+
+ 
         
                
         #barh(pos,datos,align = 'center')
         f=plt.figure()
-        plt.plot(X,Y5, 'red')
-        plt.plot(X,Y6, 'darkblue')
+        plt.plot(X,Y5,'o', 'red')
+        plt.plot(X,Y6,'o', 'darkblue')
         #plt.plot(X,Y3, 'darkblue')
         #plt.plot(X,Y4, 'gray')   
 
@@ -1360,7 +1388,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         return HttpResponse (buffer.getvalue(), content_type="Image/png")
 
 
-def  ver_graficas_mensuales(id_imagen):
+def  ver_graficas_mensuales(request,id_imagen):
     centrales=Centrales.objects.all()
 
     datos_DP=Mediciones_DP.objects(pk=id_imagen)
