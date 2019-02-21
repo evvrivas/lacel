@@ -926,8 +926,8 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
 
     f=plt.figure()
     #barh(pos,datos,align = 'center')
-    plt.plot(anios,limitemax, 'r','o-')
-    plt.plot(anios,datos,'b','o-')
+    plt.plot(anios,limitemax, 'r')
+    plt.plot(anios,datos,'b*-')
 
 
     z=0 
@@ -939,7 +939,7 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
     plt.yticks(limitemax,color="r")
     #plt.yticks(datos,color="b")    
     #plt.xticks(anios,size="small",color="b",rotation=45)
-    plt.xticks(rotation='vertical')
+    plt.xticks(rotation='vertical',size="small")
 
     plt.xlabel('Fecha de la prueba ')
     plt.ylabel('CONCENTRACIONES ppm')
@@ -1313,20 +1313,18 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         QMAXC4posC2=datos.values_list("QMAXC4posC2", flat=True)         
         QMAXC3negC2=datos.values_list("QMAXC3negC2", flat=True)
         QMAXC4negC2=datos.values_list("QMAXC4negC2", flat=True)
-
-        
-
+    
 
         fecha=datos.values_list("fecha_del_analisis", flat=True)     
         anios=[]
       
-
         for i in  fecha:
-            an=i.strftime('%d%m%Y') 
+            an=i.strftime('%m%Y') 
             anios.append(an)
             
         #X= np.arange(len(fecha))
-        X=anios
+        X= np.arange(len(fecha))
+        #X=anios
 
 
         #X= np.arange(len(NQNC1posA1))
@@ -1342,8 +1340,8 @@ def grafico_tendencias_DP(request,central_x, generador_x):
                
         #barh(pos,datos,align = 'center')
         f=plt.figure()
-        plt.plot(X,Y5, 'red','o-')
-        plt.plot(X,Y6, 'darkblue','o-')
+        plt.plot(anios,Y5, 'red','ro-')
+        plt.plot(anios,Y6, 'darkblue','go-')
         #plt.plot(X,Y3, 'darkblue')
         #plt.plot(X,Y4, 'gray')   
 
@@ -1354,8 +1352,9 @@ def grafico_tendencias_DP(request,central_x, generador_x):
            
         plt.ylabel('NQN+   NQN-')
         titulo="Tendencia "
-        #plt.xticks(rotation='vertical')
+        
         plt.yticks(())
+        plt.xticks(rotation='vertical',)
       
         #titulo="Tendencia del las preferencias\n"+" fml "+str(fml)+ "%    "+  "gan "+str(gan)+ "%    "+"vamo "+str(vamo)+ "%    "+"alian "+str(aaa)+ "%" +  "NS+NR "+str(ns_nr)+ "%"
         plt.title(titulo)  

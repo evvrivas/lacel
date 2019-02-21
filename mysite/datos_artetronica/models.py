@@ -214,9 +214,10 @@ class Mediciones_DP(models.Model):
          comentario = models.TextField(blank=True)
   
          def __str__(self):
-            return  self.generador.nombre
+            return  self.generador.codigo
+            
          
          class Admin:
-            list_display = ('')
+            list_display = ('generador.codigo', 'generador.codigo','generador.modelo')
 
 
