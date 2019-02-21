@@ -1342,7 +1342,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
                
         #barh(pos,datos,align = 'center')
         f=plt.figure()
-        plt.plot(X,Y5, 'red',,'o-')
+        plt.plot(X,Y5, 'red','o-')
         plt.plot(X,Y6, 'darkblue','o-')
         #plt.plot(X,Y3, 'darkblue')
         #plt.plot(X,Y4, 'gray')   
@@ -1354,7 +1354,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
            
         plt.ylabel('NQN+   NQN-')
         titulo="Tendencia "
-        plt.xticks(rotation='vertical')
+        #plt.xticks(rotation='vertical')
         plt.yticks(())
       
         #titulo="Tendencia del las preferencias\n"+" fml "+str(fml)+ "%    "+  "gan "+str(gan)+ "%    "+"vamo "+str(vamo)+ "%    "+"alian "+str(aaa)+ "%" +  "NS+NR "+str(ns_nr)+ "%"
