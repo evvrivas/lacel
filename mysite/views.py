@@ -929,6 +929,8 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
     plt.plot(anios,limitemax, 'r')
     plt.plot(anios,datos,'b*-')
 
+    plt.grid()
+
 
     z=0 
     for x, y in zip(X, Y1):
@@ -1340,10 +1342,18 @@ def grafico_tendencias_DP(request,central_x, generador_x):
                
         #barh(pos,datos,align = 'center')
         f=plt.figure()
-        plt.plot(anios,Y5, 'red','ro-')
-        plt.plot(anios,Y6, 'darkblue','go-')
+        plt.plot(anios,Y5,'ro-')
+        plt.plot(anios,Y6,'go-')
         #plt.plot(X,Y3, 'darkblue')
         #plt.plot(X,Y4, 'gray')   
+        z=0 
+        for x, y in zip(X, Y5):
+                plt.text(x, y ,str(y), ha='center', va= 'bottom')
+                z=z+1
+        z=0 
+        for x, y in zip(X, Y6):
+                plt.text(x, y ,str(y), ha='center', va= 'bottom')
+                z=z+1
 
         plt.grid()     
        
