@@ -926,8 +926,8 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
 
     f=plt.figure()
     #barh(pos,datos,align = 'center')
-    plt.plot(anios,limitemax, 'r')
-    plt.plot(anios,datos,'o')
+    plt.plot(anios,limitemax, 'r','o-')
+    plt.plot(anios,datos,'b','o-')
 
 
     z=0 
@@ -939,6 +939,7 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
     plt.yticks(limitemax,color="r")
     #plt.yticks(datos,color="b")    
     #plt.xticks(anios,size="small",color="b",rotation=45)
+    plt.xticks(rotation='vertical')
 
     plt.xlabel('Fecha de la prueba ')
     plt.ylabel('CONCENTRACIONES ppm')
@@ -1321,7 +1322,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
       
 
         for i in  fecha:
-            an=i.strftime('%M%Y') 
+            an=i.strftime('%d%m%Y') 
             anios.append(an)
             
         #X= np.arange(len(fecha))
@@ -1341,8 +1342,8 @@ def grafico_tendencias_DP(request,central_x, generador_x):
                
         #barh(pos,datos,align = 'center')
         f=plt.figure()
-        plt.plot(X,Y5, 'red')
-        plt.plot(X,Y6, 'darkblue')
+        plt.plot(X,Y5, 'red',,'o-')
+        plt.plot(X,Y6, 'darkblue','o-')
         #plt.plot(X,Y3, 'darkblue')
         #plt.plot(X,Y4, 'gray')   
 

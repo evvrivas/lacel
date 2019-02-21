@@ -214,7 +214,7 @@ class Mediciones_DP(models.Model):
          comentario = models.TextField(blank=True)
   
          def __str__(self):
-            return  self.central
+            return  self.generador.nombre
          
          class Admin:
             list_display = ('')
