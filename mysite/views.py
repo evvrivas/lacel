@@ -1386,8 +1386,13 @@ def grafico_tendencias_DP(request,central_x, generador_x):
 def  ver_graficas_mensuales(request,id_imagen):
     centrales=Centrales.objects.all()
 
-    datos_DP=Mediciones_DP.objects.get(pk=id_imagen)
+    datos_DP=Mediciones_DP.objects.get(id=id_imagen)
+    identificador=datos_DP
+
+
+     
     
+
 
     return render(request,'graficas_del_mes.html',locals())
 
