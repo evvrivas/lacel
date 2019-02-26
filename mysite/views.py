@@ -1387,6 +1387,7 @@ def  ver_graficas_mensuales(request,id_imagen):
     centrales=Centrales.objects.all()
 
     datos_DP=Mediciones_DP.objects.get(pk=id_imagen)
+    
 
     return render(request,'graficas_del_mes.html',locals())
 
