@@ -1244,36 +1244,49 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         centrales=Centrales.objects.all()
 
         datos=Mediciones_DP.objects.filter(Q(central__nombre__icontains=central_x) &  Q(generador__codigo__icontains=generador_x)).order_by("fecha_del_analisis")
+        
+        fecha=datos.values_list("fecha_del_analisis", flat=True)     
+        anios=[]
       
+        for i in  fecha:
+            an=i.strftime('%m%Y') 
+            anios.append(an)
+            
+        
+        X= np.arange(len(fecha))
+       
+
+        f=plt.figure()     
+       
+
         NQNC1posA1=datos.values_list("NQNC1posA1", flat=True)
         NQNC2posA1=datos.values_list("NQNC2posA1", flat=True)
-
-
-
         NQNC1negA1=datos.values_list("NQNC1negA1", flat=True)
-        NQNC2negA1=datos.values_list("NQNC2negA1", flat=True)
+        NQNC2negA1=datos.values_list("NQNC2negA1", flat=True)        
+        
          
         QMAXC1posA1=datos.values_list("QMAXC1posA1", flat=True)
         QMAXC2posA1=datos.values_list("QMAXC2posA1", flat=True)        
         QMAXC1negA1=datos.values_list("QMAXC1negA1", flat=True)
         QMAXC2negA1=datos.values_list("QMAXC2negA1", flat=True)
 
+
         NQNC1posB1=datos.values_list("NQNC1posB1", flat=True)
         NQNC2posB1=datos.values_list("NQNC2posB1", flat=True)        
         NQNC1negB1=datos.values_list("NQNC1negB1", flat=True)
         NQNC2negB1=datos.values_list("NQNC2negB1", flat=True)
-         
+
+
         QMAXC1posB1=datos.values_list("QMAXC1posB1", flat=True)
         QMAXC2posB1=datos.values_list("QMAXC2posB1", flat=True)         
         QMAXC1negB1=datos.values_list("QMAXC1negB1", flat=True)
         QMAXC2negB1=datos.values_list("QMAXC2negB1", flat=True)
 
+
         NQNC1posC1=datos.values_list("NQNC1posC1", flat=True)
         NQNC2posC1=datos.values_list("NQNC2posC1", flat=True)        
         NQNC1negC1=datos.values_list("NQNC1negC1", flat=True)
         NQNC2negC1=datos.values_list("NQNC2negC1", flat=True)
-
-
 
          
         QMAXC1posC1=datos.values_list("QMAXC1posC1", flat=True)
@@ -1282,78 +1295,138 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         QMAXC2negC1=datos.values_list("QMAXC2negC1", flat=True)
 
 
+        
+        Y1 = np.asarray(NQNC1posA1)+np.asarray(NQNC1negA1)
+        Y2 = np.asarray(NQNC2posA1)+np.asarray(NQNC2negA1)
+
+        Y3 = np.asarray(NQNC1posB1)+np.asarray(NQNC1negB1)          
+        Y4 = np.asarray(NQNC2posB1)+np.asarray(NQNC2negB1) 
+
+        Y5 = np.asarray(NQNC1posC1)+np.asarray(NQNC1negC1)          
+        Y6 = np.asarray(NQNC2posC1)+np.asarray(NQNC2negC1)
+
+
+        plt.subplot(2,1,1)  
+
+        plt.plot(anios,Y1,'bo-') 
+        plt.plot(anios,Y2,'go-')
+        plt.plot(anios,Y3,'ro-')
+        plt.plot(anios,Y4,'co-')
+        plt.plot(anios,Y5,'mo-')
+        plt.plot(anios,Y6,'ko-')
+
+
+        
+        
+        Y1 = np.asarray(QMAXC1posA1)+np.asarray(QMAXC1negA1)          
+        Y2= np.asarray(QMAXC2posA1)+np.asarray(QMAXC2negA1)
+
+        Y3 = np.asarray(QMAXC1posB1)+np.asarray(QMAXC1negB1)          
+        Y4 = np.asarray(QMAXC2posB1)+np.asarray(QMAXC2negB1)        
+
+        Y5 = np.asarray(QMAXC1posC1)+np.asarray(QMAXC1negC1)          
+        Y6 = np.asarray(QMAXC2posC1)+np.asarray(QMAXC2negC1)
+
+        plt.subplot(2,1,2)
+
+        plt.plot(anios,Y1,'bo-') 
+        plt.plot(anios,Y2,'go-')
+        plt.plot(anios,Y3,'ro-')
+        plt.plot(anios,Y4,'co-')
+        plt.plot(anios,Y5,'mo-')
+        plt.plot(anios,Y6,'ko-')
+        
+
+
 
 
         NQNC3posA2=datos.values_list("NQNC3posA2", flat=True)
         NQNC4posA2=datos.values_list("NQNC4posA2", flat=True)        
         NQNC3negA2=datos.values_list("NQNC3negA2", flat=True)
-        NQNC4negA2=datos.values_list("NQNC4negA2", flat=True)
+        NQNC4negA2=datos.values_list("NQNC4negA2", flat=True)       
+
          
         QMAXC3posA2=datos.values_list("QMAXC3posA2", flat=True)
         QMAXC4posA2=datos.values_list("QMAXC4posA2", flat=True)         
         QMAXC3negA2=datos.values_list("QMAXC3negA2", flat=True)
         QMAXC4negA2=datos.values_list("QMAXC4negA2", flat=True)
 
+
         NQNC3posB2=datos.values_list("NQNC3posB2", flat=True)
         NQNC4posB2=datos.values_list("NQNC4posB2", flat=True)        
         NQNC3negB2=datos.values_list("NQNC3negB2", flat=True)
         NQNC4negB2=datos.values_list("NQNC4negB2", flat=True)
-        
-
+     
 
         QMAXC3posB2=datos.values_list("QMAXC3posB2", flat=True)
         QMAXC4posB2=datos.values_list("QMAXC4posB2", flat=True)         
         QMAXC3negB2=datos.values_list("QMAXC3negB2", flat=True)
         QMAXC4negB2=datos.values_list("QMAXC4negB2", flat=True)
 
+
         NQNC3posC2=datos.values_list("NQNC3posC2", flat=True)
         NQNC4posC2=datos.values_list("NQNC4posC2", flat=True)        
         NQNC3negC2=datos.values_list("NQNC3negC2", flat=True)
         NQNC4negC2=datos.values_list("NQNC4negC2", flat=True)
+
          
         QMAXC3posC2=datos.values_list("QMAXC3posC2", flat=True)
         QMAXC4posC2=datos.values_list("QMAXC4posC2", flat=True)         
         QMAXC3negC2=datos.values_list("QMAXC3negC2", flat=True)
         QMAXC4negC2=datos.values_list("QMAXC4negC2", flat=True)
+
+
+        Y1 = np.asarray(NQNC3posA2)+np.asarray(NQNC3negA2)          
+        Y2 = np.asarray(NQNC4posA2)+np.asarray(NQNC4negA2)        
+
+        Y3 = np.asarray(NQNC3posB2)+np.asarray(NQNC3negB2)          
+        Y4 = np.asarray(NQNC4posB2)+np.asarray(NQNC4negB2)
+
+        Y5 = np.asarray(NQNC3posC2)+np.asarray(NQNC3negC2)          
+        Y6 = np.asarray(NQNC4posC2)+np.asarray(NQNC4negC2)
+
+
+        plt.subplot(2,1,1)
+
+        plt.plot(anios,Y1,'bo-') 
+        plt.plot(anios,Y2,'go-')
+        plt.plot(anios,Y3,'ro-')
+        plt.plot(anios,Y4,'co-')
+        plt.plot(anios,Y5,'mo-')
+        plt.plot(anios,Y6,'ko-')
+
+
+
+        Y1 = np.asarray(QMAXC3posA2)+np.asarray(QMAXC3negA2)          
+        Y2 = np.asarray(QMAXC4posA2)+np.asarray(QMAXC4negA2)
+
+        Y3 = np.asarray(QMAXC3posB2)+np.asarray(QMAXC3negB2)          
+        Y4 = np.asarray(QMAXC4posB2)+np.asarray(QMAXC4negB2)       
+
+        Y5 = np.asarray(QMAXC3posC2)+np.asarray(QMAXC3negC2)          
+        Y6 = np.asarray(QMAXC4posC2)+np.asarray(QMAXC4negC2)
+
+        plt.subplot(2,1,2)
+
+        plt.plot(anios,Y1,'bo-') 
+        plt.plot(anios,Y2,'go-')
+        plt.plot(anios,Y3,'ro-')
+        plt.plot(anios,Y4,'co-')
+        plt.plot(anios,Y5,'mo-')
+        plt.plot(anios,Y6,'ko-')
+    
     
 
-        fecha=datos.values_list("fecha_del_analisis", flat=True)     
-        anios=[]
-      
-        for i in  fecha:
-            an=i.strftime('%m%Y') 
-            anios.append(an)
-            
-        #X= np.arange(len(fecha))
-        X= np.arange(len(fecha))
-        #X=anios
 
 
-        #X= np.arange(len(NQNC1posA1))
-        
-        Y1 = np.asarray(NQNC1posA1)  
-        Y2 = np.asarray(NQNC2posA1)
-        Y3 = np.asarray( NQNC1negA1)
-        Y4 = np.asarray(NQNC2negA1)
-
-        Y5=Y1+Y2
-        Y6=Y3+Y4
-        
-               
-        #barh(pos,datos,align = 'center')
-        f=plt.figure()
-        plt.plot(anios,Y5,'ro-')
-        plt.plot(anios,Y6,'go-')
-        #plt.plot(X,Y3, 'darkblue')
-        #plt.plot(X,Y4, 'gray')   
-        z=0 
-        for x, y in zip(X, Y5):
-                plt.text(x, y ,str(y), ha='center', va= 'bottom')
-                z=z+1
-        z=0 
-        for x, y in zip(X, Y6):
-                plt.text(x, y ,str(y), ha='center', va= 'bottom')
-                z=z+1
+        #z=0 
+        #for x, y in zip(X, Y5):
+        #        plt.text(x, y ,str(y), ha='center', va= 'bottom')
+        #        z=z+1
+        #z=0 
+        #for x, y in zip(X, Y6):
+        #        plt.text(x, y ,str(y), ha='center', va= 'bottom')
+        #        z=z+1
 
         plt.grid()     
        
@@ -1368,6 +1441,9 @@ def grafico_tendencias_DP(request,central_x, generador_x):
       
         #titulo="Tendencia del las preferencias\n"+" fml "+str(fml)+ "%    "+  "gan "+str(gan)+ "%    "+"vamo "+str(vamo)+ "%    "+"alian "+str(aaa)+ "%" +  "NS+NR "+str(ns_nr)+ "%"
         plt.title(titulo)  
+
+
+
                      
         subplots_adjust(left=0.21)      
 
@@ -1579,5 +1655,12 @@ def datos_prueba_DP(request):
          
          fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
+
+
+
+
+
+
+    
 
     return render(request,'principal.html',locals())
