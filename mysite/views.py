@@ -1256,7 +1256,9 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         X= np.arange(len(fecha))
        
 
-        f=plt.figure()     
+        f=plt.figure()    
+        f.set_size_inches(8,12) 
+
        
 
         NQNC1posA1=datos.values_list("NQNC1posA1", flat=True)
@@ -1453,7 +1455,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
 
 
                      
-        subplots_adjust(left=0.21)      
+        #subplots_adjust(left=0.21)      
 
         buffer = io.BytesIO()
         canvas = pylab.get_current_fig_manager().canvas
