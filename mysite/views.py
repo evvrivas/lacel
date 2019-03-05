@@ -1260,8 +1260,6 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         f.set_size_inches(8,12)     
 
 
-
-
         NQNC1posA1=datos.values_list("NQNC1posA1", flat=True)
         NQNC2posA1=datos.values_list("NQNC2posA1", flat=True)
         NQNC1negA1=datos.values_list("NQNC1negA1", flat=True)
@@ -1310,7 +1308,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
 
 
         plt.subplot(6,1,1)
-        titulo="Tendencia NQN C1,C2,C3 "
+        titulo="NQN (pps)  A1C1 azul, A1C2 verde,  A2C1 rojo, A2C2 aqua, A3C1 morado, A3C2 negro "
         plt.title(titulo)    
 
         plt.plot(Y1,'bo-') 
@@ -1338,7 +1336,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
 
         plt.subplot(6,1,2)
 
-        titulo="Tendencia QMAX C1,C2,C3 "
+        titulo="QMAX (mV) Q1C1 azul, Q1C2 verde,  Q2C1 rojo, Q2C2 aqua, Q3C1 morado, Q3C2 negro "
         plt.title(titulo)    
 
         plt.plot(Y1,'bo-') 
@@ -1360,7 +1358,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         temperatura_promedio=datos.values_list("temperatura_promedio", flat=True) 
         
         plt.subplot(6,1,3)
-        titulo="Tendencia frecuencia(verde), temperatura (rojo) "
+        titulo="Tendencia frecuencia(HZ) verde, temperatura(`C) rojo"
         plt.title(titulo)    
         plt.plot(frecuencia,'go-')
         plt.plot(temperatura_promedio,'ro-')
@@ -1374,7 +1372,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         potencia_reactiva=datos.values_list("potencia_reactiva", flat=True) 
         
         plt.subplot(6,1,4)
-        titulo="Tendencia Pot Activa(morado), Pot Reactiva (negro) "
+        titulo="Tendencia Pot Activa(MW) morado, Pot Reactiva (VAR) negro"
         plt.title(titulo)    
         plt.plot(potencia_activa,'mo-')
         plt.plot(potencia_reactiva,'ko-')
@@ -1435,7 +1433,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
 
 
         plt.subplot(6,1,5)
-        titulo="Tendencia NQN C4,C5,C6 "
+        titulo="NQN (pps) A4C3 azul, A4C4 verde,  A5C3 rojo, A5C4 aqua, A6C5 morado, A6C6 negro "
         plt.title(titulo)    
 
         plt.plot(Y1,'bo-') 
@@ -1460,7 +1458,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         Y6 = np.asarray(QMAXC4posC2)+np.asarray(QMAXC4negC2)
 
         plt.subplot(6,1,6)
-        titulo="Tendencia QMAX C4,C5,C6 "
+        titulo="QMAX (mV), Q4C3 azul, Q4C4 verde,  Q5C3 rojo, Q5C4 aqua, Q6C5 morado, Q6C6 negro "
         plt.title(titulo)    
 
         plt.plot(Y1,'bo-') 
@@ -1487,8 +1485,8 @@ def grafico_tendencias_DP(request,central_x, generador_x):
 
          
        
-        leyenda="rojo=NQN  azul=QMAX "
-        plt.xlabel(leyenda)
+        #leyenda="rojo=NQN  azul=QMAX "
+        #plt.xlabel(leyenda)
            
         #plt.ylabel('NQN+   NQN-')
 
