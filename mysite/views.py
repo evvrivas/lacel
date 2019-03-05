@@ -1445,7 +1445,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         plt.plot(Y3,'ro-')
         plt.plot(Y4,'co-')
         plt.plot(Y5,'mo-')
-        plt.plot(Y6,'ko-')
+        plt.plot(anios,Y6,'ko-')
 
         plt.grid()
     
@@ -1471,7 +1471,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         titulo="Tendencia "
         
         #plt.yticks(())
-        plt.xticks(anios,rotation='vertical',)
+        plt.xticks(rotation='vertical',)
       
         #titulo="Tendencia del las preferencias\n"+" fml "+str(fml)+ "%    "+  "gan "+str(gan)+ "%    "+"vamo "+str(vamo)+ "%    "+"alian "+str(aaa)+ "%" +  "NS+NR "+str(ns_nr)+ "%"
         plt.title(titulo)  
