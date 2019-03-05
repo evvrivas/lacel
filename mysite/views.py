@@ -1306,7 +1306,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         Y6 = np.asarray(NQNC2posC1)+np.asarray(NQNC2negC1)
 
 
-        plt.subplot(2,1,1)  
+        plt.subplot(6,1,1)  
 
         plt.plot(anios,Y1,'bo-') 
         plt.plot(anios,Y2,'go-')
@@ -1314,6 +1314,8 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         plt.plot(anios,Y4,'co-')
         plt.plot(anios,Y5,'mo-')
         plt.plot(anios,Y6,'ko-')
+
+        plt.grid() 
 
 
         
@@ -1327,7 +1329,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         Y5 = np.asarray(QMAXC1posC1)+np.asarray(QMAXC1negC1)          
         Y6 = np.asarray(QMAXC2posC1)+np.asarray(QMAXC2negC1)
 
-        plt.subplot(2,1,2)
+        plt.subplot(6,1,2)
 
         plt.plot(anios,Y1,'bo-') 
         plt.plot(anios,Y2,'go-')
@@ -1335,6 +1337,8 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         plt.plot(anios,Y4,'co-')
         plt.plot(anios,Y5,'mo-')
         plt.plot(anios,Y6,'ko-')
+
+        plt.grid()
         
 
 
@@ -1386,7 +1390,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         Y6 = np.asarray(NQNC4posC2)+np.asarray(NQNC4negC2)
 
 
-        plt.subplot(2,1,1)
+        plt.subplot(6,1,5)
 
         plt.plot(anios,Y1,'bo-') 
         plt.plot(anios,Y2,'go-')
@@ -1394,6 +1398,8 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         plt.plot(anios,Y4,'co-')
         plt.plot(anios,Y5,'mo-')
         plt.plot(anios,Y6,'ko-')
+
+        plt.grid()
 
 
 
@@ -1406,7 +1412,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         Y5 = np.asarray(QMAXC3posC2)+np.asarray(QMAXC3negC2)          
         Y6 = np.asarray(QMAXC4posC2)+np.asarray(QMAXC4negC2)
 
-        plt.subplot(2,1,2)
+        plt.subplot(6,1,6)
 
         plt.plot(anios,Y1,'bo-') 
         plt.plot(anios,Y2,'go-')
@@ -1414,6 +1420,8 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         plt.plot(anios,Y4,'co-')
         plt.plot(anios,Y5,'mo-')
         plt.plot(anios,Y6,'ko-')
+
+        plt.grid()
     
     
 
@@ -1428,15 +1436,15 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         #        plt.text(x, y ,str(y), ha='center', va= 'bottom')
         #        z=z+1
 
-        plt.grid()     
+         
        
         leyenda="rojo=NQN  azul=QMAX "
         plt.xlabel(leyenda)
            
-        plt.ylabel('NQN+   NQN-')
+        #plt.ylabel('NQN+   NQN-')
         titulo="Tendencia "
         
-        plt.yticks(())
+        #plt.yticks(())
         plt.xticks(rotation='vertical',)
       
         #titulo="Tendencia del las preferencias\n"+" fml "+str(fml)+ "%    "+  "gan "+str(gan)+ "%    "+"vamo "+str(vamo)+ "%    "+"alian "+str(aaa)+ "%" +  "NS+NR "+str(ns_nr)+ "%"
@@ -1661,6 +1669,6 @@ def datos_prueba_DP(request):
 
 
 
-    
+
 
     return render(request,'principal.html',locals())
