@@ -1297,7 +1297,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         QMAXC1negC1=datos.values_list("QMAXC1negC1", flat=True)
         QMAXC2negC1=datos.values_list("QMAXC2negC1", flat=True)
 
-
+     
         
         Y1 = np.asarray(NQNC1posA1)+np.asarray(NQNC1negA1)
         Y2 = np.asarray(NQNC2posA1)+np.asarray(NQNC2negA1)
@@ -1309,7 +1309,9 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         Y6 = np.asarray(NQNC2posC1)+np.asarray(NQNC2negC1)
 
 
-        plt.subplot(6,1,1)  
+        plt.subplot(6,1,1)
+        titulo="Tendencia NQN C1,C2,C3 "
+        plt.title(titulo)    
 
         plt.plot(Y1,'bo-') 
         plt.plot(Y2,'go-')
@@ -1317,6 +1319,8 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         plt.plot(Y4,'co-')
         plt.plot(Y5,'mo-')
         plt.plot(Y6,'ko-')
+
+        plt.xticks(())
 
         plt.grid() 
 
@@ -1334,6 +1338,9 @@ def grafico_tendencias_DP(request,central_x, generador_x):
 
         plt.subplot(6,1,2)
 
+        titulo="Tendencia QMAX C1,C2,C3 "
+        plt.title(titulo)    
+
         plt.plot(Y1,'bo-') 
         plt.plot(Y2,'go-')
         plt.plot(Y3,'ro-')
@@ -1341,6 +1348,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         plt.plot(Y5,'mo-')
         plt.plot(Y6,'ko-')
 
+        plt.xticks(())
         plt.grid()
 
 
@@ -1351,18 +1359,28 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         frecuencia=datos.values_list("frecuencia", flat=True) 
         temperatura_promedio=datos.values_list("temperatura_promedio", flat=True) 
         
-        plt.subplot(6,1,2)
+        plt.subplot(6,1,3)
+        titulo="Tendencia frecuencia(verde), temperatura (rojo) "
+        plt.title(titulo)    
         plt.plot(frecuencia,'go-')
         plt.plot(temperatura_promedio,'ro-')
+
+        plt.xticks(())
+        plt.grid()
 
 
 
         potencia_activa=datos.values_list("potencia_activa", flat=True) 
         potencia_reactiva=datos.values_list("potencia_reactiva", flat=True) 
         
-        plt.subplot(6,1,2)
+        plt.subplot(6,1,4)
+        titulo="Tendencia Pot Activa(morado), Pot Reactiva (negro) "
+        plt.title(titulo)    
         plt.plot(potencia_activa,'mo-')
         plt.plot(potencia_reactiva,'ko-')
+
+        plt.xticks(())
+        plt.grid()
    
 
 
@@ -1417,6 +1435,8 @@ def grafico_tendencias_DP(request,central_x, generador_x):
 
 
         plt.subplot(6,1,5)
+        titulo="Tendencia NQN C4,C5,C6 "
+        plt.title(titulo)    
 
         plt.plot(Y1,'bo-') 
         plt.plot(Y2,'go-')
@@ -1425,6 +1445,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         plt.plot(Y5,'mo-')
         plt.plot(Y6,'ko-')
 
+        plt.xticks(())
         plt.grid()
 
 
@@ -1439,6 +1460,8 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         Y6 = np.asarray(QMAXC4posC2)+np.asarray(QMAXC4negC2)
 
         plt.subplot(6,1,6)
+        titulo="Tendencia QMAX C4,C5,C6 "
+        plt.title(titulo)    
 
         plt.plot(Y1,'bo-') 
         plt.plot(Y2,'go-')
@@ -1468,13 +1491,13 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         plt.xlabel(leyenda)
            
         #plt.ylabel('NQN+   NQN-')
-        titulo="Tendencia "
+
         
         #plt.yticks(())
         plt.xticks(rotation='vertical',)
       
         #titulo="Tendencia del las preferencias\n"+" fml "+str(fml)+ "%    "+  "gan "+str(gan)+ "%    "+"vamo "+str(vamo)+ "%    "+"alian "+str(aaa)+ "%" +  "NS+NR "+str(ns_nr)+ "%"
-        plt.title(titulo)  
+        
 
 
 
