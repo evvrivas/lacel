@@ -33,9 +33,9 @@ PRIVILEGIOS=(
 
 
 class Usuarios(models.Model):
-        central=models.ForeignKey('Centrales')      
-	     codigo_usuario=models.CharField(max_length=7)
-	     pasword=models.CharField(max_length=4)
+        central=models.ForeignKey('Centrales')
+        codigo_usuario=models.CharField(max_length=7)
+        pasword=models.CharField(max_length=4)
 	     nombres=models.CharField(max_length=30)
 	     apellidos=models.CharField(max_length=30)
 	     email = models.EmailField(blank=True)
