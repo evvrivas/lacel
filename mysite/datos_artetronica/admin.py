@@ -18,6 +18,8 @@ class RulesAdmin(admin.ModelAdmin):
 admin.site.register(Centrales)
 class RulesAdmin(admin.ModelAdmin):
     form = CentralesForm
+    model = Centrales
+    list_display = ['nombre', 'fecha_ingreso', ]
 
 admin.site.register(Transformadores)
 class RulesAdmin(admin.ModelAdmin):
@@ -37,7 +39,6 @@ class RulesAdmin(admin.ModelAdmin):
   
  ##########################
 
-class CentralesAdmin(admin.ModelAdmin):
-    model = Centrales
-    list_display = ['nombre', 'fecha_ingreso', ]
+
+    
     
