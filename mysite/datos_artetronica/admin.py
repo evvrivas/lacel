@@ -76,7 +76,7 @@ class RulesAdmin(admin.ModelAdmin):
     form = Mediciones_DPForm
 class Mediciones_DPAdmin(admin.ModelAdmin):
     model = Mediciones_DP
-    list_display = ['central_nombre', 'generador__marca','fecha_del_analisis',]
+    list_display = ['central_nombre', 'generador_marca','fecha_del_analisis',]
     def central_nombre(self,instance):
     	return instance.central.nombre
     def generador_marca(self,instance):
