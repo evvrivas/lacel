@@ -15,14 +15,14 @@ class RulesAdmin(admin.ModelAdmin):
     form = UsuariosForm
 
 ###################  cel #####################
-admin.site.register(Centrales,CentralesAdmin)
+
 class RulesAdmin(admin.ModelAdmin):
     form = CentralesForm
 class CentralesAdmin(admin.ModelAdmin):
     model = Centrales
     list_display = ['nombre', 'nombre','fecha_ingreso', ]
  
-
+admin.site.register(Centrales,CentralesAdmin)
 
 
 admin.site.register(Transformadores)
