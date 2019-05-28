@@ -18,7 +18,7 @@ class UsuariosAdmin(admin.ModelAdmin):
     list_display = ['central_nombre','codigo_usuario', 'nombres','apellidos','fecha_ingreso',]
     def central_nombre(self,instance):
     	return instance.central.nombre
-    admin.site.register(Usuarios,UsuariosAdmin)
+admin.site.register(Usuarios,UsuariosAdmin)
 ##############################################
 
 
@@ -40,7 +40,7 @@ class TransformadoresAdmin(admin.ModelAdmin):
     list_display = ['central_nombre','codigo', 'marca','modelo',]
     def central_nombre(self,instance):
     	return instance.central.nombre
-    admin.site.register(Transformadores,TransformadoresAdmin)
+admin.site.register(Transformadores,TransformadoresAdmin)
 
 ##############################################
 
@@ -53,7 +53,7 @@ class GeneradoresAdmin(admin.ModelAdmin):
     list_display = ['central_nombre','codigo', 'marca','modelo',]
     def central_nombre(self,instance):
     	return instance.central.nombre
-    admin.site.register(Generadores,GeneradoresAdmin)
+admin.site.register(Generadores,GeneradoresAdmin)
 ##############################################
 
 
@@ -67,7 +67,7 @@ class MedicionesAdmin(admin.ModelAdmin):
     	return instance.central.nombre
     def transformador_marca(self,instance):
     	return instance.transformador.marca
-    admin.site.register(Mediciones,MedicionesAdmin)
+admin.site.register(Mediciones,MedicionesAdmin)
 ##############################################
 
 
@@ -81,7 +81,7 @@ class Mediciones_DPAdmin(admin.ModelAdmin):
     	return instance.central.nombre
     def generador_marca(self,instance):
     	return instance.generador.marca
-    admin.site.register(Mediciones_DP,Mediciones_DPAdmin)  
+admin.site.register(Mediciones_DP,Mediciones_DPAdmin)  
 ##############################################
 
  		 
