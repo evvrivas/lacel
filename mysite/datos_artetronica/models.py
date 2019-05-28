@@ -36,16 +36,15 @@ class Usuarios(models.Model):
         central=models.ForeignKey('Centrales')
         codigo_usuario=models.CharField(max_length=7)
         pasword=models.CharField(max_length=4)
-	     nombres=models.CharField(max_length=30)
-	     apellidos=models.CharField(max_length=30)
-	     email = models.EmailField(blank=True)
-	     privilegio=models.CharField(max_length=30,choices=PRIVILEGIOS,default="DE_BAJA")
-	     fecha_ingreso = models.DateField(default=datetime.now,editable = False)
-
-	     def __str__(self):
-		    		return  self.codigo_usuario
-	     class Admin:
-		    		list_display = ('codigo_usuario',' privilegio')
+        nombres=models.CharField(max_length=30)
+        apellidos=models.CharField(max_length=30)
+        email = models.EmailField(blank=True)
+        privilegio=models.CharField(max_length=30,choices=PRIVILEGIOS,default="DE_BAJA")
+        fecha_ingreso = models.DateField(default=datetime.now,editable = False)
+        def __str__(self):
+            return  self.codigo_usuario
+        class Admin:
+            list_display = ('codigo_usuario',' privilegio')
 
 class Generadores(models.Model):
 
