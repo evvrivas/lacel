@@ -36,3 +36,8 @@ class RulesAdmin(admin.ModelAdmin):
     form = Mediciones_DPForm
   
  ##########################
+
+class CentralesAdmin(admin.ModelAdmin):
+    model = Centrales
+    list_display = ['nombre', 'fecha_ingreso', ]
+    

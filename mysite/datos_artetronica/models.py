@@ -20,8 +20,8 @@ class Centrales(models.Model):
 	     nombre=models.CharField(max_length=60,blank=True)
 	     fecha_ingreso = models.DateField(default=datetime.now,editable = False)
 
-	     #def __str__(self):
-		    		#return  self.nombre
+	     def __str__(self):
+		    		return  self.nombre
 	     class Admin:
 		    		list_display = ('nombre', 'fecha_ingreso')
 
