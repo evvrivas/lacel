@@ -105,7 +105,7 @@ class TermografiasAdmin(admin.ModelAdmin):
     model = Termografias
     list_display = ['central_nombre', 'sistema_nombre','fecha_ingreso',]
     def central_nombre(self,instance):
-    	return instance.central.nombre
+    	return instance.sistema_termografico.central.nombre
     def sistema_nombre(self,instance):
     	return instance.sistema_termografico.nombre
 admin.site.register(Termografias,TermografiasAdmin)  
