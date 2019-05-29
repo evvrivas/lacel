@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% load staticfiles %} 
+{% load thumbnail %}
+
+
+{% block content %}
+      
+
+<div class="panel panel-info">
+      <div class="panel-heading">
+            <h2 class="panel-title"><center> ANALISIS TERMOGRAFICO </center></h2>
+       
+                      
+     </div>
+
+<div class="panel-body">
+    
+        <div class="row">         
+
+               <div class="col-md-12">
+                   <div class="thumbnail">                                    
+                        <div class="caption">              
+
+                    <h4><center> {{termografias_x.sistema_termografico.central.nombre}} </center></h4>
+                     
+                     <br>                    
+              
+                                 
+                   {% for j in termografias %} 
+
+                         <div class="col-md-6">
+
+                         {% thumbnail j.imagen_termografica_secuencia_1 "400" crop="center" as im %}
+                              <a href="" target="_blank"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a> 
+                         {% endthumbnail %}  
+                         
+                         <p>{{j.comentario_termografia_1}}</p>
+
+                         </div>
+
+                         <div class="col-md-6">
+
+                         {% thumbnail j.imagen_termografica_secuencia_2 "400" crop="center" as im %}
+                              <a href="" target="_blank"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a> 
+                         {% endthumbnail %}  
+                        
+                         <p>{{j.comentario_termografia_2}}</p>
+                          <br>
+                         <p>{{j.fecha_del_analisis}}</p>
+
+                         </div>
+                    {% endfor %} 
+             
+
+             
+                      </div>
+                                                                     
+                        </div>
+                    </div>          
+                </div>             
+        </div>
+</div>
+ 
+ 

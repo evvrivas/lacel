@@ -221,3 +221,35 @@ class Mediciones_DP(models.Model):
             list_display = ('generador.codigo', 'generador.codigo','generador.modelo')
 
 
+class Sistema_termografico(models.Model):
+        central=models.ForeignKey('Centrales')
+        codigo=models.CharField(max_length=60,blank=True)
+        nombre=models.CharField(max_length=60,blank=True)
+        justificacion=models.TextField(blank=True)
+        imagen_de_analisis_1 = ImageField(upload_to='tmp',blank=True)        
+        fecha_ingreso = models.DateField(default=datetime.now,editable = False)
+
+        def __str__(self):
+               return  self.codigo
+        class Admin:
+               list_display = ('nombre', 'codigo',)
+
+class Termografias(models.Model):
+         sistema_termografico=models.ForeignKey('Sistema_termografico')         
+         codigo_usuario = models.CharField(max_length=60,blank=True)
+
+         fecha_del_analisis = models.DateField(default=datetime.now,null=False)
+         fecha_ingreso= models.DateField(default=datetime.now,null=False)          
+          
+         imagen_termografica_secuencia_1 = ImageField(upload_to='tmp',blank=True)
+         comentario_termografia_1 = models.TextField(blank=True)
+
+         imagen_termografica_secuencia_2 = ImageField(upload_to='tmp',blank=True)         
+         comentario_termografia_2 = models.TextField(blank=True)
+  
+         def __str__(self):
+            return  self.sistema_termografico
+                     
+         class Admin:
+            list_display = ('sistema_termografico.nombre', 'sistema_termografico.nombre','generador.modelo')
+

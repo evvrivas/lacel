@@ -21,7 +21,7 @@
              <div class="col-md-12">
                 <div class="thumbnail"> 
                      <div class="caption">
-                      <center><h2 class="panel-title"> Transformadores</h2></center>
+                      <center><h2 class="panel-title"> Analsisis de Gases disueltos en Transformadores</h2></center>
                       <br>
                     
                      <center>
@@ -89,7 +89,7 @@
              <div class="col-md-12">
                 <div class="thumbnail"> 
                      <div class="caption">
-                     <center><h2 class="panel-title"> Generadores</h2></center>
+                     <center><h2 class="panel-title"> Analisis DP en Generadores</h2></center>
                      <br>
                      <center>
                          <table BORDER="1" CELLSPACING="1">
@@ -146,7 +146,60 @@
 
           </div>
 
+lista_sistemas_termograficos
 
+<div class="row">
+
+             <div class="col-md-12">
+                <div class="thumbnail"> 
+                     <div class="caption">
+                     <center><h2 class="panel-title"> Sistemas en estudio termografico</h2></center>
+                     <br>
+                     <center>
+                         <table BORDER="1" CELLSPACING="1">
+                            
+                             <tr  align="center">
+                                    
+                                    <td WIDTH="160">Nombre del sistema termogafico</td>  
+                                    <td WIDTH="80">Ver termografias </td>
+                             </tr > 
+
+
+                            {%  for i in lista_sistemas_termograficos %}   
+                                
+                                <tr  align="center">
+                                    
+                                    <td WIDTH="160">{{i.nombre}}</td>   
+                                    <td WIDTH="80">{{i.codigo}}</td>              
+                                    
+                                    {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" %}  
+                                    <a href="/analisis_termografico/{{i.nombre}}/">ADP</a></td>
+                                    {%  else  %}  
+                                    <p>ADP</p>
+
+                                    {% endif %}                                                                
+                                  
+
+                                    
+                                </tr >
+                            {%  endfor %} 
+                          
+
+                        </table>
+                        </center>
+
+                       
+                        
+                                                
+                   </div>                  
+              
+                
+                  
+                </div>
+            </div>
+
+
+          </div>
 
 
         </div>

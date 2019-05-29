@@ -71,7 +71,7 @@ admin.site.register(Mediciones,MedicionesAdmin)
 ##############################################
 
 
-##############################################
+####################################################
 class RulesAdmin(admin.ModelAdmin):
     form = Mediciones_DPForm
 class Mediciones_DPAdmin(admin.ModelAdmin):
@@ -82,6 +82,34 @@ class Mediciones_DPAdmin(admin.ModelAdmin):
     def generador_marca(self,instance):
     	return instance.generador.marca
 admin.site.register(Mediciones_DP,Mediciones_DPAdmin)  
-##############################################
+#####################################################
 
- 		 
+
+####################################################
+class RulesAdmin(admin.ModelAdmin):
+    form = Sistema_termograficoForm
+class Sistema_termograficoAdmin(admin.ModelAdmin):
+    model = Sistema_termografico
+    list_display = ['central_nombre', 'nombre','fecha_ingreso',]
+    def central_nombre(self,instance):
+    	return instance.central.nombre
+    
+admin.site.register(Sistema_termografico,Sistema_termograficoAdmin)  
+##################################################### 		 
+
+
+####################################################
+class RulesAdmin(admin.ModelAdmin):
+    form = TermografiasForm
+class TermografiasAdmin(admin.ModelAdmin):
+    model = Termografias
+    list_display = ['central_nombre', 'sistema_nombre','fecha_ingreso',]
+    def central_nombre(self,instance):
+    	return instance.central.nombre
+    def sistema_nombre(self,instance):
+    	return instance.sistema_termografico.nombre
+admin.site.register(Termografias,TermografiasAdmin)  
+##################################################### 		 
+
+
+

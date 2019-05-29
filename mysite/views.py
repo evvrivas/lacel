@@ -981,6 +981,7 @@ def listado_de_equipos(request,central_x):
 
     lista_generadores=Generadores.objects.filter(central__nombre__icontains=central_x)
     lista_transformadores=Transformadores.objects.filter(central__nombre__icontains=central_x)
+    lista_sistemas_termograficos=Sistema_termografico.objects.filter(central__nombre__icontains=central_x)
     return render(request,'lista_de_equipos.html',locals())
 
 #def (request,central_x,transformador_x):
@@ -1517,12 +1518,17 @@ def grafico_tendencias_DP(request,central_x, generador_x):
 def  ver_graficas_mensuales(request,id_imagen):
     centrales=Centrales.objects.all()
     datos_DP=Mediciones_DP.objects.filter(id=id_imagen).first()
-    identificador=datos_DP 
-    
-
+    identificador=datos_DP
 
     return render(request,'graficas_del_mes.html',locals())
 
+
+def analisis_termografico(request,sistema_x):
+    centrales=Centrales.objects.all()    
+    termografias_x=Termografias.objects.filter(sistema_termografico__nombre__icontains=sistema_x).order_by("fecha_del_analisis").first()
+    termografias=Termografias.objects.filter(sistema_termografico__nombre__icontains=sistema_x).order_by("fecha_del_analisis")
+          
+    return render(request,'analisis_termografico.html',locals())
 
 
 def datos_prueba_DP(request):

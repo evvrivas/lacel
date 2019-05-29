@@ -59,7 +59,7 @@ urlpatterns = [
     url(r'^analisis/([^/]+)/([^/]+)/$', analisis),
     url(r'^analisis_dp/([^/]+)/([^/]+)/$', analisis_dp),
    
-
+    url(r'^analisis_termografico/$', analisis_termografico),
     
     url(r'^datos_prueba_DP/$', datos_prueba_DP),
     url(r'^datos_prueba/$', datos_prueba),
