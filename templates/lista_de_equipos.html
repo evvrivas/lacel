@@ -147,6 +147,7 @@
           </div>
 
 
+
 <div class="row">
 
              <div class="col-md-12">
@@ -169,13 +170,12 @@
                                 <tr  align="center">
                                     
                                     <td WIDTH="160">{{i.nombre}}</td>   
-                                    <td WIDTH="80">            
+                                    <td WIDTH="80">           
                                     
-                                    {%  if user.is_authenticated and 
-                                    usuario_comun.privilegio == "DE_ALTA" %}  
-                                    <a href="/analisis_termografico/{{i.nombre}}/">VER</a></td>
+                                    {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" %}  
+                                    <a href="/analisis_termografico/{{i.nombre}}/">Termografia</a></td>
                                     {%  else  %}  
-                                    <p>VER</p>
+                                    <p>Termografia</p>
 
                                     {% endif %}                                                                
                                   
