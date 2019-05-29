@@ -50,8 +50,6 @@ urlpatterns = [
     
     url(r'^ver_graficas_mensuales/(\d+)/$',ver_graficas_mensuales),
   
-   
-
     url(r'^informacion/$', informacion),
 
     url(r'^listado_de_equipos/([^/]+)/$', listado_de_equipos),
@@ -59,13 +57,10 @@ urlpatterns = [
     url(r'^analisis/([^/]+)/([^/]+)/$', analisis),
     url(r'^analisis_dp/([^/]+)/([^/]+)/$', analisis_dp),
    
-    url(r'^analisis_termografico/$', analisis_termografico),
+    url(r'^analisis_termografico/([^/]+)/$', analisis_termografico),
     
     url(r'^datos_prueba_DP/$', datos_prueba_DP),
-    url(r'^datos_prueba/$', datos_prueba),
-    
-    
-        
+    url(r'^datos_prueba/$', datos_prueba),   
        
 ]
 

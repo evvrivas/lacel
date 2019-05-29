@@ -146,7 +146,6 @@
 
           </div>
 
-lista_sistemas_termograficos
 
 <div class="row">
 
@@ -170,12 +169,13 @@ lista_sistemas_termograficos
                                 <tr  align="center">
                                     
                                     <td WIDTH="160">{{i.nombre}}</td>   
-                                    <td WIDTH="80">{{i.codigo}}</td>              
+                                    <td WIDTH="80">            
                                     
-                                    {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" %}  
-                                    <a href="/analisis_termografico/{{i.nombre}}/">ADP</a></td>
+                                    {%  if user.is_authenticated and 
+                                    usuario_comun.privilegio == "DE_ALTA" %}  
+                                    <a href="/analisis_termografico/{{i.nombre}}/">VER</a></td>
                                     {%  else  %}  
-                                    <p>ADP</p>
+                                    <p>VER</p>
 
                                     {% endif %}                                                                
                                   

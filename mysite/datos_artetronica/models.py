@@ -230,7 +230,7 @@ class Sistema_termografico(models.Model):
         fecha_ingreso = models.DateField(default=datetime.now,editable = False)
 
         def __str__(self):
-               return  self.codigo
+               return  self.nombre
         class Admin:
                list_display = ('nombre', 'codigo',)
 
@@ -248,7 +248,7 @@ class Termografias(models.Model):
          comentario_termografia_2 = models.TextField(blank=True)
   
          def __str__(self):
-            return  self.sistema_termografico
+            return  self.sistema_termografico.nombre
                      
          class Admin:
             list_display = ('sistema_termografico.nombre', 'sistema_termografico.nombre','generador.modelo')
