@@ -21,7 +21,7 @@
              <div class="col-md-12">
                 <div class="thumbnail"> 
                      <div class="caption">
-                      <center><h2 class="panel-title"> Analsisis de Gases disueltos en Transformadores</h2></center>
+                      <center><h2 class="panel-title"> Analsisis de Gases disueltos en aceite de Transformadores</h2></center>
                       <br>
                     
                      <center>
@@ -89,7 +89,7 @@
              <div class="col-md-12">
                 <div class="thumbnail"> 
                      <div class="caption">
-                     <center><h2 class="panel-title"> Analisis DP en Generadores</h2></center>
+                     <center><h2 class="panel-title"> Analisis Descargas Parciales en Generadores</h2></center>
                      <br>
                      <center>
                          <table BORDER="1" CELLSPACING="1">
@@ -159,18 +159,22 @@
                          <table BORDER="1" CELLSPACING="1">
                             
                              <tr  align="center">
-                                    
-                                    <td WIDTH="160">Nombre del sistema termogafico</td>  
-                                    <td WIDTH="80">Ver termografias </td>
+                                     <td WIDTH="100">Fecha inicial</td> 
+                                    <td WIDTH="160">Nombre del sistema termogafico</td> 
+
+                                    <td WIDTH="100">Ver termografias </td>
                              </tr > 
 
 
                             {%  for i in lista_sistemas_termograficos %}   
                                 
                                 <tr  align="center">
-                                    
+                                    <td WIDTH="100">{{i.fecha_ingreso}}</td>
                                     <td WIDTH="160">{{i.nombre}}</td>   
-                                    <td WIDTH="80">           
+
+                                    
+
+                                    <td WIDTH="100">           
                                     
                                     {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" %}  
                                     <a href="/analisis_termografico/{{i.nombre}}/">Ver Termografia</a></td>

@@ -142,70 +142,91 @@ class Mediciones_DP(models.Model):
          humedad_relativa=models.FloatField(default=0,blank=True,null=True)
          CAG=models.CharField(max_length=30,choices=CAG_SI_NO,default="SI")
 
-         
-         NQNC1posA1=models.FloatField(default=0,blank=True,null=True)
-         NQNC2posA1=models.FloatField(default=0,blank=True,null=True)        
-         NQNC1negA1=models.FloatField(default=0,blank=True,null=True)
-         NQNC2negA1=models.FloatField(default=0,blank=True,null=True)
-         
-         QMAXC1posA1=models.FloatField(default=0,blank=True,null=True)
-         QMAXC2posA1=models.FloatField(default=0,blank=True,null=True)         
-         QMAXC1negA1=models.FloatField(default=0,blank=True,null=True)
-         QMAXC2negA1=models.FloatField(default=0,blank=True,null=True)
 
-         NQNC1posB1=models.FloatField(default=0,blank=True,null=True)
-         NQNC2posB1=models.FloatField(default=0,blank=True,null=True)        
-         NQNC1negB1=models.FloatField(default=0,blank=True,null=True)
-         NQNC2negB1=models.FloatField(default=0,blank=True,null=True)
-         
-         QMAXC1posB1=models.FloatField(default=0,blank=True,null=True)
-         QMAXC2posB1=models.FloatField(default=0,blank=True,null=True)         
-         QMAXC1negB1=models.FloatField(default=0,blank=True,null=True)
-         QMAXC2negB1=models.FloatField(default=0,blank=True,null=True)
+         PDI_C1_1=models.FloatField(default=0,blank=True,null=True)
+         PDI_C1_2=models.FloatField(default=0,blank=True,null=True)
 
-         NQNC1posC1=models.FloatField(default=0,blank=True,null=True)
-         NQNC2posC1=models.FloatField(default=0,blank=True,null=True)        
-         NQNC1negC1=models.FloatField(default=0,blank=True,null=True)
-         NQNC2negC1=models.FloatField(default=0,blank=True,null=True)
+         PDI_C2_1=models.FloatField(default=0,blank=True,null=True)
+         PDI_C2_2=models.FloatField(default=0,blank=True,null=True)
+
+         PDI_C3_1=models.FloatField(default=0,blank=True,null=True)
+         PDI_C3_2=models.FloatField(default=0,blank=True,null=True)
+
          
-         QMAXC1posC1=models.FloatField(default=0,blank=True,null=True)
-         QMAXC2posC1=models.FloatField(default=0,blank=True,null=True)         
-         QMAXC1negC1=models.FloatField(default=0,blank=True,null=True)
-         QMAXC2negC1=models.FloatField(default=0,blank=True,null=True)
+
+
+
+         #NQNC1posA1=models.FloatField(default=0,blank=True,null=True)
+         #NQNC2posA1=models.FloatField(default=0,blank=True,null=True)        
+         #NQNC1negA1=models.FloatField(default=0,blank=True,null=True)
+         #NQNC2negA1=models.FloatField(default=0,blank=True,null=True)
+         
+         #QMAXC1posA1=models.FloatField(default=0,blank=True,null=True)
+         #QMAXC2posA1=models.FloatField(default=0,blank=True,null=True)         
+         #QMAXC1negA1=models.FloatField(default=0,blank=True,null=True)
+         #QMAXC2negA1=models.FloatField(default=0,blank=True,null=True)
+
+         #NQNC1posB1=models.FloatField(default=0,blank=True,null=True)
+         #NQNC2posB1=models.FloatField(default=0,blank=True,null=True)        
+         #NQNC1negB1=models.FloatField(default=0,blank=True,null=True)
+         #NQNC2negB1=models.FloatField(default=0,blank=True,null=True)
+         
+         #QMAXC1posB1=models.FloatField(default=0,blank=True,null=True)
+         #QMAXC2posB1=models.FloatField(default=0,blank=True,null=True)         
+         #QMAXC1negB1=models.FloatField(default=0,blank=True,null=True)
+         #QMAXC2negB1=models.FloatField(default=0,blank=True,null=True)
+
+         #NQNC1posC1=models.FloatField(default=0,blank=True,null=True)
+         #NQNC2posC1=models.FloatField(default=0,blank=True,null=True)        
+         #NQNC1negC1=models.FloatField(default=0,blank=True,null=True)
+         #NQNC2negC1=models.FloatField(default=0,blank=True,null=True)
+         
+         #QMAXC1posC1=models.FloatField(default=0,blank=True,null=True)
+         #QMAXC2posC1=models.FloatField(default=0,blank=True,null=True)         
+         #QMAXC1negC1=models.FloatField(default=0,blank=True,null=True)
+         #QMAXC2negC1=models.FloatField(default=0,blank=True,null=True)
 
          imagen_PRPDD_1 = ImageField(upload_to='tmp',blank=True)
          imagen_3D_1 = ImageField(upload_to='tmp',blank=True)
          imagen_PHD_1 = ImageField(upload_to='tmp',blank=True)
 
-         NQNC3posA2=models.FloatField(default=0,blank=True,null=True)
-         NQNC4posA2=models.FloatField(default=0,blank=True,null=True)        
-         NQNC3negA2=models.FloatField(default=0,blank=True,null=True)
-         NQNC4negA2=models.FloatField(default=0,blank=True,null=True)
+         #NQNC3posA2=models.FloatField(default=0,blank=True,null=True)
+         #NQNC4posA2=models.FloatField(default=0,blank=True,null=True)        
+         #NQNC3negA2=models.FloatField(default=0,blank=True,null=True)
+         #NQNC4negA2=models.FloatField(default=0,blank=True,null=True)
          
-         QMAXC3posA2=models.FloatField(default=0,blank=True,null=True)
-         QMAXC4posA2=models.FloatField(default=0,blank=True,null=True)         
-         QMAXC3negA2=models.FloatField(default=0,blank=True,null=True)
-         QMAXC4negA2=models.FloatField(default=0,blank=True,null=True)
+         #QMAXC3posA2=models.FloatField(default=0,blank=True,null=True)
+         #QMAXC4posA2=models.FloatField(default=0,blank=True,null=True)         
+         #QMAXC3negA2=models.FloatField(default=0,blank=True,null=True)
+         #QMAXC4negA2=models.FloatField(default=0,blank=True,null=True)
 
-         NQNC3posB2=models.FloatField(default=0,blank=True,null=True)
-         NQNC4posB2=models.FloatField(default=0,blank=True,null=True)        
-         NQNC3negB2=models.FloatField(default=0,blank=True,null=True)
-         NQNC4negB2=models.FloatField(default=0,blank=True,null=True)
+         #NQNC3posB2=models.FloatField(default=0,blank=True,null=True)
+         #NQNC4posB2=models.FloatField(default=0,blank=True,null=True)        
+         #NQNC3negB2=models.FloatField(default=0,blank=True,null=True)
+         #NQNC4negB2=models.FloatField(default=0,blank=True,null=True)
          
-         QMAXC3posB2=models.FloatField(default=0,blank=True,null=True)
-         QMAXC4posB2=models.FloatField(default=0,blank=True,null=True)         
-         QMAXC3negB2=models.FloatField(default=0,blank=True,null=True)
-         QMAXC4negB2=models.FloatField(default=0,blank=True,null=True)
+         #QMAXC3posB2=models.FloatField(default=0,blank=True,null=True)
+         #QMAXC4posB2=models.FloatField(default=0,blank=True,null=True)         
+         #QMAXC3negB2=models.FloatField(default=0,blank=True,null=True)
+         #QMAXC4negB2=models.FloatField(default=0,blank=True,null=True)
 
-         NQNC3posC2=models.FloatField(default=0,blank=True,null=True)
-         NQNC4posC2=models.FloatField(default=0,blank=True,null=True)        
-         NQNC3negC2=models.FloatField(default=0,blank=True,null=True)
-         NQNC4negC2=models.FloatField(default=0,blank=True,null=True)
+         #NQNC3posC2=models.FloatField(default=0,blank=True,null=True)
+         #NQNC4posC2=models.FloatField(default=0,blank=True,null=True)        
+         #NQNC3negC2=models.FloatField(default=0,blank=True,null=True)
+         #NQNC4negC2=models.FloatField(default=0,blank=True,null=True)
          
-         QMAXC3posC2=models.FloatField(default=0,blank=True,null=True)
-         QMAXC4posC2=models.FloatField(default=0,blank=True,null=True)         
-         QMAXC3negC2=models.FloatField(default=0,blank=True,null=True)
-         QMAXC4negC2=models.FloatField(default=0,blank=True,null=True)
+         #QMAXC3posC2=models.FloatField(default=0,blank=True,null=True)
+         #QMAXC4posC2=models.FloatField(default=0,blank=True,null=True)         
+         #QMAXC3negC2=models.FloatField(default=0,blank=True,null=True)
+         #QMAXC4negC2=models.FloatField(default=0,blank=True,null=True)
+         PDI_C4_1=models.FloatField(default=0,blank=True,null=True)
+         PDI_C4_2=models.FloatField(default=0,blank=True,null=True)
+
+         PDI_C5_1=models.FloatField(default=0,blank=True,null=True)
+         PDI_C5_2=models.FloatField(default=0,blank=True,null=True)
+
+         PDI_C6_1=models.FloatField(default=0,blank=True,null=True)
+         PDI_C6_2=models.FloatField(default=0,blank=True,null=True)
 
          imagen_PRPDD_2 = ImageField(upload_to='tmp',blank=True)
          imagen_3D_2 = ImageField(upload_to='tmp',blank=True)
