@@ -23,16 +23,33 @@
                    <div class="thumbnail">                                    
                         <div class="caption">              
 
-                    <h4><center> {{termografias_x.sistema_termografico.central.nombre}} </center></h4>
-                     
+                    <h3><center> {{termografias_x.sistema_termografico.central.nombre}} </center></h3>
+
+                     <br> 
+
+                     <h2><center> {{termografias_x.sistema_termografico.nombre}} </center></h2>
+
+                    <br>   
+
+                    <center> 
+
+                    {% thumbnail termografias_x.sistema_termografico.imagen_de_analisis_1 "600" crop="center" as im %}
+                              <a href="" target="_blank"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a> 
+                    {% endthumbnail %}
+
+                    <p> {{termografias_x.sistema_termografico.justificacion}} </p>
+                    <p> {{termografias_x.sistema_termografico.fecha_ingreso}} </p>
+                             
+                     </center> 
                      <br>                    
-              
+
                                  
                    {% for j in termografias %} 
+                   <div class="caption">   
 
                          <div class="col-md-6">
 
-                         {% thumbnail j.imagen_termografica_secuencia_1 "400" crop="center" as im %}
+                         {% thumbnail j.imagen_termografica_secuencia_1 "600" crop="center" as im %}
                               <a href="" target="_blank"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a> 
                          {% endthumbnail %}  
                          
@@ -42,22 +59,25 @@
 
                          <div class="col-md-6">
 
-                         {% thumbnail j.imagen_termografica_secuencia_2 "400" crop="center" as im %}
+                         {% thumbnail j.imagen_termografica_secuencia_2 "600" crop="center" as im %}
                               <a href="" target="_blank"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a> 
                          {% endthumbnail %}  
                         
                          <p>{{j.comentario_termografia_2}}</p>
                           <br>
-                         <p>{{j.fecha_del_analisis}}</p>
+                         <center> <p>{{j.fecha_del_analisis}}</p></center> 
 
                          </div>
-                    {% endfor %} 
-             
+                         </div>
+                    {% endfor %}              
 
              
                       </div>
                                                                      
                         </div>
+
+
+
                     </div>          
                 </div>             
         </div>

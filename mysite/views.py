@@ -1302,9 +1302,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         PDI_C2_2=datos.values_list("PDI_C2_2", flat=True)
         PDI_C3_1=datos.values_list("PDI_C3_1", flat=True)
         PDI_C3_2=datos.values_list("PDI_C3_2", flat=True)         
-        
-         
-           
+                
         
         Y1 = np.asarray(PDI_C1_1)
         Y2 = np.asarray(PDI_C1_2)
@@ -1317,7 +1315,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
 
 
         plt.subplot(6,1,1)
-        titulo="PDI_C1_1 azul, PDI_C1_2 verde,  PDI_C2_1 rojo, PDI_C2_2 aqua, PDI_C3_1 morado, PDI_C3_2 negro \n en mW"
+        titulo="PDI_C1_1 azul, PDI_C1_2 verde,  PDI_C2_1 rojo, \n PDI_C2_2 aqua, PDI_C3_1 morado, PDI_C3_2 negro \n en mW"
         plt.title(titulo)    
 
         plt.plot(Y1,'bo-') 
@@ -1330,15 +1328,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         plt.xticks(())
 
         plt.grid() 
-
-
-        
-        
-        
-
-
-
-
+     
 
         frecuencia=datos.values_list("frecuencia", flat=True) 
         temperatura_promedio=datos.values_list("temperatura_promedio", flat=True) 
@@ -1357,7 +1347,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         potencia_activa=datos.values_list("potencia_activa", flat=True) 
         potencia_reactiva=datos.values_list("potencia_reactiva", flat=True) 
         
-        plt.subplot(6,1,4)
+        plt.subplot(6,1,5)
         titulo="Tendencia Pot Activa(MW) morado, Pot Reactiva (VAR) negro"
         plt.title(titulo)    
         plt.plot(potencia_activa,'mo-')
@@ -1366,7 +1356,6 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         plt.xticks(())
         plt.grid()
    
-
 
         PDI_C4_1=models.FloatField(default=0,blank=True,null=True)
         PDI_C4_2=models.FloatField(default=0,blank=True,null=True)
@@ -1384,10 +1373,8 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         PDI_C5_2=datos.values_list("PDI_C2_2", flat=True)
         PDI_C6_1=datos.values_list("PDI_C3_1", flat=True)
         PDI_C6_2=datos.values_list("PDI_C3_2", flat=True)         
-        
-         
-           
-        
+       
+                
         Y1 = np.asarray(PDI_C4_1)
         Y2 = np.asarray(PDI_C4_2)
 
@@ -1398,8 +1385,8 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         Y6 = np.asarray(PDI_C6_2)
 
 
-        plt.subplot(6,1,5)
-        titulo="PDI_C4_1 azul, PDI_C4_2 verde,  PDI_C5_1 rojo, PDI_C5_2 aqua, PDI_C6_1 morado, PDI_C6_2 negro \n en mW"
+        plt.subplot(6,1,7)
+        titulo="PDI_C4_1 azul, PDI_C4_2 verde,  PDI_C5_1 rojo,\n PDI_C5_2 aqua, PDI_C6_1 morado, PDI_C6_2 negro \n en mW"
         plt.title(titulo)    
 
         plt.plot(Y1,'bo-') 
@@ -1718,9 +1705,7 @@ def analisis_termografico(request,sistema_x):
     termografias=Termografias.objects.filter(sistema_termografico__nombre__icontains=sistema_x).order_by("fecha_del_analisis")
           
     return render(request,'analisis_termografico.html',locals())
-        
 
-        
 
 def datos_prueba_DP(request):
 
@@ -1739,6 +1724,8 @@ def datos_prueba_DP(request):
          frecuencia=60 ,  potencia_activa=16.11, potencia_reactiva=2.0, temperatura_promedio=59.3, temperatura_calent=35, humedad_relativa=61, CAG="SI",
          PDI_C1_1=4,
          PDI_C1_2=3,
+         PDI_C2_1=9,
+         PDI_C2_2=8,
          PDI_C3_1=9,
          PDI_C3_2=8,
          PDI_C4_1=6,
@@ -1758,6 +1745,8 @@ def datos_prueba_DP(request):
          frecuencia=60 ,  potencia_activa=15.9, potencia_reactiva=4.7, temperatura_promedio=63.6, temperatura_calent=33, humedad_relativa=57, CAG="SI",
          PDI_C1_1=1,
          PDI_C1_2=2,
+         PDI_C2_1=3,
+         PDI_C2_2=5,
          PDI_C3_1=3,
          PDI_C3_2=4,
          PDI_C4_1=5,
@@ -1777,6 +1766,8 @@ def datos_prueba_DP(request):
          frecuencia=60 ,  potencia_activa=17.47, potencia_reactiva=4.8, temperatura_promedio=66, temperatura_calent=35, humedad_relativa=63, CAG="SI",
          PDI_C1_1=1,
          PDI_C1_2=2,
+         PDI_C2_1=6,
+         PDI_C2_2=5,
          PDI_C3_1=3,
          PDI_C3_2=5,
          PDI_C4_1=5,
@@ -1796,6 +1787,8 @@ def datos_prueba_DP(request):
          frecuencia=60,  potencia_activa=15.06, potencia_reactiva=1.7, temperatura_promedio=36, temperatura_calent=35, humedad_relativa=71, CAG="SI",
          PDI_C1_1=4,
          PDI_C1_2=3,
+         PDI_C2_1=7,
+         PDI_C2_2=9,
          PDI_C3_1=1,
          PDI_C3_2=5,
          PDI_C4_1=6,
@@ -1815,6 +1808,8 @@ def datos_prueba_DP(request):
          frecuencia=59.99,  potencia_activa=16.51, potencia_reactiva=4.7, temperatura_promedio=66.38, temperatura_calent=37, humedad_relativa=67, CAG="SI",
          PDI_C1_1=3,
          PDI_C1_2=4,
+         PDI_C2_1=3,
+         PDI_C2_2=3,
          PDI_C3_1=5,
          PDI_C3_2=6,
          PDI_C4_1=2,
@@ -1834,6 +1829,8 @@ def datos_prueba_DP(request):
          frecuencia=60,  potencia_activa=17.03, potencia_reactiva=0.2, temperatura_promedio=60.03, temperatura_calent=39, humedad_relativa=74, CAG="SI",
          PDI_C1_1=2,
          PDI_C1_2=4,
+         PDI_C2_1=7,
+         PDI_C2_2=1,
          PDI_C3_1=5,
          PDI_C3_2=6,
          PDI_C4_1=8,
@@ -1853,6 +1850,8 @@ def datos_prueba_DP(request):
          frecuencia=60,  potencia_activa=18.14, potencia_reactiva=3.8, temperatura_promedio=68, temperatura_calent=32, humedad_relativa=77, CAG="SI",
          PDI_C1_1=1,
          PDI_C1_2=3,
+         PDI_C2_1=6,
+         PDI_C2_2=1,
          PDI_C3_1=4,
          PDI_C3_2=6,
          PDI_C4_1=7,
@@ -1872,6 +1871,8 @@ def datos_prueba_DP(request):
          frecuencia=60.01,  potencia_activa=16.88, potencia_reactiva=1.8, temperatura_promedio=64.62, temperatura_calent=37, humedad_relativa=75, CAG="SI",
          PDI_C1_1=5,
          PDI_C1_2=3,
+         PDI_C2_1=8,
+         PDI_C2_2=3,
          PDI_C3_1=5,
          PDI_C3_2=6,
          PDI_C4_1=7,
@@ -1891,6 +1892,8 @@ def datos_prueba_DP(request):
          frecuencia=60.01,  potencia_activa=16.94, potencia_reactiva=3.6, temperatura_promedio=66.01, temperatura_calent=35, humedad_relativa=78, CAG="SI",
          PDI_C1_1=9,
          PDI_C1_2=8,
+         PDI_C2_1=5,
+         PDI_C2_2=2,
          PDI_C3_1=4,
          PDI_C3_2=3,
          PDI_C4_1=1,
@@ -1910,6 +1913,8 @@ def datos_prueba_DP(request):
          frecuencia=60,  potencia_activa=18.6, potencia_reactiva=3.6, temperatura_promedio=67.8, temperatura_calent=0, humedad_relativa=75, CAG="SI",
          PDI_C1_1=1,
          PDI_C1_2=2,
+         PDI_C2_1=1,
+         PDI_C2_2=3,
          PDI_C3_1=3,
          PDI_C3_2=4,
          PDI_C4_1=5,
@@ -1929,6 +1934,8 @@ def datos_prueba_DP(request):
          frecuencia=59.95,  potencia_activa=19.06, potencia_reactiva=3.9, temperatura_promedio=68.43, temperatura_calent=0, humedad_relativa=75, CAG="SI",
          PDI_C1_1=7,
          PDI_C1_2=7,
+         PDI_C2_1=4,
+         PDI_C2_2=8,
          PDI_C3_1=6,
          PDI_C3_2=7,
          PDI_C4_1=6,
