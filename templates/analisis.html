@@ -120,23 +120,22 @@
                             {%  endfor %} 
                      </table>
                         </center>
-
-
+<br>
 
 
   <center>
                          <table BORDER="1" CELLSPACING="1">                       
                             
                                 <tr  align="center">                                        
-                                    <td WIDTH="60"></td> 
-                                    <td WIDTH="300"></td>                                   
+                                    <td WIDTH="100"></td> 
+                                    <td WIDTH="400"></td>                                   
                                </tr >
 
                             {%  for i in lista_mediciones %} 
                                     
                                 <tr  align="center">                                   
-                                    <td WIDTH="60">{{i.fecha_del_analisis}}</td>
-                                    <td WIDTH="300">{{i.comentario}}</td>                  
+                                    <td WIDTH="100">{{i.fecha_del_analisis}}</td>
+                                    <td WIDTH="400">{{i.comentario}}</td>                  
                                 </tr >
                             {%  endfor %} 
 
@@ -203,7 +202,7 @@
                          <center><h2>ANALISIS</h2></center>                             
                          <p>Estos analisis son de rreferencia, se requiere de un experto para interpretar estos analisis</p>
                          <BR>
-
+<br>
 
                       <div class="alert alert-success">                              
 
@@ -211,11 +210,11 @@
                          <table BORDER="1" CELLSPACING="1">                          
                                 
                                 <tr  align="center">                                        
-                                    <td WIDTH="400"><strong>ANALISIS DE GAS CLAVE</strong></td> 
+                                    <td WIDTH="600"><strong>ANALISIS DE GAS CLAVE</strong></td> 
                                 </tr >
                               
                                 <tr  align="center">                                   
-                                    <td WIDTH="400"> {{segun_gas_clave}}</td>
+                                    <td WIDTH="600"> {{segun_gas_clave}}</td>
                                 </tr >  
 
                          </table>
@@ -223,18 +222,18 @@
 
                      </div>
 
-
+<br>
 
                   <div class="alert alert-info">                                
                       <center>
                          <table BORDER="1" CELLSPACING="1">                          
                                 
                                 <tr  align="center">                                        
-                                    <td WIDTH="400"><strong>ANALISIS DE LIMITE DE CONCENTRACIONES</strong></td> 
+                                    <td WIDTH="600"><strong>ANALISIS DE LIMITE DE CONCENTRACIONES</strong></td> 
                                 </tr >
                               
                                 <tr  align="center">                                   
-                                    <td WIDTH="400"> {{concentraciones_limite}}</td>
+                                    <td WIDTH="600"> {{concentraciones_limite}}</td>
                                 </tr >  
 
                          </table>
@@ -243,7 +242,7 @@
 
 
 
-
+<br>
 
 
 
@@ -253,18 +252,18 @@
                          <table BORDER="1" CELLSPACING="1">                          
                                 
                                 <tr  align="center">                                        
-                                    <td WIDTH="400"><strong>ANLISIS DE GASES COMBUSTIBLES</strong></td> 
+                                    <td WIDTH="600"><strong>ANLISIS DE GASES COMBUSTIBLES</strong></td> 
                                 </tr >
                               
                                 <tr  align="center">                                   
-                                    <td WIDTH="400"> {{gases_combustibles}}</td>
+                                    <td WIDTH="600"> {{gases_combustibles}}</td>
                                 </tr >  
 
                          </table>
                      </center>
                   </div>
 
-
+<br>
 
 
                  <div class="alert alert-danger">
@@ -272,100 +271,100 @@
                          <table BORDER="1" CELLSPACING="1">                          
                                 
                                 <tr  align="center">                                        
-                                    <td WIDTH="400"><strong>ANALISIS METODO DE DONENBERG</strong></td> 
+                                    <td WIDTH="600"><strong>ANALISIS METODO DE DONENBERG</strong></td> 
                                 </tr >
                               
                                 <tr  align="center">                                   
-                                    <td WIDTH="400"> {{segun_donenberg}}</td>
+                                    <td WIDTH="600"> {{segun_donenberg}}</td>
                                 </tr >  
 
                          </table>
                      </center>
                  </div>
 
-
+<br>
                   <div class="alert alert-info">
                       <center>
                          <table BORDER="1" CELLSPACING="1">                          
                                 
                                 <tr  align="center">                                        
-                                    <td WIDTH="400"><strong>ANALISIS METODO DE ROGER</strong></td> 
+                                    <td WIDTH="600"><strong>ANALISIS METODO DE ROGER</strong></td> 
                                 </tr >
                               
                                 <tr  align="center">                                   
-                                    <td WIDTH="400"> {{ segun_roger}}</td>
+                                    <td WIDTH="600"> {{ segun_roger}}</td>
                                 </tr >  
 
                          </table>
                      </center>
                   </div>
-
+<br>
 
                   <div class="alert alert-warning">
                       <center>
                          <table BORDER="1" CELLSPACING="1">                          
                                 
                                 <tr  align="center">                                        
-                                    <td WIDTH="400"><strong>ANALISIS IEC_60599</strong></td> 
+                                    <td WIDTH="600"><strong>ANALISIS IEC_60599</strong></td> 
                                 </tr >
                               
                                 <tr  align="center">                                   
-                                    <td WIDTH="400">  {{segun_IEC_60599}}</td>
+                                    <td WIDTH="600">  {{segun_IEC_60599}}</td>
                                 </tr >  
 
                          </table>
                      </center>
                   </div>
-
+<br>
 
                   <div class="alert alert-warning">
                       <center>
                          <table BORDER="1" CELLSPACING="1">                          
                                 
                                 <tr  align="center">                                        
-                                    <td WIDTH="400"><strong>Metodo analitico CO2/CO</strong></td> 
+                                    <td WIDTH="600"><strong>Metodo analitico CO2/CO</strong></td> 
                                 </tr >
                               
                                 <tr  align="center">                                   
-                                    <td WIDTH="400">  {{segun_analitico_CO2_CO}}</td>
+                                    <td WIDTH="600">  {{segun_analitico_CO2_CO}}</td>
                                 </tr >  
 
                          </table>
                      </center>                               
                   </div>
-
+<br>
                   <div class="alert alert-success">
                      <center>
                          <table BORDER="1" CELLSPACING="1">                          
                                 
                                 <tr  align="center">                                        
-                                    <td WIDTH="400"><strong>Metodo analitico C2H2/H2</strong></td> 
+                                    <td WIDTH="600"><strong>Metodo analitico C2H2/H2</strong></td> 
                                 </tr >
                               
                                 <tr  align="center">                                   
-                                    <td WIDTH="400">  {{segun_analitico_C2H2_H2}}</td>
+                                    <td WIDTH="600">  {{segun_analitico_C2H2_H2}}</td>
                                 </tr >  
 
                          </table>
                      </center>   
                   </div>
-
+<br>
                   <div class="alert alert-info">
                      <center>
                          <table BORDER="1" CELLSPACING="1">                          
                                 
                                 <tr  align="center">                                        
-                                    <td WIDTH="400"><strong>Metodo analitico O2/N2</strong></td> 
+                                    <td WIDTH="600"><strong>Metodo analitico O2/N2</strong></td> 
                                 </tr >
                               
                                 <tr  align="center">                                   
-                                    <td WIDTH="400"> {{segun_analitico_O2_N2}}</td>
+                                    <td WIDTH="600"> {{segun_analitico_O2_N2}}</td>
                                 </tr >  
 
                          </table>
                      </center>  
                               </div>
-
+<br>
 
                               <div class="alert alert-secondary">
                                 <strong>ANALISIS METODO TRIANGULO DE DUVAL</strong> 
