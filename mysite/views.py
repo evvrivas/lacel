@@ -1283,7 +1283,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
        
 
         f=plt.figure()    
-        f.set_size_inches(8,12)     
+        f.set_size_inches(8,16)     
 
 
         PDI_C1_1=models.FloatField(default=0,blank=True,null=True)
@@ -1314,7 +1314,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         Y6 = np.asarray(PDI_C3_2)
 
 
-        plt.subplot(6,1,1)
+        plt.subplot(7,1,1)
         titulo="PDI_C1_1 azul, PDI_C1_2 verde,  PDI_C2_1 rojo, \n PDI_C2_2 aqua, PDI_C3_1 morado, PDI_C3_2 negro \n en mW"
         plt.title(titulo)    
 
@@ -1333,7 +1333,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         frecuencia=datos.values_list("frecuencia", flat=True) 
         temperatura_promedio=datos.values_list("temperatura_promedio", flat=True) 
         
-        plt.subplot(6,1,3)
+        plt.subplot(7,1,3)
         titulo="Tendencia frecuencia(HZ) verde, temperatura(`C) rojo"
         plt.title(titulo)    
         plt.plot(frecuencia,'go-')
@@ -1347,7 +1347,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         potencia_activa=datos.values_list("potencia_activa", flat=True) 
         potencia_reactiva=datos.values_list("potencia_reactiva", flat=True) 
         
-        plt.subplot(6,1,5)
+        plt.subplot(7,1,5)
         titulo="Tendencia Pot Activa(MW) morado, Pot Reactiva (VAR) negro"
         plt.title(titulo)    
         plt.plot(potencia_activa,'mo-')
@@ -1385,7 +1385,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         Y6 = np.asarray(PDI_C6_2)
 
 
-        plt.subplot(6,1,7)
+        plt.subplot(7,1,7)
         titulo="PDI_C4_1 azul, PDI_C4_2 verde,  PDI_C5_1 rojo,\n PDI_C5_2 aqua, PDI_C6_1 morado, PDI_C6_2 negro \n en mW"
         plt.title(titulo)    
 
