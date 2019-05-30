@@ -24,17 +24,13 @@
 
                     <h4><center> {{central_x}} </center></h4>
                     <h4><center>
-                     GENERADOR {{identificador.generador.codigo}}
+                     GENERADOR: Codigo {{identificador.generador.codigo}}
                      Marca {{identificador.generador.marca}}  </center></h4>
                        <center></h4>Modelo {{identificador.generador.modelo}}  
-                     Unidad {{identificador.generador.cararcteristicas}}
-                     
-                     <br>
-                    
+                     Unidad {{identificador.generador.cararcteristicas}}                     
+                                        
                      <img src="/grafico_tendencias_DP/{{central_x}}/{{generador_x}}">
-
-                     <br>
-
+                     
                       {% for j in lista_mediciones %} 
 
                            <center> <li><a href="/ver_graficas_mensuales/{{j.id}}">Ver grafica de {{j.fecha_del_analisis}} </a></li></center> 

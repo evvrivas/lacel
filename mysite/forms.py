@@ -46,7 +46,7 @@ class Mediciones_DPForm(ModelForm):#productos
 	class Meta:			
 		model=Mediciones_DP
 		widgets = {'comentario': Textarea(attrs={'cols': 40, 'rows': 3}),}
-		exclude=["fecha_ingreso"]
+		exclude=["fecha_ingreso","codigo_usuario"]
 
 
 class Sistema_termograficoForm(ModelForm):#productos
@@ -59,5 +59,5 @@ class TermografiasForm(ModelForm):#productos
 	class Meta:			
 		model=Termografias
 		widgets = {'comentario_termografia_1': Textarea(attrs={'cols': 40, 'rows': 3}),'comentario_termografia_2': Textarea(attrs={'cols': 40, 'rows': 3}),}
-		exclude=["fecha_ingreso"]
+		exclude=["fecha_ingreso","codigo_usuario"]
 

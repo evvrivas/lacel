@@ -995,6 +995,11 @@ def informacion(request):
 
 def principal(request):
     centrales=Centrales.objects.all()
+    try:
+        usuario_comun=Usuarios.objects.get(codigo_usuario=request.user.username)
+    except:
+        pass
+
     return render(request,'principal.html',locals())
 
 def listado_de_equipos(request,central_x):

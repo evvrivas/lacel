@@ -111,7 +111,6 @@
                                     <td WIDTH="60">{{i.Acetileno}} </td>
 
                                      <td WIDTH="60">{{i.comentario}}</td>
-                                 
                                                                            
 
                                      
@@ -121,6 +120,36 @@
                             {%  endfor %} 
                      </table>
                         </center>
+
+
+
+
+  <center>
+                         <table BORDER="1" CELLSPACING="1">                       
+                            
+                                <tr  align="center">                                        
+                                    <td WIDTH="60"></td> 
+                                    <td WIDTH="300"></td>                                   
+                               </tr >
+
+                            {%  for i in lista_mediciones %} 
+                                    
+                                <tr  align="center">                                   
+                                    <td WIDTH="60">{{i.fecha_del_analisis}}</td>
+                                    <td WIDTH="300">{{i.comentario}}</td>                  
+                                </tr >
+                            {%  endfor %} 
+
+
+                     </table>
+  </center>
+
+
+
+
+
+
+
 
                       <br>
                        <br>
@@ -160,6 +189,9 @@
                          <br> <br>
                      
                
+
+                     
+
  <h4><center> GASES DE ANALISIS (LIMITES Segun IEEE c57.104-1991) </center></h4>
                         <center><div class="container">
                         <img src="/grafico_gases_presentes/{{central_x}}/{{transformador_x}}">
@@ -173,48 +205,165 @@
                          <BR>
 
 
-                              <div class="alert alert-success">
-                              <strong>ANALISIS DE GAS CLAVE</strong> {{segun_gas_clave}}
-                              </div>
+                      <div class="alert alert-success">                              
+
+                      <center>
+                         <table BORDER="1" CELLSPACING="1">                          
+                                
+                                <tr  align="center">                                        
+                                    <td WIDTH="400"><strong>ANALISIS DE GAS CLAVE</strong></td> 
+                                </tr >
+                              
+                                <tr  align="center">                                   
+                                    <td WIDTH="400"> {{segun_gas_clave}}</td>
+                                </tr >  
+
+                         </table>
+                     </center>
+
+                     </div>
 
 
 
-                              <div class="alert alert-info">
-                                <strong>ANALISIS DE LIMITE DE CONCENTRACIONES</strong> {{concentraciones_limite}}
-                              </div>
+                  <div class="alert alert-info">                                
+                      <center>
+                         <table BORDER="1" CELLSPACING="1">                          
+                                
+                                <tr  align="center">                                        
+                                    <td WIDTH="400"><strong>ANALISIS DE LIMITE DE CONCENTRACIONES</strong></td> 
+                                </tr >
+                              
+                                <tr  align="center">                                   
+                                    <td WIDTH="400"> {{concentraciones_limite}}</td>
+                                </tr >  
+
+                         </table>
+                     </center>
+                  </div>
 
 
-                              <div class="alert alert-warning">
-                                <strong>ANLISIS DE GASES COMBUSTIBLES</strong> {{gases_combustibles}}
-                              </div>
 
 
-                              <div class="alert alert-danger">
-                                <strong>ANALISIS METODO DE DONENBERG</strong> {{segun_donenberg}}
-                              </div>
 
 
-                              <div class="alert alert-info">
-                                <strong>ANALISIS METODO DE ROGER</strong> {{ segun_roger}}
-                             </div>
 
 
-                              <div class="alert alert-warning">
-                                <strong>ANALISIS IEC_60599</strong> {{segun_IEC_60599}}.
-                              </div>
+                  <div class="alert alert-warning">
+                     <center>
+                         <table BORDER="1" CELLSPACING="1">                          
+                                
+                                <tr  align="center">                                        
+                                    <td WIDTH="400"><strong>ANLISIS DE GASES COMBUSTIBLES</strong></td> 
+                                </tr >
+                              
+                                <tr  align="center">                                   
+                                    <td WIDTH="400"> {{gases_combustibles}}</td>
+                                </tr >  
+
+                         </table>
+                     </center>
+                  </div>
 
 
-                              <div class="alert alert-warning">
-                                <strong>Metodo analitico CO2/CO</strong> {{segun_analitico_CO2_CO}}
-                               
-                              </div>
 
-                              <div class="alert alert-success">
-                              <strong>Metodo analitico C2H2/H2</strong> {{segun_analitico_C2H2_H2}}
-                              </div>
 
-                              <div class="alert alert-info">
-                                <strong>Metodo analitico O2/N2</strong> {{segun_analitico_O2_N2}}
+                 <div class="alert alert-danger">
+                     <center>
+                         <table BORDER="1" CELLSPACING="1">                          
+                                
+                                <tr  align="center">                                        
+                                    <td WIDTH="400"><strong>ANALISIS METODO DE DONENBERG</strong></td> 
+                                </tr >
+                              
+                                <tr  align="center">                                   
+                                    <td WIDTH="400"> {{segun_donenberg}}</td>
+                                </tr >  
+
+                         </table>
+                     </center>
+                 </div>
+
+
+                  <div class="alert alert-info">
+                      <center>
+                         <table BORDER="1" CELLSPACING="1">                          
+                                
+                                <tr  align="center">                                        
+                                    <td WIDTH="400"><strong>ANALISIS METODO DE ROGER</strong></td> 
+                                </tr >
+                              
+                                <tr  align="center">                                   
+                                    <td WIDTH="400"> {{ segun_roger}}</td>
+                                </tr >  
+
+                         </table>
+                     </center>
+                  </div>
+
+
+                  <div class="alert alert-warning">
+                      <center>
+                         <table BORDER="1" CELLSPACING="1">                          
+                                
+                                <tr  align="center">                                        
+                                    <td WIDTH="400"><strong>ANALISIS IEC_60599</strong></td> 
+                                </tr >
+                              
+                                <tr  align="center">                                   
+                                    <td WIDTH="400">  {{segun_IEC_60599}}</td>
+                                </tr >  
+
+                         </table>
+                     </center>
+                  </div>
+
+
+                  <div class="alert alert-warning">
+                      <center>
+                         <table BORDER="1" CELLSPACING="1">                          
+                                
+                                <tr  align="center">                                        
+                                    <td WIDTH="400"><strong>Metodo analitico CO2/CO</strong></td> 
+                                </tr >
+                              
+                                <tr  align="center">                                   
+                                    <td WIDTH="400">  {{segun_analitico_CO2_CO}}</td>
+                                </tr >  
+
+                         </table>
+                     </center>                               
+                  </div>
+
+                  <div class="alert alert-success">
+                     <center>
+                         <table BORDER="1" CELLSPACING="1">                          
+                                
+                                <tr  align="center">                                        
+                                    <td WIDTH="400"><strong>Metodo analitico C2H2/H2</strong></td> 
+                                </tr >
+                              
+                                <tr  align="center">                                   
+                                    <td WIDTH="400">  {{segun_analitico_C2H2_H2}}</td>
+                                </tr >  
+
+                         </table>
+                     </center>   
+                  </div>
+
+                  <div class="alert alert-info">
+                     <center>
+                         <table BORDER="1" CELLSPACING="1">                          
+                                
+                                <tr  align="center">                                        
+                                    <td WIDTH="400"><strong>Metodo analitico O2/N2</strong></td> 
+                                </tr >
+                              
+                                <tr  align="center">                                   
+                                    <td WIDTH="400"> {{segun_analitico_O2_N2}}</td>
+                                </tr >  
+
+                         </table>
+                     </center>  
                               </div>
 
 

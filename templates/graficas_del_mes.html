@@ -23,53 +23,84 @@
 
                     <h4><center> {{central_x}} </center></h4>
                     <h4><center>
-                     GENERADOR {{identificador.generador.codigo}}
+                     GENERADOR: Codigo {{identificador.generador.codigo}}
                      Marca {{identificador.generador.marca}}  </center></h4>
                        <center></h4>Modelo {{identificador.generador.modelo}}  
                      Unidad {{identificador.generador.cararcteristicas}}            
 
-
                         </div></center>
                         <br>
 
-                      <center> <h3> {{datos_DP.fecha_del_analisis}}</h3></center>
+     
 
-                      <br>
+                    <center><table BORDER="1" CELLSPACING="1"> 
 
+                         <center> <tr  align="center">
+                                    <td WIDTH="400">Comentario</td>                       
+                                   </tr ></center>         
+                                    
+                         <center> <tr  align="center">
+                                    <td WIDTH="400">{{datos_DP.fecha_del_analisis}} {{datos_DP.comentario}} </td>
+                                                                                                            
+                                </tr ></center>                                
+                            
+                   </table></center>  
 
+                    <br> 
 
-                            {% thumbnail datos_DP.imagen_PRPDD_1 "400" crop="center" as im %}
+                       <center>  <table BORDER="1" CELLSPACING="1"> 
+
+                         <center> <tr  align="center">
+                                    <td WIDTH="100">fecha analisis</td>
+                                    <td WIDTH="100">Frec (Hz)</td>
+                                    <td WIDTH="100">Pot. Act (MW)</td>
+                                    <td WIDTH="100">Pot. Reac (MVA)</td>
+                                    <td WIDTH="100">Temp. Amb. C  </td>
+                                    <td WIDTH="100">Humedad. %  </td>
+                                    <td WIDTH="100">Temp. Calen C  </td>                         
+                                    <td WIDTH="100"> CAG </td>
+                                                                                      
+                                </tr ></center>         
+                                    
+                               <center> <tr  align="center">
+                                    <td WIDTH="100">{{datos_DP.fecha_del_analisis}} </td>
+                                    <td WIDTH="100">{{datos_DP.frecuencia}} </td>
+                                    <td WIDTH="100">{{datos_DP.potencia_activa}} </td>
+                                    <td WIDTH="100">{{datos_DP.potencia_reactiva}} </td>
+                                    <td WIDTH="100">{{datos_DP.temperatura_promedio}} </td>
+                                    <td WIDTH="100">{{datos_DP.humedad_relativa}}  </td>
+                                    <td WIDTH="100">{{datos_DP.temperatura_calent}} </td>        
+                                    <td WIDTH="100"> {{datos_DP.CAG}} </td>                                                                                   
+                                </tr ></center>                                
+                            
+                   </table></center>   
+
+                          <br> 
+
+                            {% thumbnail datos_DP.imagen_PRPDD_1 "600" crop="center" as im %}
                               <a href="" target="_blank"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a> 
-                             {% endthumbnail %}  
+                             {% endthumbnail %}                              
 
-                             <br> 
-
-                              {% thumbnail datos_DP.imagen_3D_1  "400" crop="center" as im %}
+                              {% thumbnail datos_DP.imagen_3D_1  "600" crop="center" as im %}
+                              <a href="" target="_blank"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a> 
+                             {% endthumbnail %}   
+                            
+                              {% thumbnail datos_DP.imagen_PHD_1 "600" crop="center" as im %}
                               <a href="" target="_blank"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a> 
                              {% endthumbnail %}   
 
                              <br>
 
-                              {% thumbnail datos_DP.imagen_PHD_1 "400" crop="center" as im %}
+
+                              {% thumbnail datos_DP.imagen_PRPDD_2 "600" crop="center" as im %}
                               <a href="" target="_blank"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a> 
-                             {% endthumbnail %}   
+                             {% endthumbnail %}                              
 
-                             <br>
-
-
-                              {% thumbnail datos_DP.imagen_PRPDD_2 "400" crop="center" as im %}
+                              {% thumbnail datos_DP.imagen_3D_2  "600" crop="center" as im %}
                               <a href="" target="_blank"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a> 
-                             {% endthumbnail %}  
+                             {% endthumbnail %}                                
 
-                             <br> 
-
-                              {% thumbnail datos_DP.imagen_3D_2  "400" crop="center" as im %}
-                              <a href="" target="_blank"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a> 
-                             {% endthumbnail %}   
-
-                             <br>
-
-                              {% thumbnail datos_DP.imagen_PHD_2 "400" crop="center" as im %}
+                              {% thumbnail datos_DP.imagen_PHD_2 "600" crop="center" as im %}
                               <a href="" target="_blank"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a> 
                              {% endthumbnail %} 
                                                                      
