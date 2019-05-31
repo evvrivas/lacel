@@ -54,7 +54,7 @@ def informacion(request):
   centrales=Centrales.objects.all()
   try:
         usuario_comun=Usuarios.objects.get(codigo_usuario=request.user.username)
-    except:
+  except:
         pass
   return render(request,'informacion.html',locals())
 
