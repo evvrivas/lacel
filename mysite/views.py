@@ -52,6 +52,10 @@ def logout(request):
 
 def informacion(request):
   centrales=Centrales.objects.all()
+  try:
+        usuario_comun=Usuarios.objects.get(codigo_usuario=request.user.username)
+    except:
+        pass
   return render(request,'informacion.html',locals())
 
 
@@ -991,6 +995,10 @@ def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
 
 def informacion(request):
   centrales=Centrales.objects.all()
+  try:
+        usuario_comun=Usuarios.objects.get(codigo_usuario=request.user.username)
+    except:
+        pass
   return render(request,'informacion.html',locals())
 
 def principal(request):
@@ -1262,6 +1270,10 @@ def ingreso_datos_dp(request):
 def analisis_dp(request,central_x,generador_x):        
     
     centrales=Centrales.objects.all()
+    try:
+        usuario_comun=Usuarios.objects.get(codigo_usuario=request.user.username)
+    except:
+        pass
      
     lista_mediciones=Mediciones_DP.objects.filter(Q(central__nombre__icontains=central_x) &  Q(generador__codigo__icontains=generador_x)).order_by("fecha_del_analisis")
     identificador=lista_mediciones.first()  
@@ -1273,6 +1285,10 @@ def analisis_dp(request,central_x,generador_x):
 
 def grafico_tendencias_DP(request,central_x, generador_x):
         centrales=Centrales.objects.all()
+        try:
+            usuario_comun=Usuarios.objects.get(codigo_usuario=request.user.username)
+        except:
+            pass
 
         datos=Mediciones_DP.objects.filter(Q(central__nombre__icontains=central_x) &  Q(generador__codigo__icontains=generador_x)).order_by("fecha_del_analisis")
         
@@ -1424,6 +1440,10 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         return HttpResponse (buffer.getvalue(), content_type="Image/png")
 def grafico_tendencias_DP_anteriorv2(request,central_x, generador_x):
         centrales=Centrales.objects.all()
+        try:
+            usuario_comun=Usuarios.objects.get(codigo_usuario=request.user.username)
+        except:
+            pass
 
         datos=Mediciones_DP.objects.filter(Q(central__nombre__icontains=central_x) &  Q(generador__codigo__icontains=generador_x)).order_by("fecha_del_analisis")
         
@@ -1698,6 +1718,10 @@ def grafico_tendencias_DP_anteriorv2(request,central_x, generador_x):
 
 def  ver_graficas_mensuales(request,id_imagen):
     centrales=Centrales.objects.all()
+    try:
+        usuario_comun=Usuarios.objects.get(codigo_usuario=request.user.username)
+    except:
+        pass
     datos_DP=Mediciones_DP.objects.filter(id=id_imagen).first()
     identificador=datos_DP
 
@@ -1705,7 +1729,11 @@ def  ver_graficas_mensuales(request,id_imagen):
 
 
 def analisis_termografico(request,sistema_x):
-    centrales=Centrales.objects.all()    
+    centrales=Centrales.objects.all()  
+    try:
+        usuario_comun=Usuarios.objects.get(codigo_usuario=request.user.username)
+    except:
+        pass  
     termografias_x=Termografias.objects.filter(sistema_termografico__nombre__icontains=sistema_x).order_by("fecha_del_analisis").first()
     termografias=Termografias.objects.filter(sistema_termografico__nombre__icontains=sistema_x).order_by("fecha_del_analisis")
           
