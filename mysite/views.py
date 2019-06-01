@@ -1903,7 +1903,7 @@ def datos_prueba_DP(request):
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=15.08, potencia_reactiva=4.6, temperatura_promedio=76.24, temperatura_calent=33, humedad_relativa=68, CAG="SI",
          PDI_C1_1=0,
-         PDI_C1_2=0,,
+         PDI_C1_2=0,
          PDI_C2_1=0,
          PDI_C2_2=0,
          PDI_C3_1=0,
