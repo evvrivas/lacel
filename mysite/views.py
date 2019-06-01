@@ -2174,7 +2174,7 @@ def datos_prueba_DP(request):
     #ELIM U3
     #2017
 
-    date=datetime.datetime(2018,01,11, 17,5)
+    date=datetime.datetime(2018,1,11, 17,5)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=15.76, potencia_reactiva=1.2, temperatura_promedio=73.6, temperatura_calent=35, humedad_relativa=61, CAG="SI",
@@ -2193,7 +2193,7 @@ def datos_prueba_DP(request):
          fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
-    date=datetime.datetime(2018,02,27, 9,8)
+    date=datetime.datetime(2018,2,27, 9,8)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=12.15, potencia_reactiva=4.3, temperatura_promedio=57.1, temperatura_calent=30, humedad_relativa=72, CAG="SI",
@@ -2216,7 +2216,7 @@ def datos_prueba_DP(request):
     #ELIM U3
     #2018
 
-    date=datetime.datetime(2018,03,11, 20,11)
+    date=datetime.datetime(2018,3,11, 20,11)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=18.21, potencia_reactiva=4.7, temperatura_promedio=63.38, temperatura_calent=65, humedad_relativa=32, CAG="SI",
@@ -2236,7 +2236,7 @@ def datos_prueba_DP(request):
     p31.save()
 
 
-    date=datetime.datetime(2018,04,26, 13,52)
+    date=datetime.datetime(2018,4,26, 13,52)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=15.6, potencia_reactiva=4.8, temperatura_promedio=62.76, temperatura_calent=33, humedad_relativa=37, CAG="SI",
