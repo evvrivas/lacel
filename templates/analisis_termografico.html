@@ -20,6 +20,7 @@
         <div class="row">      
 
                <div class="col-md-12">
+               
                    <div class="thumbnail">                                    
                         <div class="caption">              
 
@@ -33,7 +34,7 @@
 
                     <center> 
 
-                    {% thumbnail termografias_x.sistema_termografico.imagen_de_analisis_1 "600" crop="center" as im %}
+                    {% thumbnail termografias_x.sistema_termografico.imagen_de_analisis_1 "400" crop="center" as im %}
                               <a href="" target="_blank"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a> 
                     {% endthumbnail %}
 
@@ -48,24 +49,29 @@
                    <div class="caption">   
 
                          <div class="col-md-6">
-
-                         {% thumbnail j.imagen_termografica_secuencia_1 "600" crop="center" as im %}
+                    <center> 
+                         {% thumbnail j.imagen_termografica_secuencia_1 "500" crop="center" as im %}
                               <a href="" target="_blank"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a> 
                          {% endthumbnail %}  
                          
                          <p>{{j.comentario_termografia_1}}</p>
+                         <p>{{j.fecha_del_analisis}}</p>
+                      </center> 
 
                          </div>
 
                          <div class="col-md-6">
+                      <center>
 
-                         {% thumbnail j.imagen_termografica_secuencia_2 "600" crop="center" as im %}
+                         {% thumbnail j.imagen_termografica_secuencia_2 "500" crop="center" as im %}
                               <a href="" target="_blank"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a> 
                          {% endthumbnail %}  
                         
                          <p>{{j.comentario_termografia_2}}</p>
                           <br>
-                         <center> <p>{{j.fecha_del_analisis}}</p></center> 
+                          <p>{{j.fecha_del_analisis}}</p>
+
+                      </center> 
 
                          </div>
                          </div>
