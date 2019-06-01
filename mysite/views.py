@@ -1748,7 +1748,7 @@ def datos_prueba_DP(request):
          fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
-    date=datetime.datetime(2019,2,4,15,01)
+    date=datetime.datetime(2019,2,4,15,1)
     p31=Mediciones_DP(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=59.98,  potencia_activa=19.01, potencia_reactiva=0.9, temperatura_promedio=66, temperatura_calent=35, humedad_relativa=56, CAG="SI",
