@@ -38,9 +38,9 @@ from django.contrib.auth.models import User
 from django.core.mail import send_mail
 #from templates import *
 from django.db.models import Q
-
-from django.db import connection
 from random import sample
+from django.db import connection
+
 
 
 #from mysite.views_datos import *
@@ -2468,7 +2468,7 @@ def datos_prueba_DP(request):
          fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
-    date=datetime.datetime(2019,4,8, 11,05)
+    date=datetime.datetime(2019,4,8, 11,5)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60.01 ,  potencia_activa=16.34, potencia_reactiva=1.9, temperatura_promedio=63.67, temperatura_calent=42, humedad_relativa=60, CAG="SI",
