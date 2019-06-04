@@ -1835,7 +1835,7 @@ def datos_prueba_DP(request):
     p31.save()
 
     date=datetime.datetime(2018,2,7,10,9)
-    p31=Mediciones(central=p1,generador=p221,codigo_usuario="7807004",
+    p31=Mediciones_DP(central=p1,generador=p221,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=17.1, potencia_reactiva=2, temperatura_promedio=66.2, temperatura_calent=33, humedad_relativa=68, CAG="SI",
          PDI_C1_1=0.1,
