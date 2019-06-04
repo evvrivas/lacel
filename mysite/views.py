@@ -1302,20 +1302,20 @@ def grafico_tendencias_DP(request,central_x, generador_x):
 
       
         X= np.arange(len(fecha))
-       
+        Y1 = np.asarray(datos) 
+
+        z=0 
+        for x, y in zip(X, Y1):
+                plt.text(x, y ,str(y), ha='center', va= 'bottom')
+                z=z+1
+
+
+        
+        
+             
 
         f=plt.figure()    
         f.set_size_inches(8,16)     
-
-
-        PDI_C1_1=models.FloatField(default=0,blank=True,null=True)
-        PDI_C1_2=models.FloatField(default=0,blank=True,null=True)
-
-        PDI_C2_1=models.FloatField(default=0,blank=True,null=True)
-        PDI_C2_2=models.FloatField(default=0,blank=True,null=True)
-
-        PDI_C3_1=models.FloatField(default=0,blank=True,null=True)
-        PDI_C3_2=models.FloatField(default=0,blank=True,null=True)
 
 
         PDI_C1_1=datos.values_list("PDI_C1_1", flat=True)
@@ -1379,22 +1379,14 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         plt.grid()
    
 
-        PDI_C4_1=models.FloatField(default=0,blank=True,null=True)
-        PDI_C4_2=models.FloatField(default=0,blank=True,null=True)
+        
 
-        PDI_C5_1=models.FloatField(default=0,blank=True,null=True)
-        PDI_C5_2=models.FloatField(default=0,blank=True,null=True)
-
-        PDI_C6_1=models.FloatField(default=0,blank=True,null=True)
-        PDI_C6_2=models.FloatField(default=0,blank=True,null=True)
-
-
-        PDI_C4_1=datos.values_list("PDI_C1_1", flat=True)
-        PDI_C4_2=datos.values_list("PDI_C1_2", flat=True)
-        PDI_C5_1=datos.values_list("PDI_C2_1", flat=True)
-        PDI_C5_2=datos.values_list("PDI_C2_2", flat=True)
-        PDI_C6_1=datos.values_list("PDI_C3_1", flat=True)
-        PDI_C6_2=datos.values_list("PDI_C3_2", flat=True)         
+        PDI_C4_1=datos.values_list("PDI_C4_1", flat=True)
+        PDI_C4_2=datos.values_list("PDI_C4_2", flat=True)
+        PDI_C5_1=datos.values_list("PDI_C5_1", flat=True)
+        PDI_C5_2=datos.values_list("PDI_C5_2", flat=True)
+        PDI_C6_1=datos.values_list("PDI_C6_1", flat=True)
+        PDI_C6_2=datos.values_list("PDI_C6_2", flat=True)         
        
                 
         Y1 = np.asarray(PDI_C4_1)
@@ -1425,6 +1417,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
 
         #plt.xticks(rotation='vertical',)
         plt.xticks(rotation='vertical',size="small")
+        #plt.xticks(rotation='vertical',size="small")
 
       
         #titulo="Tendencia del las preferencias\n"+" fml "+str(fml)+ "%    "+  "gan "+str(gan)+ "%    "+"vamo "+str(vamo)+ "%    "+"alian "+str(aaa)+ "%" +  "NS+NR "+str(ns_nr)+ "%"
@@ -1827,9 +1820,6 @@ def datos_prueba_DP(request):
 
 
 
-
-
-
 #///////////////////////////////////////////////////
     #PRUEBAS DE DESCARGAS PARCIALES PARA LA UNIDAD 2 ///
     #///////////////////////////////////////////////////
@@ -1855,11 +1845,10 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
-    date=datetime.datetime(2018,2,7, 10,9)
+    date=datetime.datetime(2018,2,7,10,9)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=17.1, potencia_reactiva=2, temperatura_promedio=66.2, temperatura_calent=33, humedad_relativa=68, CAG="SI",
@@ -1874,11 +1863,10 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
-    date=datetime.datetime(2018,3,17, 13,53)
+    date=datetime.datetime(2018,3,17,13,53)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=16.55, potencia_reactiva=4.7, temperatura_promedio=73.12, temperatura_calent=35, humedad_relativa=68, CAG="SI",
@@ -1893,12 +1881,11 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
 
-    date=datetime.datetime(2018,4,26, 14,10)
+    date=datetime.datetime(2018,4,26,14,10)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=15.08, potencia_reactiva=4.6, temperatura_promedio=76.24, temperatura_calent=33, humedad_relativa=68, CAG="SI",
@@ -1913,12 +1900,11 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
 
-    date=datetime.datetime(2018,5,6, 9,10)
+    date=datetime.datetime(2018,5,6,9,10)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=59.9 ,  potencia_activa=15.81, potencia_reactiva=4.96, temperatura_promedio=71.94, temperatura_calent=37, humedad_relativa=74, CAG="SI",
@@ -1933,13 +1919,12 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0, 
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
 
 
-    date=datetime.datetime(2018,6,1, 15,57)
+    date=datetime.datetime(2018,6,1,15,57)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=17.18, potencia_reactiva=0.3, temperatura_promedio=69.4, temperatura_calent=36, humedad_relativa=75, CAG="SI",
@@ -1954,8 +1939,7 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
     date=datetime.datetime(2018,7,1, 15,57)
@@ -1973,11 +1957,10 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
-    date=datetime.datetime(2018,8,13, 13,44)
+    date=datetime.datetime(2018,8,13,13,44)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          PDI_C1_1=1.6,
@@ -1991,15 +1974,14 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
 
 
 
 
-    date=datetime.datetime(2018,9,17, 13,26)
+    date=datetime.datetime(2018,9,17,13,26)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=59.95 ,  potencia_activa=16.2, potencia_reactiva=5, temperatura_promedio=79.4, temperatura_calent=40, humedad_relativa=78, CAG="SI",
@@ -2014,15 +1996,14 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
 
 
 
 
-    date=datetime.datetime(2018,10,15, 11,2)
+    date=datetime.datetime(2018,10,15,11,2)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=15.16, potencia_reactiva=4.9, temperatura_promedio=76.63, temperatura_calent=37, humedad_relativa=78, CAG="SI",
@@ -2037,12 +2018,11 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
 
-    date=datetime.datetime(2018,11,5, 10,55)
+    date=datetime.datetime(2018,11,5,10,55)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=56.96 ,  potencia_activa=19.03, potencia_reactiva=4.8, temperatura_promedio=77.99, temperatura_calent=0, humedad_relativa=75, CAG="SI",
@@ -2057,12 +2037,11 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
 
-    date=datetime.datetime(2018,12,7, 9,5)
+    date=datetime.datetime(2018,12,7,9,5)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=56.96 ,  potencia_activa=19.03, potencia_reactiva=4.8, temperatura_promedio=77.99, temperatura_calent=0, humedad_relativa=75, CAG="SI",
@@ -2077,8 +2056,7 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
     date=datetime.datetime(2019,1,7,13,27)
@@ -2096,11 +2074,10 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
-    date=datetime.datetime(2019,2,4, 14,9)
+    date=datetime.datetime(2019,2,4,14,9)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=59.99 ,  potencia_activa=18.91, potencia_reactiva=4.1, temperatura_promedio=83.11, temperatura_calent=35, humedad_relativa=56, CAG="SI",
@@ -2115,8 +2092,7 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
     date=datetime.datetime(2019,3,11,13,51)
@@ -2134,11 +2110,10 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
-    date=datetime.datetime(2019,4,23, 17,37)
+    date=datetime.datetime(2019,4,23,17,37)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60.01 ,  potencia_activa=15.79, potencia_reactiva=3.1, temperatura_promedio=75.75, temperatura_calent=47, humedad_relativa=65, CAG="SI",
@@ -2153,8 +2128,7 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
    
@@ -2174,7 +2148,7 @@ def datos_prueba_DP(request):
     #ELIM U3
     #2017
 
-    date=datetime.datetime(2018,1,11, 17,5)
+    date=datetime.datetime(2018,1,11,17,5)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=15.76, potencia_reactiva=1.2, temperatura_promedio=73.6, temperatura_calent=35, humedad_relativa=61, CAG="SI",
@@ -2189,11 +2163,10 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
-    date=datetime.datetime(2018,2,27, 9,8)
+    date=datetime.datetime(2018,2,27,9,8)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=12.15, potencia_reactiva=4.3, temperatura_promedio=57.1, temperatura_calent=30, humedad_relativa=72, CAG="SI",
@@ -2208,15 +2181,14 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
 
     #ELIM U3
     #2018
 
-    date=datetime.datetime(2018,3,11, 20,11)
+    date=datetime.datetime(2018,3,11,20,11)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=18.21, potencia_reactiva=4.7, temperatura_promedio=63.38, temperatura_calent=65, humedad_relativa=32, CAG="SI",
@@ -2231,12 +2203,11 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
 
-    date=datetime.datetime(2018,4,26, 13,52)
+    date=datetime.datetime(2018,4,26,13,52)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=15.6, potencia_reactiva=4.8, temperatura_promedio=62.76, temperatura_calent=33, humedad_relativa=37, CAG="SI",
@@ -2251,11 +2222,10 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0, 
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
-    date=datetime.datetime(2018,5,6, 9,22)
+    date=datetime.datetime(2018,5,6,9,22)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=10.8, potencia_reactiva=5, temperatura_promedio=58.4, temperatura_calent=33, humedad_relativa=79, CAG="SI",
@@ -2270,11 +2240,10 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0, 
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
-    date=datetime.datetime(2018,6,6, 8,23)
+    date=datetime.datetime(2018,6,6,8,23)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=15.49, potencia_reactiva=3.8, temperatura_promedio=60.47, temperatura_calent=42, humedad_relativa=70, CAG="SI",
@@ -2289,11 +2258,10 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
-    date=datetime.datetime(2018,7,6, 8,23)
+    date=datetime.datetime(2018,7,6,8,23)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=15.49, potencia_reactiva=3.8, temperatura_promedio=60.47, temperatura_calent=42, humedad_relativa=70, CAG="SI",
@@ -2308,10 +2276,9 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
-    date=datetime.datetime(2018,8,13, 14,51)
+    date=datetime.datetime(2018,8,13,14,51)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60.02 ,  potencia_activa=17.34, potencia_reactiva=1.5, temperatura_promedio=63.28, temperatura_calent=37.5, humedad_relativa=75, CAG="SI",
@@ -2326,12 +2293,11 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
 
-    date=datetime.datetime(2018,9,17, 13,37)
+    date=datetime.datetime(2018,9,17,13,37)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=59.96,  potencia_activa=16.85, potencia_reactiva=4.7, temperatura_promedio=65.78, temperatura_calent=34.5, humedad_relativa=78, CAG="SI",
@@ -2346,15 +2312,14 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
 
 
 
 
-    date=datetime.datetime(2018,10,8, 13,45)
+    date=datetime.datetime(2018,10,8,13,45)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=12.48, potencia_reactiva=5.1, temperatura_promedio=58.3, temperatura_calent=33, humedad_relativa=80, CAG="SI",
@@ -2369,11 +2334,10 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
-    date=datetime.datetime(2018,11,5, 13,30)
+    date=datetime.datetime(2018,11,5,13,30)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=59.95 ,  potencia_activa=15.09, potencia_reactiva=4.8, temperatura_promedio=58.43, temperatura_calent=0, humedad_relativa=75, CAG="SI",
@@ -2388,11 +2352,10 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
-    date=datetime.datetime(2018,12,7, 10,5)
+    date=datetime.datetime(2018,12,7,10,5)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60.01 ,  potencia_activa=14.9, potencia_reactiva=4.9, temperatura_promedio=56.6, temperatura_calent=34, humedad_relativa=70, CAG="SI",
@@ -2407,11 +2370,10 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
-    date=datetime.datetime(2019,1,7, 14,14)
+    date=datetime.datetime(2019,1,7,14,14)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60.01,  potencia_activa=16.3, potencia_reactiva=1.3, temperatura_promedio=56.3, temperatura_calent=31, humedad_relativa=61, CAG="SI",
@@ -2426,11 +2388,10 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
-    date=datetime.datetime(2019,2,3, 14,41)
+    date=datetime.datetime(2019,2,3,14,41)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=59.98 ,  potencia_activa=18.92, potencia_reactiva=3.8, temperatura_promedio=68.48, temperatura_calent=36, humedad_relativa=56, CAG="SI",
@@ -2445,11 +2406,10 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
-    date=datetime.datetime(2019,3,3, 13,19)
+    date=datetime.datetime(2019,3,3,13,19)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=59.98 ,  potencia_activa=19.63, potencia_reactiva=3.4, temperatura_promedio=68.15, temperatura_calent=42, humedad_relativa=50, CAG="SI",
@@ -2464,11 +2424,10 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
-    date=datetime.datetime(2019,4,8, 11,5)
+    date=datetime.datetime(2019,4,8,11,5)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60.01 ,  potencia_activa=16.34, potencia_reactiva=1.9, temperatura_promedio=63.67, temperatura_calent=42, humedad_relativa=60, CAG="SI",
@@ -2483,8 +2442,7 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
 
@@ -2509,7 +2467,7 @@ def datos_prueba_DP(request):
     #ELIM U4
     #2017
 
-    date=datetime.datetime(2018,1,11, 17,47)
+    date=datetime.datetime(2018,1,11,17,47)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=15.76, potencia_reactiva=2.1, temperatura_promedio=64.7, temperatura_calent=32, humedad_relativa=74, CAG="SI",
@@ -2524,11 +2482,10 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,   
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
-    date=datetime.datetime(2018,2,21, 17,47)
+    date=datetime.datetime(2018,2,21,17,47)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=17.79, potencia_reactiva=1.8, temperatura_promedio=66.2, temperatura_calent=33, humedad_relativa=68, CAG="SI",
@@ -2543,12 +2500,11 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,  
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
 
-    date=datetime.datetime(2018,3,21, 17,47)
+    date=datetime.datetime(2018,3,21,17,47)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=17.79, potencia_reactiva=1.8, temperatura_promedio=66.2, temperatura_calent=33, humedad_relativa=68, CAG="SI",
@@ -2563,14 +2519,13 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,  
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
 
 
 
-    date=datetime.datetime(2018,4,26, 14,0)
+    date=datetime.datetime(2018,4,26,14,0)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=14.2, potencia_reactiva=5.2, temperatura_promedio=72.4, temperatura_calent=36, humedad_relativa=76, CAG="SI",
@@ -2585,12 +2540,11 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
 
-    date=datetime.datetime(2018,5,12, 13,31)
+    date=datetime.datetime(2018,5,12,13,31)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=59.99,  potencia_activa=13.64, potencia_reactiva=1.7, temperatura_promedio=68.62, temperatura_calent=40, humedad_relativa=79, CAG="SI",
@@ -2605,11 +2559,10 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0, 
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
-    date=datetime.datetime(2018,6,6, 8,46)
+    date=datetime.datetime(2018,6,6,8,46)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60,  potencia_activa=12.78, potencia_reactiva=3.2, temperatura_promedio=69.73, temperatura_calent=42, humedad_relativa=70, CAG="SI",
@@ -2624,11 +2577,10 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
-    date=datetime.datetime(2018,7,7, 8,46)
+    date=datetime.datetime(2018,7,7,8,46)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60,  potencia_activa=12.78, potencia_reactiva=3.2, temperatura_promedio=69.73, temperatura_calent=42, humedad_relativa=70, CAG="SI",
@@ -2643,12 +2595,11 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
 
-    date=datetime.datetime(2018,8,21, 10,14)
+    date=datetime.datetime(2018,8,21,10,14)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=59.98,  potencia_activa=13.15, potencia_reactiva=1.7, temperatura_promedio=66.13, temperatura_calent=34, humedad_relativa=79, CAG="SI",
@@ -2663,12 +2614,11 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
 
-    date=datetime.datetime(2018,9,11, 16,9)
+    date=datetime.datetime(2018,9,11,16,9)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60,  potencia_activa=11.76, potencia_reactiva=3.8, temperatura_promedio=70.16, temperatura_calent=37, humedad_relativa=80, CAG="SI",
@@ -2683,15 +2633,14 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
 
 
 
 
-    date=datetime.datetime(2018,10,15, 11,11)
+    date=datetime.datetime(2018,10,15,11,11)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60,  potencia_activa=11.7, potencia_reactiva=4.4, temperatura_promedio=70.3, temperatura_calent=36, humedad_relativa=90, CAG="SI",
@@ -2706,11 +2655,10 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
-    date=datetime.datetime(2018,11,5, 13,38)
+    date=datetime.datetime(2018,11,5,13,38)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60,  potencia_activa=13.08, potencia_reactiva=4.2, temperatura_promedio=70.69, temperatura_calent=0, humedad_relativa=75, CAG="SI",
@@ -2725,10 +2673,9 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
 
-    date=datetime.datetime(2018,12,12, 10,18)
+    date=datetime.datetime(2018,12,12,10,18)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60,  potencia_activa=13.9, potencia_reactiva=4.7, temperatura_promedio=65, temperatura_calent=34, humedad_relativa=72, CAG="SI",
@@ -2743,11 +2690,10 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
-    date=datetime.datetime(2019,1,7, 13,38)
+    date=datetime.datetime(2019,1,7,13,38)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60,  potencia_activa=13.71, potencia_reactiva=4.7, temperatura_promedio=66.5, temperatura_calent=34, humedad_relativa=66.05, CAG="SI",
@@ -2762,11 +2708,10 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
-    date=datetime.datetime(2019,2,4, 14,51)
+    date=datetime.datetime(2019,2,4,14,51)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60.02,  potencia_activa=16, potencia_reactiva=2.9, temperatura_promedio=77.07, temperatura_calent=36, humedad_relativa=56, CAG="SI",
@@ -2781,11 +2726,10 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
-    date=datetime.datetime(2019,3,26, 14,51)
+    date=datetime.datetime(2019,3,26,14,51)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60.02,  potencia_activa=14.2, potencia_reactiva=3, temperatura_promedio=70.79, temperatura_calent=47, humedad_relativa=33, CAG="SI",
@@ -2800,11 +2744,10 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
-    date=datetime.datetime(2019,4,1, 14,16)
+    date=datetime.datetime(2019,4,1,14,16)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60,  potencia_activa=15.94, potencia_reactiva=1.8, temperatura_promedio=76.91, temperatura_calent=46.9, humedad_relativa=60, CAG="SI",
@@ -2819,8 +2762,7 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0,
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
 
@@ -2842,7 +2784,7 @@ def datos_prueba_DP(request):
     #ELIM U6
     #2017
     
-    date=datetime.datetime(2019,1,21, 13,10)
+    date=datetime.datetime(2019,1,21,13,10)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=40.03, potencia_reactiva=4.7, temperatura_promedio=0, temperatura_calent=0, humedad_relativa=0, CAG="SI",
@@ -2857,15 +2799,14 @@ def datos_prueba_DP(request):
          PDI_C5_1=0,
          PDI_C5_2=0,
          PDI_C6_1=0,
-         PDI_C6_2=0, 
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=0, fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
 
     #ELIM U6
     #2018
 
-    date=datetime.datetime(2019,2,19, 9,1)
+    date=datetime.datetime(2019,2,19,9,1)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60.02 ,  potencia_activa=38.21, potencia_reactiva=4.4, temperatura_promedio=76.24, temperatura_calent=0, humedad_relativa=0, CAG="SI",
@@ -2880,11 +2821,10 @@ def datos_prueba_DP(request):
          PDI_C5_1=17.2,
          PDI_C5_2=8.5,
          PDI_C6_1=13.5,
-         PDI_C6_2=12.6,         
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=12.6, fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
-    date=datetime.datetime(2019,3,21, 7,55)
+    date=datetime.datetime(2019,3,21,7,55)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60.02 ,  potencia_activa=38.21, potencia_reactiva=4.4, temperatura_promedio=76.45, temperatura_calent=0, humedad_relativa=0, CAG="SI",
@@ -2899,11 +2839,10 @@ def datos_prueba_DP(request):
          PDI_C5_1=2,
          PDI_C5_2=1.5,
          PDI_C6_1=5.9,
-         PDI_C6_2=4,         
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=4,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
-    date=datetime.datetime(2019,4,23, 18,41)
+    date=datetime.datetime(2019,4,23,18,41)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=39.14, potencia_reactiva=1.73, temperatura_promedio=77.45, temperatura_calent=0, humedad_relativa=0, CAG="SI",
@@ -2918,8 +2857,7 @@ def datos_prueba_DP(request):
          PDI_C5_1=7.9,
          PDI_C5_2=1.3,
          PDI_C6_1=7.9,
-         PDI_C6_2=3.7,         
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=3.7, fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
 
@@ -2940,7 +2878,7 @@ def datos_prueba_DP(request):
     #ELIM U7    
     #2017
 
-    date=datetime.datetime(2019,1,29, 17,41)
+    date=datetime.datetime(2019,1,29,17,41)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=25.50, potencia_reactiva=-1.68, temperatura_promedio=75.17, temperatura_calent=0, humedad_relativa=0, CAG="SI",
@@ -2955,13 +2893,12 @@ def datos_prueba_DP(request):
          PDI_C5_1=15.9,
          PDI_C5_2=19.6,
          PDI_C6_1=43,
-         PDI_C6_2=17.5,      
-         fecha_ingreso=date,fecha_del_analisis=date)
+         PDI_C6_2=17.5, fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
 #ELIM U7  
     #2018
-    date=datetime.datetime(2019,2,27, 20,18)
+    date=datetime.datetime(2019,2,27,20,18)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=34.75, potencia_reactiva=1.98, temperatura_promedio=79.12, temperatura_calent=0, humedad_relativa=0, CAG="SI",
@@ -2976,12 +2913,11 @@ def datos_prueba_DP(request):
          PDI_C5_1=15.2,
          PDI_C5_2=15.3,
          PDI_C6_1=36.2,
-         PDI_C6_2=16.1,         
-         fecha_ingreso=date,fecha_del_analisis=date)          
+         PDI_C6_2=16.1,fecha_ingreso=date,fecha_del_analisis=date)          
     p31.save()
 
 
-    date=datetime.datetime(2019,3,19, 14,5)
+    date=datetime.datetime(2019,3,19,14,5)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=37.37, potencia_reactiva=1.96, temperatura_promedio=79.12, temperatura_calent=0, humedad_relativa=0, CAG="SI",
@@ -2996,11 +2932,10 @@ def datos_prueba_DP(request):
          PDI_C5_1=3.8,
          PDI_C5_2=1.9,
          PDI_C6_1=6.6,
-         PDI_C6_2=5.9,         
-         fecha_ingreso=date,fecha_del_analisis=date)          
+         PDI_C6_2=5.9,fecha_ingreso=date,fecha_del_analisis=date)          
     p31.save()
 
-    date=datetime.datetime(2019,4,24, 19,46)
+    date=datetime.datetime(2019,4,24,19,46)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=59.96 ,  potencia_activa=35.93, potencia_reactiva=2.42, temperatura_promedio=79.93, temperatura_calent=0, humedad_relativa=0, CAG="SI",
@@ -3015,8 +2950,7 @@ def datos_prueba_DP(request):
          PDI_C5_1=5.6,
          PDI_C5_2=2.1,
          PDI_C6_1=10.2,
-         PDI_C6_2=6.3,         
-         fecha_ingreso=date,fecha_del_analisis=date)          
+         PDI_C6_2=6.3, fecha_ingreso=date,fecha_del_analisis=date)          
     p31.save()
 
     #///////////////////////////////////////////////////
