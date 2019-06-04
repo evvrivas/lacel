@@ -1840,7 +1840,7 @@ def datos_prueba_DP(request):
     #ELIM U2
     #2018
 
-    date=datetime.datetime(2018,1,11, 14,50)
+    date=datetime.datetime(2018,1,11,14,50)
     p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=13.35, potencia_reactiva=5.52, temperatura_promedio=71.6, temperatura_calent=36, humedad_relativa=63, CAG="SI",
