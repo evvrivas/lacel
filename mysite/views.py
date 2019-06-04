@@ -1824,18 +1824,18 @@ def datos_prueba_DP(request):
     #PRUEBAS DE DESCARGAS PARCIALES PARA LA UNIDAD 2 ///
     #///////////////////////////////////////////////////
     date=datetime.datetime(2018,1,1,16,58) 
-    p21=Generadores(central=p1,codigo="U2-CH5N-ELIM",marca="ELIM",modelo="C0848A",cararcteristicas="GENERADOR 20MW",fecha_ingreso=date)
-    p21.save()
+    p221=Generadores(central=p1,codigo="U2-CH5N-ELIM",marca="ELIM",modelo="C0848A",cararcteristicas="GENERADOR 20MW",fecha_ingreso=date)
+    p221.save()
       
     #ELIM U2
     #2018
 
     date=datetime.datetime(2018,1,11,14,50)
-    p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",frecuencia=60 ,  potencia_activa=13.35, potencia_reactiva=5.52, temperatura_promedio=71.6, temperatura_calent=36, humedad_relativa=63, CAG="SI", PDI_C1_1=0.3, PDI_C1_2=0,PDI_C2_1=0.1,PDI_C2_2=0.2, PDI_C3_1=0.1, PDI_C3_2=0, PDI_C4_1=0, PDI_C4_2=0,PDI_C5_1=0, PDI_C5_2=0, PDI_C6_1=0,PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
+    p31=Mediciones(central=p1,generador=p221,codigo_usuario="7807004",frecuencia=60 ,  potencia_activa=13.35, potencia_reactiva=5.52, temperatura_promedio=71.6, temperatura_calent=36, humedad_relativa=63, CAG="SI", PDI_C1_1=0.3, PDI_C1_2=0,PDI_C2_1=0.1,PDI_C2_2=0.2, PDI_C3_1=0.1, PDI_C3_2=0, PDI_C4_1=0, PDI_C4_2=0,PDI_C5_1=0, PDI_C5_2=0, PDI_C6_1=0,PDI_C6_2=0,fecha_ingreso=date,fecha_del_analisis=date)
     p31.save()
 
     date=datetime.datetime(2018,2,7,10,9)
-    p31=Mediciones(central=p1,generador=p21,codigo_usuario="7807004",
+    p31=Mediciones(central=p1,generador=p221,codigo_usuario="7807004",
          #frecuencia=Hz,  potencia_activa=Mw, potencia_reactiva=Mvar, temperatura_promedio=°C, temperatura_calent=°C, humedad_relativa=%,
          frecuencia=60 ,  potencia_activa=17.1, potencia_reactiva=2, temperatura_promedio=66.2, temperatura_calent=33, humedad_relativa=68, CAG="SI",
          PDI_C1_1=0.1,
