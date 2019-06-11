@@ -44,7 +44,7 @@ class MedicionesForm(ModelForm):#productos
 		exclude=["fecha_ingreso","codigo_usuario"]
 
 	def __init__(self,nombre_central, codigo_transformador,*args, **kwargs):
-		super(Mediciones_DPForm, self).__init__(*args, **kwargs)		
+		super(MedicionesForm, self).__init__(*args, **kwargs)		
 		self.fields['transformador'].queryset=Transformadores.objects.filter(codigo=codigo_transformador)
 
 
