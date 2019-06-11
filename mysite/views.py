@@ -97,13 +97,13 @@ def crear_ususario_cel(request):
     
 
 
-def ingresar_datos_trafo(request):
+def ingresar_datos_trafo(request,central_nombre,codigo_trafo):
         #!/usr/bin/python
         # -*- coding: latin-1 -*-        
         import os, sys
         if request.method == 'POST': # si el usuario est enviando el formulario con datos
                              
-                    form = MedicionesForm(request.POST,request.FILES)                      
+                    form = MedicionesForm(central_nombre,codigo_trafo,request.POST,request.FILES)                      
                     
                     if form.is_valid() :
                            
@@ -123,7 +123,8 @@ def ingresar_datos_trafo(request):
 
         else:            
                          
-                         form=MedicionesForm()
+                         form=MedicionesForm(central_nombre,codigo_trafo)
+
 
         connection.close()                  
         return render(request,'ingreso_de_datos.html',locals()) 
@@ -181,13 +182,13 @@ def ingresar_datos_analisis_rapido(request):
         return render(request,'ingreso_de_datos.html',locals()) 
 
 
-def ingresar_termografias(request):
+def ingresar_termografias(request,central_nombre,nombre_sistema):
         #!/usr/bin/python
         # -*- coding: latin-1 -*-        
         import os, sys
         if request.method == 'POST': # si el usuario est enviando el formulario con datos
                              
-                    form = TermografiasForm(request.POST,request.FILES)                      
+                    form = TermografiasForm(central_nombre,nombre_sistema,request.POST,request.FILES)                      
                     
                     if form.is_valid() :
                            
@@ -207,8 +208,8 @@ def ingresar_termografias(request):
 
         else:            
                          
-                         form=TermografiasForm()
-
+                         form=TermografiasForm(central_nombre,nombre_sistema)
+                        
         connection.close()                  
         return render(request,'ingreso_de_datos.html',locals()) 
 
@@ -1233,13 +1234,13 @@ def grafico_gases_presentes_rapido(request,central_x, transformador_x):
 
 #
 
-def ingreso_datos_dp(request):
+def ingreso_datos_dp(request,central_nombre,codigo_generador):
      #!/usr/bin/python
         # -*- coding: latin-1 -*-        
         import os, sys
         if request.method == 'POST': # si el usuario est enviando el formulario con datos
                              
-                    form = Mediciones_DPForm(request.POST,request.FILES)                      
+                    form = Mediciones_DPForm(central_nombre,codigo_generador,request.POST,request.FILES)                      
                     
                     if form.is_valid() :
                            
@@ -1259,7 +1260,7 @@ def ingreso_datos_dp(request):
 
         else:            
                          
-                         form=Mediciones_DPForm()
+                         form=Mediciones_DPForm(central_nombre,codigo_generador)
 
         connection.close()                  
         
@@ -1351,6 +1352,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         #plt.xticks(())
 
         plt.grid() 
+        plt.xticks(rotation='vertical',size="small")
      
 
         frecuencia=datos.values_list("frecuencia", flat=True) 
@@ -1364,6 +1366,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
 
         #plt.xticks(())
         plt.grid()
+        plt.xticks(rotation='vertical',size="small")
 
 
 
@@ -1378,6 +1381,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
 
         #plt.xticks(())
         plt.grid()
+        plt.xticks(rotation='vertical',size="small")
    
 
         

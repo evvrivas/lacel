@@ -32,10 +32,10 @@ urlpatterns = [
     url(r'^accounts/logout/$', logout),
     url(r'^informacion/$', informacion),
     url(r'^crear_usuario_cel/$',crear_ususario_cel),
-    url(r'^ingresar_datos_trafo/$',ingresar_datos_trafo),
+    url(r'^ingresar_datos_trafo/([^/]+)/([^/]+)/$',ingresar_datos_trafo),
     url(r'^ingresar_datos_analisis_rapido/$',ingresar_datos_analisis_rapido),
-    url(r'^ingreso_datos_dp/$',ingreso_datos_dp),
-    url(r'^ingresar_termografias/$',ingresar_termografias),
+    url(r'^ingreso_datos_dp/([^/]+)/([^/]+)/$',ingreso_datos_dp),
+    url(r'^ingresar_termografias/([^/]+)/([^/]+)/$',ingresar_termografias),
 
       
     url(r'^$', principal),
