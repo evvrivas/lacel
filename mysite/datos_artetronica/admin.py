@@ -66,7 +66,7 @@ class RulesAdmin(admin.ModelAdmin):
 class MedicionesAdmin(admin.ModelAdmin):
     model = Mediciones
     list_display = ['central_nombre','transformador_marca', 'fecha_del_analisis',]
-    list_filter=(('central',admin.RelatedOnlyFieldListFilter),)
+    list_filter=(('central',admin.RelatedOnlyFieldListFilter),('transformador',admin.RelatedOnlyFieldListFilter),)
     def central_nombre(self,instance):
     	return instance.central.nombre
     def transformador_marca(self,instance):
@@ -81,7 +81,7 @@ class RulesAdmin(admin.ModelAdmin):
 class Mediciones_DPAdmin(admin.ModelAdmin):
     model = Mediciones_DP
     list_display = ['central_nombre', 'generador_marca','fecha_del_analisis',]
-    list_filter=(('central',admin.RelatedOnlyFieldListFilter),)
+    list_filter=(('central',admin.RelatedOnlyFieldListFilter),('generador',admin.RelatedOnlyFieldListFilter),)
     def central_nombre(self,instance):
     	return instance.central.nombre
     def generador_marca(self,instance):
@@ -96,7 +96,7 @@ class RulesAdmin(admin.ModelAdmin):
 class Sistema_termograficoAdmin(admin.ModelAdmin):
     model = Sistema_termografico
     list_display = ['central_nombre', 'nombre','fecha_ingreso',]
-    list_filter=(('central',admin.RelatedOnlyFieldListFilter),)
+    list_filter=(('central',admin.RelatedOnlyFieldListFilter))
     def central_nombre(self,instance):
     	return instance.central.nombre
     
@@ -109,13 +109,13 @@ class RulesAdmin(admin.ModelAdmin):
     form = TermografiasForm
 class TermografiasAdmin(admin.ModelAdmin):
     model = Termografias
-    list_display = ['central_nombre', 'sistema_nombre','fecha_ingreso',]    
+    list_display = ['central_nombre', 'sistema_nombre','fecha_ingreso',]
+    list_filter=(('central',admin.RelatedOnlyFieldListFilter),('sistema_termografico',admin.RelatedOnlyFieldListFilter))    
     def central_nombre(self,instance):
     	return instance.sistema_termografico.central.nombre
     def sistema_nombre(self,instance):
     	return instance.sistema_termografico.nombre
 admin.site.register(Termografias,TermografiasAdmin)  
 ##################################################### 		 
-
 
 

@@ -50,7 +50,9 @@
                                     
                                     <td WIDTH="80">
 
-                                    {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" %}  
+                                    {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and central_x==usuario_comun.central.nombre %}  
+                                    <a href="/analisis/{{i.central.nombre}}/{{i.codigo}}">AGDA</a></td>
+                                    {%  elif user.is_authenticated and usuario_comun.privilegio == "DE_ALTA_INVITADO" and central_x==usuario_comun.central.nombre %} 
                                     <a href="/analisis/{{i.central.nombre}}/{{i.codigo}}">AGDA</a></td>
                                     {%  else  %}  
                                     <p>AGDA</p>
@@ -117,8 +119,10 @@
                                     
                                     <td WIDTH="80">
 
-                                    {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" %}  
+                                    {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and central_x==usuario_comun.central.nombre %}  
                                     <a href="/analisis_dp/{{i.central.nombre}}/{{i.codigo}}">ADP</a></td>
+                                    {%  elif user.is_authenticated and usuario_comun.privilegio == "DE_ALTA_INVITADO" and central_x==usuario_comun.central.nombre %} 
+                                    <a href="/analisis/{{i.central.nombre}}/{{i.codigo}}">AGDA</a></td>
                                     {%  else  %}  
                                     <p>ADP</p>
 
@@ -176,8 +180,10 @@
 
                                     <td WIDTH="100">           
                                     
-                                    {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" %}  
+                                    {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and central_x==usuario_comun.central.nombre %}  
                                     <a href="/analisis_termografico/{{i.nombre}}/">Ver Termografia</a></td>
+                                    {%  elif user.is_authenticated and usuario_comun.privilegio == "DE_ALTA_INVITADO" and central_x==usuario_comun.central.nombre %} 
+                                    <a href="/analisis/{{i.central.nombre}}/{{i.codigo}}">AGDA</a></td>
                                     {%  else  %}  
                                     <p>Ver termografia</p>
 

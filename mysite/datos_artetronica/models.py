@@ -27,8 +27,10 @@ class Centrales(models.Model):
 
 
 PRIVILEGIOS=(
-			('DE_ALTA', 'DE_ALTA'),
+			('DE_ALTA', 'DE_ALTA'),            
+            ('DE_ALTA_INVITADO', 'DE_ALTA__INVITADO'),
 			('DE_BAJA', 'DE_BAJA'),
+
 		     )
 
 
@@ -194,7 +196,8 @@ class Sistema_termografico(models.Model):
         class Admin:
                list_display = ('nombre', 'codigo',)
 
-class Termografias(models.Model):
+class Termografias(models.Model):        
+         central=models.ForeignKey('Centrales')
          sistema_termografico=models.ForeignKey('Sistema_termografico')         
          codigo_usuario = models.CharField(max_length=60,blank=True)
 
