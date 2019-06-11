@@ -1348,7 +1348,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         plt.plot(anios,Y5,'mo-')
         plt.plot(anios,Y6,'ko-')
 
-        plt.xticks(())
+        #plt.xticks(())
 
         plt.grid() 
      
@@ -1362,7 +1362,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         plt.plot(anios,frecuencia,'go-')
         plt.plot(anios,temperatura_promedio,'ro-')
 
-        plt.xticks(())
+        #plt.xticks(())
         plt.grid()
 
 
@@ -1376,7 +1376,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         plt.plot(anios,potencia_activa,'mo-')
         plt.plot(anios,potencia_reactiva,'ko-')
 
-        plt.xticks(())
+        #plt.xticks(())
         plt.grid()
    
 
@@ -1411,7 +1411,7 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         plt.plot(anios,Y5,'mo-')
         plt.plot(anios,Y6,'ko-')
 
-        plt.xticks(())
+        #plt.xticks(())
         plt.grid()
 
 
