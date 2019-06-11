@@ -96,7 +96,7 @@ class RulesAdmin(admin.ModelAdmin):
 class Sistema_termograficoAdmin(admin.ModelAdmin):
     model = Sistema_termografico
     list_display = ['central_nombre', 'nombre','fecha_ingreso',]
-    list_filter=(('central',admin.RelatedOnlyFieldListFilter))
+    list_filter=(('central',admin.RelatedOnlyFieldListFilter),)
     def central_nombre(self,instance):
     	return instance.central.nombre
     
@@ -110,7 +110,7 @@ class RulesAdmin(admin.ModelAdmin):
 class TermografiasAdmin(admin.ModelAdmin):
     model = Termografias
     list_display = ['central_nombre', 'sistema_nombre','fecha_ingreso',]
-    list_filter=(('central',admin.RelatedOnlyFieldListFilter),('sistema_termografico',admin.RelatedOnlyFieldListFilter))    
+    list_filter=(('central',admin.RelatedOnlyFieldListFilter),('sistema_termografico',admin.RelatedOnlyFieldListFilter),)    
     def central_nombre(self,instance):
     	return instance.sistema_termografico.central.nombre
     def sistema_nombre(self,instance):
