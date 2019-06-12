@@ -109,28 +109,16 @@
         <div class="btn-group">
             <button type="button" class="btn btn-info dropdown-toggle"
             data-toggle="dropdown">CENTRALES ELECTRICAS <span class="caret"></span></button>
-                       {%  for i in centrales %}   
+                      
+                               
+             <ul class="dropdown-menu" role="menu">     
+                        {%  for i in centrales %}   
                               
                                     <li><a href="/listado_de_equipos/{{i.nombre}}" >{{i.nombre}}</a></li>
                                    
                             
-                         {%  endfor %} 
-                               
-             <ul class="dropdown-menu" role="menu">       
-                 
-                    {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" %}  
-                         <li><a href="/ingreso_datos_dp">Ingresar DP</a></li>
-                         <li><a href="/ingresar_datos_trafo">Ingresar GDA</a></li>
-                         <li><a href="/ingresar_datos_analisis_rapido">
-                         Analisis rapido GDA</a></li>
-                         <li><a href="/ingresar_termografias">
-                         Ingresar termografia</a></li>
-
-                    {%  else  %}  
-                   
-                         
-                   {% endif %} 
-
+                         {%  endfor %}   
+                                    
 
              </ul>
          </div>  
