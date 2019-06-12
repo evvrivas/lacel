@@ -108,7 +108,13 @@
 
         <div class="btn-group">
             <button type="button" class="btn btn-info dropdown-toggle"
-            data-toggle="dropdown">INGRESAR DATOS <span class="caret"></span></button>
+            data-toggle="dropdown">CENTRALES ELECTRICAS <span class="caret"></span></button>
+                       {%  for i in centrales %}   
+                              
+                                    <li><a href="/listado_de_equipos/{{i.nombre}}" >{{i.nombre}}</a></li>
+                                   
+                            
+                         {%  endfor %} 
                                
              <ul class="dropdown-menu" role="menu">       
                  

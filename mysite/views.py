@@ -46,6 +46,7 @@ from django.db import connection
 #from mysite.views_datos import *
    
 def logout(request):
+    centrales=Centrales.objects.all()
     auth.logout(request)
     
     return HttpResponseRedirect("/")
@@ -61,6 +62,7 @@ def informacion(request):
 
 def crear_ususario_cel(request):
         import os, sys
+        centrales=Centrales.objects.all()
         if request.method == 'POST': # si el usuario est enviando el formulario con datos
                              
                     form = UsuariosForm(request.POST,request.FILES)                      
@@ -101,6 +103,7 @@ def ingresar_datos_trafo(request,central_nombre,codigo_trafo):
         #!/usr/bin/python
         # -*- coding: latin-1 -*-        
         import os, sys
+        centrales=Centrales.objects.all()
         if request.method == 'POST': # si el usuario est enviando el formulario con datos
                              
                     form = MedicionesForm(central_nombre,codigo_trafo,request.POST,request.FILES)                      
@@ -133,6 +136,7 @@ def ingresar_datos_analisis_rapido(request):
         #!/usr/bin/python
         # -*- coding: latin-1 -*-        
         import os, sys
+        centrales=Centrales.objects.all()
         if request.method == 'POST': # si el usuario est enviando el formulario con datos
                              
                     form = Mediciones_rapidasForm(request.POST,request.FILES)                      
@@ -186,6 +190,7 @@ def ingresar_termografias(request,central_nombre,nombre_sistema):
         #!/usr/bin/python
         # -*- coding: latin-1 -*-        
         import os, sys
+        centrales=Centrales.objects.all()
         if request.method == 'POST': # si el usuario est enviando el formulario con datos
                              
                     form = TermografiasForm(central_nombre,nombre_sistema,request.POST,request.FILES)                      
@@ -931,6 +936,7 @@ import pylab as pl
 
 def grafico_tendencias(request,central_x,transformador_x,gas_analizar):
 
+
     limites=[("Hidrogeno",150),("Oxigeno",16),("Nitrogeno",8.6),("Metano",110),("Monoxido_de_carbono",900),("Etano",90),("Dioxido_de_carbono",2500),("Etileno",280),("Acetileno",3)]
     for i in limites:
         if gas_analizar==i[0]:
@@ -1036,6 +1042,7 @@ def listado_de_equipos(request,central_x):
   #  return render(request,'lista_de_mediciones.html',locals())
 
 def tendencias(request,central_x,transformador_x,gas_x):
+    centrales=Centrales.objects.all()
     gas=gas_x
     central=central_x
     transformador=transformador_x
@@ -1238,6 +1245,7 @@ def ingreso_datos_dp(request,central_nombre,codigo_generador):
      #!/usr/bin/python
         # -*- coding: latin-1 -*-        
         import os, sys
+        centrales=Centrales.objects.all()
         if request.method == 'POST': # si el usuario est enviando el formulario con datos
                              
                     form = Mediciones_DPForm(central_nombre,codigo_generador,request.POST,request.FILES)                      
