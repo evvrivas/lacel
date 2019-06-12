@@ -44,7 +44,8 @@ class MedicionesForm(ModelForm):#productos
 		exclude=["fecha_ingreso","codigo_usuario"]
 
 	def __init__(self,nombre_central, codigo_transformador,*args, **kwargs):
-		super(MedicionesForm, self).__init__(*args, **kwargs)		
+		super(MedicionesForm, self).__init__(*args, **kwargs)
+		self.fields['central'].queryset=Centrales.objects.filter(nombre=nombre_central)			
 		self.fields['transformador'].queryset=Transformadores.objects.filter(codigo=codigo_transformador)
 
 
@@ -64,7 +65,8 @@ class Mediciones_DPForm(ModelForm):#productos
 		exclude=["fecha_ingreso","codigo_usuario"]
 
 	def __init__(self, nombre_central,codigo_generador,*args, **kwargs):
-		super(Mediciones_DPForm, self).__init__(*args, **kwargs)		
+		super(Mediciones_DPForm, self).__init__(*args, **kwargs)
+		self.fields['central'].queryset=Centrales.objects.filter(nombre=nombre_central)			
 		self.fields['generador'].queryset=Generadores.objects.filter(codigo=codigo_generador)
 
 
@@ -89,6 +91,7 @@ class TermografiasForm(ModelForm):#productos
 		exclude=["fecha_ingreso","codigo_usuario"]
 
 	def __init__(self, nombre_central,nombre_sistema,*args, **kwargs):
-		super(TermografiasForm, self).__init__(*args, **kwargs)		
+		super(TermografiasForm, self).__init__(*args, **kwargs)
+		self.fields['central'].queryset=Centrales.objects.filter(nombre=nombre_central)		
 		self.fields['sistema_termografico'].queryset=Sistema_termografico.objects.filter(nombre=nombre_sistema)
 
