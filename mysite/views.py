@@ -224,11 +224,11 @@ def datos_prueba(request):
     date=datetime.datetime.now()
 
 
-    p1=Centrales(nombre="CH 5 NOVIEMBRE",fecha_ingreso=date)   
+    p1=Centrales(nombre="CH 5 NOVIEMBRE",fecha_ingreso=date,codigo_usuario="7807004")   
     p1.save() 
 
 
-    p21=Transformadores(central=p1,codigo="U1-CH5N-EFACEC",marca="EFACEC",modelo="C0848A",cararcteristicas="Transformador de potencia",fecha_ingreso=date)
+    p21=Transformadores(central=p1,codigo="U1-CH5N-EFACEC",marca="EFACEC",modelo="C0848A",cararcteristicas="Transformador de potencia",fecha_ingreso=date,codigo_usuario="7807004")
     p21.save()
       
     #EFACET U1
@@ -257,7 +257,7 @@ def datos_prueba(request):
 
 
    
-    p22=Transformadores(central=p1,codigo="U2-CH5N-TUBOS_T_E",marca="TUBOS TRRANS ELECTRIC",modelo="33562",cararcteristicas="Transformador de potencia",fecha_ingreso=date)
+    p22=Transformadores(central=p1,codigo="U2-CH5N-TUBOS_T_E",marca="TUBOS TRRANS ELECTRIC",modelo="33562",cararcteristicas="Transformador de potencia",fecha_ingreso=date,codigo_usuario="7807004")
     p22.save()
     #2010
     date=datetime.datetime(2010,6,30)
@@ -288,7 +288,7 @@ def datos_prueba(request):
 
 
 
-    p23=Transformadores(central=p1,codigo="U3-CH5N-GE",marca="GENERAL ELECTRIC",modelo="L252373",cararcteristicas="Transformador de potencia",fecha_ingreso=date)
+    p23=Transformadores(central=p1,codigo="U3-CH5N-GE",marca="GENERAL ELECTRIC",modelo="L252373",cararcteristicas="Transformador de potencia",fecha_ingreso=date,codigo_usuario="7807004")
     p23.save()
 
      #2012
@@ -321,7 +321,7 @@ def datos_prueba(request):
     p35.save()
 
 
-    p24=Transformadores(central=p1,codigo="U4-CH5N-TADEO_C",marca="TADEO CZERWENY",modelo="89115",cararcteristicas="Transformador de potencia",fecha_ingreso=date)
+    p24=Transformadores(central=p1,codigo="U4-CH5N-TADEO_C",marca="TADEO CZERWENY",modelo="89115",cararcteristicas="Transformador de potencia",fecha_ingreso=date,codigo_usuario="7807004",codigo_usuario="7807004")
     p24.save()
 
      #2012
@@ -351,7 +351,7 @@ def datos_prueba(request):
 
 
 
-    p25=Transformadores(central=p1,codigo="U5-CH5N-DELTA_S",marca="DELTA STAR",modelo="E-74470689",cararcteristicas="Transformador de potencia",fecha_ingreso=date)
+    p25=Transformadores(central=p1,codigo="U5-CH5N-DELTA_S",marca="DELTA STAR",modelo="E-74470689",cararcteristicas="Transformador de potencia",fecha_ingreso=date,codigo_usuario="7807004")
     p25.save()
 
     #2012
@@ -384,7 +384,7 @@ def datos_prueba(request):
 
 
 
-    p26=Transformadores(central=p1,codigo="U6-CH5N-TOSHIBA",marca="TOSHIBA",modelo="A15051",cararcteristicas="Transformador de potencia",fecha_ingreso=date)
+    p26=Transformadores(central=p1,codigo="U6-CH5N-TOSHIBA",marca="TOSHIBA",modelo="A15051",cararcteristicas="Transformador de potencia",fecha_ingreso=date,codigo_usuario="7807004")
     p26.save()
 
      #2016
@@ -398,7 +398,7 @@ def datos_prueba(request):
 
 
 
-    p27=Transformadores(central=p1,codigo="U7-CH5N-TOSHIBA",marca="TOSHIBA",modelo="A15052",cararcteristicas="Transformador de potencia",fecha_ingreso=date)
+    p27=Transformadores(central=p1,codigo="U7-CH5N-TOSHIBA",marca="TOSHIBA",modelo="A15052",cararcteristicas="Transformador de potencia",fecha_ingreso=date,codigo_usuario="7807004")
     p27.save()
 
     #2016
@@ -415,7 +415,7 @@ def datos_prueba(request):
 
 
 
-    p28=Transformadores(central=p1,codigo="UR1-CH5N-MITSUBICHI",marca="MITSUBICHI",modelo="544328",cararcteristicas="Transformador de potencia",fecha_ingreso=date)
+    p28=Transformadores(central=p1,codigo="UR1-CH5N-MITSUBICHI",marca="MITSUBICHI",modelo="544328",cararcteristicas="Transformador de potencia",fecha_ingreso=date,codigo_usuario="7807004")
     p28.save()
 
     #2012
@@ -443,7 +443,7 @@ def datos_prueba(request):
 
   
 
-    p1=Centrales(nombre="Guajoyo",fecha_ingreso=date)   
+    p1=Centrales(nombre="CH GUAJOYO",fecha_ingreso=date,codigo_usuario="7807003")   
     p1.save() 
 
     u1=User.objects.create_user(username="7807003", password="4690",email="evvaldez@cel.gob.sv",first_name="Rigoberto",last_name="Avila")
@@ -453,7 +453,7 @@ def datos_prueba(request):
 
 
 
-    p21=Transformadores(central=p1,codigo="00001111",marca="GUAJOYOX",modelo="NA",cararcteristicas="U1",fecha_ingreso=date)
+    p21=Transformadores(central=p1,codigo="00001111",marca="GUAJOYOX",modelo="NA",cararcteristicas="U1",fecha_ingreso=date,codigo_usuario="7807003")
     p21.save()
       
     #EFACET U1
@@ -482,7 +482,7 @@ def datos_prueba(request):
 
 
 
-    p22=Transformadores(central=p1,codigo="222222",marca="Guajoyos23",modelo="NA",cararcteristicas="U2",fecha_ingreso=date)
+    p22=Transformadores(central=p1,codigo="222222",marca="Guajoyos23",modelo="NA",cararcteristicas="U2",fecha_ingreso=date,codigo_usuario="7807003")
     p22.save()
     #2010
     date=datetime.datetime(2010,6,30)
@@ -1478,7 +1478,7 @@ def datos_prueba_DP(request):
     p1=Centrales.objects.get(nombre="CH 5 NOVIEMBRE")  
 
     date=datetime.datetime(2018,1,1,16,58) 
-    p21=Generadores(central=p1,codigo="U1-CH5N-ELIM",marca="ELIM",modelo="C0848A",cararcteristicas="GENERADOR DE 20MW ",fecha_ingreso=date)
+    p21=Generadores(central=p1,codigo="U1-CH5N-ELIM",marca="ELIM",modelo="C0848A",cararcteristicas="GENERADOR DE 20MW ",fecha_ingreso=date,codigo_usuario="7807003")
     p21.save()
       
     #ELIM U1
@@ -1837,7 +1837,7 @@ def datos_prueba_DP(request):
     #PRUEBAS DE DESCARGAS PARCIALES PARA LA UNIDAD 2 ///
     #///////////////////////////////////////////////////
     date=datetime.datetime(2018,1,1,16,58) 
-    p21=Generadores(central=p1,codigo="U2-CH5N-ELIM",marca="ELIM",modelo="C0848A",cararcteristicas="GENERADOR 20MW",fecha_ingreso=date)
+    p21=Generadores(central=p1,codigo="U2-CH5N-ELIM",marca="ELIM",modelo="C0848A",cararcteristicas="GENERADOR 20MW",fecha_ingreso=date,codigo_usuario="7807003")
     p21.save()
       
     #ELIM U2
@@ -2141,7 +2141,7 @@ def datos_prueba_DP(request):
 
 
     date=datetime.datetime(2018,1,1,16,58) 
-    p21=Generadores(central=p1,codigo="U3-CH5N-ELIM",marca="ELIM",modelo="C0848A",cararcteristicas="GENERADOR 20MW",fecha_ingreso=date)
+    p21=Generadores(central=p1,codigo="U3-CH5N-ELIM",marca="ELIM",modelo="C0848A",cararcteristicas="GENERADOR 20MW",fecha_ingreso=date,codigo_usuario="7807003")
     p21.save()
       
     #ELIM U3
@@ -2460,7 +2460,7 @@ def datos_prueba_DP(request):
 
 
     date=datetime.datetime(2018,1,1,16,58)
-    p21=Generadores(central=p1,codigo="U4-CH5N-ELIM",marca="ELIM",modelo="C0848A",cararcteristicas="GENERADOR 20MW",fecha_ingreso=date)
+    p21=Generadores(central=p1,codigo="U4-CH5N-ELIM",marca="ELIM",modelo="C0848A",cararcteristicas="GENERADOR 20MW",fecha_ingreso=date,codigo_usuario="7807003")
     p21.save()
       
     #ELIM U4
@@ -2777,7 +2777,7 @@ def datos_prueba_DP(request):
     #PRUEBAS DE DESCARGAS PARCIALES PARA LA UNIDAD 6 ///
     #///////////////////////////////////////////////////
     date=datetime.datetime(2018,1,1,16,58) 
-    p21=Generadores(central=p1,codigo="U6-CH5N-ANDRITZ",marca="ANDRITZ HYDRO",modelo="NA",cararcteristicas="GENERADOR 40 MB",fecha_ingreso=date)
+    p21=Generadores(central=p1,codigo="U6-CH5N-ANDRITZ",marca="ANDRITZ HYDRO",modelo="NA",cararcteristicas="GENERADOR 40 MB",fecha_ingreso=date,codigo_usuario="7807003")
     p21.save()
       
     #ELIM U6
@@ -2871,7 +2871,7 @@ def datos_prueba_DP(request):
       #PRUEBAS DE DESCARGAS PARCIALES PARA LA UNIDAD 7 ///
       #///////////////////////////////////////////////////
     date=datetime.datetime(2018,1,1,16,58) 
-    p21=Generadores(central=p1,codigo="U7-CH5N-ANDRITZ",marca="ANDRITZ HYDRO",modelo="NA",cararcteristicas="GENERADOR 40 MW",fecha_ingreso=date)
+    p21=Generadores(central=p1,codigo="U7-CH5N-ANDRITZ",marca="ANDRITZ HYDRO",modelo="NA",cararcteristicas="GENERADOR 40 MW",fecha_ingreso=date,codigo_usuario="7807003")
     p21.save()
       
     #ELIM U7    
