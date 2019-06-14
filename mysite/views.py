@@ -321,7 +321,7 @@ def datos_prueba(request):
     p35.save()
 
 
-    p24=Transformadores(central=p1,codigo="U4-CH5N-TADEO_C",marca="TADEO CZERWENY",modelo="89115",cararcteristicas="Transformador de potencia",fecha_ingreso=date,codigo_usuario="7807004",codigo_usuario="7807004")
+    p24=Transformadores(central=p1,codigo="U4-CH5N-TADEO_C",marca="TADEO CZERWENY",modelo="89115",cararcteristicas="Transformador de potencia",fecha_ingreso=date,codigo_usuario="7807004")
     p24.save()
 
      #2012
