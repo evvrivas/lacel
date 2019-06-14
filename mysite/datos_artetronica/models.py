@@ -69,7 +69,7 @@ class Transformadores(models.Model):
 	     central=models.ForeignKey('Centrales')
 	     codigo=models.CharField(max_length=60,blank=True)
          codigo_usuario=models.CharField(max_length=7)
-	     marca=models.CharField(max_length=60,blank=True)
+         marca=models.CharField(max_length=60,blank=True)
 	     modelo=models.CharField(max_length=60,blank=True)
 	     cararcteristicas=models.TextField(blank=True)
 	     fecha_ingreso = models.DateField(default=datetime.now,editable = False)
@@ -201,9 +201,8 @@ class Sistema_termografico(models.Model):
 
 class Termografias(models.Model):        
          central=models.ForeignKey('Centrales')
-         sistema_termografico=models.ForeignKey('Sistema_termografico')         
+         sistema_termografico=models.ForeignKey('Sistema_termografico')
          codigo_usuario = models.CharField(max_length=60,blank=True)
-
          fecha_del_analisis = models.DateField(default=datetime.now,null=False)
          fecha_ingreso= models.DateField(default=datetime.now,null=False)          
           
