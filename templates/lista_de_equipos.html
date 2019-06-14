@@ -46,7 +46,7 @@
                                     <td WIDTH="75">{{i.codigo}}
 
 
-                                        {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.id_usuario==i.codigo_usuario %}  
+                                        {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.id_usuario == i.codigo_usuario %}  
                                       
                                                  <a href="">editar</a>  
                                         {%  else  %}  
@@ -132,7 +132,7 @@
                                     <td WIDTH="75">{{i.codigo}}
 
 
-                                    {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.id_usuario==i.codigo_usuario %}  
+                                    {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.id_usuario == i.codigo_usuario %}  
                                       
                                                  <a href="">editar</a>  
                                         {%  else  %}  
@@ -167,7 +167,7 @@
 
 
                        <td WIDTH="80">          
-                            {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.id_usuario==i.codigo_usuario %}  
+                            {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.id_usuario == i.codigo_usuario %}  
                               
                                    <a href="/editar">editar</a>  
 
@@ -231,7 +231,7 @@
 
                                     <td WIDTH="160">{{i.nombre}}
 
-                                    {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.id_usuario==i.codigo_usuario %}  
+                                    {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.id_usuario == i.codigo_usuario %}  
                                       
                                                  <a href="">editar</a>  
                                         {%  else  %}  
