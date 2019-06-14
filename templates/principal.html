@@ -40,13 +40,13 @@
                                       
                                     <td WIDTH="200">{{i.nombre}}</td>         
                                     <td WIDTH="140"><li><a href="/listado_de_equipos/{{i.nombre}}" >VER EQUIPOS  </a></li></td>
-                              </tr >  
+                              
 
-                             
+                     
 
                               <td WIDTH="60">  
 
-    {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.id_usuario == i.codigo_usuario %}  
+    {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.codigo_usuario == i.codigo_usuario %}  
                                       
                                            <a href="">editar este</a>  
 
@@ -58,6 +58,9 @@
 
                               </td>   
                             {%  endfor %} 
+
+                            
+                              </tr >  
                           
 
                         </table>
