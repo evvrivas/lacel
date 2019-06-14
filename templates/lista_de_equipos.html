@@ -43,7 +43,19 @@
                                 
                                 <tr  align="center">
                                     
-                                    <td WIDTH="75">{{i.codigo}}</td>   
+                                    <td WIDTH="75">{{i.codigo}}
+
+
+                                        {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.id_usuario==i.codigo_usuario %}  
+                                      
+                                                 <a href="">editar</a>  
+                                        {%  else  %}  
+                                                 <p>editar</p>
+
+
+
+
+                                    </td>   
                                     <td WIDTH="100">{{i.modelo}}</td>              
                                     <td WIDTH="150">{{i.marca}}</td>           
                                    
@@ -107,11 +119,9 @@
                                     
                                     <td WIDTH="75">Unidad</td>  
                                     <td WIDTH="120">Gx CODIGO</td>                 
-                                    <td WIDTH="170">Gx MARCA</td>
-
-                                   
-                                    
+                                    <td WIDTH="170">Gx MARCA</td>                                 
                                     <td WIDTH="80">Ver </td>
+                                    <td WIDTH="80">Editar </td>
                              </tr > 
 
 
@@ -119,7 +129,19 @@
                                 
                                 <tr  align="center">
                                     
-                                    <td WIDTH="75">{{i.codigo}}</td>   
+                                    <td WIDTH="75">{{i.codigo}}
+
+
+                                    {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.id_usuario==i.codigo_usuario %}  
+                                      
+                                                 <a href="">editar</a>  
+                                        {%  else  %}  
+                                                 <p>editar</p>
+
+
+
+
+                                    </td>   
                                     <td WIDTH="100">{{i.modelo}}</td>              
                                     <td WIDTH="150">{{i.marca}}</td>           
                                    
@@ -129,8 +151,7 @@
                                     {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x %}  
                                     <a href="/analisis_dp/{{i.central.nombre}}/{{i.codigo}}">ADP</a>
                                     <a href="/ingreso_datos_dp/{{i.central.nombre}}/{{i.codigo}}">Agregar</a>
-                                    
-                                    </td>
+                                                                        
 
                                     {%  elif user.is_authenticated and usuario_comun.privilegio == "DE_ALTA_INVITADO" and usuario_comun.central.nombre == central_x %} 
                                     <a href="/analisis/{{i.central.nombre}}/{{i.codigo}}">ADP</a>
@@ -139,11 +160,30 @@
                                     {%  else  %}  
                                     <p>ADP</p>
 
-                                    {% endif %}                                                                
+                                    {% endif %} 
+
+                                    </td>  
+
+
+
+                       <td WIDTH="80">          
+                            {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.id_usuario==i.codigo_usuario %}  
+                              
+                                   <a href="/editar">editar</a>  
+
+                            {%  else  %}  
+
+                                   <p>editar</p>
+
+                            {% endif %} 
+
+                      </td>    
+                                    
+                                                                                         
                                   
 
                                     
-                                </tr >
+                            </tr >
                             {%  endfor %} 
                           
 
@@ -176,8 +216,10 @@
                          <table BORDER="1" CELLSPACING="1">
                             
                              <tr  align="center">
-                                     <td WIDTH="100">Fecha inicial</td> 
+
                                     <td WIDTH="160">Nombre del sistema termogafico</td> 
+                                     <td WIDTH="100">Fecha inicial</td> 
+                                    
 
                                     <td WIDTH="100">Ver termografias </td>
                              </tr > 
@@ -186,8 +228,21 @@
                             {%  for i in lista_sistemas_termograficos %}   
                                 
                                 <tr  align="center">
-                                    <td WIDTH="100">{{i.fecha_ingreso}}</td>
-                                    <td WIDTH="160">{{i.nombre}}</td>   
+
+                                    <td WIDTH="160">{{i.nombre}}
+
+                                    {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.id_usuario==i.codigo_usuario %}  
+                                      
+                                                 <a href="">editar</a>  
+                                        {%  else  %}  
+                                                 <p>editar</p>
+
+
+
+
+
+                                    </td>   
+                                    <td WIDTH="100">{{i.fecha_ingreso}}</td>                                   
 
                                     
 
@@ -231,3 +286,8 @@
   </div>
 
   {% endblock %}
+
+                    
+
+                                                                                  
+                     

@@ -52,8 +52,7 @@
                                     <td WIDTH="60">ppm</td>                                    
                                     <td WIDTH="60">ppm</td>                                    
                                     <td WIDTH="60">ppm</td>
-
-                                                                     
+                                    <td WIDTH="60">Editar</td>                                                                     
                                     
                                                                                                     
                                </tr >
@@ -70,6 +69,8 @@
                                     <td WIDTH="60">CO2</td>                                    
                                     <td WIDTH="60">C2H4</td>                                    
                                     <td WIDTH="60">C2H2</td>
+                                    <td WIDTH="60"></td>
+
 
                                                                     
                                     
@@ -89,6 +90,7 @@
                                     <td WIDTH="60">Diox carb</td>                                    
                                     <td WIDTH="60">Etileno</td>                                    
                                     <td WIDTH="60">Acetileno</td>
+                                    <td WIDTH="60"></td>
 
                                                                   
                                     
@@ -110,7 +112,19 @@
                                     <td WIDTH="60">{{i.Etileno}}</td>                                    
                                     <td WIDTH="60">{{i.Acetileno}} </td>
 
-                                     
+                                    <td WIDTH="60">  
+
+                               {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.id_usuario==i.codigo_usuario %}  
+                                      
+                                           <a href="">editar</a>  
+
+                                {%  else  %}  
+
+                                           <p>editar</p>
+
+                                    {% endif %} 
+
+                              </td>   
                                                                            
 
                                      

@@ -31,6 +31,16 @@
                         </div></center>
                         <br>
 
+                        {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.id_usuario==i.codigo_usuario %}  
+                                      
+                                           <a href="">editar esta medicion</a>  
+
+                                {%  else  %}  
+
+                                           <p>usted no puede editar</p>
+
+                                    {% endif %}
+<br>
      
 
                     <center><table BORDER="1" CELLSPACING="1"> 
@@ -75,20 +85,64 @@
                             
                    </table></center>   
 
+
+                    <br> 
+
+
+             
+         
+                       <center>  <table BORDER="1" CELLSPACING="1"> 
+
+                         <center> <tr  align="center">
+                                    <td WIDTH="100">PDI C1 Ch01</td>
+                                    <td WIDTH="100">PDI C1 Ch04</td>
+                                    <td WIDTH="100">PDI C2 Ch02</td>
+                                    <td WIDTH="100">PDI C2 Ch05</td>
+                                    <td WIDTH="100">PDI C3 Ch03</td>
+                                    <td WIDTH="100">PDI C3 Ch06</td>
+                                    <td WIDTH="100">PDI C4 Ch01</td>
+                                    <td WIDTH="100">PDI C4 Ch04</td>
+                                    <td WIDTH="100">PDI C5 Ch02</td>
+                                    <td WIDTH="100">PDI C5 Ch05</td>
+                                    <td WIDTH="100">PDI C6 Ch03</td>
+                                    <td WIDTH="100">PDI C6 Ch06</td>
+                                                                                      
+                                </tr ></center>         
+                                    
+                               <center> <tr  align="center">
+                                    <td WIDTH="100">{{datos_DP.PDI_C1_1}} </td>
+                                    <td WIDTH="100">{{datos_DP.PDI_C1_2}} </td>
+                                    <td WIDTH="100">{{datos_DP.PDI_C2_1}} </td>
+                                    <td WIDTH="100">{{datos_DP.PDI_C2_2}} </td>
+                                    <td WIDTH="100">{{datos_DP.PDI_C3_1}} </td>
+                                    <td WIDTH="100">{{datos_DP.PDI_C3_2}}  </td>
+                                    <td WIDTH="100">{{datos_DP.PDI_C4_1}} </td>
+                                    <td WIDTH="100">{{datos_DP.PDI_C4_2}} </td>
+                                    <td WIDTH="100">{{datos_DP.PDI_C5_1}} </td>
+                                    <td WIDTH="100">{{datos_DP.PDI_C5_2}} </td>
+                                    <td WIDTH="100">{{datos_DP.PDI_C6_1}} </td>
+                                    <td WIDTH="100">{{datos_DP.PDI_C6_2}}  </td>                                                                              
+                                </tr ></center>                                
+                            
+                   </table></center>   
+
+
                           <br> 
 
                             {% thumbnail datos_DP.imagen_PRPDD_1 "600" crop="center" as im %}
                               <a href="" target="_blank"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a> 
-                             {% endthumbnail %}                              
+                             {% endthumbnail %}  
+                          <br>                             
 
                               {% thumbnail datos_DP.imagen_3D_1  "600" crop="center" as im %}
                               <a href="" target="_blank"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a> 
                              {% endthumbnail %}   
-                            
+                          <br> 
                               {% thumbnail datos_DP.imagen_PHD_1 "600" crop="center" as im %}
                               <a href="" target="_blank"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a> 
                              {% endthumbnail %}   
 
+                             <br>
                              <br>
 
 

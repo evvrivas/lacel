@@ -52,6 +52,7 @@ class Generadores(models.Model):
 
         central=models.ForeignKey('Centrales')
         codigo=models.CharField(max_length=60,blank=True)
+        codigo_usuario=models.CharField(max_length=7)
         marca=models.CharField(max_length=60,blank=True)
         modelo=models.CharField(max_length=60,blank=True)
         cararcteristicas=models.TextField(blank=True)
@@ -67,6 +68,7 @@ class Transformadores(models.Model):
 
 	     central=models.ForeignKey('Centrales')
 	     codigo=models.CharField(max_length=60,blank=True)
+         codigo_usuario=models.CharField(max_length=7)
 	     marca=models.CharField(max_length=60,blank=True)
 	     modelo=models.CharField(max_length=60,blank=True)
 	     cararcteristicas=models.TextField(blank=True)
@@ -186,6 +188,7 @@ class Mediciones_DP(models.Model):
 
 class Sistema_termografico(models.Model):
         central=models.ForeignKey('Centrales')
+        codigo_usuario=models.CharField(max_length=7)
         nombre=models.CharField(max_length=60,blank=True)
         justificacion=models.TextField(blank=True)
         imagen_de_analisis_1 = ImageField(upload_to='tmp',blank=True)        

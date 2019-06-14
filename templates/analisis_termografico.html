@@ -48,8 +48,25 @@
                    {% for j in termografias %} 
                    <div class="caption">   
 
+                   <h2><center> Imagenes termograficas de esta fecha {{j.fecha_del_analisis}} </center></h2>
+
+          
+               {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.id_usuario==i.codigo_usuario %}  
+                        <a href="">editar</a>  
+
+               {%  else  %}  
+
+                      <p>editar sesion termografica</p>
+
+              {% endif %}
+
+                 
+
+                  <br>
                          <div class="col-md-6">
                     <center> 
+                        
+                         
                          {% thumbnail j.imagen_termografica_secuencia_1 "500" crop="center" as im %}
                               <a href="" target="_blank"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a> 
                          {% endthumbnail %}  
@@ -74,6 +91,7 @@
 
                          </div>
                          </div>
+                         <br>
                     {% endfor %}              
 
              
