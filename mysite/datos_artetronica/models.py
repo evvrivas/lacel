@@ -65,19 +65,17 @@ class Generadores(models.Model):
 
 
 class Transformadores(models.Model):
-
-	     central=models.ForeignKey('Centrales')
-	     codigo=models.CharField(max_length=60,blank=True)
-         codigo_usuario=models.CharField(max_length=7)
-         marca=models.CharField(max_length=60,blank=True)
-         modelo=models.CharField(max_length=60,blank=True)
-         cararcteristicas=models.TextField(blank=True)
-	     fecha_ingreso = models.DateField(default=datetime.now,editable = False)
-
-	     def __str__(self):
-		    		return  self.codigo
-	     class Admin:
-		    		list_display = ('codigo', 'marca', 'modelo','caracteristicas')
+    central=models.ForeignKey('Centrales')
+    codigo=models.CharField(max_length=60,blank=True)
+    codigo_usuario=models.CharField(max_length=7)
+    marca=models.CharField(max_length=60,blank=True)
+    modelo=models.CharField(max_length=60,blank=True)
+    cararcteristicas=models.TextField(blank=True)
+    fecha_ingreso = models.DateField(default=datetime.now,editable = False)
+    def __str__(self):
+        return  self.codigo
+    class Admin:
+            list_display = ('codigo', 'marca', 'modelo','caracteristicas')
 
  
 #from django.contrib.postgres.fields import ArrayField
