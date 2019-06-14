@@ -224,7 +224,7 @@ def datos_prueba(request):
     date=datetime.datetime.now()
 
 
-    p1=Centrales(nombre="CH 5 NOVIEMBRE",fecha_ingreso=date,codigo_usuario="7807004")   
+    p1=Centrales(nombre="CH 5 NOVIEMBRE",fecha_ingreso=date")   
     p1.save() 
 
 
@@ -443,7 +443,7 @@ def datos_prueba(request):
 
   
 
-    p1=Centrales(nombre="CH GUAJOYO",fecha_ingreso=date,codigo_usuario="7807003")   
+    p1=Centrales(nombre="CH GUAJOYO",fecha_ingreso=date)   
     p1.save() 
 
     u1=User.objects.create_user(username="7807003", password="4690",email="evvaldez@cel.gob.sv",first_name="Rigoberto",last_name="Avila")
