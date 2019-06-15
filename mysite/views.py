@@ -222,9 +222,7 @@ def ingresar_termografias(request,central_nombre,nombre_sistema):
 def datos_prueba(request):
 
     date=datetime.datetime.now()
-
-
-    p1=Centrales(nombre="CH 5 NOVIEMBRE",fecha_ingreso=date")   
+    p1=Centrales(nombre="CH 5 NOVIEMBRE",fecha_ingreso=date)
     p1.save() 
 
 
