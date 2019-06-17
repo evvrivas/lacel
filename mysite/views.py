@@ -2966,31 +2966,31 @@ def editar(request,acid,tipo):
     
         if request.method == 'POST':
 
-                if tipo=Mediciones:   
+                if tipo==Mediciones:   
                     f = Mediciones.objects.get(pk=acid)
                     form =MedicionesForm(request.POST,request.FILES,instance=f)
 
-                elif tipo=Mediciones_DP:   
+                elif tipo==Mediciones_DP:   
                     f =Mediciones_DP.objects.get(pk=acid)
                     form =Mediciones_DPForm(request.POST,request.FILES,instance=f) 
 
-                elif tipo=Termografias:   
+                elif tipo==Termografias:   
                     f = Termografias.objects.get(pk=acid)
                     form =TermografiasForm(request.POST,request.FILES,instance=f) 
 
-                elif tipo=Generadores:   
+                elif tipo==Generadores:   
                     f = Generadores.objects.get(pk=acid)
                     form =GeneradoresForm(request.POST,request.FILES,instance=f)  
 
-                elif tipo=Transformadores:   
+                elif tipo==Transformadores:   
                     f = Transformadores.objects.get(pk=acid)
                     form =TransformadoresForm(request.POST,request.FILES,instance=f)  
 
-                elif tipo=Sistema_termografico:   
+                elif tipo==Sistema_termografico:   
                     f = Sistema_termografico.objects.get(pk=acid)
                     form =Sistema_termograficoForm(request.POST,request.FILES,instance=f)    
 
-                elif tipo=Centrales:   
+                elif tipo==Centrales:   
                     f = Centrales.objects.get(pk=acid)
                     form =CentralesForm(request.POST,request.FILES,instance=f)     
                 
@@ -3014,25 +3014,25 @@ def editar(request,acid,tipo):
            
         else:
 
-                if tipo=Mediciones:   
+                if tipo==Mediciones:   
                     form = MedicionesForm(instance=f)
 
-                elif tipo=Mediciones_DP:   
+                elif tipo==Mediciones_DP:   
                     form = Mediciones_DPForm(instance=f) 
 
-                elif tipo=Termografias:   
+                elif tipo==Termografias:   
                     form = TermografiasForm(instance=f)
 
-                elif tipo=Generadores:   
+                elif tipo==Generadores:   
                     form = GeneradoresForm(instance=f)
 
-                elif tipo=Transformadores:   
+                elif tipo==Transformadores:   
                     form = TransformadoresForm(instance=f)
 
-                elif tipo=Sistema_termografico:   
+                elif tipo==Sistema_termografico:   
                     form = Sistema_termograficoForm(instance=f)  
 
-                elif tipo=Centrales:   
+                elif tipo==Centrales:   
                     form =CentralesForm(instance=f)     
                 
                 else:            
