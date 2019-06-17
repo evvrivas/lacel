@@ -45,34 +45,36 @@
                      <br>                    
 
                                  
-                   {% for j in termografias %} 
+                   {% for i in termografias %} 
                    <div class="caption">   
 
-                   <h2><center> Imagenes termograficas de esta fecha {{j.fecha_del_analisis}} </center></h2>
+                   <h1><center> Imagenes termograficas: fecha {{j.fecha_del_analisis}} </center></h1>
 
           
                {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.codigo_usuario == i.codigo_usuario %}  
-                        <a href="">editar</a>  
+                         <h6><a href="/editar/{{i.id}}/Termografias">Editar Termografia</a> </h6> 
 
                {%  else  %}  
 
-                      <p>editar sesion termografica</p>
+                      <p>..</p>
 
               {% endif %}
 
                  
 
                   <br>
+
+      <div class="row">          
                          <div class="col-md-6">
                     <center> 
                         
                          
-                         {% thumbnail j.imagen_termografica_secuencia_1 "500" crop="center" as im %}
+                         {% thumbnail i.imagen_termografica_secuencia_1 "500" crop="center" as im %}
                               <a href="" target="_blank"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a> 
                          {% endthumbnail %}  
                          
-                         <p>{{j.comentario_termografia_1}}</p>
-                         <p>{{j.fecha_del_analisis}}</p>
+                         <p>{{i.comentario_termografia_1}}</p>
+                         <p>{{i.fecha_del_analisis}}</p>
                       </center> 
 
                          </div>
@@ -80,16 +82,17 @@
                          <div class="col-md-6">
                       <center>
 
-                         {% thumbnail j.imagen_termografica_secuencia_2 "500" crop="center" as im %}
+                         {% thumbnail i.imagen_termografica_secuencia_2 "500" crop="center" as im %}
                               <a href="" target="_blank"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a> 
                          {% endthumbnail %}  
                         
-                         <p>{{j.comentario_termografia_2}}</p>
-                         <p>{{j.fecha_del_analisis}}</p>
+                         <p>{{i.comentario_termografia_2}}</p>
+                         <p>{{i.fecha_del_analisis}}</p>
 
                       </center> 
 
                          </div>
+      </div>         
                          </div>
                          <br>
                     {% endfor %}              

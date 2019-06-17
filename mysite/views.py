@@ -208,7 +208,7 @@ def ingresar_termografias(request,central_nombre,nombre_sistema):
                             form.save() # Guardar los datos en la base de datos  print 
                             #return render_to_response('confirmar.html', locals() ,context_instance=RequestContext(request))
                             connection.close()
-                            return render(request,'confirmar.html',locals())                  
+                            return render(request,'confirmar.html',locals())                
                 
 
         else:            
@@ -1026,6 +1026,8 @@ def listado_de_equipos(request,central_x):
     lista_generadores=Generadores.objects.filter(central__nombre__icontains=central_x)
     lista_transformadores=Transformadores.objects.filter(central__nombre__icontains=central_x)
     lista_sistemas_termograficos=Sistema_termografico.objects.filter(central__nombre__icontains=central_x)
+    lista_usuarios=Usuarios.objects.filter(central__nombre__icontains=central_x)
+
     return render(request,'lista_de_equipos.html',locals())
 
 #def (request,central_x,transformador_x):
@@ -1476,7 +1478,7 @@ def datos_prueba_DP(request):
     p1=Centrales.objects.get(nombre="CH 5 NOVIEMBRE")  
 
     date=datetime.datetime(2018,1,1,16,58) 
-    p21=Generadores(central=p1,codigo="U1-CH5N-ELIM",marca="ELIM",modelo="C0848A",cararcteristicas="GENERADOR DE 20MW ",fecha_ingreso=date,codigo_usuario="7807003")
+    p21=Generadores(central=p1,codigo="U1-CH5N-ELIM",marca="ELIM",modelo="C0848A",cararcteristicas="GENERADOR DE 20MW ",fecha_ingreso=date,codigo_usuario="7807004")
     p21.save()
       
     #ELIM U1
@@ -1835,7 +1837,7 @@ def datos_prueba_DP(request):
     #PRUEBAS DE DESCARGAS PARCIALES PARA LA UNIDAD 2 ///
     #///////////////////////////////////////////////////
     date=datetime.datetime(2018,1,1,16,58) 
-    p21=Generadores(central=p1,codigo="U2-CH5N-ELIM",marca="ELIM",modelo="C0848A",cararcteristicas="GENERADOR 20MW",fecha_ingreso=date,codigo_usuario="7807003")
+    p21=Generadores(central=p1,codigo="U2-CH5N-ELIM",marca="ELIM",modelo="C0848A",cararcteristicas="GENERADOR 20MW",fecha_ingreso=date,codigo_usuario="7807004")
     p21.save()
       
     #ELIM U2
@@ -2139,7 +2141,7 @@ def datos_prueba_DP(request):
 
 
     date=datetime.datetime(2018,1,1,16,58) 
-    p21=Generadores(central=p1,codigo="U3-CH5N-ELIM",marca="ELIM",modelo="C0848A",cararcteristicas="GENERADOR 20MW",fecha_ingreso=date,codigo_usuario="7807003")
+    p21=Generadores(central=p1,codigo="U3-CH5N-ELIM",marca="ELIM",modelo="C0848A",cararcteristicas="GENERADOR 20MW",fecha_ingreso=date,codigo_usuario="7807004")
     p21.save()
       
     #ELIM U3
@@ -2458,7 +2460,7 @@ def datos_prueba_DP(request):
 
 
     date=datetime.datetime(2018,1,1,16,58)
-    p21=Generadores(central=p1,codigo="U4-CH5N-ELIM",marca="ELIM",modelo="C0848A",cararcteristicas="GENERADOR 20MW",fecha_ingreso=date,codigo_usuario="7807003")
+    p21=Generadores(central=p1,codigo="U4-CH5N-ELIM",marca="ELIM",modelo="C0848A",cararcteristicas="GENERADOR 20MW",fecha_ingreso=date,codigo_usuario="7807004")
     p21.save()
       
     #ELIM U4
@@ -2775,7 +2777,7 @@ def datos_prueba_DP(request):
     #PRUEBAS DE DESCARGAS PARCIALES PARA LA UNIDAD 6 ///
     #///////////////////////////////////////////////////
     date=datetime.datetime(2018,1,1,16,58) 
-    p21=Generadores(central=p1,codigo="U6-CH5N-ANDRITZ",marca="ANDRITZ HYDRO",modelo="NA",cararcteristicas="GENERADOR 40 MB",fecha_ingreso=date,codigo_usuario="7807003")
+    p21=Generadores(central=p1,codigo="U6-CH5N-ANDRITZ",marca="ANDRITZ HYDRO",modelo="NA",cararcteristicas="GENERADOR 40 MB",fecha_ingreso=date,codigo_usuario="7807004")
     p21.save()
       
     #ELIM U6
@@ -2869,7 +2871,7 @@ def datos_prueba_DP(request):
       #PRUEBAS DE DESCARGAS PARCIALES PARA LA UNIDAD 7 ///
       #///////////////////////////////////////////////////
     date=datetime.datetime(2018,1,1,16,58) 
-    p21=Generadores(central=p1,codigo="U7-CH5N-ANDRITZ",marca="ANDRITZ HYDRO",modelo="NA",cararcteristicas="GENERADOR 40 MW",fecha_ingreso=date,codigo_usuario="7807003")
+    p21=Generadores(central=p1,codigo="U7-CH5N-ANDRITZ",marca="ANDRITZ HYDRO",modelo="NA",cararcteristicas="GENERADOR 40 MW",fecha_ingreso=date,codigo_usuario="7807004")
     p21.save()
       
     #ELIM U7    
@@ -2954,3 +2956,93 @@ def datos_prueba_DP(request):
     #PRUEBAS DE DESCARGAS PARCIALE
 
     return render(request,'principal.html',locals())
+
+
+
+
+def editar(request,acid,tipo):   
+        
+        centrales=Centrales.objects.all()  
+    
+        if request.method == 'POST':
+
+                if tipo=Mediciones:   
+                    f = Mediciones.objects.get(pk=acid)
+                    form =MedicionesForm(request.POST,request.FILES,instance=f)
+
+                elif tipo=Mediciones_DP:   
+                    f =Mediciones_DP.objects.get(pk=acid)
+                    form =Mediciones_DPForm(request.POST,request.FILES,instance=f) 
+
+                elif tipo=Termografias:   
+                    f = Termografias.objects.get(pk=acid)
+                    form =TermografiasForm(request.POST,request.FILES,instance=f) 
+
+                elif tipo=Generadores:   
+                    f = Generadores.objects.get(pk=acid)
+                    form =GeneradoresForm(request.POST,request.FILES,instance=f)  
+
+                elif tipo=Transformadores:   
+                    f = Transformadores.objects.get(pk=acid)
+                    form =TransformadoresForm(request.POST,request.FILES,instance=f)  
+
+                elif tipo=Sistema_termografico:   
+                    f = Sistema_termografico.objects.get(pk=acid)
+                    form =Sistema_termograficoForm(request.POST,request.FILES,instance=f)    
+
+                elif tipo=Centrales:   
+                    f = Centrales.objects.get(pk=acid)
+                    form =CentralesForm(request.POST,request.FILES,instance=f)     
+                
+                else:            
+                    pass
+ 
+         
+                if form.is_valid():
+                        temporal = form.save(commit=False)
+                        # commit=False tells Django that "Don't send this to database yet.
+                        # I have more things I want to do with it."
+                        temporal.codigo_usuario = request.user.username # Set the user object here             
+                        temporal.fecha_ingreso=datetime.datetime.now()             
+                        temporal.save() # Now you can send it to DB
+                        form.save()
+                        connection.close() 
+
+                        return render(request,'confirmar.html',locals())       
+                          
+            
+           
+        else:
+
+                if tipo=Mediciones:   
+                    form = MedicionesForm(instance=f)
+
+                elif tipo=Mediciones_DP:   
+                    form = Mediciones_DPForm(instance=f) 
+
+                elif tipo=Termografias:   
+                    form = TermografiasForm(instance=f)
+
+                elif tipo=Generadores:   
+                    form = GeneradoresForm(instance=f)
+
+                elif tipo=Transformadores:   
+                    form = TransformadoresForm(instance=f)
+
+                elif tipo=Sistema_termografico:   
+                    form = Sistema_termograficoForm(instance=f)  
+
+                elif tipo=Centrales:   
+                    form =CentralesForm(instance=f)     
+                
+                else:            
+                    pass
+            
+                    
+        connection.close()
+        #return render_to_response('formulario.html', locals(),context_instance=RequestContext(request))
+        return render(request,'ingreso_de_datos.html',locals())   
+  
+
+
+

@@ -31,13 +31,14 @@
                         </div></center>
                         <br>
 
+                
                         {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.codigo_usuario == i.codigo_usuario %}  
                                       
-                                           <a href="">editar esta medicion</a>  
+                                           <h6><a href="/editar/{{i.id}}/Mediciones_DP">Editar med DP</a> </h6> 
 
                                 {%  else  %}  
 
-                                           <p>usted no puede editar</p>
+                                           <p>..</p>
 
                                     {% endif %}
 <br>

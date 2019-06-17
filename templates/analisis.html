@@ -114,13 +114,19 @@
 
                                     <td WIDTH="60">  
 
+
+
+                                 
+
+                                         
+
                                {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.codigo_usuario == i.codigo_usuario %}  
                                       
-                                           <a href="">editar</a>  
+                                           <h6><a href="/editar/{{i.id}}/Mediciones">Editar med Agda</a> </h6> 
 
                                 {%  else  %}  
 
-                                           <p>editar</p>
+                                           <p>..</p>
 
                                     {% endif %} 
 

@@ -14,13 +14,13 @@ class UsuariosForm(ModelForm):
 class CentralesForm(ModelForm):#usuario
 	class Meta:			
 		model=Centrales
-		exclude=["fecha_ingreso"]
+		exclude=["fecha_ingreso","codigo_usuario"]
 
 				    
 class TransformadoresForm(ModelForm):#tiendas
 	class Meta:			
 		model=Transformadores
-		exclude=["fecha_ingreso"]
+		exclude=["fecha_ingreso","codigo_usuario"]
 
 	def __init__(self, nombre_central,*args, **kwargs):
 		super(TransformadoresForm, self).__init__(*args, **kwargs)		
@@ -31,7 +31,7 @@ class TransformadoresForm(ModelForm):#tiendas
 class GeneradoresForm(ModelForm):#tiendas
 	class Meta:			
 		model=Generadores
-		exclude=["fecha_ingreso"]	
+		exclude=["fecha_ingreso","codigo_usuario"]
 	def __init__(self, nombre_central,*args, **kwargs):
 		super(GeneradoresForm, self).__init__(*args, **kwargs)		
 		self.fields['central'].queryset=Centrales.objects.filter(nombre=nombre_central)
@@ -74,7 +74,7 @@ class Sistema_termograficoForm(ModelForm):#productos
 	class Meta:			
 		model=Sistema_termografico
 		widgets = {'justificacion': Textarea(attrs={'cols': 40, 'rows': 3}),}
-		exclude=["fecha_ingreso"]
+		exclude=["fecha_ingreso","codigo_usuario"]
 	def __init__(self, nombre_central,*args, **kwargs):
 		super(GeneradoresForm, self).__init__(*args, **kwargs)		
 		self.fields['central'].queryset=Centrales.objects.filter(nombre=nombre_central)

@@ -45,12 +45,15 @@
                                     
                                     <td WIDTH="75">{{i.codigo}}
 
+                                                                            
+
+
 
                                         {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.codigo_usuario == i.codigo_usuario %}  
                                       
-                                                 <a href="">editar</a>  
+                                         <h6><a href="/editar/{{i.id}}/Transformadores">Editar transf..</a> </h6>
                                         {%  else  %}  
-                                                 <p>editar este</p>
+                                                 <p>..</p>
 
                                         {% endif %}         
 
@@ -124,7 +127,7 @@
                                     <td WIDTH="120">Gx CODIGO</td>                 
                                     <td WIDTH="170">Gx MARCA</td>                                 
                                     <td WIDTH="80">Ver </td>
-                                    <td WIDTH="80">Editar </td>
+                                    
                              </tr > 
 
 
@@ -134,12 +137,14 @@
                                     
                                     <td WIDTH="75">{{i.codigo}}
 
-
+                                    
+ 
                                     {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.codigo_usuario == i.codigo_usuario %}  
                                       
-                                                 <a href="">editar</a>  
+                                                 
+                                           <h6><a href="/editar/{{i.id}}/Generadores">Editar Generador</a> </h6>
                                         {%  else  %}  
-                                                 <p>editar</p>
+                                                 <p>..</p>
                                         {% endif %} 
 
 
@@ -169,19 +174,7 @@
 
 
 
-                       <td WIDTH="80">          
-                            {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.codigo_usuario == i.codigo_usuario %}  
-                              
-                                   <a href="/editar">editar</a>  
-
-                            {%  else  %}  
-
-                                   <p>editar</p>
-
-                            {% endif %} 
-
-                      </td>    
-                                    
+                                                        
                                                                                          
                                   
 
@@ -235,15 +228,14 @@
                                     <td WIDTH="160">{{i.nombre}}
 
                                     {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.codigo_usuario == i.codigo_usuario %}  
-                                      
-                                                 <a href="">editar</a>  
+                                      <h6><a href="/editar/{{i.id}}/Sistema_termografico">editar Sist. term.</a> </h6>
+                                                 <a href=""></a>  
                                         {%  else  %}  
-                                                 <p>editar</p>
+                                                 <p>..</p>
 
                                         {% endif %} 
 
-
-
+   
                                     </td>   
                                     <td WIDTH="100">{{i.fecha_ingreso}}</td>                                   
 
@@ -283,6 +275,92 @@
 
 
           </div>
+
+
+nombres=models.CharField(max_length=30)
+        apellidos=models.CharField(max_length=30)
+        email = models.EmailField(blank=True)
+<div class="row">
+
+             <div class="col-md-12">
+                <div class="thumbnail"> 
+                     <div class="caption">
+                     <center><h2 class="panel-title"> Usuarios de esta Central</h2></center>
+                     <br>
+                     <center>
+                         <table BORDER="1" CELLSPACING="1">
+                            
+                             <tr  align="center">
+                                    
+                                    <td WIDTH="75">Codigo</td>  
+                                    <td WIDTH="100">Nombre</td> 
+                                    <td WIDTH="100">Apellidos</td>
+                                    <td WIDTH="100">email </td>
+                                    
+                             </tr > 
+
+
+                            {%  for i in lista_usuarios %}   
+                                
+                                <tr  align="center">
+                                    
+                                    <td WIDTH="75">{{i.codigo}}
+                                    {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.codigo_usuario == i.codigo_usuario %}                                        
+                                                 
+                                           <h6><a href="/editar/{{i.id}}/Usuarios">Editar Generador</a> </h6>
+                                        
+                                        {%  else  %}  
+                                                 <p>..</p>
+                                        {% endif %} 
+
+                                        </td>  
+                                    
+
+                                    <td WIDTH="100">{{i.nombre}}</td>  
+                                    <td WIDTH="100">{{i.apellido}}</td>
+                                    <td WIDTH="100">{{i.email}}</td>  
+
+                                    
+ 
+                                    
+
+
+
+                                   
+                            {%  endfor %} 
+                          
+
+                        </table>
+                        </center>
+
+                       
+                        
+                                                
+                   </div>                  
+              
+                
+                  
+                </div>
+            </div>
+
+
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         </div>
