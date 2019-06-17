@@ -46,6 +46,8 @@
 
                               <td WIDTH="60">  
 
+                              {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.codigo_usuario == i.codigo_usuario %}  
+
               
                                            <h6><a href="/editar/{{i.id}}/Centrales">Editar central</a> </h6> 
 
