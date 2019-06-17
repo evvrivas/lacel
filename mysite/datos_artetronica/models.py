@@ -16,16 +16,13 @@ from django.core.files.uploadedfile import InMemoryUploadedFile
 from sorl.thumbnail import ImageField
 
 class Centrales(models.Model):
-	     
-	     nombre=models.CharField(max_length=60,blank=True)
-         codigo_usuario=models.CharField(max_length=7)
-	     fecha_ingreso = models.DateField(default=datetime.now,editable = False)
-
-
-	     def __str__(self):
-		    		return  self.nombre
-	     class Admin:
-		    		list_display = ('nombre', 'fecha_ingreso')
+        nombre=models.CharField(max_length=60,blank=True)
+        codigo_usuario=models.CharField(max_length=7)
+        fecha_ingreso = models.DateField(default=datetime.now,editable = False)
+        def __str__(self):
+            return  self.nombre
+        class Admin:
+            list_display = ('nombre', 'fecha_ingreso')
 
 
 PRIVILEGIOS=(
