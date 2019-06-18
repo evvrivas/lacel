@@ -1010,7 +1010,8 @@ def informacion(request):
 def principal(request):
     centrales=Centrales.objects.all()
 
-    central_x=Centrales.objects.filter(codigo_usuario=request.user.username).first()
+    central=Centrales.objects.filter(codigo_usuario=request.user.username).first()
+    central_x=central.nombre
 
     try:
         usuario_comun=Usuarios.objects.get(codigo_usuario=request.user.username)
@@ -3022,28 +3023,36 @@ def editar(request,acid,tipo):
            
         else:
 
-                if tipo=="Mediciones":   
+                if tipo=="Mediciones":  
+                    f = Mediciones.objects.get(pk=acid) 
                     form = MedicionesForm(instance=f)
 
-                elif tipo=="Mediciones_DP":   
+                elif tipo=="Mediciones_DP":
+                    f = Mediciones_DP.objects.get(pk=acid)    
                     form = Mediciones_DPForm(instance=f) 
 
-                elif tipo=="Termografias":   
+                elif tipo=="Termografias":
+                    f = Termografias.objects.get(pk=acid)     
                     form = TermografiasForm(instance=f)
 
-                elif tipo=="Generadores":   
+                elif tipo=="Generadores": 
+                    f = Generadores.objects.get(pk=acid)  
                     form = GeneradoresForm(instance=f)
 
-                elif tipo=="Transformadores":   
+                elif tipo=="Transformadores":
+                    f = Transformadores.objects.get(pk=acid)     
                     form = TransformadoresForm(instance=f)
 
-                elif tipo=="Sistema_termografico":   
+                elif tipo=="Sistema_termografico":
+                    f = Sistema_termografico.objects.get(pk=acid)   
                     form = Sistema_termograficoForm(instance=f)  
 
-                elif tipo=="Centrales":   
+                elif tipo=="Centrales":
+                    f = Centrales.objects.get(pk=acid)   
                     form =CentralesForm(instance=f)  
 
-                elif tipo=="Usuarios":   
+                elif tipo=="Usuarios":
+                    f = Usuarios.objects.get(pk=acid)   
                     form =UsuariosForm(instance=f)   
                 
                 else:            
