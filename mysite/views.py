@@ -1011,7 +1011,7 @@ def principal(request):
     centrales=Centrales.objects.all()
 
     central=Centrales.objects.filter(codigo_usuario=request.user.username).first()
-    central_x=central.nombre
+    central_x=
 
     try:
         usuario_comun=Usuarios.objects.get(codigo_usuario=request.user.username)
