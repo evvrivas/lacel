@@ -29,13 +29,13 @@
                             
                              <tr  align="center">
                                     
-                                    <td WIDTH="75">Unidad</td>  
+                                    <td WIDTH="120">Unidad</td>  
                                     <td WIDTH="120">Tx CODIGO</td>                 
-                                    <td WIDTH="170">Tx MARCA</td>
+                                    <td WIDTH="120">Tx MARCA</td>
 
                                    
                                     
-                                    <td WIDTH="80">Ver </td>
+                                    <td WIDTH="100">Ver </td>
                              </tr > 
 
 
@@ -43,7 +43,7 @@
                                 
                                 <tr  align="center">
                                     
-                                    <td WIDTH="75">{{i.codigo}}
+                                    <td WIDTH="120">{{i.codigo}}
 
                                                                             
 
@@ -63,11 +63,11 @@
 
 
                                     </td>   
-                                    <td WIDTH="100">{{i.modelo}}</td>              
-                                    <td WIDTH="150">{{i.marca}}</td>           
+                                    <td WIDTH="120">{{i.modelo}}</td>              
+                                    <td WIDTH="120">{{i.marca}}</td>           
                                    
                                     
-                                    <td WIDTH="80">
+                                    <td WIDTH="100">
  
                                     {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  %}  
                                     <a href="/analisis/{{i.central.nombre}}/{{i.codigo}}">AGDA</a>
@@ -124,10 +124,10 @@
                             
                              <tr  align="center">
                                     
-                                    <td WIDTH="75">Unidad</td>  
+                                    <td WIDTH="120">Unidad</td>  
                                     <td WIDTH="120">Gx CODIGO</td>                 
-                                    <td WIDTH="170">Gx MARCA</td>                                 
-                                    <td WIDTH="80">Ver </td>
+                                    <td WIDTH="120">Gx MARCA</td>                                 
+                                    <td WIDTH="100">Ver </td>
                                     
                              </tr > 
 
@@ -136,7 +136,7 @@
                                 
                                 <tr  align="center">
                                     
-                                    <td WIDTH="75">{{i.codigo}}
+                                    <td WIDTH="120">{{i.codigo}}
 
                                     
  
@@ -151,11 +151,11 @@
 
 
                                     </td>   
-                                    <td WIDTH="100">{{i.modelo}}</td>              
-                                    <td WIDTH="150">{{i.marca}}</td>           
+                                    <td WIDTH="120">{{i.modelo}}</td>              
+                                    <td WIDTH="120">{{i.marca}}</td>           
                                    
                                     
-                                    <td WIDTH="80">
+                                    <td WIDTH="100">
 
                                     {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x %}  
                                     <a href="/analisis_dp/{{i.central.nombre}}/{{i.codigo}}">ADP</a>
@@ -214,7 +214,7 @@
                             
                              <tr  align="center">
 
-                                    <td WIDTH="160">Nombre del sistema termogafico</td> 
+                                    <td WIDTH="180">Nombre del sistema termogafico</td> 
                                      <td WIDTH="100">Fecha inicial</td> 
                                     
 
@@ -226,7 +226,7 @@
                                 
                                 <tr  align="center">
 
-                                    <td WIDTH="160">{{i.nombre}}
+                                    <td WIDTH="180">{{i.nombre}}
 
                                     {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.codigo_usuario == i.codigo_usuario %}  
                                       <h6><a href="/editar/{{i.id}}/Sistema_termografico">editar Sist. term.</a> </h6>
@@ -305,10 +305,10 @@ nombres=models.CharField(max_length=30)
                                 
                                 <tr  align="center">
                                     
-                                    <td WIDTH="75">{{i.codigo}}
+                                    <td WIDTH="75">{{i.codigo_usuario}}
                                     {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.codigo_usuario == i.codigo_usuario %}                                        
                                                  
-                                           <h6><a href="/editar/{{i.id}}/Usuarios">Editar Generador</a> </h6>
+                                           <h6><a href="/editar/{{i.id}}/Usuarios">Editar usuario</a> </h6>
                                         
                                         {%  else  %}  
                                                  <p>..</p>
@@ -317,11 +317,10 @@ nombres=models.CharField(max_length=30)
                                         </td>  
                                     
 
-                                    <td WIDTH="100">{{i.nombre}}</td>  
-                                    <td WIDTH="100">{{i.apellido}}</td>
+                                    <td WIDTH="100">{{i.nombres}}</td>  
+                                    <td WIDTH="100">{{i.apellidos}}</td>
                                     <td WIDTH="100">{{i.email}}</td>  
-
-                                    
+                        
  
                                     
 

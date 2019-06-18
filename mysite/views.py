@@ -1011,11 +1011,9 @@ def principal(request):
     centrales=Centrales.objects.all()
 
     central=Centrales.objects.filter(codigo_usuario=request.user.username).first()
-    central_x=
-
     try:
         usuario_comun=Usuarios.objects.get(codigo_usuario=request.user.username)
-
+        central_x=central.nombre
     except:
         pass
 
@@ -1080,6 +1078,13 @@ def analisis_rapido(request,central_x,transformador_x):
     return render(request,'analisis_rapido.html',locals())
 
 def analisis(request,central_x,transformador_x):
+    centrales=Centrales.objects.all()    
+    central=Centrales.objects.filter(codigo_usuario=request.user.username).first()
+    try:
+        usuario_comun=Usuarios.objects.get(codigo_usuario=request.user.username)
+        central_x=central.nombre
+    except:
+        pass
 
     VALOR_DEL_GAS= datos_de_analisis(central_x, transformador_x)
     
@@ -1457,8 +1462,10 @@ def grafico_tendencias_DP(request,central_x, generador_x):
 
 def  ver_graficas_mensuales(request,id_imagen):
     centrales=Centrales.objects.all()
+    central=Centrales.objects.filter(codigo_usuario=request.user.username).first()
     try:
         usuario_comun=Usuarios.objects.get(codigo_usuario=request.user.username)
+        central_x=central.nombre
     except:
         pass
     datos_DP=Mediciones_DP.objects.filter(id=id_imagen).first()
@@ -1469,10 +1476,13 @@ def  ver_graficas_mensuales(request,id_imagen):
 
 def analisis_termografico(request,sistema_x):
     centrales=Centrales.objects.all()  
+    
+    central=Centrales.objects.filter(codigo_usuario=request.user.username).first()
     try:
         usuario_comun=Usuarios.objects.get(codigo_usuario=request.user.username)
+        central_x=central.nombre
     except:
-        pass  
+        pass 
     termografias_x=Termografias.objects.filter(sistema_termografico__nombre__icontains=sistema_x).order_by("fecha_del_analisis").first()
     termografias=Termografias.objects.filter(sistema_termografico__nombre__icontains=sistema_x).order_by("fecha_del_analisis")
           
