@@ -71,12 +71,12 @@
  
                                     {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  %}  
                                     <a href="/analisis/{{i.central.nombre}}/{{i.codigo}}">AGDA</a>
-                                    <a href="/ingresar_datos_trafo/{{i.central.nombre}}/{{i.codigo}}">Agregar</a>
+                                    <h6><a href="/ingresar_datos_trafo/{{i.central.nombre}}/{{i.codigo}}">Agregar</a></h6>
                                     
                                     </td>
                                     {%  elif user.is_authenticated and usuario_comun.privilegio == "DE_ALTA_INVITADO" and usuario_comun.central.nombre == central_x %} 
                                     <a href="/analisis/{{i.central.nombre}}/{{i.codigo}}">AGDA</a></td>
-                                    <a href="/ingresar_datos_trafo/{{i.central.nombre}}/{{i.codigo}}">Agregar</a>
+                                    <h6><a href="/ingresar_datos_trafo/{{i.central.nombre}}/{{i.codigo}}">Agregar</a></h6>
                                     {%  else  %}  
                                     <p>AGDA</p>
 
@@ -159,12 +159,12 @@
 
                                     {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x %}  
                                     <a href="/analisis_dp/{{i.central.nombre}}/{{i.codigo}}">ADP</a>
-                                    <a href="/ingreso_datos_dp/{{i.central.nombre}}/{{i.codigo}}">Agregar</a>
+                                    <h6><a href="/ingreso_datos_dp/{{i.central.nombre}}/{{i.codigo}}">Agregar</a></h6>
                                                                         
 
                                     {%  elif user.is_authenticated and usuario_comun.privilegio == "DE_ALTA_INVITADO" and usuario_comun.central.nombre == central_x %} 
                                     <a href="/analisis/{{i.central.nombre}}/{{i.codigo}}">ADP</a>
-                                    <a href="/ingreso_datos_dp/{{i.central.nombre}}/{{i.codigo}}">Agregar</a>
+                                    <h6><a href="/ingreso_datos_dp/{{i.central.nombre}}/{{i.codigo}}">Agregar</a></h6>
                                    
                                     {%  else  %}  
                                     <p>ADP</p>
@@ -230,7 +230,7 @@
 
                                     {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.codigo_usuario == i.codigo_usuario %}  
                                       <h6><a href="/editar/{{i.id}}/Sistema_termografico">editar Sist. term.</a> </h6>
-                                                 <a href=""></a>  
+                                                 
                                         {%  else  %}  
                                                  <p>..</p>
 
@@ -244,13 +244,15 @@
 
                                     <td WIDTH="100">           
                                     
-                                    {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x %}  
+                            {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x %}  
                                     <a href="/analisis_termografico/{{i.nombre}}/">Ver Termografia</a>
-                                    <a href="/ingresar_termografias/{{i.central.nombre}}/{{i.nombre}}">Agregar</a></td>
-                                    {%  elif user.is_authenticated and usuario_comun.privilegio == "DE_ALTA_INVITADO" and usuario_comun.central.nombre == central_x %} 
+                                    <h6><a href="/ingresar_termografias/{{i.central.nombre}}/{{i.nombre}}">Agregar</a></td></h6>
+                           
+                            {%  elif user.is_authenticated and usuario_comun.privilegio == "DE_ALTA_INVITADO" and usuario_comun.central.nombre == central_x %} 
                                     <a href="/analisis_termografico/{{i.nombre}}/">Ver Termografia</a>
-                                    <a href="/ingresar_termografias/{{i.central.nombre}}/{{i.nombre}}">Agregar</a></td>
-                                    {%  else  %}  
+                                    <h6><a href="/ingresar_termografias/{{i.central.nombre}}/{{i.nombre}}">Agregar</a></h6></td>
+                           
+                            {%  else  %}  
                                     <p>Ver termografia</p>
 
                                     {% endif %}                                                                
@@ -322,11 +324,7 @@ nombres=models.CharField(max_length=30)
                                     <td WIDTH="100">{{i.email}}</td>  
                         
  
-                                    
-
-
-
-                                   
+                                                                       
                             {%  endfor %} 
                           
 

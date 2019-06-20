@@ -2978,6 +2978,7 @@ def datos_prueba_DP(request):
 def editar(request,acid,tipo):   
         
         centrales=Centrales.objects.all()  
+        
     
         if request.method == 'POST':
 
