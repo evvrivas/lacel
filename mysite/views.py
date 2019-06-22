@@ -1458,9 +1458,9 @@ def grafico_tendencias_DP(request,central_x, generador_x):
         
         return HttpResponse (buffer.getvalue(), content_type="Image/png")
 
+ 
 
-
-def  ver_graficas_mensuales(request,id_imagen):
+def  ver_graficas_mensuales(request,id_medicion):
     centrales=Centrales.objects.all()
     central=Centrales.objects.filter(codigo_usuario=request.user.username).first()
     try:
@@ -1468,7 +1468,7 @@ def  ver_graficas_mensuales(request,id_imagen):
         central_x=central.nombre
     except:
         pass
-    datos_DP=Mediciones_DP.objects.filter(id=id_imagen).first()
+    datos_DP=Mediciones_DP.objects.filter(id=id_medicion).first()
     identificador=datos_DP
 
     return render(request,'graficas_del_mes.html',locals())
@@ -3041,20 +3041,20 @@ def editar(request,acid,tipo):
                 if tipo=="Mediciones":  
                     f = Mediciones.objects.get(pk=acid)
                     nombre_central_x=f.central.nombre  
-                    codigo_transformador_x=f.transformador.codigo_transformador
+                    codigo_transformador_x=f.transformador.codigo
 
                     form = MedicionesForm(nombre_central_x,codigo_transformador_x,instance=f)
 
                 elif tipo=="Mediciones_DP":
                     f = Mediciones_DP.objects.get(pk=acid)  
                     nombre_central_x=f.central.nombre 
-                    codigo_generador_x=f.generador.codigo_generador
+                    codigo_generador_x=f.generador.codigo
                     form = Mediciones_DPForm(instance=f) 
 
                 elif tipo=="Termografias":
                     f = Termografias.objects.get(pk=acid)
                     nombre_central_x=f.central.nombre 
-                    nombre_sistema_x=f.sistema_termografico.codigo_generador       
+                    nombre_sistema_x=f.sistema_termografico.nombre       
                     form = TermografiasForm(nombre_central_x,nombre_sistema_x,instance=f)
 
                 elif tipo=="Generadores": 

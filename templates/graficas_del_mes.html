@@ -32,15 +32,15 @@
                         <br>
 
                 
-                        {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.codigo_usuario == i.codigo_usuario %}  
+                        {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.codigo_usuario == identificador.codigo_usuario %}  
                                       
                                            <h6><a href="/editar/{{i.id}}/Mediciones_DP">Editar med DP</a> </h6> 
 
-                                {%  else  %}  
+                        {%  else  %}  
 
                                            <p>..</p>
 
-                                    {% endif %}
+                        {% endif %}
 <br>
      
 
