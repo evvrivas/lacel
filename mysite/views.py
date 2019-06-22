@@ -3055,22 +3055,22 @@ def editar(request,acid,tipo):
                     f = Termografias.objects.get(pk=acid)
                     nombre_central_x=f.central.nombre 
                     nombre_sistema_x=f.sistema_termografico.codigo_generador       
-                    form = TermografiasForm(instance=f)
+                    form = TermografiasForm(nombre_central_x,nombre_sistema_x,instance=f)
 
                 elif tipo=="Generadores": 
                     f = Generadores.objects.get(pk=acid)
                     central_x=f.central.nombre  
-                    form = GeneradoresForm(generador_x,instance=f)
+                    form = GeneradoresForm(central_x,instance=f)
 
                 elif tipo=="Transformadores":
                     f = Transformadores.objects.get(pk=acid)
                     central_x=f.central.nombre 
-                    form = TransformadoresForm(transformador_x,instance=f)
+                    form = TransformadoresForm(central_x,instance=f)
 
                 elif tipo=="Sistema_termografico":
                     f = Sistema_termografico.objects.get(pk=acid)
                     central_x=f.central.nombre 
-                    form = Sistema_termograficoForm(sistema_x,instance=f)  
+                    form = Sistema_termograficoForm(central_x,instance=f)  
 
                 elif tipo=="Centrales":
                     f = Centrales.objects.get(pk=acid)   
