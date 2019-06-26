@@ -48,7 +48,7 @@
                    {% for i in termografias %} 
                    <div class="caption">   
 
-                   <h1><center> Imagenes termograficas: fecha {{j.fecha_del_analisis}} </center></h1>
+                   <h3><center> Imagenes termograficas: fecha {{i.fecha_del_analisis}} </center></h3>
 
           
                {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.codigo_usuario == i.codigo_usuario %}  
