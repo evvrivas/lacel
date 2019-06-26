@@ -30,8 +30,13 @@
 
                         </div></center>
                         <br>
-
-                
+#############################
+                {{usuario_comun.privilegio }}
+                {{usuario_comun.central.nombre}}
+                {{ central_x }} 
+                {{usuario_comun.codigo_usuario }}
+                {{identificador.codigo_usuario }}  
+#############################
                         {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.codigo_usuario == identificador.codigo_usuario %}  
                                       
                                            <h6><a href="/editar/{{i.id}}/Mediciones_DP">Editar med DP</a> </h6> 

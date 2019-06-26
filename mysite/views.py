@@ -222,7 +222,7 @@ def ingresar_termografias(request,central_nombre,nombre_sistema):
 def datos_prueba(request):
 
     date=datetime.datetime.now()
-    p1=Centrales(nombre="CH 5 NOVIEMBRE",fecha_ingreso=date)
+    p1=Centrales(nombre="CH 5 NOVIEMBRE",fecha_ingreso=date,codigo_usuario="7807004")
     p1.save() 
 
 
@@ -441,7 +441,7 @@ def datos_prueba(request):
 
   
 
-    p1=Centrales(nombre="CH GUAJOYO",fecha_ingreso=date)   
+    p1=Centrales(nombre="CH GUAJOYO",fecha_ingreso=date,codigo_usuario="7807003")   
     p1.save() 
 
     u1=User.objects.create_user(username="7807003", password="4690",email="evvaldez@cel.gob.sv",first_name="Rigoberto",last_name="Avila")
@@ -1473,7 +1473,7 @@ def  ver_graficas_mensuales(request,id_medicion):
 
     return render(request,'graficas_del_mes.html',locals())
 
-
+   
 def analisis_termografico(request,sistema_x):
     centrales=Centrales.objects.all()  
     
@@ -1485,7 +1485,7 @@ def analisis_termografico(request,sistema_x):
         pass 
     termografias_x=Termografias.objects.filter(sistema_termografico__nombre__icontains=sistema_x).order_by("fecha_del_analisis").first()
     termografias=Termografias.objects.filter(sistema_termografico__nombre__icontains=sistema_x).order_by("fecha_del_analisis")
-          
+    sistema_termografico=Sistema_termografico.objects.filter(nombre=sistema_x).first()      
     return render(request,'analisis_termografico.html',locals())
 
 

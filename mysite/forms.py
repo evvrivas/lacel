@@ -76,11 +76,8 @@ class Sistema_termograficoForm(ModelForm):#productos
 		widgets = {'justificacion': Textarea(attrs={'cols': 40, 'rows': 3}),}
 		exclude=["fecha_ingreso","codigo_usuario"]
 	def __init__(self, nombre_central,*args, **kwargs):
-		super(GeneradoresForm, self).__init__(*args, **kwargs)		
+		super(Sistema_termograficoForm, self).__init__(*args, **kwargs)		
 		self.fields['central'].queryset=Centrales.objects.filter(nombre=nombre_central)
-
-
-
 
 
 
