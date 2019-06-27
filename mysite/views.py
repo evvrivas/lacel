@@ -2974,17 +2974,7 @@ def datos_prueba_DP(request):
 
  
 
- f = Pedidos.objects.get(pk=acid)           
-       
-        if request.method == 'POST':
-            form = PedidosForm(request.POST,request.FILES,instance=f)
-       
-            if form.is_valid():
-                    ped=form.save(commit=False)
-                    ped.id_usuario =  request.user.username
-                    ped.save() # Guardar los datos en la base de datos 
-                    connection.close()
-                    return render(request,'confirmar_tienda.html',locals())
+
 
 
 
