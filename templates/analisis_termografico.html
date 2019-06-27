@@ -49,13 +49,7 @@
                    <div class="caption">   
 
                    <h3><center> Imagenes termograficas: fecha {{i.fecha_del_analisis}} </center></h3>
-#############################
-                {{usuario_comun.privilegio }}
-                {{usuario_comun.central.nombre}}
-                {{ central_x }} 
-                {{usuario_comun.codigo_usuario }}
-                {{identificador.codigo_usuario }}  
-#############################
+
           
                {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x  and usuario_comun.codigo_usuario == i.codigo_usuario %}  
                          <h6><a href="/editar/{{i.id}}/Termografias">Editar Termografia</a> </h6> 
@@ -74,7 +68,7 @@
                          <div class="col-md-6">
                     <center> 
                         
-                         
+                          <h3><p>{{i.nombre_1}}</p> </h3>
                          {% thumbnail i.imagen_termografica_secuencia_1 "500" crop="center" as im %}
                               <a href="" target="_blank"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a> 
                          {% endthumbnail %}  
@@ -88,6 +82,7 @@
                          <div class="col-md-6">
                       <center>
 
+                        <h3><p>{{i.nombre_2}}</p> </h3>
                          {% thumbnail i.imagen_termografica_secuencia_2 "500" crop="center" as im %}
                               <a href="" target="_blank"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a> 
                          {% endthumbnail %}  

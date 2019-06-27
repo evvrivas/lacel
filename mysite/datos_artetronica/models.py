@@ -27,7 +27,7 @@ class Centrales(models.Model):
 
 PRIVILEGIOS=(
 			('DE_ALTA', 'DE_ALTA'),            
-            ('DE_ALTA_INVITADO', 'DE_ALTA__INVITADO'),
+            ('DE_ALTA_INVITADO', 'DE_ALTA_INVITADO'),
 			('DE_BAJA', 'DE_BAJA'),
 
 		     )
@@ -202,10 +202,10 @@ class Termografias(models.Model):
          codigo_usuario = models.CharField(max_length=60,blank=True)
          fecha_del_analisis = models.DateField(default=datetime.now,null=False)
          fecha_ingreso= models.DateField(default=datetime.now,null=False)          
-          
+         nombre_1=models.CharField(max_length=60,blank=True) 
          imagen_termografica_secuencia_1 = ImageField(upload_to='tmp',blank=True)
          comentario_termografia_1 = models.TextField(blank=True)
-
+         nombre_2=models.CharField(max_length=60,blank=True)
          imagen_termografica_secuencia_2 = ImageField(upload_to='tmp',blank=True)         
          comentario_termografia_2 = models.TextField(blank=True)
   

@@ -78,7 +78,7 @@ def crear_ususario_cel(request):
                             correo=form.cleaned_data['email']
                             nom=form.cleaned_data['nombres']
                             apell=form.cleaned_data['apellidos']                     
-                            
+                            central_xx=form.cleaned_data['central.nombre'] 
 
                             user = User.objects.create_user(username=usuariocel, password=contracel,email=correo,first_name=nom,last_name=apell)
                             user.save() 
@@ -121,6 +121,7 @@ def ingresar_datos_trafo(request,central_nombre,codigo_trafo):
                             form.save() # Guardar los datos en la base de datos  print 
                             #return render_to_response('confirmar.html', locals() ,context_instance=RequestContext(request))
                             connection.close()
+                            central_xx=central_nombre
                             return render(request,'confirmar.html',locals())                  
                 
 
@@ -208,6 +209,7 @@ def ingresar_termografias(request,central_nombre,nombre_sistema):
                             form.save() # Guardar los datos en la base de datos  print 
                             #return render_to_response('confirmar.html', locals() ,context_instance=RequestContext(request))
                             connection.close()
+                            central_xx=central_nombre
                             return render(request,'confirmar.html',locals())                
                 
 
@@ -1255,6 +1257,7 @@ def ingreso_datos_dp(request,central_nombre,codigo_generador):
      #!/usr/bin/python
         # -*- coding: latin-1 -*-        
         import os, sys
+        central_xx=central_nombre
         centrales=Centrales.objects.all()
         if request.method == 'POST': # si el usuario est enviando el formulario con datos
                              
@@ -1273,6 +1276,7 @@ def ingreso_datos_dp(request,central_nombre,codigo_generador):
                             form.save() # Guardar los datos en la base de datos  print 
                             #return render_to_response('confirmar.html', locals() ,context_instance=RequestContext(request))
                             connection.close()
+                            central_xx=central_nombre
                             return render(request,'confirmar.html',locals())                  
                 
 
@@ -2975,9 +2979,6 @@ def datos_prueba_DP(request):
  
 
 
-
-
-
 def editar(request,acid,tipo):   
         
         centrales=Centrales.objects.all()  
@@ -3027,7 +3028,8 @@ def editar(request,acid,tipo):
 
                 elif tipo=="Usuarios":   
                     f = Usuarios.objects.get(pk=acid)
-                    form =UsuariosForm(request.POST,request.FILES,instance=f)    
+                    form =UsuariosForm(request.POST,request.FILES,instance=f)   
+
                 
                 else:            
                     pass
@@ -3042,6 +3044,8 @@ def editar(request,acid,tipo):
                         temporal.save() # Now you can send it to DB
                         form.save()
                         connection.close() 
+
+                        central_xx=central_x
 
                         return render(request,'confirmar.html',locals())       
                           
@@ -3062,7 +3066,7 @@ def editar(request,acid,tipo):
                     f = Mediciones_DP.objects.get(pk=acid)  
                     nombre_central_x=f.central.nombre 
                     codigo_generador_x=f.generador.codigo
-                    form = Mediciones_DPForm(instance=f) 
+                    form = Mediciones_DPForm(nombre_central_x,codigo_generador_x,instance=f) 
 
                 elif tipo=="Termografias":
                     f = Termografias.objects.get(pk=acid)
