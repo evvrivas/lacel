@@ -2972,6 +2972,19 @@ def datos_prueba_DP(request):
 
     return render(request,'principal.html',locals())
 
+ 
+
+ f = Pedidos.objects.get(pk=acid)           
+       
+        if request.method == 'POST':
+            form = PedidosForm(request.POST,request.FILES,instance=f)
+       
+            if form.is_valid():
+                    ped=form.save(commit=False)
+                    ped.id_usuario =  request.user.username
+                    ped.save() # Guardar los datos en la base de datos 
+                    connection.close()
+                    return render(request,'confirmar_tienda.html',locals())
 
 
 
@@ -2985,28 +2998,38 @@ def editar(request,acid,tipo):
                 if tipo=="Mediciones":  
 
                     f = Mediciones.objects.get(pk=acid)
-                    form =MedicionesForm(request.POST,request.FILES,instance=f)
+                    nombre_central_x=f.central.nombre  
+                    codigo_transformador_x=f.transformador.codigo
+                    form =MedicionesForm(nombre_central_x,codigo_transformador_x,request.POST,request.FILES,instance=f)
+
 
                 elif tipo=="Mediciones_DP":   
                     f =Mediciones_DP.objects.get(pk=acid)
-                    form =Mediciones_DPForm(request.POST,request.FILES,instance=f) 
+                    nombre_central_x=f.central.nombre 
+                    codigo_generador_x=f.generador.codigo
+                    form =Mediciones_DPForm(nombre_central_x,codigo_generador_x,request.POST,request.FILES,instance=f) 
 
                 elif tipo=="Termografias":   
                     f = Termografias.objects.get(pk=acid)
-                    form =TermografiasForm(request.POST,request.FILES,instance=f) 
+                    nombre_central_x=f.central.nombre 
+                    nombre_sistema_x=f.sistema_termografico.nombre
+                    form =TermografiasForm(nombre_central_x,nombre_sistema_x,request.POST,request.FILES,instance=f) 
 
                 elif tipo=="Generadores":  
 
                     f = Generadores.objects.get(pk=acid)
-                    form =GeneradoresForm(request.POST,request.FILES,instance=f)  
+                    central_x=f.central.nombre  
+                    form =GeneradoresForm(central_x,request.POST,request.FILES,instance=f)  
 
                 elif tipo=="Transformadores":   
                     f = Transformadores.objects.get(pk=acid)
-                    form =TransformadoresForm(request.POST,request.FILES,instance=f)  
+                    central_x=f.central.nombre 
+                    form =TransformadoresForm(central_x,request.POST,request.FILES,instance=f)  
 
                 elif tipo=="Sistema_termografico":   
                     f = Sistema_termografico.objects.get(pk=acid)
-                    form =Sistema_termograficoForm(request.POST,request.FILES,instance=f)    
+                    central_x=f.central.nombre 
+                    form =Sistema_termograficoForm(central_x,request.POST,request.FILES,instance=f)    
 
                 elif tipo=="Centrales":   
                     f = Centrales.objects.get(pk=acid)
