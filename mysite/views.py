@@ -78,7 +78,7 @@ def crear_ususario_cel(request):
                             correo=form.cleaned_data['email']
                             nom=form.cleaned_data['nombres']
                             apell=form.cleaned_data['apellidos']                     
-                            central_xx=form.cleaned_data['central.nombre'] 
+                            central_x=form.cleaned_data['central.nombre'] 
 
                             user = User.objects.create_user(username=usuariocel, password=contracel,email=correo,first_name=nom,last_name=apell)
                             user.save() 
@@ -121,7 +121,7 @@ def ingresar_datos_trafo(request,central_nombre,codigo_trafo):
                             form.save() # Guardar los datos en la base de datos  print 
                             #return render_to_response('confirmar.html', locals() ,context_instance=RequestContext(request))
                             connection.close()
-                            central_xx=central_nombre
+                            central_x=central_nombre
                             return render(request,'confirmar.html',locals())                  
                 
 
@@ -209,7 +209,7 @@ def ingresar_termografias(request,central_nombre,nombre_sistema):
                             form.save() # Guardar los datos en la base de datos  print 
                             #return render_to_response('confirmar.html', locals() ,context_instance=RequestContext(request))
                             connection.close()
-                            central_xx=central_nombre
+                            central_x=central_nombre
                             return render(request,'confirmar.html',locals())                
                 
 
@@ -1257,7 +1257,7 @@ def ingreso_datos_dp(request,central_nombre,codigo_generador):
      #!/usr/bin/python
         # -*- coding: latin-1 -*-        
         import os, sys
-        central_xx=central_nombre
+        central_x=central_nombre
         centrales=Centrales.objects.all()
         if request.method == 'POST': # si el usuario est enviando el formulario con datos
                              
@@ -1276,7 +1276,7 @@ def ingreso_datos_dp(request,central_nombre,codigo_generador):
                             form.save() # Guardar los datos en la base de datos  print 
                             #return render_to_response('confirmar.html', locals() ,context_instance=RequestContext(request))
                             connection.close()
-                            central_xx=central_nombre
+                           
                             return render(request,'confirmar.html',locals())                  
                 
 
@@ -2989,22 +2989,22 @@ def editar(request,acid,tipo):
                 if tipo=="Mediciones":  
 
                     f = Mediciones.objects.get(pk=acid)
-                    nombre_central_x=f.central.nombre  
+                    central_x=f.central.nombre  
                     codigo_transformador_x=f.transformador.codigo
-                    form =MedicionesForm(nombre_central_x,codigo_transformador_x,request.POST,request.FILES,instance=f)
+                    form =MedicionesForm(central_x,codigo_transformador_x,request.POST,request.FILES,instance=f)
 
 
                 elif tipo=="Mediciones_DP":   
                     f =Mediciones_DP.objects.get(pk=acid)
-                    nombre_central_x=f.central.nombre 
+                    central_x=f.central.nombre 
                     codigo_generador_x=f.generador.codigo
-                    form =Mediciones_DPForm(nombre_central_x,codigo_generador_x,request.POST,request.FILES,instance=f) 
+                    form =Mediciones_DPForm(central_x,codigo_generador_x,request.POST,request.FILES,instance=f) 
 
                 elif tipo=="Termografias":   
                     f = Termografias.objects.get(pk=acid)
-                    nombre_central_x=f.central.nombre 
+                    central_x=f.central.nombre 
                     nombre_sistema_x=f.sistema_termografico.nombre
-                    form =TermografiasForm(nombre_central_x,nombre_sistema_x,request.POST,request.FILES,instance=f) 
+                    form =TermografiasForm(central_x,nombre_sistema_x,request.POST,request.FILES,instance=f) 
 
                 elif tipo=="Generadores":  
 
@@ -3024,10 +3024,12 @@ def editar(request,acid,tipo):
 
                 elif tipo=="Centrales":   
                     f = Centrales.objects.get(pk=acid)
+                    central_x=f.nombre 
                     form =CentralesForm(request.POST,request.FILES,instance=f)  
 
                 elif tipo=="Usuarios":   
                     f = Usuarios.objects.get(pk=acid)
+                    f.central.nombre
                     form =UsuariosForm(request.POST,request.FILES,instance=f)   
 
                 
@@ -3045,7 +3047,7 @@ def editar(request,acid,tipo):
                         form.save()
                         connection.close() 
 
-                        central_xx=central_x
+                        
 
                         return render(request,'confirmar.html',locals())       
                           
@@ -3057,22 +3059,22 @@ def editar(request,acid,tipo):
 
                 if tipo=="Mediciones":  
                     f = Mediciones.objects.get(pk=acid)
-                    nombre_central_x=f.central.nombre  
+                    central_x=f.central.nombre  
                     codigo_transformador_x=f.transformador.codigo
 
-                    form = MedicionesForm(nombre_central_x,codigo_transformador_x,instance=f)
+                    form = MedicionesForm(central_x,codigo_transformador_x,instance=f)
 
                 elif tipo=="Mediciones_DP":
                     f = Mediciones_DP.objects.get(pk=acid)  
-                    nombre_central_x=f.central.nombre 
+                    central_x=f.central.nombre 
                     codigo_generador_x=f.generador.codigo
-                    form = Mediciones_DPForm(nombre_central_x,codigo_generador_x,instance=f) 
+                    form = Mediciones_DPForm(central_x,codigo_generador_x,instance=f) 
 
                 elif tipo=="Termografias":
                     f = Termografias.objects.get(pk=acid)
-                    nombre_central_x=f.central.nombre 
+                    central_x=f.central.nombre 
                     nombre_sistema_x=f.sistema_termografico.nombre       
-                    form = TermografiasForm(nombre_central_x,nombre_sistema_x,instance=f)
+                    form = TermografiasForm(central_x,nombre_sistema_x,instance=f)
 
                 elif tipo=="Generadores": 
                     f = Generadores.objects.get(pk=acid)
@@ -3090,11 +3092,13 @@ def editar(request,acid,tipo):
                     form = Sistema_termograficoForm(central_x,instance=f)  
 
                 elif tipo=="Centrales":
-                    f = Centrales.objects.get(pk=acid)   
+                    f = Centrales.objects.get(pk=acid) 
+                    central_x=f.nombre   
                     form =CentralesForm(instance=f)  
 
                 elif tipo=="Usuarios":
-                    f = Usuarios.objects.get(pk=acid)   
+                    f = Usuarios.objects.get(pk=acid)
+                    central_x=f.central.nombre   
                     form =UsuariosForm(instance=f)   
                 
                 else:            
