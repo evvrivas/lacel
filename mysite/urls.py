@@ -60,6 +60,8 @@ urlpatterns = [
     
     url(r'^datos_prueba_DP/$', datos_prueba_DP),
     url(r'^datos_prueba/$', datos_prueba),
+  
+    url(r'^manual_de_usuario/$',manual_de_usuario),
 
     url(r'^editar/(\d+)/([^/]+)/$', editar),   
        

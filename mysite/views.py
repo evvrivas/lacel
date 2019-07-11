@@ -3320,4 +3320,6 @@ def editar(request,acid,tipo):
 
 
 
-                
+def manual_de_usuario(request):
+    centrales=Centrales.objects.all() 
+    return render(request,'manual_de_usuario.html',locals())
