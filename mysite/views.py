@@ -60,6 +60,7 @@ def informacion(request):
   return render(request,'informacion.html',locals())
 
 
+
 def crear_ususario_cel(request):
         import os, sys
         centrales=Centrales.objects.all()
