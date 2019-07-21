@@ -79,7 +79,7 @@ def crear_ususario_cel(request):
                             correo=form.cleaned_data['email']
                             nom=form.cleaned_data['nombres']
                             apell=form.cleaned_data['apellidos']                     
-                            central_x=form.cleaned_data['central__nombre'] 
+                            central_x=form.cleaned_data['central'] 
 
                             user = User.objects.create_user(username=usuariocel, password=contracel,email=correo,first_name=nom,last_name=apell)
                             user.save() 
