@@ -29,6 +29,7 @@ PRIVILEGIOS=(
 			('DE_ALTA', 'DE_ALTA'),            
             ('DE_ALTA_INVITADO', 'DE_ALTA_INVITADO'),
 			('DE_BAJA', 'DE_BAJA'),
+            ('GERENCIA', 'GERENCIA'),
 
 		     )
 

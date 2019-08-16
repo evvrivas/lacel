@@ -93,6 +93,11 @@
                                     {%  elif user.is_authenticated and usuario_comun.privilegio == "DE_ALTA_INVITADO" and usuario_comun.central.nombre == central_x %} 
                                     <a href="/analisis/{{i.central.nombre}}/{{i.codigo}}">AGDA</a></td>
                                     <h6><a href="/ingresar_datos_trafo/{{i.central.nombre}}/{{i.codigo}}">Agregar</a></h6>
+
+                                    {%  elif user.is_authenticated and usuario_comun.privilegio == "GERENCIA" %} 
+                                    <a href="/analisis/{{i.central.nombre}}/{{i.codigo}}">AGDA</a></td>
+                                    <h6>
+
                                     {%  else  %}  
                                     <p>AGDA</p>
 
@@ -183,7 +188,10 @@
                                     {%  elif user.is_authenticated and usuario_comun.privilegio == "DE_ALTA_INVITADO" and usuario_comun.central.nombre == central_x %} 
                                     <a href="/analisis/{{i.central.nombre}}/{{i.codigo}}">ADP</a>
                                     <h6><a href="/ingreso_datos_dp/{{i.central.nombre}}/{{i.codigo}}">Agregar</a></h6>
-                                   
+
+                                    {%  elif user.is_authenticated and usuario_comun.privilegio == "GERENCIA" %} 
+                                    <a href="/analisis/{{i.central.nombre}}/{{i.codigo}}">ADP</a>
+                                                                       
                                     {%  else  %}  
                                     <p>ADP</p>
 
@@ -273,6 +281,10 @@
                             {%  elif user.is_authenticated and usuario_comun.privilegio == "DE_ALTA_INVITADO" and usuario_comun.central.nombre == central_x %} 
                                     <a href="/analisis_termografico/{{i.nombre}}/">Ver Termografia</a>
                                     <h6><a href="/ingresar_termografias/{{i.central.nombre}}/{{i.nombre}}">Agregar</a></h6></td>
+
+                            {%  elif user.is_authenticated and usuario_comun.privilegio == "GERENCIA"%} 
+                                    <a href="/analisis_termografico/{{i.nombre}}/">Ver Termografia</a>
+                                    <h6>
                            
                             {%  else  %}  
                                     <p>Ver termografia</p>
