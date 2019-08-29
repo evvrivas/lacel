@@ -3333,14 +3333,14 @@ def ver_registros(request):
     vector=[]
 
     for i in centrales:
-        transformadores=Transformadores.object.filter(central=i.nombre)
-        generadores=Generadores.object.filter(central=i.nombre)
-        sistemas_termograficos=Sistemas_termografico.object.filter(central=i.nombre)
+        transformadores=Transformadores.objects.filter(central=i.nombre)
+        generadores=Generadores.objects.filter(central=i.nombre)
+        sistemas_termograficos=Sistemas_termografico.objects.filter(central=i.nombre)
 
         for j in transformadores:
             mediciones=Mediciones.objects.filter(central=i.nombre,transformador=j.nombre).order_by("-fecha_del_analisis").first()
            
-            a=[i.nombre, j.nombre,"GASES DISUELTOS EN ACEITE " mediciones.fecha_del_analisis]
+            a=[i.nombre, j.nombre,"GASES DISUELTOS EN ACEITE ", mediciones.fecha_del_analisis]
             vector.append(a)
 
 
