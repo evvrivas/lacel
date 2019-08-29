@@ -3324,3 +3324,35 @@ def editar(request,acid,tipo):
 def manual_de_usuario(request):
     centrales=Centrales.objects.all() 
     return render(request,'manual_de_usuario.html',locals())
+
+
+def ver_registros(request):
+
+    centrales=Centrales.objects.all()
+
+    vector=[]
+
+    for i in centrales:
+        transformadores=Transformadores.object.filter(central=i.nombre)
+        generadores=Generadores.object.filter(central=i.nombre)
+        sistemas_termograficos=Sistemas_termografico.object.filter(central=i.nombre)
+
+        for j in transformadores:
+            mediciones=Mediciones.objects.filter(central=i.nombre,transformador=j.nombre).order_by("-fecha_del_analisis").first()
+           
+            a=[i.nombre, j.nombre,"GASES DISUELTOS EN ACEITE " mediciones.fecha_del_analisis]
+            vector.append(a)
+
+
+        for j in generadores: 
+            mediciones=Mediciones_DP.objects.filter(central=i.nombre,generador=j.nombre).order_by("-fecha_del_analisis").first()
+            a=[i.nombre, j.nombre,"DESCARGAS PARCIALES",mediciones.fecha_del_analisis]
+            vector.append(a)
+
+        for j in sistemas_termograficos: 
+            mediciones=Termografias.objects.filter(central=i.nombre,sistema_termografico=j.nombre).order_by("-fecha_del_analisis").first()
+            a=[i.nombre, j.nombre," TERMOGRAFIA ", mediciones.fecha_del_analisis]
+            vector.append(a)
+
+    
+    return render(request,'ver_registros.html',locals())

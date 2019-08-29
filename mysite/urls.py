@@ -50,6 +50,7 @@ urlpatterns = [
     url(r'^ver_graficas_mensuales/(\d+)/$',ver_graficas_mensuales),
   
     url(r'^informacion/$', informacion),
+    url(r'^ver_registros/$', ver_registros),
 
     url(r'^listado_de_equipos/([^/]+)/$', listado_de_equipos),
     #url(r'^listado_de_mediciones/([^/]+)/([^/]+)/$', listado_de_mediciones),
@@ -63,7 +64,9 @@ urlpatterns = [
   
     url(r'^manual_de_usuario/$',manual_de_usuario),
 
-    url(r'^editar/(\d+)/([^/]+)/$', editar),   
+    url(r'^editar/(\d+)/([^/]+)/$', editar),
+
+       
        
 ]
 

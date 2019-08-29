@@ -68,6 +68,15 @@
                         </table>
                         </center>
 
+                        <br>
+
+                         {%  if user.is_authenticated and usuario_comun.privilegio == "GERENCIA"%}
+                                <h6><a href="/ver_registros">Ver registros actualizados</a> </h6> 
+                         {% endif %} 
+
+
+
+
 
                         </div>  
 

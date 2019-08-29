@@ -186,11 +186,11 @@
                                                                         
 
                                     {%  elif user.is_authenticated and usuario_comun.privilegio == "DE_ALTA_INVITADO" and usuario_comun.central.nombre == central_x %} 
-                                    <a href="/analisis/{{i.central.nombre}}/{{i.codigo}}">ADP</a>
+                                    <a href="/analisis_dp/{{i.central.nombre}}/{{i.codigo}}">ADP</a>
                                     <h6><a href="/ingreso_datos_dp/{{i.central.nombre}}/{{i.codigo}}">Agregar</a></h6>
 
                                     {%  elif user.is_authenticated and usuario_comun.privilegio == "GERENCIA" %} 
-                                    <a href="/analisis/{{i.central.nombre}}/{{i.codigo}}">ADP</a>
+                                    <a href="/analisis_dp/{{i.central.nombre}}/{{i.codigo}}">ADP</a>
                                                                        
                                     {%  else  %}  
                                     <p>ADP</p>
