@@ -3335,7 +3335,7 @@ def ver_registros(request):
     for i in centrales:
         transformadores=Transformadores.objects.filter(central=i)
         generadores=Generadores.objects.filter(central=i)
-        sistemas_termograficos=Sistemas_termografico.objects.filter(central=i)
+        sistemas_termograficos=Sistema_termografico.objects.filter(central=i)
 
         for j in transformadores:
             mediciones=Mediciones.objects.filter(central=i,transformador=j).order_by("-fecha_del_analisis").first()
