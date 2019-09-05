@@ -95,6 +95,10 @@ class Mediciones(models.Model):
          comentario = models.TextField(blank=True)
          fecha_del_analisis = models.DateField(default=datetime.now,null=False)
          fecha_ingreso = models.DateField(default=datetime.now,editable = True)
+         archivo_de_validacion=models.FileField(upload_to='tmp',,blank=True)
+         imagen_de_validacion=models.FloatField(default=0,blank=True,null=True)
+
+
          def __str__(self):
          	return  self.codigo_usuario
          class Admin:
@@ -159,6 +163,7 @@ class Mediciones_DP(models.Model):
          imagen_PRPDD_1 = ImageField(upload_to='tmp',blank=True)
          imagen_3D_1 = ImageField(upload_to='tmp',blank=True)
          imagen_PHD_1 = ImageField(upload_to='tmp',blank=True)
+         imagen_tendencia_1 = ImageField(upload_to='tmp',blank=True)
 
         
          PDI_C4_1=models.FloatField(default=0,blank=True,null=True)
@@ -173,9 +178,10 @@ class Mediciones_DP(models.Model):
          imagen_PRPDD_2 = ImageField(upload_to='tmp',blank=True)
          imagen_3D_2 = ImageField(upload_to='tmp',blank=True)
          imagen_PHD_2 = ImageField(upload_to='tmp',blank=True)
+         imagen_tendencia_2 = ImageField(upload_to='tmp',blank=True)
 
          comentario = models.TextField(blank=True)
-  
+           
          def __str__(self):
             return  self.generador.codigo
             
@@ -191,6 +197,7 @@ class Sistema_termografico(models.Model):
         justificacion=models.TextField(blank=True)
         imagen_de_analisis_1 = ImageField(upload_to='tmp',blank=True)        
         fecha_ingreso = models.DateField(default=datetime.now,editable = False)
+        archivo_de_validacion=models.FileField(upload_to='tmp',,blank=True)
 
         def __str__(self):
                return  self.nombre
@@ -208,7 +215,8 @@ class Termografias(models.Model):
          comentario_termografia_1 = models.TextField(blank=True)
          nombre_2=models.CharField(max_length=60,blank=True)
          imagen_termografica_secuencia_2 = ImageField(upload_to='tmp',blank=True)         
-         comentario_termografia_2 = models.TextField(blank=True)
+         comentario_termografia_2 = models.TextField(blank=True)         
+         
   
          def __str__(self):
             return  self.sistema_termografico.nombre

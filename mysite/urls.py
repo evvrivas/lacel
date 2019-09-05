@@ -65,6 +65,9 @@ urlpatterns = [
     url(r'^manual_de_usuario/$',manual_de_usuario),
 
     url(r'^editar/(\d+)/([^/]+)/$', editar),
+    url(r'^ver_validacion_AGDA/(\d+)/$', ver_validacion_AGDA),
+
+    
 
        
        

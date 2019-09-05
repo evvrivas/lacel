@@ -53,12 +53,17 @@
                   <ul class="nav nav-pills">
                     <li class="active"><a data-toggle="pill" href="#home">DATOS GENERADOR</a></li>
                     <li><a data-toggle="pill" href="#menu1">INTENSIDAD DP</a></li>
+
                     <li><a data-toggle="pill" href="#menu2">IMG DP 1</a></li>
                     <li><a data-toggle="pill" href="#menu3">IMG DP 2</a></li>
                     <li><a data-toggle="pill" href="#menu4">IMG DP 3</a></li>
-                    <li><a data-toggle="pill" href="#menu5">IMG DP 4</a></li>
-                    <li><a data-toggle="pill" href="#menu6">IMG DP 5</a></li>
-                    <li><a data-toggle="pill" href="#menu7">IMG DP 6</a></li>
+                    <li><a data-toggle="pill" href="#menu5">IMG Intensidad 1</a></li>
+
+
+                    <li><a data-toggle="pill" href="#menu6">IMG DP 4</a></li>
+                    <li><a data-toggle="pill" href="#menu7">IMG DP 5</a></li>
+                    <li><a data-toggle="pill" href="#menu8">IMG DP 6</a></li>
+                    <li><a data-toggle="pill" href="#menu9">IMG Intensidad 2</a></li>
                     
                   </ul>
 </center>
@@ -233,8 +238,26 @@
 </div>
 
 
-
 <div id="menu5" class="tab-pane fade">
+<br> 
+                              {% thumbnail datos_DP.imagen_tendencia_1 "600" crop="center" as im %}
+                              <a href="" target="_blank"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a> 
+                             {% endthumbnail %}   
+
+                           
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div id="menu6" class="tab-pane fade">
 
 
                              <br>
@@ -248,7 +271,7 @@
 
 
 
-<div id="menu6" class="tab-pane fade">
+<div id="menu7" class="tab-pane fade">
 <br> 
                               {% thumbnail datos_DP.imagen_3D_2  "600" crop="center" as im %}
                               <a href="" target="_blank"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a> 
@@ -258,7 +281,7 @@
 
 
 
-<div id="menu7" class="tab-pane fade">
+<div id="menu8" class="tab-pane fade">
 <br> 
                               {% thumbnail datos_DP.imagen_PHD_2 "600" crop="center" as im %}
                               <a href="" target="_blank"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a> 
@@ -266,6 +289,17 @@
 
                     
  </div>
+
+ <div id="menu9" class="tab-pane fade">
+<br> 
+                              {% thumbnail datos_DP.imagen_tendencia_2 "600" crop="center" as im %}
+                              <a href="" target="_blank"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a> 
+                             {% endthumbnail %}   
+
+                           
+
+
+</div>
 
 
 

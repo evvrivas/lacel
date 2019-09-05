@@ -3329,6 +3329,13 @@ def manual_de_usuario(request):
 def ver_registros(request):
 
     centrales=Centrales.objects.all()
+    central=Centrales.objects.filter(codigo_usuario=request.user.username).first()
+    try:
+            usuario_comun=Usuarios.objects.get(codigo_usuario=request.user.username)
+            central_x=central.nombre
+    except:
+            pass
+
 
     vector=[]
 
@@ -3343,23 +3350,38 @@ def ver_registros(request):
         for j in transformadores:
             mediciones=Mediciones.objects.filter(central=i,transformador=j).order_by("-fecha_del_analisis").first()
            
-            a=[i.nombre, j.codigo,j.marca,j.modelo,"GASES DISUELTOS EN ACEITE ", mediciones.fecha_del_analisis]
+            a=[i.nombre, j.codigo,j.marca,j.modelo,"AGDA ", mediciones.fecha_del_analisis]
             vector.append(a)
 
         a=["----------", "----------" ,"----------" ,"----------"  ,"----------","----------"]
         vector.append(a)
         for j in generadores: 
             mediciones=Mediciones_DP.objects.filter(central=i,generador=j).order_by("-fecha_del_analisis").first()
-            a=[i.nombre, j.codigo,j.marca,j.modelo,"DESCARGAS PARCIALES",mediciones.fecha_del_analisis]
+            a=[i.nombre, j.codigo,j.marca,j.modelo,"ADP",mediciones.fecha_del_analisis]
             vector.append(a)
         a=["----------", "----------" ,"----------" ,"----------"  ,"----------","----------"]
         vector.append(a)
         for j in sistemas_termograficos: 
             mediciones=Termografias.objects.filter(central=i,sistema_termografico=j).order_by("-fecha_del_analisis").first()
-            a=[i.nombre, j.nombre ,"***" ,"***"  ," TERMOGRAFIA ", mediciones.fecha_del_analisis]
+            a=[i.nombre, j.nombre ,"***" ,"***"  ," TERMO ", mediciones.fecha_del_analisis]
             vector.append(a)
 
         a=["##########", "##########" ,"##########" ,"##########"  ,"##########","##########"]
         vector.append(a)
     
     return render(request,'ver_registros.html',locals())
+
+
+
+def ver_validacion_AGDA(request,id_validacion):
+        centrales=Centrales.objects.all()  
+    
+        central=Centrales.objects.filter(codigo_usuario=request.user.username).first()
+        try:
+            usuario_comun=Usuarios.objects.get(codigo_usuario=request.user.username)
+            central_x=central.nombre
+        except:
+            pass 
+
+        validacion=Mediciones.objects.get(id=id_validacion)
+        return render(request,'ver_validacion_AGDA.html',locals())
