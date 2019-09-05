@@ -3337,24 +3337,29 @@ def ver_registros(request):
         generadores=Generadores.objects.filter(central=i)
         sistemas_termograficos=Sistema_termografico.objects.filter(central=i)
 
+        a=["----------", "----------" ,"----------" ,"----------"  ,"----------","----------"]
+        vector.append(a)
+
         for j in transformadores:
             mediciones=Mediciones.objects.filter(central=i,transformador=j).order_by("-fecha_del_analisis").first()
            
             a=[i.nombre, j.codigo,j.marca,j.modelo,"GASES DISUELTOS EN ACEITE ", mediciones.fecha_del_analisis]
             vector.append(a)
 
-
+        a=["----------", "----------" ,"----------" ,"----------"  ,"----------","----------"]
+        vector.append(a)
         for j in generadores: 
             mediciones=Mediciones_DP.objects.filter(central=i,generador=j).order_by("-fecha_del_analisis").first()
             a=[i.nombre, j.codigo,j.marca,j.modelo,"DESCARGAS PARCIALES",mediciones.fecha_del_analisis]
             vector.append(a)
-
+        a=["----------", "----------" ,"----------" ,"----------"  ,"----------","----------"]
+        vector.append(a)
         for j in sistemas_termograficos: 
             mediciones=Termografias.objects.filter(central=i,sistema_termografico=j).order_by("-fecha_del_analisis").first()
             a=[i.nombre, j.nombre ,"***" ,"***"  ," TERMOGRAFIA ", mediciones.fecha_del_analisis]
             vector.append(a)
 
-        a=["**********", "**********" ,"**********" ,"**********"  ,"**********","**********"]
+        a=["##########", "##########" ,"##########" ,"##########"  ,"##########","##########"]
         vector.append(a)
     
     return render(request,'ver_registros.html',locals())
