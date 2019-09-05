@@ -3340,13 +3340,13 @@ def ver_registros(request):
         for j in transformadores:
             mediciones=Mediciones.objects.filter(central=i,transformador=j).order_by("-fecha_del_analisis").first()
            
-            a=[i.nombre, j.nombre,"GASES DISUELTOS EN ACEITE ", mediciones.fecha_del_analisis]
+            a=[i.nombre, j.codigo,j.marca,j.modelo,"GASES DISUELTOS EN ACEITE ", mediciones.fecha_del_analisis]
             vector.append(a)
 
 
         for j in generadores: 
             mediciones=Mediciones_DP.objects.filter(central=i,generador=j).order_by("-fecha_del_analisis").first()
-            a=[i.nombre, j.nombre,"DESCARGAS PARCIALES",mediciones.fecha_del_analisis]
+            a=[i.nombre, j.codigo,j.marca,j.modelo,"DESCARGAS PARCIALES",mediciones.fecha_del_analisis]
             vector.append(a)
 
         for j in sistemas_termograficos: 
