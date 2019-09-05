@@ -3351,8 +3351,10 @@ def ver_registros(request):
 
         for j in sistemas_termograficos: 
             mediciones=Termografias.objects.filter(central=i,sistema_termografico=j).order_by("-fecha_del_analisis").first()
-            a=[i.nombre, j.nombre," TERMOGRAFIA ", mediciones.fecha_del_analisis]
+            a=[i.nombre, j.nombre ,"***" ,"***"  ," TERMOGRAFIA ", mediciones.fecha_del_analisis]
             vector.append(a)
 
+        a=["**********", "**********" ,"**********" ,"**********"  ,"**********","**********"]
+        vector.append(a)
     
     return render(request,'ver_registros.html',locals())
