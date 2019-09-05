@@ -95,8 +95,8 @@ class Mediciones(models.Model):
          comentario = models.TextField(blank=True)
          fecha_del_analisis = models.DateField(default=datetime.now,null=False)
          fecha_ingreso = models.DateField(default=datetime.now,editable = True)
-         archivo_de_validacion=models.FileField(upload_to='tmp',,blank=True)
-         imagen_de_validacion=models.FloatField(default=0,blank=True,null=True)
+         archivo_de_validacion=models.FileField(upload_to='tmp',blank=True,null=True)
+         imagen_de_validacion= ImageField(upload_to='tmp',blank=True)
 
 
          def __str__(self):
@@ -197,7 +197,7 @@ class Sistema_termografico(models.Model):
         justificacion=models.TextField(blank=True)
         imagen_de_analisis_1 = ImageField(upload_to='tmp',blank=True)        
         fecha_ingreso = models.DateField(default=datetime.now,editable = False)
-        archivo_de_validacion=models.FileField(upload_to='tmp',,blank=True)
+        archivo_de_validacion=models.FileField(upload_to='tmp',blank=True,null=True)
 
         def __str__(self):
                return  self.nombre
