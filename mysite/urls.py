@@ -36,6 +36,7 @@ urlpatterns = [
     url(r'^ingresar_datos_analisis_rapido/$',ingresar_datos_analisis_rapido),
     url(r'^ingreso_datos_dp/([^/]+)/([^/]+)/$',ingreso_datos_dp),
     url(r'^ingresar_termografias/([^/]+)/([^/]+)/$',ingresar_termografias),
+    url(r'^ingresar_otros_analisis/([^/]+)/([^/]+)/$',ingresar_otros_analisis),
 
       
     url(r'^$', principal),

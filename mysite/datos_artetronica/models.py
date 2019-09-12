@@ -224,3 +224,19 @@ class Termografias(models.Model):
          class Admin:
             list_display = ('sistema_termografico.nombre', 'sistema_termografico.nombre','generador.modelo')
 
+class Otros_analisis(models.Model):        
+         central=models.ForeignKey('Centrales')         
+         codigo_usuario = models.CharField(max_length=60,blank=True)
+         fecha_del_analisis = models.DateField(default=datetime.now,null=False)
+         fecha_ingreso= models.DateField(default=datetime.now,null=False)          
+         nombre=models.CharField(max_length=60,blank=True)         
+         archivo_del_analisis=models.FileField(upload_to='tmp',blank=True,null=True)
+         comentario = models.TextField(blank=True)
+         
+         
+  
+         def __str__(self):
+            return  self.central.nombre
+                     
+         class Admin:
+            list_display = ('central.nombre', 'nombre')

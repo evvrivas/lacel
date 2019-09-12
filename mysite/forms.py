@@ -92,3 +92,15 @@ class TermografiasForm(ModelForm):#productos
 		self.fields['central'].queryset=Centrales.objects.filter(nombre=nombre_central)		
 		self.fields['sistema_termografico'].queryset=Sistema_termografico.objects.filter(nombre=nombre_sistema)
 
+
+
+class Otros_analisisForm(ModelForm):#productos
+	class Meta:			
+		model=Otros_analisis
+		widgets = {'comentario': Textarea(attrs={'cols': 40, 'rows': 3}),}
+		exclude=["fecha_ingreso","codigo_usuario"]
+
+	def __init__(self, nombre_central,*args, **kwargs):
+		super(Otros_analisis, self).__init__(*args, **kwargs)
+		self.fields['central'].queryset=Centrales.objects.filter(nombre=nombre_central)		
+		

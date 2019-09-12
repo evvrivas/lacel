@@ -127,8 +127,17 @@
                             {%  for i in lista_mediciones %} 
                                     
                                 <tr  align="center">
+
+
+                                    <td WIDTH="100"> 
+                                    {{i.fecha_del_analisis}}
+                                    {% if i.archivo_de_validacion %}
+                                        <a href="{{ i.archivo_de_validacion.url }}">Validar</a> </td>
+                                    {% endif %}
+
+                                     </td>
                                    
-                                    <td WIDTH="100"><a href="/ver_validacion_AGDA/{{i.id}}">{{i.fecha_del_analisis}}</a> <a href="{{ i.archivo_de_validacion.url }}">download</a> </td>
+                                   
                                     <td WIDTH="60">{{i.Hidrogeno}}</td>                                    
                                     <td WIDTH="60">{{i.Oxigeno}}</td>                                    
                                     <td WIDTH="60">{{i.Nitrogeno}}</td>

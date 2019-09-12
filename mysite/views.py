@@ -3241,6 +3241,10 @@ def editar(request,acid,tipo):
                     f.central.nombre
                     form =UsuariosForm(request.POST,request.FILES,instance=f)   
 
+                elif tipo=="Otros_analisis":   
+                    f = Otros_analisis.objects.get(pk=acid)
+                    f.central.nombre
+                    form =Otros_analisisForm(request.POST,request.FILES,instance=f)   
                 
                 else:            
                     pass
@@ -3310,6 +3314,10 @@ def editar(request,acid,tipo):
                     central_x=f.central.nombre   
                     form =UsuariosForm(instance=f)   
                 
+                elif tipo=="Otros_analisis":
+                    f = Otros_analisis.objects.get(pk=acid)
+                    central_x=f.central.nombre   
+                    form =Otros_analisisForm(instance=f)   
                 else:            
                     pass
             
@@ -3385,3 +3393,36 @@ def ver_validacion_AGDA(request,id_validacion):
 
         validacion=Mediciones.objects.get(id=id_validacion)
         return render(request,'ver_validacion_AGDA.html',locals())
+
+def ingresar_otros_analisis(request,central_nombre):
+        #!/usr/bin/python
+        # -*- coding: latin-1 -*-        
+        import os, sys
+        centrales=Centrales.objects.all()
+        if request.method == 'POST': # si el usuario est enviando el formulario con datos
+                             
+                    form = Otros_analisisForm(central_nombre,request.POST,request.FILES)                      
+                    
+                    if form.is_valid() :
+                           
+                            temp = form.save(commit=False)
+                            # commit=False tells Django that "Don't send this to database yet.
+                            # I have more things I want to do with it."
+                            
+                            temp.fecha_ingreso=datetime.datetime.now()  
+                            temp.codigo_usuario=request.user.username # Set the user object here    
+                            temp.save() #  
+
+                            form.save() # Guardar los datos en la base de datos  print 
+                            #return render_to_response('confirmar.html', locals() ,context_instance=RequestContext(request))
+                            connection.close()
+                            central_x=central_nombre
+                            return render(request,'confirmar.html',locals())                
+                
+
+        else:            
+                         
+                         form=Otros_analisisForm(central_nombre)
+                        
+        connection.close()                  
+        return render(request,'ingreso_de_datos.html',locals()) 
