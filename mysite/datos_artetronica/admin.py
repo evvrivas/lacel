@@ -125,7 +125,7 @@ class RulesAdmin(admin.ModelAdmin):
 class Otros_analisisAdmin(admin.ModelAdmin):
     model = Otros_analisis
     list_display = ['central_nombre', 'nombre','fecha_del_analisis',]
-    list_filter=(('central',admin.RelatedOnlyFieldListFilter))    
+    list_filter=(('central',admin.RelatedOnlyFieldListFilter),)    
     
     def central_nombre(self,instance):
         return instance.central.nombre
