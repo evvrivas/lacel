@@ -1032,6 +1032,7 @@ def listado_de_equipos(request,central_x):
     lista_generadores=Generadores.objects.filter(central__nombre__icontains=central_x)
     lista_transformadores=Transformadores.objects.filter(central__nombre__icontains=central_x)
     lista_sistemas_termograficos=Sistema_termografico.objects.filter(central__nombre__icontains=central_x)
+    lista_otros_analisis=Otros_analisis.objects.filter(central__nombre__icontains=central_x)
     lista_usuarios=Usuarios.objects.filter(central__nombre__icontains=central_x)
 
     return render(request,'lista_de_equipos.html',locals())

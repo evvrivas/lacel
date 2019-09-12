@@ -336,10 +336,12 @@
                                     <td WIDTH="180"> 
 
                                          {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x %}  
-                                             <a href="/analisis_termografico/{{i.nombre}}/">Ver Termografia</a>
+                                                 <p> Nombre del analisis</p>
                                                 <h6><a href="/ingresar_otros_analisis/{{i.central.nombre}}">Agregar</a></td></h6>
                            
-                                                      
+                                            <td WIDTH="100">Fecha inicial</td> 
+
+
                                          {%  else  %}  
                                                 <p></p>
 
