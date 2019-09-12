@@ -333,22 +333,21 @@
                             
                              <tr  align="center">
 
-                                    <td WIDTH="180"> 
+                                    <td WIDTH="180"> <p> Nombre del analisis</p>
 
                                          {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x %}  
-                                                 <p> Nombre del analisis</p>
+                                                 
                                                 <h6><a href="/ingresar_otros_analisis/{{central_x}}">Agregar</a></td></h6>
-                           
-                                            <td WIDTH="100">Fecha inicial</td> 
-
-
+                                                                       
                                          {%  else  %}  
                                                 <p></p>
 
-                                         {% endif %}  Nombre del Analisis</td> 
+                                         {% endif %}  </td> 
                                      
+                                     
+
                                      <td WIDTH="100">Fecha del analisis</td> 
-                                    
+                                     <td WIDTH="200">Comentario</td>        
 
                                     <td WIDTH="100">Archivo </td>
                              </tr > 
@@ -370,32 +369,33 @@
 
    
                                     </td>   
-                                    <td WIDTH="100">{{i.fecha_ingreso}}</td>                                   
+                                    <td WIDTH="100">{{i.fecha_del_analisis}}</td>     
+                                    <td WIDTH="200">{{i.comentario}}</td>                                   
 
                                     
 
                                     <td WIDTH="100">           
                                     
                             {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x %}  
-                                    <a href="/analisis_termografico/{{i.nombre}}/">Descargar</a>
+                                    
 
-                                    {% if i.archivo_de_validacion %}
-                                        <a href="{{ i.archivo_del_analisis.url }}">Descargar</a> </td>
-                                                      
+                                    {% if i.archivo_del_analisis %}
+                                        <a href="{{ i.archivo_del_analisis.url }}">Descargar.</a> </td>
+
                                     {% endif %}
 
                                     </td>
                            
                             {%  elif user.is_authenticated and usuario_comun.privilegio == "DE_ALTA_INVITADO" and usuario_comun.central.nombre == central_x %} 
-                                     {% if i.archivo_de_validacion %}
-                                        <a href="{{ i.archivo_del_analisis.url }}">Descargar</a> </td>
+                                     {% if i.archivo_del_analisis %}
+                                        <a href="{{ i.archivo_del_analisis.url }}">Descargar..</a> </td>
                                     {% endif %}
 
                                     </td>
 
                             {%  elif user.is_authenticated and usuario_comun.privilegio == "GERENCIA"%} 
-                                     {% if i.archivo_de_validacion %}
-                                        <a href="{{ i.archivo_del_analisis.url }}">Descargar</a> </td>
+                                     {% if i.archivo_del_analisis %}
+                                        <a href="{{ i.archivo_del_analisis.url }}">Descargar...</a> </td>
                                     {% endif %}
                                     </td>
                            
