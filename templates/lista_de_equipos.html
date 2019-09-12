@@ -337,7 +337,7 @@
 
                                          {%  if user.is_authenticated and usuario_comun.privilegio == "DE_ALTA" and usuario_comun.central.nombre == central_x %}  
                                                  <p> Nombre del analisis</p>
-                                                <h6><a href="/ingresar_otros_analisis/{{i.central.nombre}}">Agregar</a></td></h6>
+                                                <h6><a href="/ingresar_otros_analisis/{{central_x}}">Agregar</a></td></h6>
                            
                                             <td WIDTH="100">Fecha inicial</td> 
 
@@ -381,6 +381,7 @@
 
                                     {% if i.archivo_de_validacion %}
                                         <a href="{{ i.archivo_del_analisis.url }}">Descargar</a> </td>
+                                                      
                                     {% endif %}
 
                                     </td>

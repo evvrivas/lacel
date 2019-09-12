@@ -101,6 +101,6 @@ class Otros_analisisForm(ModelForm):#productos
 		exclude=["fecha_ingreso","codigo_usuario"]
 
 	def __init__(self, nombre_central,*args, **kwargs):
-		super(Otros_analisis, self).__init__(*args, **kwargs)
+		super(Otros_analisisForm, self).__init__(*args, **kwargs)
 		self.fields['central'].queryset=Centrales.objects.filter(nombre=nombre_central)		
 		

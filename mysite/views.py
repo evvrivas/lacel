@@ -3318,7 +3318,7 @@ def editar(request,acid,tipo):
                 elif tipo=="Otros_analisis":
                     f = Otros_analisis.objects.get(pk=acid)
                     central_x=f.central.nombre   
-                    form =Otros_analisisForm(instance=f)   
+                    form =Otros_analisisForm(central_x,instance=f)   
                 else:            
                     pass
             
